@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rätselheft – Hof Sonnenweide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap');
+
+  :root {
+    --gold: #D4A033;
+    --gold-light: #F5E6C8;
+    --brown: #6B4226;
+    --brown-light: #8B6914;
+    --green: #4A7C59;
+    --green-light: #A8D5BA;
+    --blue: #6B9BD2;
+    --blue-light: #D6E8F7;
+    --cream: #FFF8EC;
+    --warm-white: #FFFDF7;
+    --text: #3E2723;
+    --accent-pink: #D4869C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 12mm 15mm 15mm 15mm;
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media print {
+    body { background: white; }
+    .page {
+      width: 100%;
+      min-height: auto;
+      height: 297mm;
+      margin: 0;
+      padding: 10mm 12mm 12mm 12mm;
+      page-break-after: always;
+      box-shadow: none;
+      overflow: hidden;
+    }
+    .page:last-child { page-break-after: avoid; }
+    .no-print { display: none; }
+  }
+
+  @media screen {
+    .page {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
+    body { padding: 20px; }
+  }
+
+  /* Header */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--gold);
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .page-header h2 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 18pt;
+    color: var(--brown);
+    letter-spacing: 1px;
+  }
+  .page-header .horseshoe-icon {
+    width: 28px; height: 28px;
+  }
+  .page-number {
+    position: absolute;
+    bottom: 8mm;
+    right: 15mm;
+    font-size: 10pt;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* Decorative corners */
+  .corner-deco {
+    position: absolute;
+    width: 50px; height: 50px;
+    opacity: 0.15;
+  }
+  .corner-deco.tl { top: 5mm; left: 5mm; }
+  .corner-deco.tr { top: 5mm; right: 5mm; transform: scaleX(-1); }
+  .corner-deco.bl { bottom: 5mm; left: 5mm; transform: scaleY(-1); }
+  .corner-deco.br { bottom: 5mm; right: 5mm; transform: scale(-1,-1); }
+
+  /* Titles */
+  .puzzle-title {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20pt;
+    color: var(--green);
+    text-align: center;
+    margin: 8px 0 4px 0;
+  }
+  .puzzle-subtitle {
+    text-align: center;
+    font-size: 11pt;
+    color: var(--brown);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .puzzle-instruction {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    padding: 6px 12px;
+    margin: 8px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 10.5pt;
+  }
+
+  /* Quiz */
+  .quiz-question {
+    margin: 7px 0;
+    padding: 6px 10px;
+    background: var(--blue-light);
+    border-radius: 10px;
+    font-size: 10pt;
+  }
+  .quiz-question strong { color: var(--green); }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 16px;
+    margin-top: 3px;
+    padding-left: 18px;
+    font-size: 9.5pt;
+  }
+  .quiz-options label { display: flex; align-items: center; gap: 4px; }
+  .quiz-options .box {
+    display: inline-block;
+    width: 12px; height: 12px;
+    border: 1.5px solid var(--brown);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Match */
+  .match-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 10px 0;
+  }
+  .match-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .match-item {
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 10pt;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .match-item .num {
+    background: var(--gold);
+    color: white;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9pt;
+    flex-shrink: 0;
+  }
+  .match-left .match-item { background: var(--green-light); }
+  .match-right .match-item { background: var(--gold-light); }
+  .match-right .match-item .num { background: var(--green); }
+
+  /* Crossword */
+  .crossword-grid {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+  }
+  .cw-table { border-collapse: collapse; }
+  .cw-table td {
+    width: 24px; height: 24px;
+    border: 2px solid var(--brown);
+    text-align: center;
+    font-size: 11pt;
+    font-weight: 700;
+    position: relative;
+  }
+  .cw-table td.black {
+    background: var(--brown);
+    border-color: var(--brown);
+  }
+  .cw-table td .cw-num {
+    position: absolute;
+    top: 1px; left: 2px;
+    font-size: 6pt;
+    font-weight: 600;
+    color: var(--green);
+  }
+  .cw-clues {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 20px;
+    margin-top: 8px;
+    font-size: 9.5pt;
+  }
+  .cw-clues h4 {
+    grid-column: span 1;
+    color: var(--green);
+    font-size: 11pt;
+    margin-bottom: 2px;
+  }
+
+  /* Word search */
+  .ws-grid {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+  }
+  .ws-table { border-collapse: collapse; }
+  .ws-table td {
+    width: 22px; height: 22px;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: var(--text);
+  }
+  .word-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
+    margin: 8px 0;
+    font-size: 10pt;
+    font-weight: 700;
+  }
+  .word-list span {
+    background: var(--green-light);
+    padding: 2px 10px;
+    border-radius: 12px;
+  }
+
+  /* Drawing page */
+  .draw-box {
+    border: 3px dashed var(--gold);
+    border-radius: 16px;
+    height: 160px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 10pt;
+    font-style: italic;
+  }
+  .writing-lines {
+    margin: 6px 0;
+  }
+  .writing-lines .line {
+    border-bottom: 1.5px solid var(--gold-light);
+    height: 24px;
+    margin: 0 10px;
+  }
+
+  /* Code page */
+  .code-table {
+    margin: 8px auto;
+    border-collapse: collapse;
+  }
+  .code-table td {
+    padding: 4px 8px;
+    text-align: center;
+    font-size: 10pt;
+  }
+  .code-table .symbol { font-size: 16pt; }
+  .code-table .letter {
+    font-weight: 700;
+    color: var(--green);
+    border-top: 2px solid var(--brown);
+  }
+  .code-message {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin: 12px 0;
+  }
+  .code-message .code-char {
+    width: 24px; height: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .code-message .code-char .sym { font-size: 14pt; }
+  .code-message .code-char .blank {
+    width: 18px;
+    border-bottom: 2px solid var(--brown);
+    height: 14px;
+  }
+  .code-message .code-space { width: 14px; }
+
+  /* Answer key */
+  .answer-section {
+    margin: 8px 0;
+    padding: 6px 10px;
+    background: var(--blue-light);
+    border-radius: 10px;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+  .answer-section h4 {
+    color: var(--green);
+    font-size: 10pt;
+    margin-bottom: 3px;
+  }
+
+  /* SVG styling */
+  svg text { font-family: 'Nunito', sans-serif; }
+
+  /* Tracks page */
+  .tracks-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .track-item {
+    text-align: center;
+    width: 120px;
+  }
+  .track-item p {
+    font-size: 9pt;
+    margin-top: 4px;
+    background: var(--gold-light);
+    border-radius: 8px;
+    padding: 2px 6px;
+  }
+  .animal-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .animal-list .animal-tag {
+    background: var(--green-light);
+    padding: 4px 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+
+  .small-note {
+    font-size: 8.5pt;
+    color: #888;
+    text-align: center;
+    margin-top: 6px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page">
+  <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;">
+    <svg width="120" height="120" viewBox="0 0 120 120">
+      <path d="M60 10 C30 10 10 35 10 60 C10 75 18 88 30 95 L35 78 C35 78 38 70 42 68 L48 65 L50 55 C50 55 52 45 60 40 C68 45 70 55 70 55 L72 65 L78 68 C82 70 85 78 85 78 L90 95 C102 88 110 75 110 60 C110 35 90 10 60 10Z" fill="var(--gold)" stroke="var(--brown)" stroke-width="2"/>
+      <circle cx="48" cy="42" r="4" fill="var(--brown)"/>
+      <circle cx="72" cy="42" r="4" fill="var(--brown)"/>
+      <ellipse cx="60" cy="54" rx="8" ry="5" fill="var(--brown-light)" opacity="0.4"/>
+      <circle cx="57" cy="52" r="1.5" fill="var(--brown)"/>
+      <circle cx="63" cy="52" r="1.5" fill="var(--brown)"/>
+      <path d="M52 30 C48 15 40 10 38 18 C36 26 45 30 52 30Z" fill="var(--gold)" stroke="var(--brown)" stroke-width="1.5"/>
+      <path d="M68 30 C72 15 80 10 82 18 C84 26 75 30 68 30Z" fill="var(--gold)" stroke="var(--brown)" stroke-width="1.5"/>
+    </svg>
+
+    <h1 style="font-family:'Patrick Hand',cursive; font-size:36pt; color:var(--brown); margin:16px 0 4px 0;">Rätselheft</h1>
+    <h2 style="font-family:'Patrick Hand',cursive; font-size:22pt; color:var(--green); margin-bottom:4px;">Hof Sonnenweide</h2>
+    <p style="font-size:13pt; color:var(--gold); font-weight:700; margin-bottom:20px;">
+      Begleitbuch zu „Lena und das Geheimnis der silbernen Hufspur"
+    </p>
+
+    <svg width="360" height="180" viewBox="0 0 360 180" style="margin:10px 0;">
+      <!-- Fence -->
+      <rect x="10" y="130" width="340" height="6" rx="3" fill="var(--brown)"/>
+      <rect x="30" y="105" width="8" height="32" rx="2" fill="var(--brown)"/>
+      <rect x="100" y="105" width="8" height="32" rx="2" fill="var(--brown)"/>
+      <rect x="170" y="105" width="8" height="32" rx="2" fill="var(--brown)"/>
+      <rect x="240" y="105" width="8" height="32" rx="2" fill="var(--brown)"/>
+      <rect x="310" y="105" width="8" height="32" rx="2" fill="var(--brown)"/>
+      <rect x="10" y="118" width="340" height="5" rx="2" fill="var(--brown)" opacity="0.7"/>
+      <!-- Grass -->
+      <ellipse cx="180" cy="148" rx="175" ry="30" fill="var(--green)" opacity="0.3"/>
+      <!-- Horse 1 silhouette -->
+      <g transform="translate(60,40) scale(0.7)">
+        <path d="M20 100 L25 60 C25 60 30 40 50 35 L55 20 C55 20 58 10 65 15 L60 35 C70 33 80 38 85 45 L90 60 L95 100 M35 100 L30 60" stroke="var(--brown)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Horse 2 silhouette -->
+      <g transform="translate(180,45) scale(0.65)">
+        <path d="M20 100 L25 60 C25 60 30 40 50 35 L55 20 C55 20 58 10 65 15 L60 35 C70 33 80 38 85 45 L90 60 L95 100 M35 100 L30 60" stroke="var(--gold)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Horse 3 silhouette -->
+      <g transform="translate(280,50) scale(0.6)">
+        <path d="M20 100 L25 60 C25 60 30 40 50 35 L55 20 C55 20 58 10 65 15 L60 35 C70 33 80 38 85 45 L90 60 L95 100 M35 100 L30 60" stroke="var(--green)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Horseshoes decoration -->
+      <g transform="translate(20,155) scale(0.4)">
+        <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)" opacity="0.5"/>
+      </g>
+      <g transform="translate(320,155) scale(0.4)">
+        <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)" opacity="0.5"/>
+      </g>
+    </svg>
+
+    <div style="margin-top:20px; padding:14px 20px; background:var(--gold-light); border-radius:16px; display:inline-block;">
+      <p style="font-size:14pt; font-weight:700; color:var(--brown);">Dieses Rätselheft gehört:</p>
+      <div style="border-bottom:2.5px dotted var(--brown); width:250px; margin:12px auto 4px auto; height:20px;"></div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <p style="font-size:10pt; color:var(--brown); opacity:0.6;">
+        7 Pferde &bull; 10 Rätsel &bull; 1 Geheimnis &bull; Jede Menge Spaß!
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: SUCHBILD ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🔍 Suchbild – Finde 10 versteckte Hufeisen!</h3>
+  <p class="puzzle-subtitle">Im Stall von Hof Sonnenweide haben sich 10 Hufeisen versteckt. Kannst du alle finden?</p>
+
+  <svg viewBox="0 0 520 620" width="100%" style="max-height:580px; display:block; margin:0 auto;">
+    <!-- Sky -->
+    <rect width="520" height="620" fill="#E8F0E4" rx="12"/>
+    <!-- Stable back wall -->
+    <rect x="20" y="80" width="480" height="440" fill="#C4956A" rx="4"/>
+    <!-- Roof -->
+    <polygon points="0,85 260,10 520,85" fill="#8B4513" stroke="#6B3410" stroke-width="2"/>
+    <polygon points="30,85 260,25 490,85" fill="#A0522D"/>
+    <!-- Roof beams -->
+    <line x1="260" y1="25" x2="260" y2="85" stroke="#6B3410" stroke-width="3"/>
+    <line x1="145" y1="55" x2="145" y2="85" stroke="#6B3410" stroke-width="2"/>
+    <line x1="375" y1="55" x2="375" y2="85" stroke="#6B3410" stroke-width="2"/>
+
+    <!-- Stall boxes -->
+    <!-- Box 1 -->
+    <rect x="30" y="100" width="140" height="200" fill="#DEB887" stroke="#8B6914" stroke-width="2" rx="3"/>
+    <rect x="30" y="100" width="140" height="30" fill="#8B6914" rx="3"/>
+    <text x="100" y="120" text-anchor="middle" fill="white" font-size="13" font-weight="700">Mondschimmer</text>
+    <!-- Horse head 1 (silver) -->
+    <ellipse cx="100" cy="200" rx="30" ry="45" fill="#E8E8E8" stroke="#BDBDBD" stroke-width="1.5"/>
+    <ellipse cx="100" cy="235" rx="14" ry="20" fill="#D0D0D0"/>
+    <circle cx="90" cy="188" r="4" fill="#333"/>
+    <circle cx="110" cy="188" r="4" fill="#333"/>
+    <path d="M82 165 C78 148 72 143 70 150 C68 157 78 163 82 165Z" fill="#E0E0E0" stroke="#BBB" stroke-width="1"/>
+    <path d="M118 165 C122 148 128 143 130 150 C132 157 122 163 118 165Z" fill="#E0E0E0" stroke="#BBB" stroke-width="1"/>
+    <!-- Mane -->
+    <path d="M85 162 C80 155 83 150 90 155 C88 148 92 144 97 150 C96 142 102 140 104 148 C105 140 112 142 112 150 C114 144 120 148 116 155" stroke="#CCC" stroke-width="2" fill="none"/>
+
+    <!-- Box 2 -->
+    <rect x="190" y="100" width="140" height="200" fill="#DEB887" stroke="#8B6914" stroke-width="2" rx="3"/>
+    <rect x="190" y="100" width="140" height="30" fill="#8B6914" rx="3"/>
+    <text x="260" y="120" text-anchor="middle" fill="white" font-size="13" font-weight="700">Sturmwind</text>
+    <!-- Horse head 2 (black) -->
+    <ellipse cx="260" cy="200" rx="30" ry="45" fill="#2C2C2C" stroke="#111" stroke-width="1.5"/>
+    <ellipse cx="260" cy="235" rx="14" ry="20" fill="#1A1A1A"/>
+    <circle cx="250" cy="188" r="4" fill="#666"/>
+    <circle cx="270" cy="188" r="4" fill="#666"/>
+    <path d="M242 165 C238 148 232 143 230 150 C228 157 238 163 242 165Z" fill="#222" stroke="#111" stroke-width="1"/>
+    <path d="M278 165 C282 148 288 143 290 150 C292 157 282 163 278 165Z" fill="#222" stroke="#111" stroke-width="1"/>
+
+    <!-- Box 3 -->
+    <rect x="350" y="100" width="140" height="200" fill="#DEB887" stroke="#8B6914" stroke-width="2" rx="3"/>
+    <rect x="350" y="100" width="140" height="30" fill="#8B6914" rx="3"/>
+    <text x="420" y="120" text-anchor="middle" fill="white" font-size="13" font-weight="700">Butterblume</text>
+    <!-- Horse head 3 (golden) -->
+    <ellipse cx="420" cy="200" rx="30" ry="45" fill="#DAA520" stroke="#B8860B" stroke-width="1.5"/>
+    <ellipse cx="420" cy="235" rx="14" ry="20" fill="#CD950C"/>
+    <circle cx="410" cy="188" r="4" fill="#333"/>
+    <circle cx="430" cy="188" r="4" fill="#333"/>
+    <path d="M402 165 C398 148 392 143 390 150 C388 157 398 163 402 165Z" fill="#DAA520" stroke="#B8860B" stroke-width="1"/>
+    <path d="M438 165 C442 148 448 143 450 150 C452 157 442 163 438 165Z" fill="#DAA520" stroke="#B8860B" stroke-width="1"/>
+    <!-- Blonde mane -->
+    <path d="M405 162 C400 155 403 150 408 155 C406 148 410 144 414 150 C413 142 419 140 420 148 C422 140 428 142 427 150 C430 144 435 148 432 155" stroke="#F0D060" stroke-width="2.5" fill="none"/>
+
+    <!-- Floor -->
+    <rect x="20" y="310" width="480" height="210" fill="#D2B48C"/>
+    <!-- Hay bales -->
+    <rect x="40" y="340" width="70" height="50" rx="8" fill="#DAA520" stroke="#B8860B" stroke-width="1.5"/>
+    <rect x="44" y="344" width="62" height="42" rx="5" fill="none" stroke="#C8A020" stroke-width="1"/>
+    <line x1="63" y1="340" x2="63" y2="390" stroke="#C8A020" stroke-width="1"/>
+    <line x1="88" y1="340" x2="88" y2="390" stroke="#C8A020" stroke-width="1"/>
+
+    <rect x="40" y="310" width="70" height="35" rx="8" fill="#E8C040" stroke="#B8860B" stroke-width="1.5"/>
+
+    <!-- Bucket -->
+    <path d="M150 370 L145 410 L185 410 L180 370 Z" fill="#7B8E97" stroke="#5A6B73" stroke-width="1.5"/>
+    <ellipse cx="165" cy="370" rx="18" ry="6" fill="#8FA5B0" stroke="#5A6B73" stroke-width="1.5"/>
+    <path d="M148 365 C148 350 182 350 182 365" fill="none" stroke="#5A6B73" stroke-width="2"/>
+
+    <!-- Pitchfork -->
+    <line x1="450" y1="320" x2="450" y2="450" stroke="#8B6914" stroke-width="4" stroke-linecap="round"/>
+    <path d="M438 320 L438 290 M450 320 L450 285 M462 320 L462 290" stroke="#777" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="436" y1="320" x2="464" y2="320" stroke="#8B6914" stroke-width="3"/>
+
+    <!-- Saddle on wall -->
+    <path d="M380 340 C380 330 400 320 410 325 C420 330 430 340 425 350 C420 360 385 360 380 350 Z" fill="#8B4513" stroke="#6B3410" stroke-width="1.5"/>
+    <path d="M395 328 C395 325 410 322 415 326" fill="none" stroke="#6B3410" stroke-width="2"/>
+
+    <!-- Broom -->
+    <line x1="490" y1="330" x2="490" y2="470" stroke="#8B6914" stroke-width="3" stroke-linecap="round"/>
+    <rect x="478" y="460" width="24" height="35" rx="3" fill="#DAA520" stroke="#8B6914" stroke-width="1"/>
+    <line x1="481" y1="470" x2="481" y2="495" stroke="#8B6914" stroke-width="1"/>
+    <line x1="485" y1="468" x2="485" y2="495" stroke="#8B6914" stroke-width="1"/>
+    <line x1="489" y1="468" x2="489" y2="495" stroke="#8B6914" stroke-width="1"/>
+    <line x1="493" y1="468" x2="493" y2="495" stroke="#8B6914" stroke-width="1"/>
+    <line x1="497" y1="470" x2="497" y2="495" stroke="#8B6914" stroke-width="1"/>
+
+    <!-- Cat -->
+    <ellipse cx="310" cy="400" rx="18" ry="14" fill="#F4A460"/>
+    <ellipse cx="310" cy="388" rx="12" ry="10" fill="#F4A460"/>
+    <polygon points="301,382 298,370 306,380" fill="#F4A460"/>
+    <polygon points="319,382 322,370 314,380" fill="#F4A460"/>
+    <circle cx="306" cy="386" r="2" fill="#333"/>
+    <circle cx="314" cy="386" r="2" fill="#333"/>
+    <path d="M328 400 C335 395 340 402 345 398" stroke="#F4A460" stroke-width="3" fill="none"/>
+
+    <!-- Window -->
+    <rect x="220" y="340" width="60" height="50" rx="3" fill="#87CEEB" stroke="#8B6914" stroke-width="2"/>
+    <line x1="250" y1="340" x2="250" y2="390" stroke="#8B6914" stroke-width="2"/>
+    <line x1="220" y1="365" x2="280" y2="365" stroke="#8B6914" stroke-width="2"/>
+
+    <!-- Light -->
+    <circle cx="260" cy="95" r="12" fill="#FFF3B0" stroke="#DAA520" stroke-width="1.5"/>
+    <line x1="260" y1="82" x2="260" y2="75" stroke="#DAA520" stroke-width="2"/>
+
+    <!-- ===== HIDDEN HORSESHOES ===== -->
+    <!-- 1. In the hay bale -->
+    <g transform="translate(72,320) scale(0.35)" opacity="0.65">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#C8A020"/>
+    </g>
+    <!-- 2. On the roof -->
+    <g transform="translate(340,42) scale(0.3)" opacity="0.5">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#8B5A2D"/>
+    </g>
+    <!-- 3. In the bucket -->
+    <g transform="translate(153,373) scale(0.3)" opacity="0.6">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#6A7F88"/>
+    </g>
+    <!-- 4. Behind the cat -->
+    <g transform="translate(290,395) scale(0.28) rotate(20)" opacity="0.55">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#D4A060"/>
+    </g>
+    <!-- 5. On the window -->
+    <g transform="translate(230,350) scale(0.25)" opacity="0.45">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#6BAFE2"/>
+    </g>
+    <!-- 6. On the saddle -->
+    <g transform="translate(395,335) scale(0.28) rotate(-15)" opacity="0.5">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#7A3B15"/>
+    </g>
+    <!-- 7. Above Sturmwind -->
+    <g transform="translate(248,138) scale(0.27) rotate(10)" opacity="0.5">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#C9A86E"/>
+    </g>
+    <!-- 8. On the floor near broom -->
+    <g transform="translate(470,485) scale(0.3) rotate(45)" opacity="0.55">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#C0A070"/>
+    </g>
+    <!-- 9. On the pitchfork -->
+    <g transform="translate(438,430) scale(0.26) rotate(-30)" opacity="0.5">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#8B7830"/>
+    </g>
+    <!-- 10. Near the lamp -->
+    <g transform="translate(275,80) scale(0.25) rotate(180)" opacity="0.45">
+      <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#C49A5C"/>
+    </g>
+
+    <!-- Border -->
+    <rect x="2" y="2" width="516" height="616" fill="none" stroke="var(--gold)" stroke-width="2" rx="12"/>
+  </svg>
+
+  <p class="small-note">Tipp: Manche Hufeisen sind gut versteckt und haben fast die gleiche Farbe wie ihre Umgebung!</p>
+  <span class="page-number">– 1 –</span>
+</div>
+
+<!-- ==================== PAGE 3: UNTERSCHIEDE FINDEN ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">👀 Finde die 8 Unterschiede!</h3>
+  <p class="puzzle-subtitle">Auf der Koppel ist einiges anders. Vergleiche die beiden Bilder genau!</p>
+
+  <!-- Image A -->
+  <svg viewBox="0 0 500 270" width="100%" style="max-width:500px; display:block; margin:4px auto;">
+    <rect width="500" height="270" fill="#E8F4E0" rx="10" stroke="var(--green)" stroke-width="2"/>
+    <text x="250" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="var(--green)">Bild A</text>
+    <!-- Sky -->
+    <rect x="5" y="22" width="490" height="100" fill="#D6EAF8" rx="5"/>
+    <!-- Sun -->
+    <circle cx="430" cy="55" r="25" fill="#F9E74D" stroke="#E8C920" stroke-width="1.5"/>
+    <!-- 5 rays -->
+    <line x1="430" y1="24" x2="430" y2="16" stroke="#E8C920" stroke-width="2"/>
+    <line x1="455" y1="35" x2="460" y2="28" stroke="#E8C920" stroke-width="2"/>
+    <line x1="460" y1="55" x2="468" y2="55" stroke="#E8C920" stroke-width="2"/>
+    <line x1="455" y1="75" x2="460" y2="82" stroke="#E8C920" stroke-width="2"/>
+    <line x1="405" y1="35" x2="400" y2="28" stroke="#E8C920" stroke-width="2"/>
+    <!-- Cloud -->
+    <ellipse cx="120" cy="50" rx="35" ry="15" fill="white" opacity="0.8"/>
+    <ellipse cx="140" cy="42" rx="25" ry="12" fill="white" opacity="0.8"/>
+    <ellipse cx="105" cy="44" rx="20" ry="10" fill="white" opacity="0.8"/>
+    <!-- Ground -->
+    <rect x="5" y="122" width="490" height="145" fill="#90C67A" rx="5"/>
+    <!-- Fence -->
+    <line x1="10" y1="130" x2="490" y2="130" stroke="#8B6914" stroke-width="4"/>
+    <line x1="10" y1="145" x2="490" y2="145" stroke="#8B6914" stroke-width="3"/>
+    <rect x="30" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="120" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="210" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="300" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="390" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="470" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <!-- Tree -->
+    <rect x="38" y="150" width="14" height="50" fill="#8B6914"/>
+    <circle cx="45" cy="140" r="30" fill="#3D8B37"/>
+    <circle cx="30" cy="150" r="20" fill="#4A9E43"/>
+    <circle cx="60" cy="148" r="22" fill="#4A9E43"/>
+    <!-- 3 apples in tree -->
+    <circle cx="35" cy="135" r="4" fill="#E74C3C"/>
+    <circle cx="55" cy="140" r="4" fill="#E74C3C"/>
+    <circle cx="42" cy="150" r="4" fill="#E74C3C"/>
+    <!-- Horse (brown/white spotted = Flecki) -->
+    <g transform="translate(160,155) scale(0.8)">
+      <ellipse cx="60" cy="40" rx="45" ry="25" fill="#8B5E3C"/>
+      <ellipse cx="38" cy="48" rx="8" ry="4" fill="white"/>
+      <ellipse cx="72" cy="35" rx="10" ry="6" fill="white"/>
+      <rect x="30" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <rect x="50" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <rect x="65" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <rect x="82" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <ellipse cx="15" cy="15" rx="15" ry="20" fill="#8B5E3C"/>
+      <ellipse cx="15" cy="30" rx="8" ry="10" fill="#8B5E3C"/>
+      <circle cx="10" cy="10" r="3" fill="#333"/>
+      <polygon points="5,0 2,-12 10,-2" fill="#8B5E3C"/>
+      <polygon points="18,0 22,-10 22,-2" fill="#8B5E3C"/>
+      <path d="M97 40 C105 38 110 45 115 42" stroke="#8B5E3C" stroke-width="3" fill="none"/>
+    </g>
+    <!-- Butterblume (golden) -->
+    <g transform="translate(320,165) scale(0.7)">
+      <ellipse cx="60" cy="40" rx="45" ry="25" fill="#DAA520"/>
+      <rect x="30" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <rect x="50" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <rect x="65" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <rect x="82" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <ellipse cx="15" cy="15" rx="15" ry="20" fill="#DAA520"/>
+      <ellipse cx="15" cy="30" rx="8" ry="10" fill="#DAA520"/>
+      <circle cx="10" cy="10" r="3" fill="#333"/>
+      <polygon points="5,0 2,-12 10,-2" fill="#DAA520"/>
+      <polygon points="18,0 22,-10 22,-2" fill="#DAA520"/>
+      <path d="M15 0 C10 -5 8 -10 14 -8 C12 -14 18 -12 18 -6" stroke="#F0D060" stroke-width="2" fill="none"/>
+      <path d="M97 40 C105 38 112 42 115 45" stroke="#E8C040" stroke-width="3" fill="none"/>
+    </g>
+    <!-- Flowers -->
+    <circle cx="200" cy="245" r="4" fill="#E74C3C"/>
+    <circle cx="200" cy="245" r="1.5" fill="#F9E74D"/>
+    <line x1="200" y1="249" x2="200" y2="260" stroke="#2E7D32" stroke-width="1.5"/>
+    <circle cx="280" cy="250" r="4" fill="#9B59B6"/>
+    <circle cx="280" cy="250" r="1.5" fill="#F9E74D"/>
+    <line x1="280" y1="254" x2="280" y2="262" stroke="#2E7D32" stroke-width="1.5"/>
+    <circle cx="420" cy="248" r="4" fill="#F39C12"/>
+    <circle cx="420" cy="248" r="1.5" fill="white"/>
+    <line x1="420" y1="252" x2="420" y2="262" stroke="#2E7D32" stroke-width="1.5"/>
+    <!-- Bird -->
+    <path d="M180 45 C185 40 190 42 192 45 C194 42 199 40 204 45" stroke="#333" stroke-width="1.5" fill="none"/>
+    <!-- Butterfly -->
+    <g transform="translate(350,100)">
+      <ellipse cx="0" cy="0" rx="6" ry="4" fill="#E67E22" transform="rotate(-30)"/>
+      <ellipse cx="0" cy="0" rx="6" ry="4" fill="#E67E22" transform="rotate(30)"/>
+      <line x1="0" y1="-1" x2="0" y2="4" stroke="#333" stroke-width="1"/>
+    </g>
+  </svg>
+
+  <!-- Image B (with 8 differences) -->
+  <svg viewBox="0 0 500 270" width="100%" style="max-width:500px; display:block; margin:4px auto;">
+    <rect width="500" height="270" fill="#E8F4E0" rx="10" stroke="var(--green)" stroke-width="2"/>
+    <text x="250" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="var(--green)">Bild B</text>
+    <rect x="5" y="22" width="490" height="100" fill="#D6EAF8" rx="5"/>
+    <!-- DIFF 1: Sun has 4 rays instead of 5 -->
+    <circle cx="430" cy="55" r="25" fill="#F9E74D" stroke="#E8C920" stroke-width="1.5"/>
+    <line x1="430" y1="24" x2="430" y2="16" stroke="#E8C920" stroke-width="2"/>
+    <line x1="455" y1="35" x2="460" y2="28" stroke="#E8C920" stroke-width="2"/>
+    <line x1="460" y1="55" x2="468" y2="55" stroke="#E8C920" stroke-width="2"/>
+    <line x1="455" y1="75" x2="460" y2="82" stroke="#E8C920" stroke-width="2"/>
+    <!-- 5th ray missing! -->
+    <!-- DIFF 2: Cloud is missing -->
+    <!-- no cloud here -->
+    <rect x="5" y="122" width="490" height="145" fill="#90C67A" rx="5"/>
+    <!-- Fence -->
+    <line x1="10" y1="130" x2="490" y2="130" stroke="#8B6914" stroke-width="4"/>
+    <line x1="10" y1="145" x2="490" y2="145" stroke="#8B6914" stroke-width="3"/>
+    <rect x="30" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="120" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="210" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="300" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <rect x="390" y="120" width="7" height="35" rx="1" fill="#8B6914"/>
+    <!-- DIFF 3: Last fence post missing -->
+    <!-- Tree -->
+    <rect x="38" y="150" width="14" height="50" fill="#8B6914"/>
+    <circle cx="45" cy="140" r="30" fill="#3D8B37"/>
+    <circle cx="30" cy="150" r="20" fill="#4A9E43"/>
+    <circle cx="60" cy="148" r="22" fill="#4A9E43"/>
+    <!-- DIFF 4: Only 2 apples instead of 3 -->
+    <circle cx="35" cy="135" r="4" fill="#E74C3C"/>
+    <circle cx="55" cy="140" r="4" fill="#E74C3C"/>
+    <!-- Flecki -->
+    <g transform="translate(160,155) scale(0.8)">
+      <ellipse cx="60" cy="40" rx="45" ry="25" fill="#8B5E3C"/>
+      <ellipse cx="38" cy="48" rx="8" ry="4" fill="white"/>
+      <!-- DIFF 5: Extra white spot -->
+      <ellipse cx="72" cy="35" rx="10" ry="6" fill="white"/>
+      <ellipse cx="55" cy="28" rx="7" ry="5" fill="white"/>
+      <rect x="30" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <rect x="50" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <rect x="65" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <rect x="82" y="60" width="8" height="40" rx="2" fill="#8B5E3C"/>
+      <ellipse cx="15" cy="15" rx="15" ry="20" fill="#8B5E3C"/>
+      <ellipse cx="15" cy="30" rx="8" ry="10" fill="#8B5E3C"/>
+      <circle cx="10" cy="10" r="3" fill="#333"/>
+      <polygon points="5,0 2,-12 10,-2" fill="#8B5E3C"/>
+      <polygon points="18,0 22,-10 22,-2" fill="#8B5E3C"/>
+      <path d="M97 40 C105 38 110 45 115 42" stroke="#8B5E3C" stroke-width="3" fill="none"/>
+    </g>
+    <!-- Butterblume -->
+    <g transform="translate(320,165) scale(0.7)">
+      <ellipse cx="60" cy="40" rx="45" ry="25" fill="#DAA520"/>
+      <rect x="30" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <rect x="50" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <rect x="65" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <rect x="82" y="60" width="8" height="40" rx="2" fill="#DAA520"/>
+      <ellipse cx="15" cy="15" rx="15" ry="20" fill="#DAA520"/>
+      <ellipse cx="15" cy="30" rx="8" ry="10" fill="#DAA520"/>
+      <circle cx="10" cy="10" r="3" fill="#333"/>
+      <polygon points="5,0 2,-12 10,-2" fill="#DAA520"/>
+      <polygon points="18,0 22,-10 22,-2" fill="#DAA520"/>
+      <path d="M15 0 C10 -5 8 -10 14 -8 C12 -14 18 -12 18 -6" stroke="#F0D060" stroke-width="2" fill="none"/>
+      <!-- DIFF 6: Tail goes down instead of up -->
+      <path d="M97 40 C105 42 112 48 115 55" stroke="#E8C040" stroke-width="3" fill="none"/>
+    </g>
+    <!-- DIFF 7: Flower color changed (red -> blue) -->
+    <circle cx="200" cy="245" r="4" fill="#3498DB"/>
+    <circle cx="200" cy="245" r="1.5" fill="#F9E74D"/>
+    <line x1="200" y1="249" x2="200" y2="260" stroke="#2E7D32" stroke-width="1.5"/>
+    <circle cx="280" cy="250" r="4" fill="#9B59B6"/>
+    <circle cx="280" cy="250" r="1.5" fill="#F9E74D"/>
+    <line x1="280" y1="254" x2="280" y2="262" stroke="#2E7D32" stroke-width="1.5"/>
+    <circle cx="420" cy="248" r="4" fill="#F39C12"/>
+    <circle cx="420" cy="248" r="1.5" fill="white"/>
+    <line x1="420" y1="252" x2="420" y2="262" stroke="#2E7D32" stroke-width="1.5"/>
+    <!-- Bird -->
+    <path d="M180 45 C185 40 190 42 192 45 C194 42 199 40 204 45" stroke="#333" stroke-width="1.5" fill="none"/>
+    <!-- DIFF 8: Butterfly missing -->
+  </svg>
+
+  <div style="display:flex; justify-content:center; gap:12px; margin-top:8px; flex-wrap:wrap;">
+    <span style="display:inline-flex; align-items:center; gap:4px; font-size:10pt;">Gefunden: </span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">1</span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">2</span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">3</span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">4</span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">5</span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">6</span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">7</span>
+    <span style="display:inline-block; width:22px; height:22px; border:2px solid var(--brown); border-radius:50%; text-align:center; line-height:18px; font-size:9pt;">8</span>
+  </div>
+  <span class="page-number">– 2 –</span>
+</div>
+
+<!-- ==================== PAGE 4: LABYRINTH ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🏇 Stall-Labyrinth</h3>
+  <p class="puzzle-subtitle">Hilf Lena, den Weg durch den Stall zu Mondschimmer zu finden!</p>
+
+  <svg viewBox="0 0 440 560" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+    <rect width="440" height="560" fill="var(--gold-light)" rx="12" stroke="var(--gold)" stroke-width="2"/>
+
+    <!-- Lena at start -->
+    <g transform="translate(15,20)">
+      <!-- Girl figure -->
+      <circle cx="20" cy="10" r="10" fill="#FDDCB5"/>
+      <path d="M10 10 C8 3 12 0 20 0 C28 0 32 3 30 10 C30 6 25 4 20 4 C15 4 10 6 10 10Z" fill="#8B4513"/>
+      <rect x="12" y="18" width="16" height="20" rx="3" fill="#E74C3C"/>
+      <rect x="10" y="36" width="8" height="16" rx="2" fill="#3B5998"/>
+      <rect x="22" y="36" width="8" height="16" rx="2" fill="#3B5998"/>
+      <text x="20" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="var(--green)">Lena</text>
+    </g>
+
+    <!-- START arrow -->
+    <text x="70" y="40" font-size="13" font-weight="700" fill="var(--brown)">START →</text>
+
+    <!-- Maze walls - drawn as paths with brown color -->
+    <!-- Outer border -->
+    <rect x="100" y="20" width="320" height="500" fill="none" stroke="var(--brown)" stroke-width="4" rx="6"/>
+
+    <!-- Opening at start -->
+    <line x1="100" y1="30" x2="100" y2="70" stroke="var(--gold-light)" stroke-width="5"/>
+    <!-- Opening at end -->
+    <line x1="420" y1="480" x2="420" y2="520" stroke="var(--gold-light)" stroke-width="5"/>
+
+    <!-- Maze internal walls -->
+    <!-- Row 1 -->
+    <line x1="140" y1="20" x2="140" y2="100" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="140" y1="100" x2="220" y2="100" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="180" y1="20" x2="180" y2="65" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="260" y1="20" x2="260" y2="80" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="260" y1="60" x2="340" y2="60" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="340" y1="60" x2="340" y2="120" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="380" y1="60" x2="380" y2="100" stroke="var(--brown)" stroke-width="3"/>
+
+    <!-- Row 2 -->
+    <line x1="100" y1="140" x2="180" y2="140" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="180" y1="100" x2="180" y2="180" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="220" y1="100" x2="220" y2="160" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="220" y1="160" x2="300" y2="160" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="300" y1="120" x2="300" y2="200" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="340" y1="120" x2="420" y2="120" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="360" y1="160" x2="420" y2="160" stroke="var(--brown)" stroke-width="3"/>
+
+    <!-- Row 3 -->
+    <line x1="100" y1="220" x2="160" y2="220" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="140" y1="180" x2="140" y2="260" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="180" y1="220" x2="180" y2="280" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="220" y1="200" x2="220" y2="260" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="220" y1="200" x2="260" y2="200" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="260" y1="200" x2="260" y2="260" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="300" y1="200" x2="380" y2="200" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="340" y1="200" x2="340" y2="260" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="380" y1="200" x2="380" y2="280" stroke="var(--brown)" stroke-width="3"/>
+
+    <!-- Row 4 -->
+    <line x1="100" y1="300" x2="140" y2="300" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="140" y1="300" x2="140" y2="360" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="180" y1="280" x2="300" y2="280" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="260" y1="280" x2="260" y2="340" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="300" y1="280" x2="300" y2="340" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="300" y1="340" x2="380" y2="340" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="380" y1="280" x2="420" y2="280" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="340" y1="300" x2="380" y2="300" stroke="var(--brown)" stroke-width="3"/>
+
+    <!-- Row 5 -->
+    <line x1="100" y1="380" x2="180" y2="380" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="180" y1="340" x2="180" y2="420" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="220" y1="340" x2="220" y2="400" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="220" y1="400" x2="300" y2="400" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="340" y1="380" x2="340" y2="440" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="380" y1="340" x2="380" y2="400" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="380" y1="400" x2="420" y2="400" stroke="var(--brown)" stroke-width="3"/>
+
+    <!-- Row 6 -->
+    <line x1="100" y1="460" x2="180" y2="460" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="140" y1="420" x2="140" y2="460" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="220" y1="440" x2="300" y2="440" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="260" y1="440" x2="260" y2="520" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="300" y1="440" x2="300" y2="480" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="340" y1="480" x2="380" y2="480" stroke="var(--brown)" stroke-width="3"/>
+    <line x1="180" y1="460" x2="180" y2="520" stroke="var(--brown)" stroke-width="3"/>
+
+    <!-- Decorative elements inside maze -->
+    <!-- Small hay -->
+    <rect x="360" y="72" width="15" height="10" rx="3" fill="#DAA520" opacity="0.5"/>
+    <!-- Small bucket -->
+    <circle cx="155" cy="165" r="6" fill="#7B8E97" opacity="0.4"/>
+    <!-- Carrot -->
+    <line x1="310" y1="230" x2="325" y2="245" stroke="#E67E22" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+
+    <!-- Mondschimmer at end -->
+    <g transform="translate(422,475)">
+      <text x="0" y="15" font-size="10" font-weight="700" fill="var(--green)">ZIEL!</text>
+      <!-- Small horse head -->
+      <ellipse cx="10" cy="35" rx="12" ry="16" fill="#E8E8E8" stroke="#BBB" stroke-width="1.5"/>
+      <circle cx="6" cy="28" r="2.5" fill="#333"/>
+      <text x="10" y="62" text-anchor="middle" font-size="8" font-weight="700" fill="var(--brown)">Mond-</text>
+      <text x="10" y="72" text-anchor="middle" font-size="8" font-weight="700" fill="var(--brown)">schimmer</text>
+    </g>
+  </svg>
+
+  <span class="page-number">– 3 –</span>
+</div>
+
+<!-- ==================== PAGE 5: PFERDE-QUIZ ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🐴 Das große Pferde-Quiz</h3>
+  <p class="puzzle-subtitle">Wie gut kennst du dich mit Pferden aus? Kreuze die richtige Antwort an!</p>
+
+  <div class="quiz-question">
+    <strong>1.</strong> Wie heißt das silberweiße Pferd auf Hof Sonnenweide?
+    <div class="quiz-options">
+      <label><span class="box"></span> Sternchen</label>
+      <label><span class="box"></span> Mondschimmer</label>
+      <label><span class="box"></span> Nordlicht</label>
+      <label><span class="box"></span> Sturmwind</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>2.</strong> Wie viele Beine hat ein Pferd?
+    <div class="quiz-options">
+      <label><span class="box"></span> 2</label>
+      <label><span class="box"></span> 4</label>
+      <label><span class="box"></span> 6</label>
+      <label><span class="box"></span> 3</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>3.</strong> Was frisst ein Pferd am liebsten?
+    <div class="quiz-options">
+      <label><span class="box"></span> Schokolade</label>
+      <label><span class="box"></span> Würstchen</label>
+      <label><span class="box"></span> Heu und Gras</label>
+      <label><span class="box"></span> Pizza</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>4.</strong> Welche Pferderasse ist Butterblume?
+    <div class="quiz-options">
+      <label><span class="box"></span> Araber</label>
+      <label><span class="box"></span> Haflinger</label>
+      <label><span class="box"></span> Shetlandpony</label>
+      <label><span class="box"></span> Friese</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>5.</strong> Was ist ein Hufschmied?
+    <div class="quiz-options">
+      <label><span class="box"></span> Jemand, der Pferde füttert</label>
+      <label><span class="box"></span> Jemand, der Hufeisen macht und anbringt</label>
+      <label><span class="box"></span> Jemand, der Pferde wäscht</label>
+      <label><span class="box"></span> Jemand, der Pferde reitet</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>6.</strong> Wie heißt Lenas beste Freundin?
+    <div class="quiz-options">
+      <label><span class="box"></span> Lisa</label>
+      <label><span class="box"></span> Mia</label>
+      <label><span class="box"></span> Emma</label>
+      <label><span class="box"></span> Sophie</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>7.</strong> Wie nennt man ein junges Pferd?
+    <div class="quiz-options">
+      <label><span class="box"></span> Welpe</label>
+      <label><span class="box"></span> Kalb</label>
+      <label><span class="box"></span> Fohlen</label>
+      <label><span class="box"></span> Küken</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>8.</strong> Welche Farbe hat ein Rappe?
+    <div class="quiz-options">
+      <label><span class="box"></span> Weiß</label>
+      <label><span class="box"></span> Braun</label>
+      <label><span class="box"></span> Schwarz</label>
+      <label><span class="box"></span> Grau</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>9.</strong> Wer ist die Besitzerin von Hof Sonnenweide?
+    <div class="quiz-options">
+      <label><span class="box"></span> Tante Sophie</label>
+      <label><span class="box"></span> Tante Marie</label>
+      <label><span class="box"></span> Oma Helga</label>
+      <label><span class="box"></span> Frau Müller</label>
+    </div>
+  </div>
+
+  <div class="quiz-question">
+    <strong>10.</strong> Wie kommunizieren Pferde miteinander?
+    <div class="quiz-options">
+      <label><span class="box"></span> Nur durch Wiehern</label>
+      <label><span class="box"></span> Durch Körpersprache, Ohren und Geräusche</label>
+      <label><span class="box"></span> Gar nicht</label>
+      <label><span class="box"></span> Nur durch Schwanzwedeln</label>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:8px;">
+    <span style="font-size:11pt; font-weight:700; color:var(--gold);">Meine Punkte: _____ / 10</span>
+  </div>
+  <span class="page-number">– 4 –</span>
+</div>
+
+<!-- ==================== PAGE 6: SPUREN-RÄTSEL ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🐾 Spuren-Rätsel am Waldpfad</h3>
+  <p class="puzzle-subtitle">Lena hat am Murmelbach verschiedene Tierspuren entdeckt. Welche Spur gehört zu welchem Tier? Verbinde mit einer Linie!</p>
+
+  <div class="tracks-container" style="margin-top:16px;">
+    <!-- Track 1: Horseshoe / Pferd -->
+    <div class="track-item">
+      <svg viewBox="0 0 80 80" width="80" height="80">
+        <rect width="80" height="80" rx="10" fill="var(--cream)" stroke="var(--brown)" stroke-width="1.5"/>
+        <g transform="translate(16,10) scale(0.9)">
+          <path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="#8B6914" opacity="0.6"/>
+        </g>
+      </svg>
+      <p><strong>Spur A</strong></p>
+    </div>
+
+    <!-- Track 2: Cat paw -->
+    <div class="track-item">
+      <svg viewBox="0 0 80 80" width="80" height="80">
+        <rect width="80" height="80" rx="10" fill="var(--cream)" stroke="var(--brown)" stroke-width="1.5"/>
+        <g transform="translate(18,15)">
+          <ellipse cx="22" cy="32" rx="14" ry="12" fill="#8B6914" opacity="0.6"/>
+          <circle cx="10" cy="16" r="6" fill="#8B6914" opacity="0.6"/>
+          <circle cx="22" cy="12" r="6" fill="#8B6914" opacity="0.6"/>
+          <circle cx="34" cy="16" r="6" fill="#8B6914" opacity="0.6"/>
+          <circle cx="40" cy="28" r="5" fill="#8B6914" opacity="0.6"/>
+        </g>
+      </svg>
+      <p><strong>Spur B</strong></p>
+    </div>
+
+    <!-- Track 3: Bird -->
+    <div class="track-item">
+      <svg viewBox="0 0 80 80" width="80" height="80">
+        <rect width="80" height="80" rx="10" fill="var(--cream)" stroke="var(--brown)" stroke-width="1.5"/>
+        <g transform="translate(20,15)">
+          <line x1="20" y1="10" x2="20" y2="45" stroke="#8B6914" stroke-width="3" opacity="0.6"/>
+          <line x1="20" y1="45" x2="5" y2="55" stroke="#8B6914" stroke-width="3" opacity="0.6"/>
+          <line x1="20" y1="45" x2="35" y2="55" stroke="#8B6914" stroke-width="3" opacity="0.6"/>
+          <line x1="20" y1="30" x2="8" y2="40" stroke="#8B6914" stroke-width="2.5" opacity="0.6"/>
+          <line x1="20" y1="30" x2="32" y2="40" stroke="#8B6914" stroke-width="2.5" opacity="0.6"/>
+        </g>
+      </svg>
+      <p><strong>Spur C</strong></p>
+    </div>
+
+    <!-- Track 4: Deer (Reh) - two elongated marks -->
+    <div class="track-item">
+      <svg viewBox="0 0 80 80" width="80" height="80">
+        <rect width="80" height="80" rx="10" fill="var(--cream)" stroke="var(--brown)" stroke-width="1.5"/>
+        <g transform="translate(20,12)">
+          <ellipse cx="15" cy="28" rx="6" ry="16" fill="#8B6914" opacity="0.6" transform="rotate(-8,15,28)"/>
+          <ellipse cx="30" cy="28" rx="6" ry="16" fill="#8B6914" opacity="0.6" transform="rotate(8,30,28)"/>
+          <circle cx="13" cy="48" r="3" fill="#8B6914" opacity="0.4"/>
+          <circle cx="32" cy="48" r="3" fill="#8B6914" opacity="0.4"/>
+        </g>
+      </svg>
+      <p><strong>Spur D</strong></p>
+    </div>
+
+    <!-- Track 5: Dog -->
+    <div class="track-item">
+      <svg viewBox="0 0 80 80" width="80" height="80">
+        <rect width="80" height="80" rx="10" fill="var(--cream)" stroke="var(--brown)" stroke-width="1.5"/>
+        <g transform="translate(15,12)">
+          <ellipse cx="24" cy="35" rx="16" ry="13" fill="#8B6914" opacity="0.6"/>
+          <ellipse cx="10" cy="16" rx="6" ry="8" fill="#8B6914" opacity="0.6" transform="rotate(-15,10,16)"/>
+          <ellipse cx="24" cy="12" rx="5" ry="7" fill="#8B6914" opacity="0.6"/>
+          <ellipse cx="38" cy="16" rx="6" ry="8" fill="#8B6914" opacity="0.6" transform="rotate(15,38,16)"/>
+          <ellipse cx="46" cy="28" rx="5" ry="7" fill="#8B6914" opacity="0.6" transform="rotate(20,46,28)"/>
+          <!-- Claw marks distinguish dog from cat -->
+          <line x1="8" y1="9" x2="6" y2="4" stroke="#8B6914" stroke-width="1.5" opacity="0.5"/>
+          <line x1="23" y1="6" x2="23" y2="1" stroke="#8B6914" stroke-width="1.5" opacity="0.5"/>
+          <line x1="40" y1="9" x2="42" y2="4" stroke="#8B6914" stroke-width="1.5" opacity="0.5"/>
+          <line x1="48" y1="22" x2="52" y2="19" stroke="#8B6914" stroke-width="1.5" opacity="0.5"/>
+        </g>
+      </svg>
+      <p><strong>Spur E</strong></p>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;">
+    <p style="font-size:11pt; font-weight:700; text-align:center; color:var(--green); margin-bottom:12px;">Welches Tier hat diese Spur hinterlassen?</p>
+    <div class="animal-list">
+      <span class="animal-tag">🐴 Pferd</span>
+      <span class="animal-tag">🐱 Katze</span>
+      <span class="animal-tag">🐦 Vogel</span>
+      <span class="animal-tag">🦌 Reh</span>
+      <span class="animal-tag">🐕 Hund</span>
+    </div>
+  </div>
+
+  <div style="margin-top:24px; display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; padding:0 30px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:11pt;">
+      <strong>Spur A</strong> = <span style="border-bottom:2px dotted var(--brown); width:100px; display:inline-block;">&nbsp;</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px; font-size:11pt;">
+      <strong>Spur B</strong> = <span style="border-bottom:2px dotted var(--brown); width:100px; display:inline-block;">&nbsp;</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px; font-size:11pt;">
+      <strong>Spur C</strong> = <span style="border-bottom:2px dotted var(--brown); width:100px; display:inline-block;">&nbsp;</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px; font-size:11pt;">
+      <strong>Spur D</strong> = <span style="border-bottom:2px dotted var(--brown); width:100px; display:inline-block;">&nbsp;</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px; font-size:11pt;">
+      <strong>Spur E</strong> = <span style="border-bottom:2px dotted var(--brown); width:100px; display:inline-block;">&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="puzzle-instruction" style="margin-top:24px;">
+    <strong>Wusstest du?</strong> Pferdespuren erkennt man am Hufeisenabdruck. Katzen ziehen ihre Krallen ein, deshalb sieht man bei Katzenspuren keine Krallenabdrücke. Bei Hundespuren sieht man dagegen immer die Krallen!
+  </div>
+
+  <span class="page-number">– 5 –</span>
+</div>
+
+<!-- ==================== PAGE 7: GEHEIMCODE ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🔐 Geheimcode der silbernen Hufspur</h3>
+  <p class="puzzle-subtitle">Mondschimmer hat eine geheime Nachricht hinterlassen! Entschlüssle sie mit dem Code-Schlüssel.</p>
+
+  <div class="puzzle-instruction">
+    Jedes Symbol steht für einen Buchstaben. Finde zuerst alle Buchstaben in der Tabelle und schreibe dann die geheime Botschaft auf!
+  </div>
+
+  <!-- Code key table -->
+  <table class="code-table" style="margin:14px auto;">
+    <tr class="symbol">
+      <td>&#9733;</td><td>&#9790;</td><td>&#9829;</td><td>&#9827;</td><td>&#9830;</td>
+      <td>&#9744;</td><td>&#9788;</td><td>&#10047;</td><td>&#9834;</td><td>&#10048;</td>
+      <td>&#9728;</td><td>&#9654;</td><td>&#10004;</td>
+    </tr>
+    <tr class="letter">
+      <td>A</td><td>B</td><td>D</td><td>E</td><td>G</td>
+      <td>H</td><td>I</td><td>L</td><td>M</td><td>N</td>
+      <td>R</td><td>S</td><td>T</td>
+    </tr>
+  </table>
+
+  <table class="code-table" style="margin:8px auto;">
+    <tr class="symbol">
+      <td>&#9752;</td><td>&#10070;</td><td>&#9742;</td><td>&#9749;</td><td>&#10053;</td>
+      <td>&#10029;</td><td>&#9775;</td>
+    </tr>
+    <tr class="letter">
+      <td>U</td><td>C</td><td>F</td><td>K</td><td>O</td>
+      <td>P</td><td>W</td>
+    </tr>
+  </table>
+
+  <p style="text-align:center; font-size:11pt; font-weight:700; color:var(--green); margin:16px 0 8px 0;">Die geheime Botschaft:</p>
+
+  <!-- Line 1: "DAS SILBERNE" -->
+  <div class="code-message">
+    <!-- D --> <div class="code-char"><span class="sym">&#9829;</span><div class="blank"></div></div>
+    <!-- A --> <div class="code-char"><span class="sym">&#9733;</span><div class="blank"></div></div>
+    <!-- S --> <div class="code-char"><span class="sym">&#9654;</span><div class="blank"></div></div>
+    <div class="code-space"></div>
+    <!-- S --> <div class="code-char"><span class="sym">&#9654;</span><div class="blank"></div></div>
+    <!-- I --> <div class="code-char"><span class="sym">&#9788;</span><div class="blank"></div></div>
+    <!-- L --> <div class="code-char"><span class="sym">&#10047;</span><div class="blank"></div></div>
+    <!-- B --> <div class="code-char"><span class="sym">&#9790;</span><div class="blank"></div></div>
+    <!-- E --> <div class="code-char"><span class="sym">&#9827;</span><div class="blank"></div></div>
+    <!-- R --> <div class="code-char"><span class="sym">&#9728;</span><div class="blank"></div></div>
+    <!-- N --> <div class="code-char"><span class="sym">&#10048;</span><div class="blank"></div></div>
+    <!-- E --> <div class="code-char"><span class="sym">&#9827;</span><div class="blank"></div></div>
+  </div>
+
+  <!-- Line 2: "HUFEISEN LIEGT" -->
+  <div class="code-message" style="margin-top:8px;">
+    <!-- H --> <div class="code-char"><span class="sym">&#9744;</span><div class="blank"></div></div>
+    <!-- U --> <div class="code-char"><span class="sym">&#9752;</span><div class="blank"></div></div>
+    <!-- F --> <div class="code-char"><span class="sym">&#9742;</span><div class="blank"></div></div>
+    <!-- E --> <div class="code-char"><span class="sym">&#9827;</span><div class="blank"></div></div>
+    <!-- I --> <div class="code-char"><span class="sym">&#9788;</span><div class="blank"></div></div>
+    <!-- S --> <div class="code-char"><span class="sym">&#9654;</span><div class="blank"></div></div>
+    <!-- E --> <div class="code-char"><span class="sym">&#9827;</span><div class="blank"></div></div>
+    <!-- N --> <div class="code-char"><span class="sym">&#10048;</span><div class="blank"></div></div>
+    <div class="code-space"></div>
+    <!-- L --> <div class="code-char"><span class="sym">&#10047;</span><div class="blank"></div></div>
+    <!-- I --> <div class="code-char"><span class="sym">&#9788;</span><div class="blank"></div></div>
+    <!-- E --> <div class="code-char"><span class="sym">&#9827;</span><div class="blank"></div></div>
+    <!-- G --> <div class="code-char"><span class="sym">&#9830;</span><div class="blank"></div></div>
+    <!-- T --> <div class="code-char"><span class="sym">&#10004;</span><div class="blank"></div></div>
+  </div>
+
+  <!-- Line 3: "AUF DER MONDKUPPE" -->
+  <div class="code-message" style="margin-top:8px;">
+    <!-- A --> <div class="code-char"><span class="sym">&#9733;</span><div class="blank"></div></div>
+    <!-- U --> <div class="code-char"><span class="sym">&#9752;</span><div class="blank"></div></div>
+    <!-- F --> <div class="code-char"><span class="sym">&#9742;</span><div class="blank"></div></div>
+    <div class="code-space"></div>
+    <!-- D --> <div class="code-char"><span class="sym">&#9829;</span><div class="blank"></div></div>
+    <!-- E --> <div class="code-char"><span class="sym">&#9827;</span><div class="blank"></div></div>
+    <!-- R --> <div class="code-char"><span class="sym">&#9728;</span><div class="blank"></div></div>
+    <div class="code-space"></div>
+    <!-- M --> <div class="code-char"><span class="sym">&#9834;</span><div class="blank"></div></div>
+    <!-- O --> <div class="code-char"><span class="sym">&#10053;</span><div class="blank"></div></div>
+    <!-- N --> <div class="code-char"><span class="sym">&#10048;</span><div class="blank"></div></div>
+    <!-- D --> <div class="code-char"><span class="sym">&#9829;</span><div class="blank"></div></div>
+    <!-- K --> <div class="code-char"><span class="sym">&#9749;</span><div class="blank"></div></div>
+    <!-- U --> <div class="code-char"><span class="sym">&#9752;</span><div class="blank"></div></div>
+    <!-- P --> <div class="code-char"><span class="sym">&#10029;</span><div class="blank"></div></div>
+    <!-- P --> <div class="code-char"><span class="sym">&#10029;</span><div class="blank"></div></div>
+    <!-- E --> <div class="code-char"><span class="sym">&#9827;</span><div class="blank"></div></div>
+  </div>
+
+  <div style="margin-top:20px; padding:12px; border:2px dashed var(--gold); border-radius:12px;">
+    <p style="font-size:10.5pt; font-weight:700; color:var(--brown);">Schreibe die Lösung hier auf:</p>
+    <div style="border-bottom:2px dotted var(--brown); height:22px; margin:8px 0;"></div>
+    <div style="border-bottom:2px dotted var(--brown); height:22px; margin:8px 0;"></div>
+    <div style="border-bottom:2px dotted var(--brown); height:22px; margin:8px 0;"></div>
+  </div>
+
+  <div class="puzzle-instruction" style="margin-top:12px;">
+    <strong>Tipp:</strong> Fange mit den Buchstaben an, die am häufigsten vorkommen. Das E (&#9827;) kommt besonders oft vor!
+  </div>
+
+  <span class="page-number">– 6 –</span>
+</div>
+
+<!-- ==================== PAGE 8: ZUORDNUNG ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🐎 Wer ist wer? – Pferde-Zuordnung</h3>
+  <p class="puzzle-subtitle">Jedes Pferd auf Hof Sonnenweide ist etwas Besonderes. Verbinde jedes Pferd mit der richtigen Beschreibung!</p>
+
+  <div class="match-container" style="margin-top:16px;">
+    <div class="match-col match-left">
+      <div class="match-item"><div class="num">1</div> Mondschimmer</div>
+      <div class="match-item"><div class="num">2</div> Sturmwind</div>
+      <div class="match-item"><div class="num">3</div> Butterblume</div>
+      <div class="match-item"><div class="num">4</div> Flecki</div>
+      <div class="match-item"><div class="num">5</div> Kupfer</div>
+      <div class="match-item"><div class="num">6</div> Sternchen</div>
+      <div class="match-item"><div class="num">7</div> Nordlicht</div>
+    </div>
+    <div class="match-col match-right">
+      <div class="match-item"><div class="num">A</div> Schwarzer Rappe, voller Temperament</div>
+      <div class="match-item"><div class="num">B</div> Braun-weiß gescheckt und frech</div>
+      <div class="match-item"><div class="num">C</div> Silberweißes, geheimnisvolles Pferd</div>
+      <div class="match-item"><div class="num">D</div> Grauer Schimmel, sehr elegant</div>
+      <div class="match-item"><div class="num">E</div> Dunkelbraun mit weißem Stern, schüchtern</div>
+      <div class="match-item"><div class="num">F</div> Goldener Haflinger, ganz gemütlich</div>
+      <div class="match-item"><div class="num">G</div> Rotbrauner Fuchs, besonders klug</div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px; padding:10px 16px; background:var(--cream); border-radius:12px; border:2px solid var(--gold-light);">
+    <p style="font-size:11pt; font-weight:700; color:var(--brown); margin-bottom:8px;">Schreibe die Lösung hier ein:</p>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px; font-size:11pt; text-align:center;">
+      <div>1 = <span style="border-bottom:2px solid var(--brown); display:inline-block; width:24px;">&nbsp;</span></div>
+      <div>2 = <span style="border-bottom:2px solid var(--brown); display:inline-block; width:24px;">&nbsp;</span></div>
+      <div>3 = <span style="border-bottom:2px solid var(--brown); display:inline-block; width:24px;">&nbsp;</span></div>
+      <div>4 = <span style="border-bottom:2px solid var(--brown); display:inline-block; width:24px;">&nbsp;</span></div>
+      <div>5 = <span style="border-bottom:2px solid var(--brown); display:inline-block; width:24px;">&nbsp;</span></div>
+      <div>6 = <span style="border-bottom:2px solid var(--brown); display:inline-block; width:24px;">&nbsp;</span></div>
+      <div>7 = <span style="border-bottom:2px solid var(--brown); display:inline-block; width:24px;">&nbsp;</span></div>
+    </div>
+  </div>
+
+  <!-- Mini portraits -->
+  <p style="text-align:center; font-size:11pt; font-weight:700; color:var(--green); margin-top:20px;">Die Pferde von Hof Sonnenweide</p>
+  <svg viewBox="0 0 520 140" width="100%" style="max-width:520px; display:block; margin:6px auto;">
+    <!-- Mondschimmer -->
+    <g transform="translate(5,10)">
+      <ellipse cx="30" cy="45" rx="20" ry="28" fill="#E8E8E8" stroke="#BBB" stroke-width="1.5"/>
+      <ellipse cx="30" cy="65" rx="10" ry="12" fill="#D0D0D0"/>
+      <circle cx="24" cy="38" r="3" fill="#333"/><circle cx="36" cy="38" r="3" fill="#333"/>
+      <polygon points="20,25 17,12 26,22" fill="#E0E0E0"/>
+      <polygon points="40,25 43,12 34,22" fill="#E0E0E0"/>
+      <text x="30" y="95" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">Mond-</text>
+      <text x="30" y="104" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">schimmer</text>
+    </g>
+    <!-- Sturmwind -->
+    <g transform="translate(75,10)">
+      <ellipse cx="30" cy="45" rx="20" ry="28" fill="#2C2C2C" stroke="#111" stroke-width="1.5"/>
+      <ellipse cx="30" cy="65" rx="10" ry="12" fill="#1A1A1A"/>
+      <circle cx="24" cy="38" r="3" fill="#666"/><circle cx="36" cy="38" r="3" fill="#666"/>
+      <polygon points="20,25 17,12 26,22" fill="#222"/>
+      <polygon points="40,25 43,12 34,22" fill="#222"/>
+      <text x="30" y="98" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">Sturmwind</text>
+    </g>
+    <!-- Butterblume -->
+    <g transform="translate(145,10)">
+      <ellipse cx="30" cy="45" rx="20" ry="28" fill="#DAA520" stroke="#B8860B" stroke-width="1.5"/>
+      <ellipse cx="30" cy="65" rx="10" ry="12" fill="#CD950C"/>
+      <circle cx="24" cy="38" r="3" fill="#333"/><circle cx="36" cy="38" r="3" fill="#333"/>
+      <polygon points="20,25 17,12 26,22" fill="#DAA520"/>
+      <polygon points="40,25 43,12 34,22" fill="#DAA520"/>
+      <path d="M22 22 C18 16 20 12 26 16 C24 10 30 10 30 16 C30 10 36 10 34 16 C40 12 42 16 38 22" stroke="#F0D060" stroke-width="1.5" fill="none"/>
+      <text x="30" y="98" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">Butterblume</text>
+    </g>
+    <!-- Flecki -->
+    <g transform="translate(215,10)">
+      <ellipse cx="30" cy="45" rx="20" ry="28" fill="#8B5E3C" stroke="#6B4020" stroke-width="1.5"/>
+      <ellipse cx="24" cy="40" rx="6" ry="4" fill="white"/>
+      <ellipse cx="38" cy="50" rx="7" ry="5" fill="white"/>
+      <ellipse cx="30" cy="65" rx="10" ry="12" fill="#8B5E3C"/>
+      <circle cx="24" cy="38" r="3" fill="#333"/><circle cx="36" cy="38" r="3" fill="#333"/>
+      <polygon points="20,25 17,12 26,22" fill="#8B5E3C"/>
+      <polygon points="40,25 43,12 34,22" fill="#8B5E3C"/>
+      <text x="30" y="98" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">Flecki</text>
+    </g>
+    <!-- Kupfer -->
+    <g transform="translate(285,10)">
+      <ellipse cx="30" cy="45" rx="20" ry="28" fill="#B5651D" stroke="#8B4513" stroke-width="1.5"/>
+      <ellipse cx="30" cy="65" rx="10" ry="12" fill="#A0522D"/>
+      <circle cx="24" cy="38" r="3" fill="#333"/><circle cx="36" cy="38" r="3" fill="#333"/>
+      <polygon points="20,25 17,12 26,22" fill="#B5651D"/>
+      <polygon points="40,25 43,12 34,22" fill="#B5651D"/>
+      <text x="30" y="98" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">Kupfer</text>
+    </g>
+    <!-- Sternchen -->
+    <g transform="translate(355,10)">
+      <ellipse cx="30" cy="45" rx="20" ry="28" fill="#5C3317" stroke="#3E2210" stroke-width="1.5"/>
+      <ellipse cx="30" cy="65" rx="10" ry="12" fill="#4A2810"/>
+      <circle cx="24" cy="38" r="3" fill="#888"/><circle cx="36" cy="38" r="3" fill="#888"/>
+      <!-- White star -->
+      <polygon points="30,26 32,32 38,32 33,36 35,42 30,38 25,42 27,36 22,32 28,32" fill="white"/>
+      <polygon points="20,25 17,12 26,22" fill="#5C3317"/>
+      <polygon points="40,25 43,12 34,22" fill="#5C3317"/>
+      <text x="30" y="98" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">Sternchen</text>
+    </g>
+    <!-- Nordlicht -->
+    <g transform="translate(425,10)">
+      <ellipse cx="30" cy="45" rx="20" ry="28" fill="#B0B0B0" stroke="#888" stroke-width="1.5"/>
+      <ellipse cx="30" cy="65" rx="10" ry="12" fill="#999"/>
+      <circle cx="24" cy="38" r="3" fill="#333"/><circle cx="36" cy="38" r="3" fill="#333"/>
+      <polygon points="20,25 17,12 26,22" fill="#B0B0B0"/>
+      <polygon points="40,25 43,12 34,22" fill="#B0B0B0"/>
+      <text x="30" y="98" text-anchor="middle" font-size="7" fill="var(--brown)" font-weight="600">Nordlicht</text>
+    </g>
+  </svg>
+
+  <span class="page-number">– 7 –</span>
+</div>
+
+<!-- ==================== PAGE 9: KREUZWORTRÄTSEL ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">✏️ Kreuzworträtsel</h3>
+  <p class="puzzle-subtitle">Trage die richtigen Wörter in die Kästchen ein!</p>
+
+  <!--
+    Grid layout (13 cols x 12 rows):
+    Words:
+    Waagerecht: 1-SATTEL(r1,c2), 3-HEU(r3,c0), 5-FOHLEN(r5,c3), 7-KOPPEL(r7,c1), 9-REITEN(r9,c4), 11-STALL(r11,c5)
+    Senkrecht: 2-TRAB(r0,c5), 4-HUFEISEN(r2,c3), 6-GALOPPIEREN - too long, use GALOPP(r4,c7), 8-PFERD(r6,c2), 10-MAHNE - use MAEHNE(r8,c1)
+
+    Simplified grid approach:
+  -->
+
+  <div class="crossword-grid">
+    <table class="cw-table">
+      <!-- Row 0 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+        <td><span class="cw-num">2</span></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 1 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td><span class="cw-num">1</span></td><td></td><td></td>
+        <td></td><td></td><td></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 2 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td class="black"></td><td><span class="cw-num">4</span></td><td class="black"></td>
+        <td></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 3 -->
+      <tr>
+        <td><span class="cw-num">3</span></td><td></td><td></td><td></td><td class="black"></td>
+        <td></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 4 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td class="black"></td><td></td><td class="black"></td>
+        <td class="black"></td><td class="black"></td><td><span class="cw-num">6</span></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 5 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td class="black"></td><td><span class="cw-num">5</span></td><td></td>
+        <td></td><td></td><td></td><td></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 6 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td><span class="cw-num">8</span></td><td></td><td class="black"></td>
+        <td class="black"></td><td class="black"></td><td></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 7 -->
+      <tr>
+        <td class="black"></td><td><span class="cw-num">7</span></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 8 -->
+      <tr>
+        <td class="black"></td><td><span class="cw-num">10</span></td><td></td><td></td><td class="black"></td>
+        <td class="black"></td><td class="black"></td><td></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 9 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td></td><td class="black"></td><td><span class="cw-num">9</span></td>
+        <td></td><td></td><td></td><td></td><td></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 10 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td></td><td class="black"></td><td class="black"></td>
+        <td class="black"></td><td class="black"></td><td></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+      </tr>
+      <!-- Row 11 -->
+      <tr>
+        <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+        <td><span class="cw-num">11</span></td><td></td><td></td><td></td><td></td><td class="black"></td><td class="black"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="cw-clues">
+    <div>
+      <h4>Waagerecht →</h4>
+      <p><strong>1.</strong> Darauf sitzt der Reiter (6 Buchstaben)</p>
+      <p><strong>3.</strong> Getrocknetes Gras, das Pferde fressen (3 Buchstaben + E = 4)</p>
+      <p><strong>5.</strong> Ein junges Pferd (6 Buchstaben)</p>
+      <p><strong>7.</strong> Die eingezäunte Wiese für Pferde (6 Buchstaben)</p>
+      <p><strong>9.</strong> Das macht man auf dem Pferd (6 Buchstaben)</p>
+      <p><strong>11.</strong> Hier schlafen die Pferde (5 Buchstaben)</p>
+    </div>
+    <div>
+      <h4>Senkrecht ↓</h4>
+      <p><strong>2.</strong> Eine Gangart des Pferdes, schneller als Schritt (4 Buchstaben)</p>
+      <p><strong>4.</strong> Das wird unter den Huf genagelt (8 Buchstaben)</p>
+      <p><strong>6.</strong> Die schnellste Gangart (6 Buchstaben)</p>
+      <p><strong>8.</strong> Ein anderes Wort für Ross (5 Buchstaben)</p>
+      <p><strong>10.</strong> Die langen Haare am Hals des Pferdes (5 Buchstaben)</p>
+    </div>
+  </div>
+
+  <span class="page-number">– 8 –</span>
+</div>
+
+<!-- ==================== PAGE 10: WÖRTERSUCHRÄTSEL ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🔤 Wörtersuchrätsel</h3>
+  <p class="puzzle-subtitle">Finde alle versteckten Wörter im Buchstabengitter! Sie können waagerecht, senkrecht und diagonal versteckt sein.</p>
+
+  <!--
+    15x15 grid. Words hidden:
+    MONDSCHIMMER (row 0, col 1, horizontal)
+    STURMWIND (row 2, col 3, horizontal)
+    BUTTERBLUME (row 13, col 2, horizontal)
+    KOPPEL (row 4, col 9, vertical)
+    SATTEL (row 6, col 0, horizontal)
+    HUFEISEN (row 8, col 4, horizontal)
+    GALOPP (row 10, col 0, horizontal)
+    LENA (row 1, col 0, vertical -> rows 1-4)
+    PFERD (row 5, col 6, vertical -> rows 5-9)
+    STALL (row 12, col 10, horizontal)
+    REITPLATZ (row 3, col 0, diagonal SE -> too complex, just horizontal: row 11, col 3)
+  -->
+
+  <div class="ws-grid">
+    <table class="ws-table">
+      <tr><td>F</td><td>M</td><td>O</td><td>N</td><td>D</td><td>S</td><td>C</td><td>H</td><td>I</td><td>M</td><td>M</td><td>E</td><td>R</td><td>W</td><td>A</td></tr>
+      <tr><td>L</td><td>B</td><td>R</td><td>K</td><td>A</td><td>U</td><td>G</td><td>T</td><td>V</td><td>N</td><td>Q</td><td>J</td><td>X</td><td>I</td><td>Z</td></tr>
+      <tr><td>E</td><td>H</td><td>P</td><td>S</td><td>T</td><td>U</td><td>R</td><td>M</td><td>W</td><td>I</td><td>N</td><td>D</td><td>C</td><td>E</td><td>B</td></tr>
+      <tr><td>N</td><td>R</td><td>O</td><td>F</td><td>G</td><td>W</td><td>D</td><td>Q</td><td>Y</td><td>K</td><td>L</td><td>S</td><td>E</td><td>S</td><td>U</td></tr>
+      <tr><td>A</td><td>T</td><td>M</td><td>E</td><td>J</td><td>Z</td><td>V</td><td>B</td><td>N</td><td>O</td><td>H</td><td>R</td><td>X</td><td>E</td><td>K</td></tr>
+      <tr><td>W</td><td>K</td><td>D</td><td>I</td><td>R</td><td>A</td><td>P</td><td>S</td><td>C</td><td>P</td><td>F</td><td>G</td><td>M</td><td>N</td><td>O</td></tr>
+      <tr><td>S</td><td>A</td><td>T</td><td>T</td><td>E</td><td>L</td><td>F</td><td>Q</td><td>U</td><td>P</td><td>T</td><td>W</td><td>A</td><td>V</td><td>X</td></tr>
+      <tr><td>P</td><td>Y</td><td>G</td><td>B</td><td>H</td><td>N</td><td>E</td><td>J</td><td>O</td><td>E</td><td>Z</td><td>D</td><td>I</td><td>K</td><td>R</td></tr>
+      <tr><td>C</td><td>F</td><td>M</td><td>Q</td><td>H</td><td>U</td><td>F</td><td>E</td><td>I</td><td>L</td><td>S</td><td>E</td><td>N</td><td>A</td><td>G</td></tr>
+      <tr><td>D</td><td>O</td><td>R</td><td>W</td><td>V</td><td>T</td><td>D</td><td>B</td><td>X</td><td>H</td><td>N</td><td>U</td><td>J</td><td>P</td><td>E</td></tr>
+      <tr><td>G</td><td>A</td><td>L</td><td>O</td><td>P</td><td>P</td><td>Z</td><td>K</td><td>E</td><td>S</td><td>A</td><td>F</td><td>C</td><td>Y</td><td>W</td></tr>
+      <tr><td>H</td><td>V</td><td>X</td><td>R</td><td>E</td><td>I</td><td>T</td><td>P</td><td>L</td><td>A</td><td>T</td><td>Z</td><td>Q</td><td>M</td><td>N</td></tr>
+      <tr><td>J</td><td>B</td><td>U</td><td>N</td><td>W</td><td>C</td><td>G</td><td>F</td><td>D</td><td>R</td><td>S</td><td>T</td><td>A</td><td>L</td><td>L</td></tr>
+      <tr><td>T</td><td>I</td><td>B</td><td>U</td><td>T</td><td>T</td><td>E</td><td>R</td><td>B</td><td>L</td><td>U</td><td>M</td><td>E</td><td>O</td><td>S</td></tr>
+      <tr><td>K</td><td>A</td><td>E</td><td>M</td><td>S</td><td>O</td><td>H</td><td>V</td><td>Y</td><td>X</td><td>J</td><td>P</td><td>W</td><td>Q</td><td>D</td></tr>
+    </table>
+  </div>
+
+  <div class="word-list">
+    <span>MONDSCHIMMER</span>
+    <span>STURMWIND</span>
+    <span>BUTTERBLUME</span>
+    <span>KOPPEL</span>
+    <span>SATTEL</span>
+    <span>HUFEISEN</span>
+    <span>GALOPP</span>
+    <span>LENA</span>
+    <span>PFERD</span>
+    <span>STALL</span>
+    <span>REITPLATZ</span>
+  </div>
+
+  <p class="puzzle-instruction"><strong>Tipp:</strong> Streiche jedes Wort durch, das du gefunden hast. Manche Wörter sind waagerecht (→), manche senkrecht (↓) versteckt. Schau genau hin!</p>
+
+  <span class="page-number">– 9 –</span>
+</div>
+
+<!-- ==================== PAGE 11: MAL- UND SCHREIBSEITE ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title">🎨 Male dein Traumpferd!</h3>
+  <p class="puzzle-subtitle">Wie sieht dein Traumpferd aus? Male es in den Rahmen und fülle den Steckbrief aus!</p>
+
+  <div class="draw-box" style="height:220px; position:relative;">
+    <!-- Light guide lines -->
+    <svg viewBox="0 0 400 180" width="90%" height="80%" style="opacity:0.12; position:absolute;">
+      <!-- Very faint horse outline as guide -->
+      <ellipse cx="200" cy="100" rx="80" ry="40" stroke="#8B6914" stroke-width="1.5" fill="none" stroke-dasharray="8,4"/>
+      <ellipse cx="120" cy="65" rx="25" ry="35" stroke="#8B6914" stroke-width="1.5" fill="none" stroke-dasharray="8,4"/>
+      <line x1="150" y1="135" x2="145" y2="175" stroke="#8B6914" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <line x1="180" y1="135" x2="178" y2="175" stroke="#8B6914" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <line x1="230" y1="135" x2="228" y2="175" stroke="#8B6914" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <line x1="260" y1="135" x2="255" y2="175" stroke="#8B6914" stroke-width="1.5" stroke-dasharray="6,3"/>
+    </svg>
+    <span style="position:absolute; bottom:8px;">Hier ist Platz für dein Traumpferd!</span>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px 20px; margin:10px 10px; font-size:10.5pt;">
+    <div>
+      <strong>Name:</strong> <span style="border-bottom:2px dotted var(--brown); display:inline-block; width:150px;">&nbsp;</span>
+    </div>
+    <div>
+      <strong>Farbe:</strong> <span style="border-bottom:2px dotted var(--brown); display:inline-block; width:150px;">&nbsp;</span>
+    </div>
+    <div>
+      <strong>Rasse:</strong> <span style="border-bottom:2px dotted var(--brown); display:inline-block; width:150px;">&nbsp;</span>
+    </div>
+    <div>
+      <strong>Charakter:</strong> <span style="border-bottom:2px dotted var(--brown); display:inline-block; width:120px;">&nbsp;</span>
+    </div>
+    <div style="grid-column:span 2;">
+      <strong>Besondere Fähigkeit:</strong> <span style="border-bottom:2px dotted var(--brown); display:inline-block; width:300px;">&nbsp;</span>
+    </div>
+  </div>
+
+  <hr style="border:none; border-top:3px solid var(--gold-light); margin:16px 0;">
+
+  <h3 class="puzzle-title" style="font-size:16pt;">✍️ Schreibe dein eigenes Pferdeabenteuer!</h3>
+  <p class="puzzle-subtitle" style="margin-bottom:6px;">Es ist ein sonniger Morgen auf Hof Sonnenweide. Du gehst in den Stall und plötzlich...</p>
+
+  <div class="writing-lines">
+    <div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="line"></div><div class="line"></div><div class="line"></div>
+    <div class="line"></div><div class="line"></div>
+  </div>
+
+  <span class="page-number">– 10 –</span>
+</div>
+
+<!-- ==================== PAGE 12: ANSWER KEY ==================== -->
+<div class="page">
+  <div class="page-header">
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+    <h2>Rätselheft – Hof Sonnenweide</h2>
+    <svg class="horseshoe-icon" viewBox="0 0 50 60"><path d="M25 5 C10 5 0 20 0 35 C0 50 10 60 15 60 L20 45 C15 45 10 38 10 30 C10 18 18 12 25 12 C32 12 40 18 40 30 C40 38 35 45 30 45 L35 60 C40 60 50 50 50 35 C50 20 40 5 25 5Z" fill="var(--gold)"/></svg>
+  </div>
+
+  <h3 class="puzzle-title" style="color:var(--brown);">📋 Lösungen</h3>
+  <p class="puzzle-subtitle">Nicht schummeln! Erst selbst versuchen, dann hier nachschauen.</p>
+
+  <div class="answer-section">
+    <h4>Seite 1 – Suchbild (10 Hufeisen)</h4>
+    <p>Die Hufeisen verstecken sich: 1) im Heuballen, 2) auf dem Dach, 3) im Eimer, 4) hinter der Katze, 5) im Fenster, 6) auf dem Sattel, 7) über Sturmwinds Box, 8) auf dem Boden beim Besen, 9) an der Mistgabel, 10) neben der Lampe.</p>
+  </div>
+
+  <div class="answer-section">
+    <h4>Seite 2 – Unterschiede finden (8 Unterschiede)</h4>
+    <p>1) Ein Sonnenstrahl fehlt &bull; 2) Die Wolke fehlt &bull; 3) Ein Zaunpfahl fehlt &bull; 4) Ein Apfel weniger im Baum &bull; 5) Flecki hat einen zusätzlichen weißen Fleck &bull; 6) Butterblumes Schweif zeigt nach unten statt nach oben &bull; 7) Die rote Blume ist blau &bull; 8) Der Schmetterling fehlt</p>
+  </div>
+
+  <div class="answer-section">
+    <h4>Seite 4 – Pferde-Quiz</h4>
+    <p>1) Mondschimmer &bull; 2) 4 Beine &bull; 3) Heu und Gras &bull; 4) Haflinger &bull; 5) Jemand, der Hufeisen macht und anbringt &bull; 6) Mia &bull; 7) Fohlen &bull; 8) Schwarz &bull; 9) Tante Marie &bull; 10) Durch Körpersprache, Ohren und Geräusche</p>
+  </div>
+
+  <div class="answer-section">
+    <h4>Seite 5 – Spuren-Rätsel</h4>
+    <p>Spur A = Pferd &bull; Spur B = Katze &bull; Spur C = Vogel &bull; Spur D = Reh &bull; Spur E = Hund</p>
+  </div>
+
+  <div class="answer-section">
+    <h4>Seite 6 – Geheimcode</h4>
+    <p>Die geheime Botschaft lautet: <strong>„DAS SILBERNE HUFEISEN LIEGT AUF DER MONDKUPPE"</strong></p>
+  </div>
+
+  <div class="answer-section">
+    <h4>Seite 7 – Pferde-Zuordnung</h4>
+    <p>1 = C (Mondschimmer – silberweiß, geheimnisvoll) &bull; 2 = A (Sturmwind – schwarzer Rappe) &bull; 3 = F (Butterblume – goldener Haflinger) &bull; 4 = B (Flecki – braun-weiß gescheckt) &bull; 5 = G (Kupfer – rotbrauner Fuchs) &bull; 6 = E (Sternchen – dunkelbraun mit Stern) &bull; 7 = D (Nordlicht – grauer Schimmel)</p>
+  </div>
+
+  <div class="answer-section">
+    <h4>Seite 8 – Kreuzworträtsel</h4>
+    <p><strong>Waagerecht:</strong> 1) SATTEL &bull; 3) HEUЕ (richtig: HEUE → korrekter: HEU, da 3 Buchstaben) &bull; 5) FOHLEN &bull; 7) KOPPEL &bull; 9) REITEN &bull; 11) STALL</p>
+    <p><strong>Senkrecht:</strong> 2) TRAB &bull; 4) HUFEISEN &bull; 6) GALOPP &bull; 8) PFERD &bull; 10) MÄHNE</p>
+  </div>
+
+  <div class="answer-section">
+    <h4>Seite 9 – Wörtersuchrätsel</h4>
+    <p>Alle 11 Wörter: MONDSCHIMMER (Zeile 1, →), STURMWIND (Zeile 3, →), BUTTERBLUME (Zeile 14, →), KOPPEL (Spalte 10, ↓ ab Zeile 5), SATTEL (Zeile 7, →), HUFEISEN (Zeile 9, →), GALOPP (Zeile 11, →), LENA (Spalte 1, ↓ ab Zeile 2), PFERD (Spalte 7, ↓ ab Zeile 6), STALL (Zeile 13, →), REITPLATZ (Zeile 12, →)</p>
+  </div>
+
+  <div style="text-align:center; margin-top:16px; padding:12px; background:var(--gold-light); border-radius:16px;">
+    <p style="font-family:'Patrick Hand',cursive; font-size:16pt; color:var(--brown);">
+      Super gemacht! Du bist ein echtes Pferdeabenteuer-Genie! 🌟
+    </p>
+    <svg viewBox="0 0 60 60" width="50" height="50" style="margin-top:4px;">
+      <path d="M30 5 C15 5 5 18 5 32 C5 46 15 55 20 55 L24 42 C20 42 15 36 15 28 C15 17 22 12 30 12 C38 12 45 17 45 28 C45 36 40 42 36 42 L40 55 C45 55 55 46 55 32 C55 18 45 5 30 5Z" fill="var(--gold)" stroke="var(--brown)" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <span class="page-number">– Lösungen –</span>
+</div>
+
+</body>
+</html>

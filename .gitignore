@@ -1,0 +1,12 @@
+# Große Original-Bilder (PNGs ~8MB pro Stück)
+bilder/*.png
+
+# Build-Artefakte
+epub/
+pdf/
+einzelseiten/
+*.epub
+
+# System
+Thumbs.db
+.DS_Store

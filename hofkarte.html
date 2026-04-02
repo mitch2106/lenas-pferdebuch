@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Hof Sonnenweide – Übersichtskarte</title>
+<style>
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 297mm;
+    height: 210mm;
+    overflow: hidden;
+    background: #f5e6c8;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  svg {
+    width: 297mm;
+    height: 210mm;
+  }
+  @media print {
+    html, body {
+      width: 297mm;
+      height: 210mm;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+  @font-face {
+    font-family: 'MapFont';
+    src: local('Segoe Print'), local('Comic Sans MS'), local('Caveat'), local('Patrick Hand');
+  }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1190 842" width="1190" height="842">
+<defs>
+  <!-- Parchment texture filter -->
+  <filter id="parchment">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise"/>
+    <feDiffuseLighting in="noise" lighting-color="#f5e6c8" surfaceScale="2" result="light">
+      <feDistantLight azimuth="45" elevation="55"/>
+    </feDiffuseLighting>
+    <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+  </filter>
+
+  <!-- Sketchy line filter -->
+  <filter id="sketch">
+    <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+
+  <!-- Hand-drawn effect -->
+  <filter id="handdrawn">
+    <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+
+  <!-- Soft shadow -->
+  <filter id="shadow">
+    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#5a3e1b" flood-opacity="0.3"/>
+  </filter>
+
+  <!-- Water pattern -->
+  <pattern id="waterPattern" x="0" y="0" width="20" height="10" patternUnits="userSpaceOnUse">
+    <path d="M0,5 Q5,2 10,5 Q15,8 20,5" fill="none" stroke="#7fb3d4" stroke-width="0.8" opacity="0.5"/>
+  </pattern>
+
+  <!-- Grass pattern -->
+  <pattern id="grassPattern" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+    <line x1="3" y1="12" x2="4" y2="7" stroke="#6b8c42" stroke-width="0.6" opacity="0.3"/>
+    <line x1="8" y1="12" x2="9" y2="8" stroke="#7a9c4f" stroke-width="0.6" opacity="0.25"/>
+  </pattern>
+
+  <!-- Tree symbol -->
+  <symbol id="tree" viewBox="0 0 30 40">
+    <ellipse cx="15" cy="12" rx="11" ry="12" fill="#4a7c3a" opacity="0.85"/>
+    <ellipse cx="15" cy="14" rx="9" ry="10" fill="#5a8c48"/>
+    <ellipse cx="13" cy="10" rx="7" ry="8" fill="#6b9c55" opacity="0.7"/>
+    <rect x="13" y="22" width="4" height="10" fill="#6b4c2a" rx="1"/>
+  </symbol>
+
+  <!-- Deciduous tree variant -->
+  <symbol id="tree2" viewBox="0 0 30 40">
+    <circle cx="15" cy="13" r="10" fill="#3d6e30" opacity="0.8"/>
+    <circle cx="11" cy="11" r="7" fill="#4d7e3e" opacity="0.7"/>
+    <circle cx="19" cy="10" r="6" fill="#5a8a4a" opacity="0.6"/>
+    <rect x="13" y="21" width="4" height="11" fill="#5a3e1b" rx="1"/>
+  </symbol>
+
+  <!-- Conifer -->
+  <symbol id="conifer" viewBox="0 0 24 40">
+    <polygon points="12,2 4,18 8,18 2,30 22,30 16,18 20,18" fill="#2d5a25" opacity="0.85"/>
+    <polygon points="12,5 6,18 8,18 4,28 20,28 16,18 18,18" fill="#3a6e32"/>
+    <rect x="10" y="28" width="4" height="8" fill="#5a3e1b" rx="1"/>
+  </symbol>
+
+  <!-- Horse silhouette -->
+  <symbol id="horse" viewBox="0 0 40 30">
+    <path d="M8,22 Q6,18 8,14 Q10,10 14,9 L16,5 L18,4 L17,8 Q20,7 24,8 Q28,9 30,12 Q33,10 35,11 Q34,13 32,14 Q34,16 33,20 Q32,22 30,24 L30,28 L28,28 L28,24 Q26,25 24,24 L24,28 L22,28 L22,24 Q18,25 14,24 L14,28 L12,28 L12,24 Q10,25 10,24 L10,28 L8,28 L8,24 Z" fill="currentColor"/>
+  </symbol>
+
+  <!-- Horseshoe -->
+  <symbol id="horseshoe" viewBox="0 0 30 34">
+    <path d="M6,8 Q6,2 15,2 Q24,2 24,8 L24,22 Q24,24 22,24 Q20,24 20,22 L20,10 Q20,6 15,6 Q10,6 10,10 L10,22 Q10,24 8,24 Q6,24 6,22 Z" fill="none" stroke="#8b6914" stroke-width="2.5"/>
+    <circle cx="8" cy="25" r="2" fill="#8b6914"/>
+    <circle cx="22" cy="25" r="2" fill="#8b6914"/>
+  </symbol>
+
+  <!-- Silver hoofprint -->
+  <symbol id="silverHoof" viewBox="0 0 14 16">
+    <path d="M3,10 Q3,5 7,4 Q11,5 11,10 L11,13 Q11,15 9,15 L9,12 Q9,11 7,11 Q5,11 5,12 L5,15 Q3,15 3,13 Z" fill="#c0c8d4" stroke="#a0a8b4" stroke-width="0.5" opacity="0.8"/>
+  </symbol>
+
+  <!-- Compass rose -->
+  <symbol id="compass" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="#8b6914" stroke-width="1.5"/>
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#8b6914" stroke-width="0.5" stroke-dasharray="3,3"/>
+    <!-- N arrow -->
+    <polygon points="50,10 46,45 50,38 54,45" fill="#8b2020"/>
+    <!-- S arrow -->
+    <polygon points="50,90 46,55 50,62 54,55" fill="#8b6914" opacity="0.5"/>
+    <!-- E arrow -->
+    <polygon points="90,50 55,46 62,50 55,54" fill="#8b6914" opacity="0.5"/>
+    <!-- W arrow -->
+    <polygon points="10,50 45,46 38,50 45,54" fill="#8b6914" opacity="0.5"/>
+    <circle cx="50" cy="50" r="4" fill="#8b6914"/>
+    <circle cx="50" cy="50" r="2" fill="#f5e6c8"/>
+  </symbol>
+
+  <!-- Stepping stone -->
+  <symbol id="steppingStone" viewBox="0 0 12 8">
+    <ellipse cx="6" cy="4" rx="5" ry="3" fill="#9a8a72" stroke="#7a6a52" stroke-width="0.5"/>
+  </symbol>
+
+</defs>
+
+<!-- ============================================ -->
+<!-- BACKGROUND / PARCHMENT                       -->
+<!-- ============================================ -->
+<rect width="1190" height="842" fill="#f5e6c8"/>
+<!-- Parchment texture overlay -->
+<rect width="1190" height="842" filter="url(#parchment)" opacity="0.15"/>
+<!-- Subtle aged edges -->
+<rect width="1190" height="842" fill="none" stroke="#c4a46c" stroke-width="1" rx="5"/>
+
+<!-- ============================================ -->
+<!-- DECORATIVE BORDER                            -->
+<!-- ============================================ -->
+<rect x="18" y="18" width="1154" height="806" fill="none" stroke="#8b6914" stroke-width="2.5" rx="8"/>
+<rect x="24" y="24" width="1142" height="794" fill="none" stroke="#8b6914" stroke-width="0.8" rx="6" stroke-dasharray="8,4"/>
+
+<!-- Corner horseshoes -->
+<use href="#horseshoe" x="28" y="26" width="26" height="30" transform="rotate(-20,41,41)"/>
+<use href="#horseshoe" x="1136" y="26" width="26" height="30" transform="rotate(20,1149,41)"/>
+<use href="#horseshoe" x="28" y="790" width="26" height="30" transform="rotate(-160,41,805)"/>
+<use href="#horseshoe" x="1136" y="790" width="26" height="30" transform="rotate(160,1149,805)"/>
+
+<!-- Small decorative horseshoes along top -->
+<use href="#horseshoe" x="280" y="24" width="16" height="18"/>
+<use href="#horseshoe" x="560" y="24" width="16" height="18"/>
+<use href="#horseshoe" x="860" y="24" width="16" height="18"/>
+
+<!-- ============================================ -->
+<!-- TITLE BANNER                                 -->
+<!-- ============================================ -->
+<g transform="translate(595, 62)">
+  <!-- Banner ribbon -->
+  <path d="M-320,0 L-280,-18 L280,-18 L320,0 L280,18 L-280,18 Z" fill="#c4944a" stroke="#8b6914" stroke-width="1.5"/>
+  <path d="M-320,0 L-280,-18 L280,-18 L320,0" fill="#d4a45a" stroke="none"/>
+  <!-- Banner folds -->
+  <path d="M-340,4 L-320,0 L-320,8 Z" fill="#9a7430"/>
+  <path d="M340,4 L320,0 L320,8 Z" fill="#9a7430"/>
+  <!-- Title text -->
+  <text x="0" y="4" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS','Patrick Hand',cursive" font-size="22" font-weight="bold" fill="#3a2a10" letter-spacing="2">Hof Sonnenweide – Übersichtskarte</text>
+</g>
+<!-- Subtitle -->
+<text x="595" y="98" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS','Patrick Hand',cursive" font-size="11" fill="#6b4c2a" font-style="italic" letter-spacing="1">Aus: Lena und das Geheimnis der silbernen Hufspur</text>
+
+<!-- ============================================ -->
+<!-- TERRAIN: FOREST AREA (right & top-right)     -->
+<!-- ============================================ -->
+<!-- Forest background mass -->
+<path d="M750,140 Q800,130 880,145 Q960,135 1020,150 Q1080,140 1130,160 L1140,500 Q1100,520 1020,510 Q950,530 880,500 Q820,490 760,480 Q730,400 720,300 Z" fill="#3a6430" opacity="0.15"/>
+<path d="M780,150 Q840,140 900,155 Q960,145 1020,160 Q1070,150 1120,170 L1130,490 Q1080,510 1010,500 Q950,520 880,490 Q830,480 780,470 Q750,390 740,290 Z" fill="#4a7a3a" opacity="0.1"/>
+
+<!-- Dense forest trees - Waldrand -->
+<!-- Row 1 - back -->
+<use href="#conifer" x="820" y="130" width="22" height="38"/>
+<use href="#tree2" x="850" y="125" width="28" height="38"/>
+<use href="#conifer" x="885" y="128" width="22" height="38"/>
+<use href="#tree" x="912" y="122" width="28" height="38"/>
+<use href="#conifer" x="945" y="130" width="22" height="38"/>
+<use href="#tree2" x="970" y="125" width="28" height="38"/>
+<use href="#conifer" x="1000" y="128" width="22" height="38"/>
+<use href="#tree" x="1028" y="124" width="28" height="38"/>
+<use href="#conifer" x="1058" y="130" width="22" height="38"/>
+<use href="#tree2" x="1085" y="126" width="28" height="38"/>
+<use href="#conifer" x="1110" y="132" width="22" height="38"/>
+
+<!-- Row 2 -->
+<use href="#tree" x="800" y="155" width="28" height="38"/>
+<use href="#conifer" x="830" y="160" width="22" height="38"/>
+<use href="#tree2" x="860" y="158" width="28" height="38"/>
+<use href="#conifer" x="895" y="162" width="22" height="38"/>
+<use href="#tree" x="920" y="155" width="28" height="38"/>
+<use href="#tree2" x="952" y="160" width="28" height="38"/>
+<use href="#conifer" x="982" y="158" width="22" height="38"/>
+<use href="#tree" x="1010" y="162" width="28" height="38"/>
+<use href="#conifer" x="1042" y="155" width="22" height="38"/>
+<use href="#tree2" x="1068" y="160" width="28" height="38"/>
+<use href="#tree" x="1098" y="158" width="28" height="38"/>
+<use href="#conifer" x="1125" y="162" width="22" height="38"/>
+
+<!-- Row 3 -->
+<use href="#tree2" x="810" y="188" width="28" height="38"/>
+<use href="#conifer" x="845" y="192" width="22" height="38"/>
+<use href="#tree" x="875" y="186" width="28" height="38"/>
+<use href="#tree2" x="910" y="190" width="28" height="38"/>
+<use href="#conifer" x="942" y="195" width="22" height="38"/>
+<use href="#tree" x="968" y="188" width="28" height="38"/>
+<use href="#conifer" x="1000" y="192" width="22" height="38"/>
+<use href="#tree2" x="1030" y="190" width="28" height="38"/>
+<use href="#tree" x="1060" y="195" width="28" height="38"/>
+<use href="#conifer" x="1092" y="188" width="22" height="38"/>
+<use href="#tree2" x="1118" y="192" width="28" height="38"/>
+
+<!-- Additional forest depth on right side -->
+<use href="#conifer" x="1110" y="225" width="22" height="38"/>
+<use href="#tree" x="1090" y="230" width="28" height="38"/>
+<use href="#tree2" x="1115" y="260" width="28" height="38"/>
+<use href="#conifer" x="1095" y="280" width="22" height="38"/>
+<use href="#tree" x="1115" y="310" width="28" height="38"/>
+<use href="#conifer" x="1100" y="340" width="22" height="38"/>
+<use href="#tree2" x="1118" y="370" width="28" height="38"/>
+<use href="#conifer" x="1105" y="400" width="22" height="38"/>
+<use href="#tree" x="1120" y="430" width="28" height="38"/>
+
+<!-- Scattered trees forest edge - transition zone -->
+<use href="#tree" x="780" y="220" width="26" height="36"/>
+<use href="#conifer" x="810" y="235" width="20" height="34"/>
+<use href="#tree2" x="845" y="225" width="26" height="36"/>
+<use href="#conifer" x="880" y="240" width="20" height="34"/>
+<use href="#tree" x="920" y="230" width="26" height="36"/>
+<use href="#tree2" x="960" y="238" width="26" height="36"/>
+<use href="#conifer" x="995" y="228" width="20" height="34"/>
+<use href="#tree" x="1030" y="240" width="26" height="36"/>
+<use href="#conifer" x="1060" y="232" width="20" height="34"/>
+
+<!-- Waldrand label -->
+<text x="970" y="145" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="13" fill="#2d4a1e" font-weight="bold" letter-spacing="4" transform="rotate(-3,970,145)">W a l d r a n d</text>
+
+<!-- ============================================ -->
+<!-- MONDKUPPE (Moon Hill) - top area             -->
+<!-- ============================================ -->
+<g transform="translate(650, 175)">
+  <!-- Hill contour lines -->
+  <ellipse cx="0" cy="0" rx="80" ry="35" fill="#c4b882" opacity="0.25"/>
+  <ellipse cx="0" cy="-2" rx="65" ry="28" fill="none" stroke="#8b7a42" stroke-width="0.8" opacity="0.5" stroke-dasharray="4,3"/>
+  <ellipse cx="0" cy="-5" rx="50" ry="20" fill="none" stroke="#8b7a42" stroke-width="0.8" opacity="0.4" stroke-dasharray="4,3"/>
+  <ellipse cx="0" cy="-8" rx="30" ry="12" fill="none" stroke="#8b7a42" stroke-width="0.8" opacity="0.3" stroke-dasharray="4,3"/>
+  <!-- Hill top marker -->
+  <circle cx="0" cy="-8" r="3" fill="#8b7a42" opacity="0.5"/>
+  <!-- Panorama indicator lines -->
+  <line x1="-15" y1="-18" x2="-25" y2="-28" stroke="#8b7a42" stroke-width="0.6" opacity="0.4"/>
+  <line x1="0" y1="-20" x2="0" y2="-32" stroke="#8b7a42" stroke-width="0.6" opacity="0.4"/>
+  <line x1="15" y1="-18" x2="25" y2="-28" stroke="#8b7a42" stroke-width="0.6" opacity="0.4"/>
+  <!-- Small crescent moon symbol -->
+  <path d="M-5,-38 Q2,-44 8,-38 Q4,-40 -1,-38 Z" fill="#c4a44a" opacity="0.6"/>
+  <text x="0" y="22" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#5a4a2a" font-weight="bold">Mondkuppe</text>
+  <text x="0" y="33" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="8" fill="#7a6a4a" font-style="italic">(höchster Punkt)</text>
+</g>
+
+<!-- ============================================ -->
+<!-- MURMELBACH (Creek) - winding through map     -->
+<!-- ============================================ -->
+<g>
+  <!-- Creek path - wider water area -->
+  <path d="M50,350 Q100,340 160,355 Q220,365 280,350 Q340,335 400,345 Q460,358 520,348 Q560,340 590,345 Q640,355 680,340 Q720,325 760,335 Q800,348 840,340 Q880,330 920,345 Q960,355 1000,340 Q1040,330 1080,345 Q1120,355 1160,342"
+        fill="none" stroke="#6ba3c4" stroke-width="12" stroke-linecap="round" opacity="0.25"/>
+  <!-- Main creek line -->
+  <path d="M50,350 Q100,340 160,355 Q220,365 280,350 Q340,335 400,345 Q460,358 520,348 Q560,340 590,345 Q640,355 680,340 Q720,325 760,335 Q800,348 840,340 Q880,330 920,345 Q960,355 1000,340 Q1040,330 1080,345 Q1120,355 1160,342"
+        fill="none" stroke="#5a93b4" stroke-width="4" stroke-linecap="round"/>
+  <!-- Secondary water lines -->
+  <path d="M60,353 Q120,343 180,358 Q240,368 300,353 Q360,338 420,348 Q480,361 540,351"
+        fill="none" stroke="#7fb3d4" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M600,348 Q660,358 720,343 Q780,328 840,343 Q900,353 960,338 Q1020,333 1080,348"
+        fill="none" stroke="#7fb3d4" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Wavy water detail lines -->
+  <path d="M120,348 Q130,344 140,348" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+  <path d="M250,356 Q260,352 270,356" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+  <path d="M380,342 Q390,338 400,342" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+  <path d="M500,352 Q510,348 520,352" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+  <path d="M650,344 Q660,340 670,344" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+  <path d="M780,338 Q790,334 800,338" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+  <path d="M930,348 Q940,344 950,348" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+  <path d="M1060,342 Q1070,338 1080,342" fill="none" stroke="#8fc3e4" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Stepping stones near farm area -->
+  <use href="#steppingStone" x="428" y="341" width="14" height="10"/>
+  <use href="#steppingStone" x="440" y="347" width="14" height="10"/>
+  <use href="#steppingStone" x="452" y="342" width="14" height="10"/>
+  <use href="#steppingStone" x="464" y="348" width="14" height="10"/>
+
+  <!-- Creek label -->
+  <text x="310" y="378" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#3a6a8a" font-style="italic" transform="rotate(-4,310,378)">Murmelbach</text>
+  <text x="285" y="390" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="8" fill="#5a8aaa" font-style="italic">(mit Trittsteinen)</text>
+</g>
+
+<!-- ============================================ -->
+<!-- DIE ALTE EICHE (Old Oak) - near forest edge  -->
+<!-- ============================================ -->
+<g transform="translate(755, 285)">
+  <!-- Massive trunk -->
+  <path d="M-8,20 Q-12,10 -10,0 Q-8,-5 -6,-8 L6,-8 Q8,-5 10,0 Q12,10 8,20 Z" fill="#5a3e1b" stroke="#3a2810" stroke-width="1"/>
+  <!-- Root system -->
+  <path d="M-8,20 Q-18,22 -22,25" fill="none" stroke="#5a3e1b" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M8,20 Q18,22 22,25" fill="none" stroke="#5a3e1b" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M-4,22 Q-10,26 -14,28" fill="none" stroke="#5a3e1b" stroke-width="2" stroke-linecap="round"/>
+  <path d="M4,22 Q10,26 14,28" fill="none" stroke="#5a3e1b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Massive crown -->
+  <ellipse cx="0" cy="-22" rx="32" ry="24" fill="#3a6e30" opacity="0.85"/>
+  <ellipse cx="-12" cy="-28" rx="20" ry="18" fill="#4a8040" opacity="0.7"/>
+  <ellipse cx="14" cy="-26" rx="18" ry="16" fill="#4d7e3e" opacity="0.65"/>
+  <ellipse cx="0" cy="-35" rx="15" ry="12" fill="#5a9050" opacity="0.6"/>
+  <ellipse cx="-18" cy="-18" rx="14" ry="12" fill="#3d6e30" opacity="0.5"/>
+  <ellipse cx="20" cy="-16" rx="12" ry="10" fill="#3d6e30" opacity="0.5"/>
+  <!-- Branch details -->
+  <line x1="-6" y1="-8" x2="-20" y2="-20" stroke="#4a3018" stroke-width="2" opacity="0.5"/>
+  <line x1="6" y1="-8" x2="18" y2="-18" stroke="#4a3018" stroke-width="2" opacity="0.5"/>
+  <!-- Label -->
+  <text x="0" y="42" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="10" fill="#3a2a10" font-weight="bold">Die Alte Eiche</text>
+</g>
+
+<!-- ============================================ -->
+<!-- ALTER WALDPFAD (Old Forest Path)             -->
+<!-- ============================================ -->
+<!-- Winding path from farm area into forest -->
+<path d="M560,470 Q580,450 600,430 Q620,400 650,380 Q680,360 710,330 Q740,300 770,280 Q800,260 830,250 Q860,245 890,255 Q920,265 940,290 Q950,310 945,330"
+      fill="none" stroke="#8b7a52" stroke-width="5" stroke-linecap="round" stroke-dasharray="12,6" opacity="0.5"/>
+<path d="M560,470 Q580,450 600,430 Q620,400 650,380 Q680,360 710,330 Q740,300 770,280 Q800,260 830,250 Q860,245 890,255 Q920,265 940,290 Q950,310 945,330"
+      fill="none" stroke="#6b5a32" stroke-width="2" stroke-linecap="round" stroke-dasharray="8,5"/>
+
+<!-- Path label -->
+<text x="695" y="378" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="10" fill="#5a4a2a" transform="rotate(-42,695,378)" font-style="italic">Alter Waldpfad</text>
+
+<!-- Trees along the path -->
+<use href="#tree" x="620" y="395" width="22" height="30"/>
+<use href="#conifer" x="655" y="370" width="18" height="30"/>
+<use href="#tree2" x="690" y="345" width="22" height="30"/>
+<use href="#conifer" x="725" y="305" width="18" height="30"/>
+<use href="#tree" x="760" y="278" width="22" height="30"/>
+
+<!-- ============================================ -->
+<!-- VERSTECKTE LICHTUNG (Hidden Clearing)        -->
+<!-- ============================================ -->
+<g transform="translate(940, 360)">
+  <!-- Clearing area -->
+  <ellipse cx="0" cy="0" rx="50" ry="35" fill="#d4c882" opacity="0.3"/>
+  <ellipse cx="0" cy="0" rx="40" ry="28" fill="#e4d892" opacity="0.2"/>
+
+  <!-- Surrounding trees -->
+  <use href="#tree" x="-65" y="-30" width="24" height="32"/>
+  <use href="#conifer" x="-55" y="5" width="20" height="30"/>
+  <use href="#tree2" x="35" y="-32" width="24" height="32"/>
+  <use href="#conifer" x="42" y="2" width="20" height="30"/>
+  <use href="#tree" x="-30" y="-42" width="24" height="32"/>
+  <use href="#tree2" x="15" y="-44" width="24" height="32"/>
+  <use href="#conifer" x="-45" y="-40" width="20" height="30"/>
+  <use href="#conifer" x="35" y="-40" width="20" height="30"/>
+  <use href="#tree" x="-55" y="20" width="22" height="30"/>
+  <use href="#tree2" x="40" y="18" width="22" height="30"/>
+
+  <!-- Mysterious stone -->
+  <ellipse cx="0" cy="5" rx="10" ry="6" fill="#8a8a8a" stroke="#6a6a6a" stroke-width="1"/>
+  <ellipse cx="0" cy="0" rx="8" ry="10" fill="#9a9a9a" stroke="#7a7a7a" stroke-width="1"/>
+  <ellipse cx="-2" cy="-3" rx="4" ry="5" fill="#aaaaaa" opacity="0.5"/>
+  <!-- Mysterious glow -->
+  <ellipse cx="0" cy="0" rx="16" ry="14" fill="none" stroke="#c0c8e0" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+  <ellipse cx="0" cy="0" rx="22" ry="18" fill="none" stroke="#c0c8e0" stroke-width="0.5" opacity="0.25" stroke-dasharray="3,3"/>
+
+  <!-- Label -->
+  <text x="0" y="48" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="10" fill="#3a2a10" font-weight="bold">Versteckte Lichtung</text>
+  <text x="0" y="59" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="8" fill="#6a5a3a" font-style="italic">(der geheimnisvolle Stein)</text>
+</g>
+
+<!-- ============================================ -->
+<!-- FARM AREA - Lower left portion of map        -->
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<!-- HOFGEBÄUDE / WOHNHAUS (Farmhouse)            -->
+<!-- ============================================ -->
+<g transform="translate(180, 460)">
+  <!-- House base -->
+  <rect x="-35" y="0" width="70" height="45" fill="#d4a050" stroke="#8b6914" stroke-width="1.5" rx="2"/>
+  <!-- Roof -->
+  <polygon points="-42,-5 0,-28 42,-5" fill="#8b4020" stroke="#6b3018" stroke-width="1.5"/>
+  <polygon points="-42,-5 0,-25 42,-5" fill="#a05030" stroke="none" opacity="0.5"/>
+  <!-- Door -->
+  <rect x="-6" y="18" width="12" height="27" fill="#6b3018" stroke="#4a2010" stroke-width="0.8" rx="1"/>
+  <circle cx="3" cy="32" r="1.2" fill="#c4a44a"/>
+  <!-- Windows -->
+  <rect x="-28" y="8" width="14" height="12" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="1" rx="1"/>
+  <line x1="-21" y1="8" x2="-21" y2="20" stroke="#6b4c2a" stroke-width="0.5"/>
+  <line x1="-28" y1="14" x2="-14" y2="14" stroke="#6b4c2a" stroke-width="0.5"/>
+  <rect x="14" y="8" width="14" height="12" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="1" rx="1"/>
+  <line x1="21" y1="8" x2="21" y2="20" stroke="#6b4c2a" stroke-width="0.5"/>
+  <line x1="14" y1="14" x2="28" y2="14" stroke="#6b4c2a" stroke-width="0.5"/>
+  <!-- Dormer window -->
+  <rect x="-5" y="-15" width="10" height="8" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.8" rx="1"/>
+  <polygon points="-7,-15 0,-22 7,-15" fill="#8b4020" stroke="#6b3018" stroke-width="0.8"/>
+  <!-- Flower boxes -->
+  <rect x="-30" y="20" width="18" height="3" fill="#6b3018" rx="0.5"/>
+  <circle cx="-27" cy="18" r="2.5" fill="#e05060"/>
+  <circle cx="-23" cy="17" r="2.5" fill="#ff7080"/>
+  <circle cx="-19" cy="18" r="2" fill="#e05060"/>
+  <circle cx="-25" cy="19" r="2" fill="#ff9090"/>
+  <rect x="12" y="20" width="18" height="3" fill="#6b3018" rx="0.5"/>
+  <circle cx="15" cy="18" r="2.5" fill="#ff7080"/>
+  <circle cx="19" cy="17" r="2.5" fill="#e05060"/>
+  <circle cx="23" cy="18" r="2" fill="#ff7080"/>
+  <circle cx="21" cy="19" r="2" fill="#ff9090"/>
+  <!-- Chimney -->
+  <rect x="15" y="-24" width="8" height="12" fill="#8b6040" stroke="#6b4020" stroke-width="0.8"/>
+  <!-- Smoke -->
+  <path d="M19,-24 Q22,-30 19,-36 Q16,-40 20,-46" fill="none" stroke="#aaa" stroke-width="1.5" opacity="0.3"/>
+  <!-- Label -->
+  <text x="0" y="60" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="10" fill="#3a2a10" font-weight="bold">Hofgebäude</text>
+  <text x="0" y="71" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="8" fill="#5a4a2a" font-style="italic">(Wohnhaus)</text>
+</g>
+
+<!-- ============================================ -->
+<!-- STALL (Stable) - long building               -->
+<!-- ============================================ -->
+<g transform="translate(380, 480)">
+  <!-- Stable base -->
+  <rect x="-75" y="0" width="150" height="40" fill="#c49040" stroke="#8b6914" stroke-width="1.5" rx="2"/>
+  <!-- Roof -->
+  <polygon points="-82,-5 0,-22 82,-5" fill="#b83020" stroke="#8b2018" stroke-width="1.5"/>
+  <polygon points="-82,-5 0,-19 82,-5" fill="#c84030" stroke="none" opacity="0.4"/>
+  <!-- Horse box doors (7 boxes) -->
+  <rect x="-68" y="8" width="16" height="28" fill="#6b4020" stroke="#4a2810" stroke-width="0.6" rx="1"/>
+  <rect x="-48" y="8" width="16" height="28" fill="#6b4020" stroke="#4a2810" stroke-width="0.6" rx="1"/>
+  <rect x="-28" y="8" width="16" height="28" fill="#6b4020" stroke="#4a2810" stroke-width="0.6" rx="1"/>
+  <rect x="-8" y="8" width="16" height="28" fill="#6b4020" stroke="#4a2810" stroke-width="0.6" rx="1"/>
+  <rect x="12" y="8" width="16" height="28" fill="#6b4020" stroke="#4a2810" stroke-width="0.6" rx="1"/>
+  <rect x="32" y="8" width="16" height="28" fill="#6b4020" stroke="#4a2810" stroke-width="0.6" rx="1"/>
+  <rect x="52" y="8" width="16" height="28" fill="#6b4020" stroke="#4a2810" stroke-width="0.6" rx="1"/>
+  <!-- Door handles -->
+  <circle cx="-55" cy="22" r="1" fill="#c4a44a"/>
+  <circle cx="-35" cy="22" r="1" fill="#c4a44a"/>
+  <circle cx="-15" cy="22" r="1" fill="#c4a44a"/>
+  <circle cx="5" cy="22" r="1" fill="#c4a44a"/>
+  <circle cx="25" cy="22" r="1" fill="#c4a44a"/>
+  <circle cx="45" cy="22" r="1" fill="#c4a44a"/>
+  <circle cx="65" cy="22" r="1" fill="#c4a44a"/>
+  <!-- Top windows -->
+  <rect x="-66" y="2" width="5" height="5" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.5"/>
+  <rect x="-46" y="2" width="5" height="5" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.5"/>
+  <rect x="-26" y="2" width="5" height="5" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.5"/>
+  <rect x="-6" y="2" width="5" height="5" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.5"/>
+  <rect x="14" y="2" width="5" height="5" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.5"/>
+  <rect x="34" y="2" width="5" height="5" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.5"/>
+  <rect x="54" y="2" width="5" height="5" fill="#b8d8f0" stroke="#6b4c2a" stroke-width="0.5"/>
+  <!-- Label -->
+  <text x="0" y="55" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#3a2a10" font-weight="bold">Stall</text>
+  <text x="0" y="66" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="8" fill="#5a4a2a" font-style="italic">(7 Pferdeboxen)</text>
+</g>
+
+<!-- ============================================ -->
+<!-- REITPLATZ (Riding Arena)                     -->
+<!-- ============================================ -->
+<g transform="translate(200, 610)">
+  <!-- Sand area -->
+  <rect x="-80" y="-30" width="160" height="80" fill="#d4bf8a" stroke="#a08a5a" stroke-width="2" rx="3"/>
+  <!-- Inner fence line -->
+  <rect x="-75" y="-25" width="150" height="70" fill="none" stroke="#8b7a42" stroke-width="1" rx="2" stroke-dasharray="8,3"/>
+  <!-- Sand texture -->
+  <circle cx="-40" cy="-10" r="1" fill="#baa872" opacity="0.5"/>
+  <circle cx="20" cy="5" r="1" fill="#baa872" opacity="0.5"/>
+  <circle cx="-20" cy="20" r="1" fill="#baa872" opacity="0.5"/>
+  <circle cx="50" cy="-15" r="1" fill="#baa872" opacity="0.5"/>
+  <circle cx="-55" cy="30" r="1" fill="#baa872" opacity="0.5"/>
+  <circle cx="35" cy="25" r="1" fill="#baa872" opacity="0.5"/>
+  <!-- Fence posts -->
+  <rect x="-80" y="-30" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="-40" y="-30" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="0" y="-30" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="40" y="-30" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="77" y="-30" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="-80" y="44" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="-40" y="44" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="0" y="44" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="40" y="44" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <rect x="77" y="44" width="3" height="6" fill="#8b6914" rx="0.5"/>
+  <!-- Arena letters (dressage-style) -->
+  <text x="-72" y="12" font-family="serif" font-size="8" fill="#8b7a42" opacity="0.6">A</text>
+  <text x="72" y="12" font-family="serif" font-size="8" fill="#8b7a42" opacity="0.6">C</text>
+  <!-- Label -->
+  <text x="0" y="68" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#3a2a10" font-weight="bold">Reitplatz</text>
+</g>
+
+<!-- ============================================ -->
+<!-- GROßE KOPPEL (Large Paddock)                 -->
+<!-- ============================================ -->
+<g transform="translate(480, 610)">
+  <!-- Paddock grass area -->
+  <path d="M-90,-50 L100,-50 L110,-40 L110,60 L-80,60 L-90,-40 Z" fill="#8baa5a" opacity="0.25"/>
+  <!-- Fence -->
+  <path d="M-90,-50 L100,-50 L110,-40 L110,60 L-80,60 L-90,-40 Z" fill="none" stroke="#8b6914" stroke-width="2"/>
+  <!-- Fence posts -->
+  <rect x="-90" y="-52" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="-40" y="-52" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="10" y="-52" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="60" y="-52" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="100" y="-52" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="108" y="-42" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="108" y="0" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="108" y="40" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="-82" y="58" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="-30" y="58" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="30" y="58" width="3" height="8" fill="#6b4c2a"/>
+  <rect x="80" y="58" width="3" height="8" fill="#6b4c2a"/>
+  <!-- Cross rails on fence -->
+  <line x1="-90" y1="-46" x2="100" y2="-46" stroke="#8b6914" stroke-width="1"/>
+  <line x1="106" y1="-40" x2="106" y2="60" stroke="#8b6914" stroke-width="1"/>
+  <line x1="-80" y1="56" x2="110" y2="56" stroke="#8b6914" stroke-width="1"/>
+  <line x1="-86" y1="-40" x2="-86" y2="60" stroke="#8b6914" stroke-width="1"/>
+
+  <!-- Grass tufts -->
+  <path d="M-50,-20 L-48,-28 L-46,-20" fill="none" stroke="#6b9040" stroke-width="0.8" opacity="0.5"/>
+  <path d="M0,20 L2,12 L4,20" fill="none" stroke="#6b9040" stroke-width="0.8" opacity="0.5"/>
+  <path d="M60,-10 L62,-18 L64,-10" fill="none" stroke="#6b9040" stroke-width="0.8" opacity="0.5"/>
+  <path d="M-30,35 L-28,27 L-26,35" fill="none" stroke="#6b9040" stroke-width="0.8" opacity="0.5"/>
+  <path d="M40,40 L42,32 L44,40" fill="none" stroke="#6b9040" stroke-width="0.8" opacity="0.5"/>
+  <path d="M80,25 L82,17 L84,25" fill="none" stroke="#6b9040" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Horses grazing -->
+  <g color="#5a3e20">
+    <use href="#horse" x="-60" y="-30" width="35" height="26"/>
+  </g>
+  <g color="#8b6040">
+    <use href="#horse" x="10" y="-20" width="35" height="26" transform="scale(-1,1) translate(-55,0)"/>
+  </g>
+  <g color="#3a2a15">
+    <use href="#horse" x="50" y="15" width="35" height="26"/>
+  </g>
+  <g color="#c4a060">
+    <use href="#horse" x="-30" y="20" width="30" height="22"/>
+  </g>
+
+  <!-- Label -->
+  <text x="10" y="80" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#3a2a10" font-weight="bold">Große Koppel</text>
+</g>
+
+<!-- ============================================ -->
+<!-- ALTE SCHEUNE (Old Barn) - mysterious          -->
+<!-- ============================================ -->
+<g transform="translate(630, 490)">
+  <!-- Barn base -->
+  <rect x="-30" y="0" width="60" height="38" fill="#9a8060" stroke="#6b5a3a" stroke-width="1.5" rx="1"/>
+  <!-- Slightly crooked roof -->
+  <polygon points="-36,-4 0,-24 36,-2" fill="#6b5a42" stroke="#4a3a22" stroke-width="1.5"/>
+  <!-- Wood plank lines -->
+  <line x1="-15" y1="0" x2="-15" y2="38" stroke="#7a6a4a" stroke-width="0.5" opacity="0.5"/>
+  <line x1="0" y1="0" x2="0" y2="38" stroke="#7a6a4a" stroke-width="0.5" opacity="0.5"/>
+  <line x1="15" y1="0" x2="15" y2="38" stroke="#7a6a4a" stroke-width="0.5" opacity="0.5"/>
+  <!-- Large barn door (slightly open) -->
+  <rect x="-12" y="10" width="24" height="28" fill="#5a4a30" stroke="#3a2a18" stroke-width="0.8"/>
+  <line x1="0" y1="10" x2="0" y2="38" stroke="#3a2a18" stroke-width="0.8"/>
+  <rect x="1" y="10" width="11" height="28" fill="#4a3a25" opacity="0.4"/>
+  <!-- Door hinges -->
+  <rect x="-12" y="16" width="4" height="2" fill="#4a3a20" rx="0.5"/>
+  <rect x="-12" y="28" width="4" height="2" fill="#4a3a20" rx="0.5"/>
+  <!-- Ivy on walls -->
+  <path d="M28,38 Q30,30 27,22 Q25,15 28,8 Q30,2 26,-2" fill="none" stroke="#4a7a30" stroke-width="3" opacity="0.6"/>
+  <circle cx="28" cy="28" r="3" fill="#4a8a35" opacity="0.5"/>
+  <circle cx="26" cy="18" r="3.5" fill="#3a7a28" opacity="0.5"/>
+  <circle cx="28" cy="8" r="3" fill="#4a8a35" opacity="0.5"/>
+  <circle cx="27" cy="0" r="2.5" fill="#3a7a28" opacity="0.5"/>
+  <path d="M-28,38 Q-30,32 -27,26 Q-26,20 -28,14" fill="none" stroke="#4a7a30" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="-28" cy="30" r="2.5" fill="#4a8a35" opacity="0.45"/>
+  <circle cx="-27" cy="22" r="3" fill="#3a7a28" opacity="0.45"/>
+  <circle cx="-28" cy="15" r="2" fill="#4a8a35" opacity="0.4"/>
+  <!-- Cobweb in corner -->
+  <path d="M-30,0 Q-22,-1 -20,6" fill="none" stroke="#aaa" stroke-width="0.3" opacity="0.4"/>
+  <path d="M-30,0 Q-24,4 -20,6" fill="none" stroke="#aaa" stroke-width="0.3" opacity="0.4"/>
+  <!-- Mystery glow from inside -->
+  <ellipse cx="0" cy="30" rx="8" ry="4" fill="#f0e8c0" opacity="0.2"/>
+  <!-- Label -->
+  <text x="0" y="52" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="10" fill="#3a2a10" font-weight="bold">Alte Scheune</text>
+  <text x="0" y="63" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="8" fill="#6a5a3a" font-style="italic">(geheimnisvoll...)</text>
+</g>
+
+<!-- ============================================ -->
+<!-- LENA'S ADVENTURE PATH (dotted trail)         -->
+<!-- ============================================ -->
+<path d="M380,500 Q400,490 420,478 Q450,460 480,455 Q520,450 555,460 Q575,465 560,470 Q580,450 600,430 Q620,400 650,380 Q680,360 710,330 Q740,300 770,280 Q800,260 830,250 Q860,245 890,255 Q920,265 940,290 Q950,310 945,345"
+      fill="none" stroke="#c84040" stroke-width="2" stroke-linecap="round" stroke-dasharray="5,5" opacity="0.7"/>
+<!-- Arrow at end -->
+<polygon points="945,345 940,335 950,335" fill="#c84040" opacity="0.7"/>
+<!-- Path label -->
+<text x="475" y="442" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#c84040" font-style="italic" transform="rotate(-12,475,442)">Lenas Abenteuer-Weg</text>
+
+<!-- ============================================ -->
+<!-- SILVER HOOFPRINT TRAIL                       -->
+<!-- ============================================ -->
+<g opacity="0.7">
+  <!-- From stable area toward forest -->
+  <use href="#silverHoof" x="450" y="470" width="10" height="12" transform="rotate(-20,455,476)"/>
+  <use href="#silverHoof" x="470" y="458" width="10" height="12" transform="rotate(-25,475,464)"/>
+  <use href="#silverHoof" x="492" y="448" width="10" height="12" transform="rotate(-15,497,454)"/>
+  <use href="#silverHoof" x="516" y="442" width="10" height="12" transform="rotate(-10,521,448)"/>
+  <use href="#silverHoof" x="540" y="438" width="10" height="12" transform="rotate(-30,545,444)"/>
+  <use href="#silverHoof" x="558" y="428" width="10" height="12" transform="rotate(-40,563,434)"/>
+  <use href="#silverHoof" x="572" y="412" width="10" height="12" transform="rotate(-45,577,418)"/>
+  <use href="#silverHoof" x="590" y="396" width="10" height="12" transform="rotate(-40,595,402)"/>
+  <use href="#silverHoof" x="612" y="380" width="10" height="12" transform="rotate(-35,617,386)"/>
+  <!-- Sparkle effects on some hoofprints -->
+  <g fill="#e0e8f0" opacity="0.6">
+    <polygon points="472,456 474,452 476,456 472,454 476,454" transform="scale(0.6)"/>
+    <circle cx="500" cy="444" r="1.2" fill="#d0d8e8"/>
+    <polygon points="553,430 555,426 557,430 553,428 557,428" transform="scale(0.8)"/>
+    <circle cx="580" cy="408" r="1" fill="#d0d8e8"/>
+  </g>
+</g>
+
+<!-- ============================================ -->
+<!-- "HIER BEGINNT DAS ABENTEUER!" MARKER         -->
+<!-- ============================================ -->
+<g transform="translate(440, 425)">
+  <!-- Pointer arrow -->
+  <line x1="0" y1="0" x2="20" y2="30" stroke="#b83030" stroke-width="1.5"/>
+  <polygon points="18,25 25,35 15,32" fill="#b83030"/>
+  <!-- Text with banner -->
+  <rect x="-75" y="-22" width="150" height="22" fill="#f5e6c8" stroke="#b83030" stroke-width="1" rx="3" opacity="0.9"/>
+  <text x="0" y="-6" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="10" fill="#b83030" font-weight="bold">✦ Hier beginnt das Abenteuer! ✦</text>
+</g>
+
+<!-- ============================================ -->
+<!-- SCATTERED DECORATION TREES (near farm)       -->
+<!-- ============================================ -->
+<use href="#tree" x="100" y="400" width="24" height="32"/>
+<use href="#tree2" x="280" y="410" width="22" height="30"/>
+<use href="#tree" x="120" y="560" width="24" height="32"/>
+<use href="#tree2" x="340" y="560" width="20" height="28"/>
+<use href="#conifer" x="640" y="570" width="18" height="30"/>
+<use href="#tree" x="670" y="600" width="22" height="30"/>
+
+<!-- Small flower patches near farmhouse -->
+<g opacity="0.7">
+  <circle cx="145" cy="510" r="2" fill="#e06080"/>
+  <circle cx="150" cy="508" r="2" fill="#f080a0"/>
+  <circle cx="148" cy="513" r="1.5" fill="#e06080"/>
+  <circle cx="225" cy="515" r="2" fill="#f0d040"/>
+  <circle cx="230" cy="513" r="2" fill="#f0c030"/>
+  <circle cx="228" cy="518" r="1.5" fill="#f0d040"/>
+</g>
+
+<!-- Farm path (connecting buildings) -->
+<path d="M215,505 Q280,510 305,500 Q350,490 380,498" fill="none" stroke="#b0a070" stroke-width="8" opacity="0.3" stroke-linecap="round"/>
+<path d="M215,505 Q280,510 305,500 Q350,490 380,498" fill="none" stroke="#9a8a60" stroke-width="1.5" opacity="0.3" stroke-dasharray="4,4"/>
+
+<!-- Path from stable to riding arena -->
+<path d="M340,520 Q300,550 260,580" fill="none" stroke="#b0a070" stroke-width="6" opacity="0.25" stroke-linecap="round"/>
+
+<!-- Path from stable to paddock -->
+<path d="M420,530 Q440,550 450,570" fill="none" stroke="#b0a070" stroke-width="6" opacity="0.25" stroke-linecap="round"/>
+
+<!-- Path from stable toward old barn -->
+<path d="M460,510 Q530,500 600,495" fill="none" stroke="#b0a070" stroke-width="5" opacity="0.2" stroke-linecap="round"/>
+
+<!-- ============================================ -->
+<!-- COMPASS ROSE                                 -->
+<!-- ============================================ -->
+<g transform="translate(90, 185)">
+  <use href="#compass" x="-35" y="-35" width="70" height="70"/>
+  <text x="0" y="-32" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="12" font-weight="bold" fill="#8b2020">N</text>
+  <text x="0" y="42" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#6b5a3a">S</text>
+  <text x="40" y="4" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#6b5a3a">O</text>
+  <text x="-40" y="4" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="11" fill="#6b5a3a">W</text>
+</g>
+
+<!-- ============================================ -->
+<!-- LEGENDE (Legend)                              -->
+<!-- ============================================ -->
+<g transform="translate(770, 620)">
+  <rect x="-10" y="-15" width="370" height="190" fill="#f5e6c8" stroke="#8b6914" stroke-width="1.5" rx="5" opacity="0.92"/>
+  <rect x="-5" y="-10" width="360" height="180" fill="none" stroke="#8b6914" stroke-width="0.5" rx="4" stroke-dasharray="4,3"/>
+
+  <text x="175" y="5" text-anchor="middle" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="13" font-weight="bold" fill="#3a2a10" text-decoration="underline">Legende</text>
+
+  <!-- Legend items - Column 1 -->
+  <!-- Dotted trail -->
+  <line x1="10" y1="28" x2="45" y2="28" stroke="#c84040" stroke-width="2" stroke-dasharray="4,4"/>
+  <text x="55" y="32" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Lenas Abenteuer-Weg</text>
+
+  <!-- Silver hoofprints -->
+  <use href="#silverHoof" x="14" y="38" width="10" height="12"/>
+  <use href="#silverHoof" x="28" y="38" width="10" height="12"/>
+  <text x="55" y="50" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Silberne Hufspuren</text>
+
+  <!-- Creek -->
+  <path d="M10,64 Q20,60 30,64 Q40,68 45,64" fill="none" stroke="#5a93b4" stroke-width="2.5"/>
+  <text x="55" y="68" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Murmelbach</text>
+
+  <!-- Forest path -->
+  <line x1="10" y1="82" x2="45" y2="82" stroke="#6b5a32" stroke-width="2" stroke-dasharray="8,5"/>
+  <text x="55" y="86" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Alter Waldpfad</text>
+
+  <!-- Tree -->
+  <use href="#tree" x="16" y="90" width="18" height="24"/>
+  <text x="55" y="105" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Laubbaum</text>
+
+  <!-- Conifer -->
+  <use href="#conifer" x="18" y="112" width="16" height="24"/>
+  <text x="55" y="127" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Nadelbaum</text>
+
+  <!-- Legend items - Column 2 -->
+  <!-- Horse -->
+  <g color="#5a3e20">
+    <use href="#horse" x="195" y="20" width="28" height="20"/>
+  </g>
+  <text x="235" y="36" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Pferd / Pony</text>
+
+  <!-- Stepping stones -->
+  <use href="#steppingStone" x="195" y="46" width="12" height="8"/>
+  <use href="#steppingStone" x="210" y="48" width="12" height="8"/>
+  <text x="235" y="54" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Trittsteine</text>
+
+  <!-- Contour lines -->
+  <ellipse cx="210" cy="72" rx="18" ry="8" fill="none" stroke="#8b7a42" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="235" y="76" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Hügel / Höhenlinien</text>
+
+  <!-- Building -->
+  <rect x="198" y="86" width="20" height="12" fill="#c49040" stroke="#8b6914" stroke-width="0.8"/>
+  <polygon points="196,86 208,78 220,86" fill="#b83020" stroke="#8b2018" stroke-width="0.6"/>
+  <text x="235" y="96" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Gebäude</text>
+
+  <!-- Fence -->
+  <line x1="198" y1="112" x2="224" y2="112" stroke="#8b6914" stroke-width="1.5"/>
+  <rect x="198" y="109" width="2" height="6" fill="#6b4c2a"/>
+  <rect x="210" y="109" width="2" height="6" fill="#6b4c2a"/>
+  <rect x="222" y="109" width="2" height="6" fill="#6b4c2a"/>
+  <text x="235" y="116" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Koppelzaun</text>
+
+  <!-- Mysterious stone -->
+  <ellipse cx="208" cy="134" rx="8" ry="6" fill="#9a9a9a" stroke="#7a7a7a" stroke-width="0.8"/>
+  <text x="235" y="138" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Geheimnisvoller Stein</text>
+
+  <!-- Horseshoe -->
+  <use href="#horseshoe" x="200" y="148" width="16" height="18"/>
+  <text x="235" y="162" font-family="'Segoe Print','Comic Sans MS',cursive" font-size="9" fill="#3a2a10">Hufeisen (Glücksbringer)</text>
+</g>
+
+<!-- ============================================ -->
+<!-- ADDITIONAL ATMOSPHERE: Birds                  -->
+<!-- ============================================ -->
+<g stroke="#5a4a3a" stroke-width="0.8" fill="none" opacity="0.3">
+  <path d="M300,160 Q305,155 310,160 Q315,155 320,160"/>
+  <path d="M500,130 Q504,126 508,130 Q512,126 516,130"/>
+  <path d="M200,200 Q204,196 208,200 Q212,196 216,200"/>
+  <path d="M700,145 Q703,141 706,145 Q709,141 712,145"/>
+</g>
+
+<!-- ============================================ -->
+<!-- SMALL DECORATIVE DETAILS                     -->
+<!-- ============================================ -->
+<!-- Hay bales near stable -->
+<g transform="translate(470, 465)">
+  <ellipse cx="0" cy="0" rx="6" ry="4" fill="#c4a450" stroke="#a08830" stroke-width="0.6"/>
+  <ellipse cx="12" cy="1" rx="6" ry="4" fill="#c4a450" stroke="#a08830" stroke-width="0.6"/>
+  <ellipse cx="6" cy="-6" rx="6" ry="4" fill="#d4b460" stroke="#a08830" stroke-width="0.6"/>
+</g>
+
+<!-- Water trough near stable -->
+<g transform="translate(330, 465)">
+  <rect x="-8" y="-3" width="16" height="8" fill="#7a9ab4" stroke="#5a7a94" stroke-width="0.8" rx="1"/>
+  <rect x="-6" y="-1" width="12" height="4" fill="#8abadc" opacity="0.5" rx="0.5"/>
+</g>
+
+<!-- Cat on the farmhouse roof -->
+<g transform="translate(195, 434)">
+  <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="#4a3a2a"/>
+  <circle cx="-3" cy="-2" r="2" fill="#4a3a2a"/>
+  <path d="M-5,-3 L-4,-6 L-3,-3" fill="#4a3a2a"/>
+  <path d="M-1,-3 L-2,-6 L-3,-3" fill="#4a3a2a"/>
+  <path d="M4,0 Q8,-2 10,1" fill="none" stroke="#4a3a2a" stroke-width="1" stroke-linecap="round"/>
+</g>
+
+<!-- Weathervane on stable -->
+<g transform="translate(380, 455)">
+  <line x1="0" y1="0" x2="0" y2="-12" stroke="#5a4a3a" stroke-width="1"/>
+  <polygon points="0,-12 12,-14 0,-16" fill="#8b6914" opacity="0.7"/>
+  <line x1="-6" y1="-8" x2="6" y2="-8" stroke="#5a4a3a" stroke-width="0.6"/>
+  <text x="-8" y="-6" font-size="4" fill="#5a4a3a" font-family="serif">W</text>
+  <text x="7" y="-6" font-size="4" fill="#5a4a3a" font-family="serif">O</text>
+</g>
+
+<!-- ============================================ -->
+<!-- FINAL: Page edge aging effect                -->
+<!-- ============================================ -->
+<rect x="0" y="0" width="1190" height="842" fill="none" stroke="#a08050" stroke-width="4" opacity="0.15" rx="2"/>
+<!-- Corner darkening for aged look -->
+<radialGradient id="cornerTL" cx="0" cy="0" r="1">
+  <stop offset="0%" stop-color="#5a3a10" stop-opacity="0.12"/>
+  <stop offset="100%" stop-color="#5a3a10" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="cornerBR" cx="1" cy="1" r="1">
+  <stop offset="0%" stop-color="#5a3a10" stop-opacity="0.12"/>
+  <stop offset="100%" stop-color="#5a3a10" stop-opacity="0"/>
+</radialGradient>
+<rect x="0" y="0" width="300" height="250" fill="url(#cornerTL)"/>
+<rect x="890" y="592" width="300" height="250" fill="url(#cornerBR)"/>
+
+</svg>
+</body>
+</html>

@@ -1,0 +1,2647 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lena und das Geheimnis der silbernen Hufspur - Band 1 der Sonnenweide-Abenteuer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+  :root {
+    --bg-cream: #FFF8F0;
+    --bg-page: #FFFDF8;
+    --text-brown: #3E2723;
+    --text-light: #5D4037;
+    --gold: #B8860B;
+    --gold-light: #DAA520;
+    --green: #2E7D32;
+    --green-light: #4CAF50;
+    --silver: #A8B5C0;
+    --sky: #87CEEB;
+    --sunset: #E8734A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: A4 portrait;
+    margin: 20mm 18mm 25mm 22mm;
+  }
+
+  body {
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-size: 14.5pt;
+    line-height: 1.7;
+    color: var(--text-brown);
+    background: var(--bg-cream);
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 20mm 18mm 25mm 22mm;
+    background: var(--bg-page);
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* ---- TITLE PAGE ---- */
+  .title-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 257mm;
+  }
+
+  .title-page h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32pt;
+    font-weight: 900;
+    color: var(--text-brown);
+    line-height: 1.25;
+    margin-bottom: 12pt;
+    letter-spacing: 0.5px;
+  }
+
+  .title-page .subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16pt;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 30pt;
+  }
+
+  .title-page .ornament {
+    margin: 20pt 0;
+  }
+
+  /* ---- DEDICATION ---- */
+  .dedication-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 257mm;
+  }
+
+  .dedication-page p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18pt;
+    font-style: italic;
+    color: var(--text-light);
+    max-width: 300pt;
+    line-height: 1.6;
+  }
+
+  /* ---- TABLE OF CONTENTS ---- */
+  .toc-page {
+    padding-top: 50pt;
+  }
+
+  .toc-page h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: var(--text-brown);
+    text-align: center;
+    margin-bottom: 30pt;
+  }
+
+  .toc-list {
+    list-style: none;
+    max-width: 400pt;
+    margin: 0 auto;
+  }
+
+  .toc-list li {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13pt;
+    color: var(--text-brown);
+    padding: 6pt 0;
+    border-bottom: 1px dotted var(--gold-light);
+    display: flex;
+    align-items: baseline;
+  }
+
+  .toc-list li .toc-num {
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 30pt;
+  }
+
+  .toc-list li .toc-title {
+    flex: 1;
+  }
+
+  /* ---- CHAPTER STYLES ---- */
+  .chapter {
+    page-break-before: always;
+  }
+
+  .chapter-header {
+    text-align: center;
+    padding-top: 10pt;
+    margin-bottom: 10pt;
+  }
+
+  .chapter-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 60pt;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4pt;
+    opacity: 0.7;
+  }
+
+  .chapter-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--text-brown);
+    line-height: 1.3;
+    margin-bottom: 8pt;
+  }
+
+  .chapter-rule {
+    width: 80pt;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 10pt auto 20pt;
+    border: none;
+  }
+
+  /* ---- BODY TEXT ---- */
+  .chapter-body p {
+    text-indent: 20pt;
+    margin-bottom: 4pt;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .chapter-body p:first-child,
+  .chapter-body .after-separator,
+  .chapter-body .after-illustration {
+    text-indent: 0;
+  }
+
+  .chapter-body p:first-child::first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 42pt;
+    float: left;
+    line-height: 0.85;
+    padding-right: 6pt;
+    padding-top: 4pt;
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  .chapter-body em {
+    font-style: italic;
+  }
+
+  /* ---- SEPARATORS ---- */
+  .scene-separator {
+    text-align: center;
+    margin: 16pt 0;
+    color: var(--gold);
+    font-size: 14pt;
+    letter-spacing: 8pt;
+  }
+
+  /* ---- ILLUSTRATIONS ---- */
+  .chapter-illustration {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .chapter-illustration img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .inline-illustration {
+    text-align: center;
+    margin: 12pt 0;
+  }
+
+  .inline-illustration svg {
+    max-width: 100%;
+  }
+
+  /* ---- PAGE HEADER (decorative) ---- */
+  .page-header {
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 8pt;
+    color: var(--gold-light);
+    letter-spacing: 2pt;
+    margin-bottom: 12pt;
+    padding-bottom: 6pt;
+    border-bottom: 0.5pt solid #E8DCCC;
+    text-transform: uppercase;
+  }
+
+  /* ---- TEASER ---- */
+  .teaser-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 257mm;
+  }
+
+  .teaser-page .teaser-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 16pt;
+  }
+
+  .teaser-page h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26pt;
+    font-weight: 900;
+    color: var(--text-brown);
+    line-height: 1.3;
+    margin-bottom: 8pt;
+    max-width: 380pt;
+  }
+
+  .teaser-page .teaser-band {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14pt;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 30pt;
+  }
+
+  .teaser-page .teaser-text {
+    font-size: 13pt;
+    line-height: 1.7;
+    color: var(--text-light);
+    max-width: 360pt;
+    margin-bottom: 30pt;
+    text-align: justify;
+  }
+
+  .teaser-page .teaser-soon {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3pt;
+  }
+
+  /* ---- COLOPHON ---- */
+  .colophon-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    min-height: 257mm;
+    padding-bottom: 40pt;
+  }
+
+  .colophon-page p {
+    font-size: 9pt;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 300pt;
+  }
+
+  .colophon-page .colophon-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--text-brown);
+    margin-bottom: 12pt;
+  }
+
+  /* ---- VERSE / RIDDLE ---- */
+  .verse {
+    font-style: italic;
+    text-align: center;
+    margin: 14pt 30pt;
+    line-height: 1.8;
+    color: var(--text-light);
+    text-indent: 0 !important;
+  }
+
+  .verse p {
+    text-indent: 0 !important;
+    text-align: center !important;
+  }
+
+  /* ---- PRINT ---- */
+  @media print {
+    body {
+      background: white;
+    }
+
+    .page {
+      width: auto;
+      min-height: auto;
+      margin: 0;
+      padding: 0;
+      background: white;
+      box-shadow: none;
+    }
+
+    .chapter {
+      page-break-before: always;
+    }
+
+    .no-break {
+      page-break-inside: avoid;
+    }
+
+    .page-header {
+      position: running(header);
+    }
+
+    @page {
+      @top-center {
+        content: element(header);
+      }
+      @bottom-center {
+        content: counter(page);
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 10pt;
+        color: #B8860B;
+      }
+    }
+
+    @page:first {
+      @top-center { content: none; }
+      @bottom-center { content: none; }
+    }
+  }
+
+  /* ---- SCREEN DISPLAY ---- */
+  @media screen {
+    body {
+      padding: 20px 0;
+    }
+    .page {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      border-radius: 2px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- TITLE PAGE -->
+<!-- ============================================================ -->
+<div class="page title-page">
+  <svg width="340" height="320" viewBox="0 0 340 320" style="margin-bottom: 20pt;">
+    <defs>
+      <linearGradient id="horseshoe-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#DAA520"/>
+        <stop offset="50%" style="stop-color:#B8860B"/>
+        <stop offset="100%" style="stop-color:#8B6914"/>
+      </linearGradient>
+      <linearGradient id="title-horse-body" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#A0522D"/>
+        <stop offset="50%" style="stop-color:#8B4513"/>
+        <stop offset="100%" style="stop-color:#6B3410"/>
+      </linearGradient>
+      <radialGradient id="title-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#FFF9C4;stop-opacity:0.3"/>
+        <stop offset="100%" style="stop-color:#FFF9C4;stop-opacity:0"/>
+      </radialGradient>
+      <filter id="title-silver-glow">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <!-- Subtle golden glow behind -->
+    <ellipse cx="170" cy="160" rx="150" ry="140" fill="url(#title-glow)"/>
+    <!-- Large ornate horseshoe -->
+    <path d="M170 30 C100 30 50 85 50 155 C50 210 75 250 105 280 L125 280 L108 252 C85 220 72 192 72 155 C72 100 112 55 170 55 C228 55 268 100 268 155 C268 192 255 220 232 252 L215 280 L235 280 C265 250 290 210 290 155 C290 85 240 30 170 30Z" fill="url(#horseshoe-gold)" stroke="#8B6914" stroke-width="2"/>
+    <!-- Horseshoe nail holes -->
+    <circle cx="98" cy="110" r="5" fill="#8B6914" opacity="0.5"/>
+    <circle cx="242" cy="110" r="5" fill="#8B6914" opacity="0.5"/>
+    <circle cx="80" cy="165" r="5" fill="#8B6914" opacity="0.5"/>
+    <circle cx="260" cy="165" r="5" fill="#8B6914" opacity="0.5"/>
+    <circle cx="90" cy="225" r="5" fill="#8B6914" opacity="0.5"/>
+    <circle cx="250" cy="225" r="5" fill="#8B6914" opacity="0.5"/>
+    <!-- Decorative vine on horseshoe -->
+    <path d="M115 100 Q125 85 135 95 Q140 80 150 90" fill="none" stroke="#DAA520" stroke-width="1.5" opacity="0.4"/>
+    <path d="M225 100 Q215 85 205 95 Q200 80 190 90" fill="none" stroke="#DAA520" stroke-width="1.5" opacity="0.4"/>
+    <!-- Realistic brown horse inside horseshoe -->
+    <!-- Body -->
+    <path d="M130 195 Q135 165 155 155 Q175 148 200 150 Q225 153 235 170 Q242 185 238 200 Q232 218 215 225 Q190 232 165 228 Q140 222 130 195Z" fill="url(#title-horse-body)"/>
+    <!-- Neck -->
+    <path d="M155 155 Q148 140 142 120 Q138 105 145 95 Q152 88 162 90 Q168 92 172 100 Q175 110 175 125 Q175 140 172 150" fill="url(#title-horse-body)"/>
+    <!-- Head -->
+    <path d="M145 95 Q140 85 138 75 Q137 65 142 60 Q148 55 155 58 Q162 62 165 72 Q166 80 162 90 Q158 95 152 95Z" fill="#8B4513"/>
+    <!-- Ear -->
+    <path d="M148 60 Q145 48 150 44 Q155 48 153 58" fill="#7B3B12"/>
+    <path d="M155 58 Q157 47 162 44 Q165 49 160 60" fill="#7B3B12"/>
+    <!-- Eye -->
+    <ellipse cx="150" cy="72" rx="4" ry="5" fill="#2C1810"/>
+    <circle cx="149" cy="71" r="1.5" fill="white" opacity="0.6"/>
+    <!-- Nostril -->
+    <ellipse cx="142" cy="87" rx="3" ry="2" fill="#5C2D0A"/>
+    <!-- Mouth line -->
+    <path d="M140 90 Q145 93 152 91" fill="none" stroke="#5C2D0A" stroke-width="1"/>
+    <!-- Dark mane -->
+    <path d="M148 55 Q138 50 135 60 Q130 55 128 65 Q125 60 122 72 Q128 68 132 75 Q136 65 140 70 Q142 60 148 62" fill="#2C1810"/>
+    <path d="M155 95 Q145 100 142 115 Q140 105 138 118 Q135 108 135 125 Q140 120 142 130 Q145 118 150 122 Q148 108 155 110 Q152 100 155 95" fill="#2C1810"/>
+    <!-- Tail -->
+    <path d="M238 195 Q255 190 265 200 Q272 210 268 225 Q262 235 250 238 Q258 228 255 215 Q250 205 240 202" fill="#2C1810"/>
+    <!-- Legs -->
+    <path d="M165 225 Q163 240 162 258 Q161 265 164 268 L170 268 Q170 265 169 258 Q170 240 172 228" fill="#7B3B12"/>
+    <path d="M185 228 Q183 242 182 258 Q181 265 184 268 L190 268 Q190 265 189 258 Q190 242 192 230" fill="#7B3B12"/>
+    <path d="M205 226 Q204 240 203 255 Q202 262 205 265 L211 265 Q211 262 210 255 Q211 240 212 228" fill="#7B3B12"/>
+    <path d="M222 220 Q222 235 221 250 Q220 257 223 260 L229 260 Q229 257 228 250 Q229 235 230 222" fill="#7B3B12"/>
+    <!-- Hooves -->
+    <rect x="160" y="266" width="12" height="6" fill="#1A1A1A" rx="2"/>
+    <rect x="180" y="266" width="12" height="6" fill="#1A1A1A" rx="2"/>
+    <rect x="201" y="263" width="12" height="6" fill="#1A1A1A" rx="2"/>
+    <rect x="219" y="258" width="12" height="6" fill="#1A1A1A" rx="2"/>
+    <!-- Silver hoofprint trail at bottom -->
+    <ellipse cx="100" cy="295" rx="10" ry="6" fill="#C0C0C0" opacity="0.3" filter="url(#title-silver-glow)"/>
+    <ellipse cx="140" cy="300" rx="10" ry="6" fill="#C0C0C0" opacity="0.4" filter="url(#title-silver-glow)"/>
+    <ellipse cx="185" cy="295" rx="10" ry="6" fill="#C0C0C0" opacity="0.5" filter="url(#title-silver-glow)"/>
+    <ellipse cx="230" cy="298" rx="10" ry="6" fill="#C0C0C0" opacity="0.4" filter="url(#title-silver-glow)"/>
+  </svg>
+
+  <h1>Lena und das Geheimnis<br>der silbernen Hufspur</h1>
+  <div class="subtitle">Band 1 der Sonnenweide-Abenteuer</div>
+
+  <svg width="200" height="3" viewBox="0 0 200 3">
+    <line x1="0" y1="1.5" x2="200" y2="1.5" stroke="#B8860B" stroke-width="1" stroke-dasharray="1,4"/>
+  </svg>
+</div>
+
+<!-- ============================================================ -->
+<!-- DEDICATION PAGE -->
+<!-- ============================================================ -->
+<div class="page dedication-page">
+  <svg width="40" height="40" viewBox="0 0 40 40" style="margin-bottom: 30pt; opacity: 0.4;">
+    <path d="M20 2 C9 2 2 12 2 22 C2 32 9 38 20 38 C31 38 38 32 38 22 C38 12 31 2 20 2 Z M20 7 C12 7 7 15 7 22 C7 29 12 34 20 34 C28 34 33 29 33 22 C33 15 28 7 20 7 Z" fill="#B8860B"/>
+  </svg>
+  <p>Fur Lena &ndash; mogen deine<br>Abenteuer niemals enden.</p>
+  <svg width="40" height="6" viewBox="0 0 40 6" style="margin-top: 30pt; opacity: 0.3;">
+    <circle cx="10" cy="3" r="2" fill="#B8860B"/>
+    <circle cx="20" cy="3" r="2" fill="#B8860B"/>
+    <circle cx="30" cy="3" r="2" fill="#B8860B"/>
+  </svg>
+</div>
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ============================================================ -->
+<div class="page toc-page">
+  <svg width="50" height="60" viewBox="0 0 50 60" style="display: block; margin: 0 auto 10pt;">
+    <path d="M25 3 C12 3 3 15 3 30 C3 42 8 52 13 58 L18 58 L14 48 C10 40 8 35 8 30 C8 18 15 8 25 8 C35 8 42 18 42 30 C42 35 40 40 36 48 L32 58 L37 58 C42 52 47 42 47 30 C47 15 38 3 25 3Z" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.5"/>
+  </svg>
+  <h2>Inhalt</h2>
+  <ul class="toc-list">
+    <li><span class="toc-num">1</span><span class="toc-title">Ankunft auf Hof Sonnenweide</span></li>
+    <li><span class="toc-num">2</span><span class="toc-title">Nach dem Regen</span></li>
+    <li><span class="toc-num">3</span><span class="toc-title">Die Spur im Wald</span></li>
+    <li><span class="toc-num">4</span><span class="toc-title">Mondschimmers Geheimnis</span></li>
+    <li><span class="toc-num">5</span><span class="toc-title">Der Fund unter der Eiche</span></li>
+    <li><span class="toc-num">6</span><span class="toc-title">Der Mann mit dem Hut</span></li>
+    <li><span class="toc-num">7</span><span class="toc-title">Ausritt zur Mondkuppe</span></li>
+    <li><span class="toc-num">8</span><span class="toc-title">Augusts Tagebuch</span></li>
+    <li><span class="toc-num">9</span><span class="toc-title">Nacht auf der Mondkuppe</span></li>
+    <li><span class="toc-num">10</span><span class="toc-title">Gegenuber</span></li>
+    <li><span class="toc-num">11</span><span class="toc-title">Das Herz schlagt weiter</span></li>
+    <li><span class="toc-num">12</span><span class="toc-title">Ein neuer Anfang</span></li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 1 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap1">
+  <div class="page-header">&#9785; Hof Sonnenweide &#9785;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">1</span>
+    <div class="chapter-title">Ankunft auf Hof Sonnenweide</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap01_ankunft.jpg" alt="Ankunft auf Hof Sonnenweide">
+<!-- SVG_REMOVE_CH1 -->
+          <stop offset="60%" style="stop-color:#B5E3F5"/>
+          <stop offset="100%" style="stop-color:#D4EDDA"/>
+        </linearGradient>
+        <linearGradient id="grass1" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#5DAE4E"/>
+          <stop offset="100%" style="stop-color:#2E7D32"/>
+        </linearGradient>
+        <linearGradient id="gold-horse" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#DAA520"/>
+          <stop offset="100%" style="stop-color:#B8860B"/>
+        </linearGradient>
+        <linearGradient id="barn-wood" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#8D6E63"/>
+          <stop offset="50%" style="stop-color:#7B5B50"/>
+          <stop offset="100%" style="stop-color:#8D6E63"/>
+        </linearGradient>
+        <linearGradient id="barn-roof" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#B71C1C"/>
+          <stop offset="100%" style="stop-color:#8B1515"/>
+        </linearGradient>
+      </defs>
+      <!-- Sky -->
+      <rect width="700" height="300" fill="url(#sky1)"/>
+      <!-- Distant hills with depth -->
+      <ellipse cx="150" cy="300" rx="350" ry="160" fill="#A8D5A0" opacity="0.35"/>
+      <ellipse cx="500" cy="300" rx="300" ry="130" fill="#8BC98A" opacity="0.4"/>
+      <ellipse cx="350" cy="300" rx="400" ry="110" fill="#6BBF6A" opacity="0.45"/>
+      <!-- Ground -->
+      <rect x="0" y="215" width="700" height="85" fill="url(#grass1)"/>
+      <!-- Grass blade suggestions -->
+      <line x1="50" y1="218" x2="53" y2="210" stroke="#4CAF50" stroke-width="1.5" opacity="0.4"/>
+      <line x1="55" y1="218" x2="52" y2="211" stroke="#388E3C" stroke-width="1" opacity="0.3"/>
+      <line x1="150" y1="220" x2="153" y2="212" stroke="#4CAF50" stroke-width="1.5" opacity="0.4"/>
+      <line x1="350" y1="219" x2="347" y2="211" stroke="#388E3C" stroke-width="1" opacity="0.3"/>
+      <line x1="500" y1="220" x2="503" y2="213" stroke="#4CAF50" stroke-width="1" opacity="0.4"/>
+      <line x1="620" y1="218" x2="617" y2="210" stroke="#388E3C" stroke-width="1.5" opacity="0.3"/>
+
+      <!-- Detailed trees left side - layered foliage -->
+      <!-- Tree 1 -->
+      <rect x="18" y="175" width="10" height="45" fill="#5D4037"/>
+      <path d="M23 110 Q-5 130 5 165 Q10 180 23 185 Q25 175 30 170 Q42 180 48 165 Q55 140 40 120 Q30 105 23 110Z" fill="#1B5E20"/>
+      <path d="M23 120 Q5 135 10 158 Q18 170 23 172 Q28 168 35 162 Q45 140 35 125 Q28 115 23 120Z" fill="#2E7D32"/>
+      <path d="M18 140 Q12 150 15 160 Q20 165 25 162 Q30 155 28 145 Q25 138 18 140Z" fill="#388E3C"/>
+      <!-- Tree 2 -->
+      <rect x="55" y="165" width="12" height="55" fill="#4E342E"/>
+      <path d="M61 90 Q25 115 30 155 Q38 175 61 180 Q65 172 72 168 Q90 175 95 155 Q100 125 80 105 Q68 88 61 90Z" fill="#1B5E20"/>
+      <path d="M61 100 Q35 120 40 150 Q48 168 61 170 Q70 165 78 158 Q88 138 75 115 Q65 98 61 100Z" fill="#2E7D32"/>
+      <path d="M50 130 Q42 142 48 155 Q55 162 62 158 Q68 148 64 135 Q58 128 50 130Z" fill="#388E3C"/>
+      <path d="M70 125 Q65 135 68 148 Q74 155 80 150 Q82 140 78 130 Q74 123 70 125Z" fill="#43A047"/>
+
+      <!-- Barn/Stable - detailed with wood planks -->
+      <rect x="270" y="130" width="160" height="90" fill="url(#barn-wood)" stroke="#5D4037" stroke-width="2"/>
+      <!-- Wood plank lines -->
+      <line x1="270" y1="145" x2="430" y2="145" stroke="#6D4C41" stroke-width="0.5" opacity="0.5"/>
+      <line x1="270" y1="160" x2="430" y2="160" stroke="#6D4C41" stroke-width="0.5" opacity="0.5"/>
+      <line x1="270" y1="175" x2="430" y2="175" stroke="#6D4C41" stroke-width="0.5" opacity="0.5"/>
+      <line x1="270" y1="190" x2="430" y2="190" stroke="#6D4C41" stroke-width="0.5" opacity="0.5"/>
+      <line x1="270" y1="205" x2="430" y2="205" stroke="#6D4C41" stroke-width="0.5" opacity="0.5"/>
+      <!-- Vertical plank separators -->
+      <line x1="310" y1="130" x2="310" y2="220" stroke="#6D4C41" stroke-width="0.5" opacity="0.4"/>
+      <line x1="390" y1="130" x2="390" y2="220" stroke="#6D4C41" stroke-width="0.5" opacity="0.4"/>
+      <!-- Roof -->
+      <polygon points="262,130 350,72 438,130" fill="url(#barn-roof)" stroke="#8B1515" stroke-width="2"/>
+      <line x1="350" y1="72" x2="350" y2="130" stroke="#9B2020" stroke-width="1" opacity="0.4"/>
+      <!-- Weather vane on top -->
+      <line x1="350" y1="72" x2="350" y2="55" stroke="#616161" stroke-width="2"/>
+      <path d="M345 58 L355 62 L345 66" fill="#616161"/>
+      <line x1="346" y1="55" x2="354" y2="55" stroke="#616161" stroke-width="1.5"/>
+      <!-- Barn door - arched top -->
+      <rect x="328" y="170" width="44" height="50" fill="#4E342E" rx="2"/>
+      <path d="M328 170 Q350 155 372 170" fill="#4E342E"/>
+      <line x1="350" y1="155" x2="350" y2="220" stroke="#3E2723" stroke-width="2"/>
+      <circle cx="342" cy="195" r="2.5" fill="#B8860B"/>
+      <circle cx="358" cy="195" r="2.5" fill="#B8860B"/>
+      <!-- Windows with frames and flower boxes -->
+      <rect x="282" y="150" width="26" height="20" fill="#FFF8E1" stroke="#5D4037" stroke-width="1.5" rx="1"/>
+      <line x1="295" y1="150" x2="295" y2="170" stroke="#5D4037" stroke-width="1"/>
+      <line x1="282" y1="160" x2="308" y2="160" stroke="#5D4037" stroke-width="1"/>
+      <rect x="282" y="170" width="26" height="5" fill="#6D4C41"/>
+      <circle cx="288" cy="169" r="2" fill="#E91E63" opacity="0.6"/>
+      <circle cx="295" cy="168" r="2.5" fill="#FF5722" opacity="0.6"/>
+      <circle cx="302" cy="169" r="2" fill="#E91E63" opacity="0.6"/>
+      <rect x="392" y="150" width="26" height="20" fill="#FFF8E1" stroke="#5D4037" stroke-width="1.5" rx="1"/>
+      <line x1="405" y1="150" x2="405" y2="170" stroke="#5D4037" stroke-width="1"/>
+      <line x1="392" y1="160" x2="418" y2="160" stroke="#5D4037" stroke-width="1"/>
+      <rect x="392" y="170" width="26" height="5" fill="#6D4C41"/>
+      <circle cx="398" cy="169" r="2" fill="#E91E63" opacity="0.6"/>
+      <circle cx="405" cy="168" r="2.5" fill="#FF5722" opacity="0.6"/>
+      <circle cx="412" cy="169" r="2" fill="#E91E63" opacity="0.6"/>
+
+      <!-- Fence with proper posts and rails -->
+      <line x1="80" y1="226" x2="255" y2="226" stroke="#A1887F" stroke-width="3"/>
+      <line x1="80" y1="236" x2="255" y2="236" stroke="#A1887F" stroke-width="3"/>
+      <rect x="78" y="220" width="6" height="42" fill="#8D6E63" rx="1"/>
+      <rect x="118" y="220" width="6" height="42" fill="#8D6E63" rx="1"/>
+      <rect x="158" y="220" width="6" height="42" fill="#8D6E63" rx="1"/>
+      <rect x="198" y="220" width="6" height="42" fill="#8D6E63" rx="1"/>
+      <rect x="238" y="220" width="6" height="42" fill="#8D6E63" rx="1"/>
+      <!-- Post caps -->
+      <rect x="76" y="218" width="10" height="4" fill="#6D4C41" rx="1"/>
+      <rect x="116" y="218" width="10" height="4" fill="#6D4C41" rx="1"/>
+      <rect x="156" y="218" width="10" height="4" fill="#6D4C41" rx="1"/>
+      <rect x="196" y="218" width="10" height="4" fill="#6D4C41" rx="1"/>
+      <rect x="236" y="218" width="10" height="4" fill="#6D4C41" rx="1"/>
+
+      <!-- Gate with arch -->
+      <rect x="448" y="185" width="10" height="75" fill="#6D4C41" rx="2"/>
+      <rect x="538" y="185" width="10" height="75" fill="#6D4C41" rx="2"/>
+      <rect x="446" y="183" width="14" height="5" fill="#5D4037" rx="1"/>
+      <rect x="536" y="183" width="14" height="5" fill="#5D4037" rx="1"/>
+      <path d="M458 195 Q498 178 538 195" fill="none" stroke="#6D4C41" stroke-width="4"/>
+      <line x1="458" y1="220" x2="538" y2="220" stroke="#6D4C41" stroke-width="3"/>
+      <line x1="458" y1="240" x2="538" y2="240" stroke="#6D4C41" stroke-width="3"/>
+      <!-- Gate cross bars -->
+      <line x1="458" y1="195" x2="498" y2="240" stroke="#6D4C41" stroke-width="2" opacity="0.6"/>
+      <line x1="538" y1="195" x2="498" y2="240" stroke="#6D4C41" stroke-width="2" opacity="0.6"/>
+
+      <!-- Realistic Haflinger horse at fence -->
+      <!-- Body -->
+      <path d="M155 200 Q160 185 175 180 Q195 176 210 180 Q222 185 225 195 Q226 208 218 215 Q200 222 180 220 Q160 216 155 200Z" fill="url(#gold-horse)"/>
+      <!-- Neck -->
+      <path d="M160 185 Q155 172 150 158 Q148 148 155 142 Q162 138 168 145 Q172 152 170 165 Q168 178 165 185" fill="#C9950B"/>
+      <!-- Head -->
+      <path d="M155 142 Q150 132 148 122 Q147 114 152 110 Q158 106 164 112 Q168 118 167 128 Q165 138 160 142Z" fill="#C9950B"/>
+      <!-- Ear -->
+      <path d="M155 112 Q153 102 157 98 Q160 102 158 110" fill="#B8860B"/>
+      <path d="M162 110 Q163 100 167 98 Q169 103 165 112" fill="#B8860B"/>
+      <!-- Eye -->
+      <ellipse cx="154" cy="120" rx="3" ry="3.5" fill="#3E2723"/>
+      <circle cx="153" cy="119" r="1" fill="white" opacity="0.5"/>
+      <!-- Nostril and mouth -->
+      <ellipse cx="150" cy="135" rx="2.5" ry="2" fill="#8B6914"/>
+      <path d="M148 137 Q153 140 160 138" fill="none" stroke="#8B6914" stroke-width="0.8"/>
+      <!-- White/cream mane -->
+      <path d="M156 100 Q148 95 145 105 Q140 100 138 112 Q142 108 145 115 Q148 105 155 108" fill="#FFF8E1"/>
+      <path d="M158 140 Q148 145 146 160 Q144 150 142 165 Q148 158 150 168 Q152 155 158 158 Q156 148 158 140" fill="#FFF8E1"/>
+      <!-- Legs -->
+      <path d="M178 218 L176 248 L182 248 L183 218" fill="#B8860B"/>
+      <path d="M205 218 L203 248 L209 248 L210 218" fill="#B8860B"/>
+      <rect x="174" y="246" width="10" height="5" fill="#8B6914" rx="1"/>
+      <rect x="201" y="246" width="10" height="5" fill="#8B6914" rx="1"/>
+
+      <!-- Lena - modern dressed 7-8 year old -->
+      <!-- Body -->
+      <circle cx="490" cy="188" r="13" fill="#FFCCBC"/>
+      <!-- Long flowing hair -->
+      <path d="M479 180 Q475 175 478 168 Q483 162 490 160 Q497 162 502 168 Q505 175 501 180" fill="#6D4C41"/>
+      <path d="M479 180 Q475 185 473 198 Q475 205 478 195" fill="#6D4C41"/>
+      <path d="M501 180 Q505 188 507 198 Q505 205 502 195" fill="#6D4C41"/>
+      <!-- Eyes -->
+      <ellipse cx="486" cy="186" rx="2" ry="2.5" fill="#3E2723"/>
+      <ellipse cx="494" cy="186" rx="2" ry="2.5" fill="#3E2723"/>
+      <circle cx="485.5" cy="185.5" r="0.8" fill="white" opacity="0.6"/>
+      <circle cx="493.5" cy="185.5" r="0.8" fill="white" opacity="0.6"/>
+      <!-- Smile -->
+      <path d="M486 192 Q490 196 494 192" fill="none" stroke="#C2726A" stroke-width="1"/>
+      <!-- Hoodie -->
+      <path d="M480 200 Q478 198 476 202 L474 230 Q482 234 490 234 Q498 234 506 230 L504 202 Q502 198 500 200 Q495 198 490 198 Q485 198 480 200Z" fill="#5C6BC0"/>
+      <path d="M483 200 Q490 195 497 200" fill="none" stroke="#3F51B5" stroke-width="1"/>
+      <!-- Hoodie pocket -->
+      <rect x="481" y="218" width="18" height="8" fill="#4A5AB8" rx="2" opacity="0.6"/>
+      <!-- Hoodie strings -->
+      <line x1="487" y1="200" x2="486" y2="210" stroke="#9FA8DA" stroke-width="0.8"/>
+      <line x1="493" y1="200" x2="494" y2="210" stroke="#9FA8DA" stroke-width="0.8"/>
+      <!-- Slim jeans/leggings -->
+      <path d="M482 232 L480 258 L486 258 L488 234" fill="#1A237E"/>
+      <path d="M492 234 L494 258 L500 258 L498 232" fill="#1A237E"/>
+      <!-- Cool sneakers -->
+      <path d="M478 256 L486 256 Q488 256 488 260 L476 260 Q476 256 478 256Z" fill="#E0E0E0" stroke="#BDBDBD" stroke-width="0.5"/>
+      <line x1="480" y1="258" x2="486" y2="258" stroke="#EF5350" stroke-width="1"/>
+      <path d="M492 256 L500 256 Q502 256 502 260 L490 260 Q490 256 492 256Z" fill="#E0E0E0" stroke="#BDBDBD" stroke-width="0.5"/>
+      <line x1="494" y1="258" x2="500" y2="258" stroke="#EF5350" stroke-width="1"/>
+      <!-- Backpack -->
+      <rect x="500" y="200" width="14" height="22" fill="#FF7043" rx="3"/>
+      <rect x="502" y="203" width="10" height="6" fill="#E64A19" rx="1"/>
+      <line x1="502" y1="200" x2="500" y2="198" stroke="#BF360C" stroke-width="1.5"/>
+      <line x1="512" y1="200" x2="514" y2="198" stroke="#BF360C" stroke-width="1.5"/>
+
+      <!-- Sun with rays -->
+      <circle cx="620" cy="50" r="28" fill="#FFD54F" opacity="0.6"/>
+      <circle cx="620" cy="50" r="20" fill="#FFEB3B" opacity="0.8"/>
+      <circle cx="620" cy="50" r="12" fill="#FFF9C4"/>
+      <line x1="620" y1="15" x2="620" y2="25" stroke="#FFD54F" stroke-width="2" opacity="0.5"/>
+      <line x1="620" y1="75" x2="620" y2="85" stroke="#FFD54F" stroke-width="2" opacity="0.5"/>
+      <line x1="585" y1="50" x2="595" y2="50" stroke="#FFD54F" stroke-width="2" opacity="0.5"/>
+      <line x1="645" y1="50" x2="655" y2="50" stroke="#FFD54F" stroke-width="2" opacity="0.5"/>
+      <line x1="598" y1="28" x2="605" y2="35" stroke="#FFD54F" stroke-width="1.5" opacity="0.4"/>
+      <line x1="635" y1="65" x2="642" y2="72" stroke="#FFD54F" stroke-width="1.5" opacity="0.4"/>
+      <line x1="598" y1="72" x2="605" y2="65" stroke="#FFD54F" stroke-width="1.5" opacity="0.4"/>
+      <line x1="635" y1="35" x2="642" y2="28" stroke="#FFD54F" stroke-width="1.5" opacity="0.4"/>
+
+      <!-- Trees right side - layered -->
+      <rect x="638" y="170" width="10" height="48" fill="#5D4037"/>
+      <path d="M643 105 Q618 125 625 158 Q632 172 643 175 Q650 170 658 162 Q668 140 656 118 Q648 102 643 105Z" fill="#1B5E20"/>
+      <path d="M643 115 Q625 130 630 155 Q638 168 643 168 Q648 165 655 155 Q662 135 652 120 Q646 112 643 115Z" fill="#2E7D32"/>
+      <rect x="672" y="178" width="8" height="40" fill="#4E342E"/>
+      <path d="M676 125 Q658 140 662 168 Q670 180 676 180 Q682 178 688 170 Q695 150 685 132 Q680 122 676 125Z" fill="#2E7D32"/>
+      <path d="M676 135 Q664 148 668 165 Q674 175 676 175 Q680 172 684 165 Q690 148 682 138 Q678 132 676 135Z" fill="#388E3C"/>
+
+      <!-- Small wildflowers -->
+      <circle cx="120" cy="225" r="2" fill="#FFEB3B" opacity="0.5"/>
+      <circle cx="300" cy="228" r="2" fill="#E91E63" opacity="0.4"/>
+      <circle cx="560" cy="224" r="2.5" fill="#FFEB3B" opacity="0.5"/>
+      <circle cx="580" cy="226" r="2" fill="#CE93D8" opacity="0.4"/>
+      <!-- Path leading to gate -->
+      <path d="M498 260 Q498 250 498 235 Q498 225 498 218" fill="none" stroke="#BCAAA4" stroke-width="20" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Der Geruch traf Lena, noch bevor sie das Tor erreichte. Heu, warmes Holz, und darunter etwas Erdiges, Lebendiges &ndash; der Duft von Pferden. Sie schloss die Augen und atmete tief ein.</p>
+
+    <p>&bdquo;Na, kommst du noch oder willst du hier Wurzeln schlagen?&ldquo; Tante Marie stand am offenen Tor und lachte. Sie trug Gummistiefel, eine abgewetzte Wachsjacke und hatte einen Strohhalm im Haar. Sie sah genau so aus, wie Lena sie in Erinnerung hatte &ndash; nur die Lachfalten um ihre Augen waren tiefer geworden.</p>
+
+    <p>&bdquo;Tante Marie!&ldquo; Lena rannte los und warf sich in die Arme ihrer Tante.</p>
+
+    <p>&bdquo;Zwei Wochen, Lena-Maus. Zwei ganze Wochen nur du, ich und die Pferde.&ldquo; Tante Marie zwinkerte. &bdquo;Und ein bisschen Arbeit. Auf einem Ponyhof gibt es immer was zu tun.&ldquo;</p>
+
+    <p>Lena nickte eifrig. Arbeit auf dem Hof &ndash; das war kein bisschen wie Arbeit. Das war das Beste, was es gab.</p>
+
+    <div class="scene-separator">&#11044; &bull; &#11044;</div>
+
+    <p class="after-separator">Hof Sonnenweide lag am Rand eines kleinen Dorfes, eingebettet zwischen Wiesen und einem alten Mischwald. Der Hof war nicht gro&szlig;, aber er war <em>besonders</em>. Das wusste jeder, der ihn einmal besucht hatte. Die Gebaude waren alt, manche uber hundert Jahre, mit dicken Steinmauern und Holzbalken, in die jemand vor langer Zeit Blumen und Ranken geschnitzt hatte. Im Fruhling wuchsen echte Kletterrosen an den Stallwanden hoch, und im Sommer summten die Bienen so laut, dass man sie noch auf der Koppel horen konnte.</p>
+
+    <p>Tante Marie fuhrte Lena uber den Hof. &bdquo;Ich zeig dir erst mal, wer alles hier wohnt. Es hat sich einiges verandert seit letztem Jahr.&ldquo;</p>
+
+    <p>Der Stall war lang und niedrig, mit sieben Boxen auf jeder Seite. Warmes Licht fiel durch die kleinen Fenster, und Staubkorner tanzten in den Sonnenstrahlen.</p>
+
+    <p>&bdquo;Das hier&ldquo;, sagte Tante Marie und blieb vor der ersten Box stehen, &bdquo;ist Butterblume. Die kennst du ja.&ldquo;</p>
+
+    <p>Ein goldener Haflinger mit einer hellen, fast wei&szlig;en Mahne hob den Kopf und schnaubte leise. Butterblume war rund und gemutlich und hatte die sanftesten Augen, die Lena je bei einem Pferd gesehen hatte.</p>
+
+    <p>&bdquo;Hey, Butterblume&ldquo;, flusterte Lena und streckte die Hand aus. Das Pferd stupste seine weiche Nase gegen Lenas Handflache. &bdquo;Du bist ja immer noch die Schonste.&ldquo;</p>
+
+    <p>&bdquo;Ubertreib es nicht, sonst wird Nordlicht eifersuchtig.&ldquo; Tante Marie deutete auf die Box gegenuber. Dort stand eine elegante graue Stute, die Lena mit hocherhobenem Kopf musterte, als wurde sie uber einen unsichtbaren Laufsteg schreiten. Ihr Fell schimmerte wie Silber.</p>
+
+    <p>&bdquo;Das ist Nordlicht. Neu seit Oktober. Sie war mal ein Turnierpferd und benimmt sich auch so.&ldquo; Tante Marie senkte die Stimme. &bdquo;Sehr von sich uberzeugt, aber ein Herz aus Gold, wenn man es erst mal gefunden hat.&ldquo;</p>
+
+    <div class="inline-illustration">
+      <svg width="240" height="130" viewBox="0 0 240 130">
+        <!-- Nordlicht - elegant gray/silver mare -->
+        <!-- Body with graceful curve -->
+        <path d="M85 65 Q90 48 110 42 Q135 38 155 42 Q172 48 178 60 Q182 75 175 85 Q158 95 130 92 Q102 90 85 65Z" fill="#B0BEC5"/>
+        <path d="M90 60 Q95 50 112 45 Q132 42 150 45 Q165 50 170 62 Q172 72 168 80 Q155 88 130 86 Q108 84 90 60Z" fill="#C0CCD2" opacity="0.5"/>
+        <!-- Elegant long neck -->
+        <path d="M95 50 Q88 35 82 22 Q80 14 85 8 Q92 4 98 10 Q102 18 100 30 Q98 42 96 50" fill="#B0BEC5"/>
+        <!-- Refined head -->
+        <path d="M85 8 Q80 -2 78 -5 Q78 -12 84 -14 Q90 -14 95 -8 Q97 -2 95 5 Q92 10 88 12Z" fill="#B0BEC5" transform="translate(0,25)"/>
+        <!-- Ears - pricked forward -->
+        <path d="M86 28 Q84 20 87 17 Q90 20 89 27" fill="#9EA7AD"/>
+        <path d="M93 26 Q94 18 97 16 Q99 20 96 27" fill="#9EA7AD"/>
+        <!-- Eye - proud expression -->
+        <ellipse cx="86" cy="32" rx="3" ry="3.5" fill="#263238"/>
+        <circle cx="85" cy="31" r="1" fill="white" opacity="0.5"/>
+        <!-- Nostril -->
+        <ellipse cx="83" cy="44" rx="2.5" ry="1.5" fill="#78909C"/>
+        <!-- Flowing mane -->
+        <path d="M88 18 Q78 15 76 25 Q72 18 70 30 Q74 26 76 35 Q80 24 85 28" fill="#CFD8DC"/>
+        <path d="M92 38 Q82 42 80 55 Q78 48 76 60 Q82 52 84 62 Q86 50 92 52" fill="#CFD8DC"/>
+        <!-- Legs with joints -->
+        <path d="M115 88 Q114 96 113 108 Q113 114 115 117 L120 117 Q119 114 119 108 Q120 96 120 90" fill="#90A4AE"/>
+        <path d="M135 90 Q134 98 133 108 Q133 114 135 117 L140 117 Q139 114 139 108 Q140 98 140 92" fill="#90A4AE"/>
+        <path d="M150 88 Q150 96 149 106 Q149 112 151 115 L156 115 Q155 112 155 106 Q156 96 156 90" fill="#90A4AE"/>
+        <path d="M165 84 Q165 92 164 102 Q164 108 166 111 L171 111 Q170 108 170 102 Q171 92 171 86" fill="#90A4AE"/>
+        <!-- Hooves -->
+        <rect x="113" y="115" width="8" height="4" fill="#616161" rx="1"/>
+        <rect x="133" y="115" width="8" height="4" fill="#616161" rx="1"/>
+        <rect x="149" y="113" width="8" height="4" fill="#616161" rx="1"/>
+        <rect x="164" y="109" width="8" height="4" fill="#616161" rx="1"/>
+        <!-- Elegant tail held high -->
+        <path d="M178 58 Q188 52 192 60 Q195 72 190 82 Q185 88 180 85 Q186 78 185 68 Q182 60 178 62" fill="#CFD8DC"/>
+        <!-- Shine on coat -->
+        <ellipse cx="130" cy="55" rx="15" ry="8" fill="white" opacity="0.08"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Sie gingen weiter. In der nachsten Box tobte ein braun-wei&szlig; geschecktes Pony herum und zerrte an einem Heunetz.</p>
+
+    <p>&bdquo;Flecki! Lass das!&ldquo; Tante Marie schuttelte den Kopf. &bdquo;Das ist unser Jungster. Zwei Jahre alt und benimmt sich wie ein Wirbelwind mit Hufen.&ldquo;</p>
+
+    <p>Flecki spitzte die Ohren, galoppierte zur Boxentur und versuchte, an Lenas Jacke zu knabbern. Lena lachte.</p>
+
+    <p>&bdquo;Dann haben wir noch Kupfer &ndash; den Schlauen.&ldquo; Ein rotbrauner Wallach mit klugen Augen stand ruhig in seiner Box und schien Lena aufmerksam zu beobachten. &bdquo;Kupfer findet jeden Weg. Wenn du dich im Wald verirrst, lass einfach die Zugel locker. Er bringt dich immer nach Hause.&ldquo;</p>
+
+    <p>&bdquo;Und Sternchen.&ldquo; Ein kleines, dunkelbraunes Pony druckte sich an die hintere Wand seiner Box. Auf seiner Stirn leuchtete ein wei&szlig;er Stern. &bdquo;Sternchen ist schuchtern. Aber wenn es darauf ankommt, ist sie tapferer als alle anderen zusammen.&ldquo;</p>
+
+    <p>Lena blieb stehen. &bdquo;Du hast noch zwei vergessen.&ldquo;</p>
+
+    <p>Tante Marie lachelte. &bdquo;Stimmt. Sturmwind steht drau&szlig;en auf der Koppel. Den musst du dir selbst ansehen.&ldquo;</p>
+
+    <p>&bdquo;Und der siebte?&ldquo;</p>
+
+    <p>Tante Maries Lacheln wurde nachdenklich. &bdquo;Mondschimmer. Der steht ganz hinten, in der letzten Box. Mondschimmer ist &hellip; besonders.&ldquo;</p>
+
+    <p>Etwas in Tante Maries Stimme lie&szlig; Lena aufhorchen. Aber bevor sie fragen konnte, zog ihre Tante sie schon weiter.</p>
+
+    <div class="scene-separator">
+      <svg width="100" height="20" viewBox="0 0 100 20">
+        <circle cx="20" cy="10" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="38" cy="14" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="55" cy="12" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="72" cy="15" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="88" cy="11" r="4" fill="#B8860B" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Drau&szlig;en auf der Koppel stand ein Pferd, das so kastanienbraun war, dass sein Fell im Sonnenlicht kupfern schimmerte. Es galoppierte uber die Wiese, die dunkle Mahne wehte wie ein Banner, und seine Hufe donnerten uber den Boden.</p>
+
+    <p>&bdquo;Das ist Sturmwind&ldquo;, sagte Tante Marie.</p>
+
+    <p>Lena verga&szlig; zu atmen. Sturmwind war das schonste Pferd, das sie je gesehen hatte. Nicht hubsch wie Nordlicht oder gemutlich-schon wie Butterblume. Sturmwind war <em>wild</em>-schon. Wie ein Gewitter am Horizont. Wie eine Welle, kurz bevor sie bricht.</p>
+
+    <p>&bdquo;Er ist ein Brauner. Acht Jahre alt. Temperamentvoll, manchmal stur, aber wenn er dir vertraut, geht er mit dir durch Feuer.&ldquo; Tante Marie lehnte sich an den Zaun. &bdquo;Allerdings vertraut er nicht jedem.&ldquo;</p>
+
+    <p>Sturmwind hatte sie bemerkt. Er verlangsamte seinen Galopp, trabte ein paar Schritte und blieb dann stehen. Seine dunklen Augen richteten sich auf Lena.</p>
+
+    <p>Lena hob langsam die Hand. &bdquo;Hey&ldquo;, sagte sie leise.</p>
+
+    <p>Sturmwind schnaubte. Einmal, zweimal. Dann, ganz langsam, kam er naher. Schritt fur Schritt. Bis seine Nase Lenas ausgestreckte Finger beruhrte.</p>
+
+    <p>&bdquo;Na sowas&ldquo;, murmelte Tante Marie. &bdquo;Das hat er bei niemandem gemacht, seit er hier ist.&ldquo;</p>
+
+    <p>Lenas Herz klopfte so laut, dass sie sicher war, die Pferde auf der Nachbarkoppel konnten es horen.</p>
+
+    <div class="inline-illustration">
+      <svg width="300" height="130" viewBox="0 0 300 130">
+        <!-- Fence rails -->
+        <line x1="0" y1="75" x2="300" y2="75" stroke="#A1887F" stroke-width="3.5"/>
+        <line x1="0" y1="88" x2="300" y2="88" stroke="#A1887F" stroke-width="3.5"/>
+        <!-- Fence posts -->
+        <rect x="20" y="68" width="6" height="40" fill="#8D6E63" rx="1"/>
+        <rect x="90" y="68" width="6" height="40" fill="#8D6E63" rx="1"/>
+        <rect x="200" y="68" width="6" height="40" fill="#8D6E63" rx="1"/>
+        <rect x="270" y="68" width="6" height="40" fill="#8D6E63" rx="1"/>
+        <!-- Sturmwind (brown) head and neck over fence -->
+        <!-- Neck -->
+        <path d="M165 72 Q160 55 158 40 Q156 30 160 22 Q166 18 172 22 Q175 30 174 40 Q172 55 170 72" fill="#8B4513"/>
+        <!-- Head -->
+        <path d="M160 22 Q155 12 153 5 Q153 -2 158 -4 Q165 -4 170 2 Q172 8 170 15 Q167 22 163 25Z" fill="#8B4513" transform="translate(0,10)"/>
+        <!-- Ears -->
+        <path d="M160 16 Q158 8 161 5 Q164 8 163 15" fill="#7B3B12"/>
+        <path d="M167 14 Q168 6 171 4 Q173 8 170 15" fill="#7B3B12"/>
+        <!-- Eye - warm, intelligent -->
+        <ellipse cx="159" cy="22" rx="3.5" ry="4" fill="#2C1810"/>
+        <circle cx="158" cy="21" r="1.2" fill="white" opacity="0.5"/>
+        <path d="M155 20 Q159 18 163 20" fill="none" stroke="#5C2D0A" stroke-width="0.5"/>
+        <!-- Nostril -->
+        <ellipse cx="156" cy="36" rx="3" ry="2" fill="#5C2D0A"/>
+        <!-- Mouth -->
+        <path d="M154 39 Q160 42 168 40" fill="none" stroke="#5C2D0A" stroke-width="0.8"/>
+        <!-- Dark mane -->
+        <path d="M162 8 Q152 5 150 15 Q146 8 144 20 Q148 16 150 25 Q154 14 160 18" fill="#2C1810"/>
+        <path d="M164 22 Q155 28 153 42 Q150 35 148 48 Q155 40 156 50 Q158 38 164 40" fill="#2C1810"/>
+        <!-- Forelock -->
+        <path d="M160 12 Q155 8 154 14 Q152 10 150 16" fill="#2C1810"/>
+        <!-- Coat sheen -->
+        <ellipse cx="165" cy="45" rx="4" ry="12" fill="#A0522D" opacity="0.3"/>
+
+        <!-- Lena's hand reaching out -->
+        <!-- Arm in hoodie sleeve -->
+        <path d="M110 92 Q120 85 135 78 Q142 74 148 72" fill="none" stroke="#5C6BC0" stroke-width="6" stroke-linecap="round"/>
+        <!-- Hand -->
+        <path d="M145 70 Q150 68 155 70 Q157 72 155 74 Q152 76 148 74 Q145 73 145 70Z" fill="#FFCCBC"/>
+        <!-- Fingers -->
+        <path d="M150 68 L152 64 Q154 63 155 65 L153 69" fill="#FFCCBC"/>
+        <path d="M147 69 L148 65 Q150 64 151 66 L150 70" fill="#FFCCBC"/>
+        <!-- Nose gently touching fingers -->
+        <ellipse cx="156" cy="38" rx="5" ry="3" fill="#6B3410"/>
+        <!-- Warm breath suggestion -->
+        <ellipse cx="150" cy="60" rx="8" ry="4" fill="#FFCCBC" opacity="0.08"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Spater, als Lena ihren Rucksack in das kleine Gastezimmer unter dem Dach trug, fiel ihr Blick aus dem Fenster. Von hier oben konnte sie den ganzen Hof uberblicken: den Stall, die Koppel, den Reitplatz mit dem Sandboden, und dahinter den Waldrand, wo die Baume dunkel und dicht standen.</p>
+
+    <p>Und ganz am Ende des Stalls, durch ein kleines Fenster, sah sie etwas Seltsames. Ein schwaches, silbriges Leuchten. Es flackerte kurz auf, wie Mondlicht auf Wasser &ndash; und erlosch.</p>
+
+    <p>Lena blinzelte. Hatte sie sich das eingebildet?</p>
+
+    <p>Sie schuttelte den Kopf. Es war heller Tag. Wahrscheinlich nur eine Spiegelung.</p>
+
+    <p>Aber als sie sich von dem Fenster abwandte, kribbelte es in ihrem Bauch. Dieses Gefuhl kannte sie. Es war das Gefuhl, das sie immer bekam, wenn ein Abenteuer begann.</p>
+
+    <p>Sie wusste es nur noch nicht.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 2 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap2">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">2</span>
+    <div class="chapter-title">Nach dem Regen</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap02_nach_dem_regen.jpg" alt="Nach dem Regen">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">In der Nacht kam der Regen.</p>
+
+    <p>Lena lag in ihrem Bett unter dem Dach und horte, wie die Tropfen auf die Ziegel prasselten. Es war kein sanfter Regen. Es war ein richtiger Sommerregen &ndash; der Himmel riss auf, und das Wasser fiel in Stromen. Der Wind druckte gegen die alten Fenster, und irgendwo klapperte ein Laden.</p>
+
+    <p>Lena zog die Decke hoher und lauschte. Zwischen den Regenstossen horte sie die Pferde. Ein leises Wiehern, ein Stampfen. Und dann &ndash; ganz kurz &ndash; etwas anderes. Ein Gerausch, das nicht zum Regen gehorte. Ein metallisches Klingen, wie ein Glockchen, das jemand angeschlagen hatte. Einmal. Dann war es still.</p>
+
+    <p><em>Das war nichts</em>, dachte Lena. <em>Nur der Regen.</em></p>
+
+    <p>Aber ihr Herz klopfte trotzdem ein bisschen schneller, als sie die Augen schloss.</p>
+
+    <div class="scene-separator">
+      <svg width="60" height="25" viewBox="0 0 60 25">
+        <path d="M10 5 Q15 0 20 5 L18 15 Q15 20 12 15 Z" fill="#90CAF9" opacity="0.6"/>
+        <path d="M25 8 Q30 3 35 8 L33 16 Q30 20 27 16 Z" fill="#90CAF9" opacity="0.5"/>
+        <path d="M40 5 Q45 0 50 5 L48 15 Q45 20 42 15 Z" fill="#90CAF9" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Am nachsten Morgen war die Welt verwandelt. Lena offnete das Fenster und kalte, frische Luft stromte herein. Alles glanzte. Die Koppelzaune, die Dacher, die Blatter an den Baumen &ndash; alles war nass und funkelte in der Morgensonne, als hatte jemand den ganzen Hof mit Diamanten bestreut.</p>
+
+    <p>Lena zog sich an und rannte nach unten. Tante Marie stand schon in der Kuche und machte Kakao.</p>
+
+    <p>&bdquo;Gut geschlafen?&ldquo;</p>
+
+    <p>&bdquo;Es hat so laut geregnet!&ldquo; Lena setzte sich an den alten Holztisch. &bdquo;Und ich hab ein komisches Gerausch gehort. So ein Klingen.&ldquo;</p>
+
+    <p>Tante Marie hielt kurz inne. Nur einen Moment, kaum merklich. Dann lachelte sie. &bdquo;Wahrscheinlich die alte Wetterfahne auf dem Stall. Die klappert bei Wind.&ldquo;</p>
+
+    <p>Lena nickte. Aber sie hatte gesehen, wie Tante Marie kurz gezogert hatte. Das war merkwurdig.</p>
+
+    <p>Nach dem Fruhstuck lief Lena zum Stall. Die Pferde waren schon wach. Butterblume mampfte Heu, Flecki hing mit dem Kopf uber der Boxentur und schnappte nach vorbeifliegenden Fliegen, und Kupfer stand wie immer ruhig da und beobachtete alles.</p>
+
+    <p>Lena ging durch den Gang, verteilte Streicheleinheiten und blieb dann vor der letzten Box stehen.</p>
+
+    <p>Mondschimmer.</p>
+
+    <p>Das Pferd war silberwei&szlig;. Nicht grau wie Nordlicht, sondern wirklich <em>silbern</em>. Sein Fell hatte einen seltsamen Schimmer, als wurde Licht unter der Oberflache leuchten. Mondschimmer war alt &ndash; wie alt, hatte Tante Marie nicht genau gesagt. Seine Augen waren dunkel und tief und unglaublich ruhig.</p>
+
+    <p>&bdquo;Hallo, Mondschimmer&ldquo;, flusterte Lena.</p>
+
+    <p>Das Pferd drehte den Kopf und sah sie an. Lena hatte das Gefuhl, dass Mondschimmer sie nicht nur <em>ansah</em>, sondern <em>erkannte</em>. Als hatte er auf sie gewartet.</p>
+
+    <div class="inline-illustration">
+      <svg width="220" height="120" viewBox="0 0 220 120">
+        <!-- Stable box frame -->
+        <rect x="10" y="10" width="200" height="100" fill="#5D4037" rx="3"/>
+        <rect x="15" y="15" width="190" height="90" fill="#3E2723" rx="2"/>
+        <!-- Mondschimmer -->
+        <ellipse cx="120" cy="60" rx="35" ry="22" fill="#C0C0C0"/>
+        <ellipse cx="92" cy="45" rx="12" ry="16" fill="#C0C0C0"/>
+        <circle cx="88" cy="42" r="3" fill="#1A237E"/>
+        <circle cx="87" cy="41" r="1" fill="white" opacity="0.5"/>
+        <!-- Silver shimmer -->
+        <ellipse cx="120" cy="60" rx="38" ry="24" fill="white" opacity="0.1"/>
+        <circle cx="100" cy="50" r="2" fill="white" opacity="0.4"/>
+        <circle cx="135" cy="55" r="1.5" fill="white" opacity="0.3"/>
+        <circle cx="115" cy="45" r="1" fill="white" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">&bdquo;Den reitet keiner mehr.&ldquo; Eine Stimme hinter ihr. Lena drehte sich um.</p>
+
+    <p>Ein Junge stand im Stalleingang. Er war gro&szlig;er als sie, vielleicht zehn, mit strubbeligem braunem Haar und Sommersprossen. Er trug dreckige Stiefel und eine zu gro&szlig;e Jacke.</p>
+
+    <p>&bdquo;Wer bist du?&ldquo;, fragte Lena.</p>
+
+    <p>&bdquo;Finn. Ich wohn nebenan.&ldquo; Er deutete vage uber seine Schulter. &bdquo;Und du bist Maries Nichte, oder?&ldquo;</p>
+
+    <p>&bdquo;Lena.&ldquo;</p>
+
+    <p>Finn musterte sie, als wurde er abschatzen, ob sie der Muhe wert war. &bdquo;Mondschimmer ist uralt. Der war schon hier, als meine Oma noch ein Kind war. Sagt jedenfalls mein Gro&szlig;vater. Keiner wei&szlig; genau, wie alt er ist.&ldquo;</p>
+
+    <p>&bdquo;Das kann nicht stimmen. Pferde werden nicht so alt.&ldquo;</p>
+
+    <p>Finn zuckte die Schultern. &bdquo;Sag das Mondschimmer.&ldquo;</p>
+
+    <p>Bevor Lena antworten konnte, knallte drau&szlig;en eine Tur. Tante Marie rief etwas, und Finn verschwand so schnell, wie er aufgetaucht war.</p>
+
+    <div class="scene-separator">
+      <svg width="100" height="20" viewBox="0 0 100 20">
+        <circle cx="20" cy="10" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="38" cy="14" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="55" cy="12" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="72" cy="15" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="88" cy="11" r="4" fill="#B8860B" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Lena half am Vormittag beim Ausmisten und Futtern. Mia, ihre Freundin vom letzten Sommer, kam gegen zehn Uhr auf dem Fahrrad angeschossen, warf es gegen den Zaun und rannte auf Lena zu.</p>
+
+    <p>&bdquo;LENA! Du bist da!&ldquo; Mia war einen halben Kopf kleiner als Lena, hatte lockige rote Haare und ein Lachen, das man drei Koppeln weit horen konnte.</p>
+
+    <p>&bdquo;Mia!&ldquo; Sie umarmten sich.</p>
+
+    <p>&bdquo;Komm, wir reiten nachher aus! Tante Marie hat gesagt, wir durfen auf die Waldkoppel, wenn wir vorher die Boxen fertig machen.&ldquo;</p>
+
+    <p>Lena grinste. Das klang nach dem perfekten Tag.</p>
+
+    <p>Aber zuerst passierte etwas, das alles veranderte.</p>
+
+    <p>Es war kurz vor Mittag. Lena brachte eine Schubkarre mit Mist zum Kompost hinter dem Stall. Der Weg fuhrte am Seiteneingang vorbei, dort, wo der Hof an die alte Koppel grenzte. Und dort, im nassen Boden, sah sie die Spur.</p>
+
+    <p>Eine einzelne Hufspur. Aber sie war <em>anders</em>.</p>
+
+    <p>Lena stellte die Schubkarre ab und kniete sich hin.</p>
+
+    <p>Die Spur war tief in den weichen Boden gedruckt, wie jede andere Hufspur. Aber sie schimmerte. Silbrig. Als ware das Eisen, das sie hinterlassen hatte, nicht aus normalem Metall, sondern aus etwas anderem. Etwas, das das Licht auffing und festhielt.</p>
+
+    <p>Lena beruhrte den Rand der Spur mit dem Finger. Der Schimmer blieb. Er war nicht nass, nicht klebrig &ndash; er war einfach <em>da</em>.</p>
+
+    <p>Sie stand auf und sah sich um. Und dann bemerkte sie, dass es nicht nur eine Spur war.</p>
+
+    <p>Es waren viele. Eine ganze Linie von silbrig schimmernden Hufspuren, die vom Stall wegfuhrten, uber den nassen Boden, am Zaun entlang und dann &ndash; hinunter zum Waldpfad.</p>
+
+    <p>&bdquo;Was ist denn das?&ldquo;, flusterte Lena.</p>
+
+    <div class="inline-illustration">
+      <svg width="250" height="80" viewBox="0 0 250 80">
+        <rect width="250" height="80" fill="#795548" opacity="0.2" rx="5"/>
+        <!-- Silver hoofprints trail -->
+        <ellipse cx="30" cy="40" rx="12" ry="8" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <path d="M22 35 Q30 30 38 35" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <ellipse cx="30" cy="40" rx="15" ry="10" fill="white" opacity="0.15"/>
+
+        <ellipse cx="80" cy="50" rx="12" ry="8" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <path d="M72 45 Q80 40 88 45" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <ellipse cx="80" cy="50" rx="15" ry="10" fill="white" opacity="0.15"/>
+
+        <ellipse cx="130" cy="38" rx="12" ry="8" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <path d="M122 33 Q130 28 138 33" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <ellipse cx="130" cy="38" rx="15" ry="10" fill="white" opacity="0.15"/>
+
+        <ellipse cx="180" cy="48" rx="12" ry="8" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <path d="M172 43 Q180 38 188 43" fill="none" stroke="#B0BEC5" stroke-width="1.5"/>
+        <ellipse cx="180" cy="48" rx="15" ry="10" fill="white" opacity="0.15"/>
+
+        <ellipse cx="225" cy="36" rx="10" ry="7" fill="none" stroke="#B0BEC5" stroke-width="1.5" opacity="0.6"/>
+        <!-- Hand -->
+        <rect x="105" y="55" width="22" height="8" fill="#FFCCBC" rx="3"/>
+        <circle cx="130" cy="59" r="5" fill="#FFCCBC"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">&bdquo;LENA! Essen!&ldquo; Tante Maries Stimme riss sie aus ihren Gedanken.</p>
+
+    <p>Lena stand auf. Sie wollte schon losrennen, aber dann drehte sie sich noch einmal um und pragte sich die Richtung ein, in die die Spuren fuhrten.</p>
+
+    <p>Zum Wald. Die silbernen Hufspuren fuhrten zum Wald.</p>
+
+    <p>Und plotzlich wusste Lena: Das war der Anfang von etwas. Sie wusste nicht, von was. Aber das Kribbeln in ihrem Bauch sagte ihr, dass dieses Abenteuer gro&szlig;er war als alles, was sie sich hatte ausdenken konnen.</p>
+
+    <p>Beim Mittagessen versuchte sie, ruhig zu bleiben. Aber als Tante Marie kurz aus der Kuche ging, beugte sich Lena zu Mia.</p>
+
+    <p>&bdquo;Ich hab was gefunden. Drau&szlig;en beim Stall. Silberne Hufspuren.&ldquo;</p>
+
+    <p>Mia sah sie an, als hatte Lena gesagt, sie hatte ein Einhorn gesehen. &bdquo;Silberne <em>was</em>?&ldquo;</p>
+
+    <p>&bdquo;Hufspuren. Die glitzern richtig. Komm nachher mit, ich zeig sie dir.&ldquo;</p>
+
+    <p>Mia kaute langsam auf ihrem Brot. Dann grinste sie. &bdquo;Okay. Aber wenn das ein Witz ist, musst du eine Woche lang Fleckis Box alleine ausmisten.&ldquo;</p>
+
+    <p>&bdquo;Deal.&ldquo;</p>
+
+    <p>Aber es war kein Witz. Und als die beiden Madchen nach dem Essen zu der Stelle liefen, waren die Spuren immer noch da. Silbrig schimmernd. Geheimnisvoll. Und sie fuhrten immer noch zum Wald.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 3 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap3">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">3</span>
+    <div class="chapter-title">Die Spur im Wald</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap03_spur_im_wald.jpg" alt="Die Spur im Wald">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">&bdquo;Das ist echt.&ldquo; Mia kniete neben der Spur und stupste sie an. &bdquo;Die glitzern wirklich. Was ist das?&ldquo;</p>
+
+    <p>&bdquo;Keine Ahnung.&ldquo; Lena folgte der Spurlinie mit den Augen. &bdquo;Aber ich will wissen, wohin sie fuhren.&ldquo;</p>
+
+    <p>&bdquo;Jetzt?&ldquo;</p>
+
+    <p>&bdquo;Jetzt.&ldquo;</p>
+
+    <p>Mia sah zum Waldrand. Die Baume standen dicht, und im Schatten zwischen den Stammen lag noch der Dunst vom Morgenregen. &bdquo;Tante Marie hat gesagt, wir sollen auf der Waldkoppel bleiben. Der tiefe Wald ist was anderes.&ldquo;</p>
+
+    <p>&bdquo;Wir gehen nur ein Stuck rein. Nur bis wir sehen, wo die Spuren hinfuhren.&ldquo;</p>
+
+    <p>Mia biss sich auf die Lippe. Dann nickte sie. &bdquo;Okay. Aber wenn da ein Wolf ist, renne ich schneller als du.&ldquo;</p>
+
+    <p>&bdquo;Es gibt hier keine Wolfe, Mia.&ldquo;</p>
+
+    <p>&bdquo;Sagt <em>man</em>.&ldquo;</p>
+
+    <div class="scene-separator">
+      <svg width="50" height="30" viewBox="0 0 50 30">
+        <path d="M15 15 Q25 5 35 15 Q25 25 15 15Z" fill="none" stroke="#B8860B" stroke-width="1.5"/>
+        <circle cx="25" cy="15" r="2" fill="#B8860B"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Sie folgten den Spuren. Der Waldpfad war schmal und holprig, voller Wurzeln und nasser Blatter. Die Hufabdrucke waren hier schwerer zu erkennen &ndash; der Waldboden war weicher, dunkler &ndash;, aber der silbrige Schimmer leuchtete zwischen dem Laub wie kleine Wegweiser.</p>
+
+    <p>&bdquo;Wer auch immer das war, der ist hier langgeritten&ldquo;, sagte Lena. &bdquo;Mitten in der Nacht. Im Regen.&ldquo;</p>
+
+    <p>&bdquo;Aber welches Pferd hat silberne Hufe?&ldquo;</p>
+
+    <p>Lena dachte an Mondschimmer. An sein seltsames, silbriges Fell. An die Art, wie er sie angesehen hatte.</p>
+
+    <p><em>Nein</em>, dachte sie. <em>Das ist verruckt. Mondschimmer ist alt. Den reitet keiner mehr.</em></p>
+
+    <p>Trotzdem.</p>
+
+    <p>Der Pfad fuhrte abwarts, und bald horten sie das Wasser. Der Bach &ndash; Tante Marie nannte ihn den &bdquo;Murmelbach&ldquo; &ndash; schlangelte sich zwischen moosbedeckten Steinen hindurch. Normalerweise war er flach genug, um durchzuwaten. Aber nach dem Regen war er angeschwollen, und das Wasser schoss schneller uber die Steine als sonst.</p>
+
+    <p>Die Hufspuren fuhrten genau zum Bach. Und auf der anderen Seite &ndash; Lena reckte den Hals &ndash; konnte sie sehen, dass sie dort weitergingen.</p>
+
+    <p>&bdquo;Wir mussen ruber&ldquo;, sagte Lena.</p>
+
+    <p>&bdquo;Da sind Trittsteine.&ldquo; Mia deutete auf eine Reihe flacher Steine, die quer durch den Bach lagen. Einige ragten kaum noch aus dem Wasser.</p>
+
+    <p>Lena ging voran. Der erste Stein war nass und rutschig. Sie balancierte, streckte den Fu&szlig; zum nachsten. Das Wasser rauschte unter ihr. Noch ein Stein. Noch einer.</p>
+
+    <p>&bdquo;Vorsicht!&ldquo;, rief Mia.</p>
+
+    <p>Lena schwankte, fing sich, machte einen letzten gro&szlig;en Schritt &ndash; und stand auf der anderen Seite. Ihr Herz hammerte. Sie drehte sich um und streckte Mia die Hand hin.</p>
+
+    <p>&bdquo;Komm. Ich halt dich fest.&ldquo;</p>
+
+    <p>Mia kam ruber, wobei sie leise Worter murmelte, die wahrscheinlich nicht fur Erwachsenenohren bestimmt waren.</p>
+
+    <div class="inline-illustration">
+      <svg width="280" height="80" viewBox="0 0 280 80">
+        <!-- Water -->
+        <rect x="0" y="30" width="280" height="30" fill="#64B5F6" opacity="0.3" rx="5"/>
+        <!-- Stepping stones -->
+        <ellipse cx="40" cy="42" rx="18" ry="8" fill="#9E9E9E"/>
+        <ellipse cx="95" cy="45" rx="16" ry="7" fill="#8D6E63"/>
+        <ellipse cx="145" cy="40" rx="17" ry="8" fill="#9E9E9E"/>
+        <ellipse cx="200" cy="44" rx="15" ry="7" fill="#8D6E63"/>
+        <ellipse cx="250" cy="41" rx="16" ry="8" fill="#9E9E9E"/>
+        <!-- Two small figures -->
+        <circle cx="145" cy="28" r="6" fill="#FFCCBC"/>
+        <rect x="141" y="34" width="8" height="10" fill="#5C6BC0" rx="1"/>
+        <circle cx="100" cy="32" r="5" fill="#FFCCBC"/>
+        <rect x="97" y="37" width="7" height="9" fill="#1565C0" rx="1"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Auf der anderen Seite des Bachs wurde der Wald dichter. Aber die Spuren waren jetzt deutlicher &ndash; hier war der Boden lehmig, und die Hufabdrucke waren tief und klar. Der silbrige Schimmer war starker, fast so, als hatte jemand mit Glitzerfarbe die Rander der Abdrucke nachgezogen.</p>
+
+    <p>Und dann blieb Lena abrupt stehen.</p>
+
+    <p>Vor ihnen lag eine Lichtung. Kein gro&szlig;er Platz, eher ein Kreis aus Licht zwischen den Baumen, wo das Sonnenlicht ungehindert auf den Boden fiel. Gras wuchs hier, und Wildblumen &ndash; gelb, wei&szlig;, lila. Es war still. Kein Vogelgezwitscher, kein Rascheln. Nur das ferne Murmeln des Bachs.</p>
+
+    <p>In der Mitte der Lichtung stand ein Stein.</p>
+
+    <p>Nicht irgendein Stein. Ein gro&szlig;er, flacher Stein, fast wie ein Tisch, mit einer glatten Oberflache, die im Sonnenlicht schimmerte. Und auf der Oberflache war etwas eingraviert.</p>
+
+    <p>Lena ging naher. Mia folgte ihr zogernd.</p>
+
+    <p>Die Gravur war alt. Moos hatte sich in die Rillen gesetzt, und manche Linien waren verwittert. Aber man konnte es noch erkennen: Ein Hufeisen. Und darunter ein Symbol &ndash; eine Sonne uber einer Weide. Und darunter Buchstaben.</p>
+
+    <p>&bdquo;S&hellip;W&hellip;&ldquo; Lena fuhr mit dem Finger uber die Gravur. &bdquo;Sonnenweide! Das ist das Zeichen vom Hof!&ldquo;</p>
+
+    <div class="inline-illustration">
+      <svg width="180" height="130" viewBox="0 0 180 130">
+        <!-- Flat stone -->
+        <ellipse cx="90" cy="80" rx="80" ry="30" fill="#9E9E9E" stroke="#757575" stroke-width="1"/>
+        <ellipse cx="90" cy="75" rx="75" ry="25" fill="#BDBDBD"/>
+        <!-- Horseshoe engraving -->
+        <path d="M90 50 C75 50 68 60 68 70 C68 78 72 82 78 85 L82 82 L79 78 C75 74 73 70 73 66 C73 58 80 54 90 54 C100 54 107 58 107 66 C107 70 105 74 101 78 L98 82 L102 85 C108 82 112 78 112 70 C112 60 105 50 90 50Z" fill="none" stroke="#5D4037" stroke-width="1.5" opacity="0.7"/>
+        <!-- Sun symbol -->
+        <circle cx="90" cy="62" r="5" fill="none" stroke="#5D4037" stroke-width="1" opacity="0.6"/>
+        <line x1="90" y1="55" x2="90" y2="53" stroke="#5D4037" stroke-width="1" opacity="0.5"/>
+        <line x1="95" y1="57" x2="97" y2="55" stroke="#5D4037" stroke-width="1" opacity="0.5"/>
+        <line x1="85" y1="57" x2="83" y2="55" stroke="#5D4037" stroke-width="1" opacity="0.5"/>
+        <!-- Moss -->
+        <circle cx="70" cy="72" r="4" fill="#4CAF50" opacity="0.3"/>
+        <circle cx="110" cy="68" r="5" fill="#4CAF50" opacity="0.25"/>
+        <!-- Grass around -->
+        <line x1="20" y1="100" x2="25" y2="85" stroke="#4CAF50" stroke-width="1.5"/>
+        <line x1="30" y1="100" x2="28" y2="88" stroke="#66BB6A" stroke-width="1"/>
+        <line x1="150" y1="98" x2="155" y2="86" stroke="#4CAF50" stroke-width="1.5"/>
+        <line x1="160" y1="100" x2="158" y2="90" stroke="#66BB6A" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">&bdquo;Was macht das hier mitten im Wald?&ldquo;, fragte Mia.</p>
+
+    <p>&bdquo;Keine Ahnung. Aber guck mal &ndash; hier sind noch mehr Zeichen.&ldquo; Unter dem Hofzeichen waren kleinere Buchstaben eingraviert. Lena wischte das Moos weg und versuchte zu lesen.</p>
+
+    <div class="verse">
+      <p><em>Wo der Mond auf Silber trifft,</em></p>
+      <p><em>wo die alte Eiche steht,</em></p>
+      <p><em>dort bewahrt das Herz des Hofs</em></p>
+      <p><em>was kein Sturm verweht.</em></p>
+    </div>
+
+    <p>&bdquo;Das ist ein Ratsel&ldquo;, flusterte Lena. &bdquo;Ein echtes Ratsel.&ldquo;</p>
+
+    <p>&bdquo;Oder ein Gedicht von jemandem, der zu viel Zeit hatte&ldquo;, sagte Mia. Aber ihre Augen waren gro&szlig;, und Lena konnte sehen, dass sie genauso aufgeregt war.</p>
+
+    <p>Lena zog ihr Handy aus der Tasche und fotografierte die Inschrift. Dann sah sie sich auf der Lichtung um. Die Hufspuren &ndash; die silbrigen Hufspuren &ndash; endeten hier. Genau an diesem Stein. Als hatte das Pferd hier angehalten.</p>
+
+    <p>Oder als wollte jemand, dass sie diesen Stein fand.</p>
+
+    <p>&bdquo;Wir mussen zuruck&ldquo;, sagte Mia und sah auf ihre Uhr. &bdquo;Tante Marie macht sich Sorgen.&ldquo;</p>
+
+    <p>Lena nickte. Aber bevor sie ging, legte sie die Hand auf den warmen Stein. <em>Wo der Mond auf Silber trifft</em>, dachte sie. <em>Was bedeutet das?</em></p>
+
+    <div class="scene-separator">
+      <svg width="100" height="20" viewBox="0 0 100 20">
+        <circle cx="20" cy="10" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="38" cy="14" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="55" cy="12" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="72" cy="15" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="88" cy="11" r="4" fill="#B8860B" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Auf dem Ruckweg sprachen sie kaum. Jede hing ihren Gedanken nach. Als sie den Bach uberquerten &ndash; diesmal sicherer, weil sie die rutschigen Steine schon kannten &ndash;, packte Mia plotzlich Lenas Arm.</p>
+
+    <p>&bdquo;Da ist jemand.&ldquo;</p>
+
+    <p>Lena erstarrte. Am Waldrand, halb verdeckt von einem Busch, stand ein Mann. Er war gro&szlig;, trug einen dunklen Mantel und einen Hut, und er starrte auf den Boden. Genau auf die Stelle, wo die silbrigen Hufspuren begannen.</p>
+
+    <p>&bdquo;Wer ist das?&ldquo;, flusterte Lena.</p>
+
+    <p>&bdquo;Das ist Herr Brinkmann&ldquo;, flusterte Mia zuruck. &bdquo;Der Nachbar. Der ist immer schlecht gelaunt. Papa sagt, er will das Land vom Hof kaufen.&ldquo;</p>
+
+    <p>Herr Brinkmann buckte sich und beruhrte eine der Hufspuren. Dann richtete er sich auf und sah zum Wald. Genau in die Richtung, aus der Lena und Mia gerade kamen.</p>
+
+    <p>Die Madchen duckten sich hinter einen Busch.</p>
+
+    <p>&bdquo;Hat er uns gesehen?&ldquo;, hauchte Mia.</p>
+
+    <p>Lena spahte durch die Blatter. Herr Brinkmann drehte sich um und ging mit schnellen Schritten davon. Sein Gesicht war verschlossen, aber Lena hatte etwas darin gesehen. Nicht Arger. Etwas anderes.</p>
+
+    <p><em>Er wei&szlig; etwas</em>, dachte sie. <em>Er wei&szlig;, was die Spuren bedeuten.</em></p>
+
+    <p>Und in diesem Moment beschloss Lena, dass sie das Geheimnis der silbernen Hufspur losen wurde. Koste es, was es wolle.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 4 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap4">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">4</span>
+    <div class="chapter-title">Mondschimmers Geheimnis</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap04_mondschimmer.jpg" alt="Mondschimmers Geheimnis">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Den Rest des Nachmittags verbrachte Lena auf der Koppel. Sie striegelte Butterblume, ubte das Aufsteigen bei Kupfer und versuchte, nicht an die silbernen Hufspuren zu denken.</p>
+
+    <p>Es gelang ihr nicht besonders gut.</p>
+
+    <p>Beim Abendessen sa&szlig; sie mit Tante Marie in der gemutlichen Kuche. Drau&szlig;en wurde es langsam dunkel, und die Grillen begannen zu zirpen.</p>
+
+    <p>&bdquo;Tante Marie?&ldquo;</p>
+
+    <p>&bdquo;Hmm?&ldquo; Ihre Tante strich Butter auf ein Stuck Brot.</p>
+
+    <p>&bdquo;Wie lange gibt es Hof Sonnenweide schon?&ldquo;</p>
+
+    <p>Tante Marie sah auf. &bdquo;Lange. Mein Urgro&szlig;vater hat ihn gegrundet. August Sonnberg hie&szlig; er. Das war &hellip; oh, vor uber hundert Jahren. Warum fragst du?&ldquo;</p>
+
+    <p>&bdquo;Nur so. Und Mondschimmer? Wie alt ist der wirklich?&ldquo;</p>
+
+    <p>Tante Marie legte das Messer hin. Sie sah Lena an, und in ihren Augen lag etwas, das Lena nicht einordnen konnte. Warme, aber auch etwas Vorsichtiges. Als uberlegte sie, wie viel sie sagen sollte.</p>
+
+    <p>&bdquo;Mondschimmer ist &hellip; ein besonderes Pferd, Lena. Er war schon hier, als ich den Hof ubernommen habe. Und er war schon alt, als ich ein Kind war. Meine Mutter sagte immer, Mondschimmer gehore zum Hof wie die Mauern und die Steine. Er sei ein Teil von Sonnenweide selbst.&ldquo;</p>
+
+    <p>&bdquo;Aber wie <em>alt</em> ist er?&ldquo;</p>
+
+    <p>Tante Marie lachelte. Es war ein geheimnisvolles Lacheln. &bdquo;Alter, als er sein durfte. Das ist alles, was ich dir sagen kann. Manche Dinge auf diesem Hof sind nicht so einfach zu erklaren, Lena. Manche Dinge muss man selbst herausfinden.&ldquo;</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="80" viewBox="0 0 200 80">
+        <!-- Kitchen table scene -->
+        <rect x="30" y="40" width="140" height="5" fill="#8D6E63" rx="2"/>
+        <rect x="40" y="45" width="4" height="30" fill="#6D4C41"/>
+        <rect x="156" y="45" width="4" height="30" fill="#6D4C41"/>
+        <!-- Cup -->
+        <rect x="85" y="25" width="16" height="15" fill="#FFF8E1" stroke="#D7CCC8" stroke-width="1" rx="2"/>
+        <path d="M101 30 Q108 33 101 37" fill="none" stroke="#D7CCC8" stroke-width="1"/>
+        <!-- Lamp glow -->
+        <circle cx="100" cy="10" r="15" fill="#FFE082" opacity="0.3"/>
+        <circle cx="100" cy="10" r="8" fill="#FFD54F" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Lena lag in ihrem Bett und konnte nicht schlafen. Die Worte des Ratsels drehten sich in ihrem Kopf.</p>
+
+    <p><em>Wo der Mond auf Silber trifft, wo die alte Eiche steht &hellip;</em></p>
+
+    <p>Mond. Silber. Mondschimmer.</p>
+
+    <p>Lena setzte sich auf. Ihr Herz schlug schneller. Was, wenn &bdquo;Mond auf Silber&ldquo; kein Ort war, sondern ein <em>Pferd</em>? Mondschimmer &ndash; Mond und Silber. Und &bdquo;die alte Eiche&ldquo; &ndash; gab es auf dem Hof eine alte Eiche?</p>
+
+    <p>Sie musste es herausfinden. Aber nicht jetzt. Nicht mitten in der Nacht.</p>
+
+    <p><em>Oder doch?</em></p>
+
+    <p>Lena stand am Fenster und sah hinaus. Der Mond war fast voll und tauchte den Hof in blasses Licht. Die Koppel sah aus wie ein Silbersee. Und dort, am Rand der Koppel, stand eine Gestalt.</p>
+
+    <p>Ein Pferd.</p>
+
+    <p>Silberwei&szlig; im Mondlicht, reglos, wie eine Statue. Mondschimmer stand drau&szlig;en auf der Koppel und sah zum Wald.</p>
+
+    <p>Aber Mondschimmer war in seiner Box gewesen. Lena hatte ihn vor dem Schlafengehen noch gesehen. Die Boxentur war zu gewesen.</p>
+
+    <p><em>Wie ist er rausgekommen?</em></p>
+
+    <p>Lena griff nach ihrer Jacke.</p>
+
+    <div class="inline-illustration">
+      <svg width="250" height="100" viewBox="0 0 250 100">
+        <!-- Window frame -->
+        <rect x="25" y="5" width="200" height="90" fill="#1A237E" rx="5"/>
+        <line x1="125" y1="5" x2="125" y2="95" stroke="#5D4037" stroke-width="3"/>
+        <line x1="25" y1="50" x2="225" y2="50" stroke="#5D4037" stroke-width="3"/>
+        <!-- Moon -->
+        <circle cx="180" cy="25" r="12" fill="#FFF9C4"/>
+        <!-- Koppel/field -->
+        <rect x="30" y="55" width="190" height="35" fill="#1B5E20" opacity="0.5"/>
+        <!-- Mondschimmer silhouette -->
+        <ellipse cx="100" cy="68" rx="18" ry="10" fill="#C0C0C0" opacity="0.7"/>
+        <ellipse cx="86" cy="60" rx="7" ry="9" fill="#C0C0C0" opacity="0.7"/>
+        <!-- Glow -->
+        <ellipse cx="100" cy="68" rx="22" ry="14" fill="white" opacity="0.1"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Sie schlich die Treppe hinunter, vorbei an Tante Maries Schlafzimmer, durch die Hintertur in die kuhle Nachtluft. Das Gras war nass unter ihren Fu&szlig;en. Irgendwo rief ein Kauzchen.</p>
+
+    <p>Mondschimmer stand immer noch da. Er hatte sich nicht bewegt. Aber als Lena naher kam, drehte er den Kopf und sah sie an.</p>
+
+    <p>Und dann tat er etwas Seltsames.</p>
+
+    <p>Er ging los. Langsam, Schritt fur Schritt, den Zaun entlang. Und nach ein paar Metern blieb er stehen und sah zuruck zu Lena. Als wurde er warten. Als wollte er sagen: <em>Kommst du mit?</em></p>
+
+    <p>&bdquo;Willst du mir was zeigen?&ldquo;, flusterte Lena.</p>
+
+    <p>Mondschimmer schnaubte leise und ging weiter. Lena folgte ihm. Der Zaun fuhrte am Reitplatz vorbei, an der alten Scheune, die seit Jahren leer stand, und dann zu einem Teil des Hofgelandes, den Lena noch nie besucht hatte. Hier war es verwildert &ndash; hohes Gras, Brennnesseln, umgesturzte Holzlatten.</p>
+
+    <p>Mondschimmer blieb stehen. Vor ihm, im silbernen Mondlicht, stand ein Baum. Eine Eiche. Riesig, knorrig, mit Asten so dick wie Lenas Korper. Ihr Stamm war so breit, dass drei Kinder ihn nicht hatten umfassen konnen.</p>
+
+    <p><em>Wo die alte Eiche steht.</em></p>
+
+    <p>&bdquo;Das ist sie&ldquo;, hauchte Lena. &bdquo;Die alte Eiche aus dem Ratsel.&ldquo;</p>
+
+    <p>Mondschimmer stupste mit der Nase gegen den Stamm. Genau an einer Stelle, wo die Rinde eine seltsame Form hatte &ndash; ein Oval, glatter als der Rest, fast wie ein Fenster im Holz. Und in diesem Oval, halb verborgen unter Moos und Flechten, war eine Markierung.</p>
+
+    <p>Ein Hufeisen. Und darunter ein Pfeil, der nach unten zeigte.</p>
+
+    <p><em>Nach unten.</em> Lena kniete sich hin. Am Fu&szlig; der Eiche, zwischen den machtigen Wurzeln, war die Erde locker. Als hatte jemand hier gegraben. Oder als <em>wollte</em> jemand, dass hier gegraben wird.</p>
+
+    <p>Lena kratzte mit den Fingern an der Erde. Sie war weich und feucht vom Regen. Und nach ein paar Zentimetern stie&szlig; sie auf etwas Hartes.</p>
+
+    <p>Etwas Metallisches.</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="100" viewBox="0 0 200 100">
+        <!-- Moonlit ground -->
+        <rect x="0" y="60" width="200" height="40" fill="#4E342E" rx="3"/>
+        <!-- Oak trunk -->
+        <rect x="80" y="0" width="50" height="60" fill="#5D4037"/>
+        <path d="M80 60 Q60 62 50 70 L50 100" fill="#5D4037"/>
+        <path d="M130 60 Q150 62 160 70 L160 100" fill="#5D4037"/>
+        <!-- Lena digging -->
+        <circle cx="105" cy="68" r="7" fill="#FFCCBC"/>
+        <rect x="100" y="75" width="10" height="12" fill="#5C6BC0" rx="1"/>
+        <!-- Moon glow -->
+        <circle cx="170" cy="15" r="10" fill="#FFF9C4" opacity="0.5"/>
+        <!-- Sparkle from ground -->
+        <circle cx="105" cy="88" r="2" fill="#C0C0C0"/>
+        <circle cx="108" cy="85" r="1" fill="white" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">&bdquo;Lena!&ldquo;</p>
+
+    <p>Die Stimme schnitt durch die Stille. Lena fuhr zusammen. Tante Marie stand hinter ihr, eine Taschenlampe in der Hand, den Bademantel uber dem Schlafanzug.</p>
+
+    <p>&bdquo;Was machst du hier drau&szlig;en? Es ist mitten in der Nacht!&ldquo;</p>
+
+    <p>&bdquo;Tante Marie, ich &ndash; Mondschimmer hat mich hergefuhrt. Und guck mal, hier unter der Eiche ist etwas &ndash;&ldquo;</p>
+
+    <p>&bdquo;Lena.&ldquo; Tante Maries Stimme war jetzt anders. Nicht bose, aber ernst. &bdquo;Es ist fast Mitternacht. Du kannst nicht alleine im Dunkeln auf dem Hof herumstreifen.&ldquo;</p>
+
+    <p>&bdquo;Aber die Eiche &ndash; das Ratsel &ndash;&ldquo;</p>
+
+    <p>Tante Marie sah sie lange an. Dann sah sie zu Mondschimmer, der ruhig neben der Eiche stand und so unschuldig aussah, wie ein silberwei&szlig;es Geisterpferd mitten in der Nacht nur aussehen konnte.</p>
+
+    <p>&bdquo;Morgen&ldquo;, sagte Tante Marie leise. &bdquo;Wir reden morgen daruber. Und jetzt gehst du ins Bett.&ldquo;</p>
+
+    <p>Lena wollte protestieren. Aber etwas in Tante Maries Gesicht sagte ihr, dass das keine gute Idee war. Also nickte sie.</p>
+
+    <p>Aber als sie zum Haus zuruckging und sich ein letztes Mal umdrehte, sah sie, dass Mondschimmer immer noch bei der Eiche stand. Und im Mondlicht glaubte sie zu sehen, dass seine Hufe auf dem nassen Boden silbrige Abdrucke hinterlie&szlig;en.</p>
+
+    <p><em>Morgen</em>, dachte Lena. <em>Morgen komme ich zuruck.</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 5 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap5">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">5</span>
+    <div class="chapter-title">Der Fund unter der Eiche</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap05_fund_eiche.jpg" alt="Der Fund unter der Eiche">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Am nachsten Morgen war Lena schon wach, als die ersten Vogel anfingen zu singen. Sie zog sich an, rannte in die Kuche &ndash; und fand Tante Marie schon am Tisch sitzen. Mit zwei Tassen Kakao.</p>
+
+    <p>&bdquo;Setz dich&ldquo;, sagte ihre Tante.</p>
+
+    <p>Lena setzte sich. Tante Marie schob ihr eine Tasse hin und sagte lange nichts. Drau&szlig;en krahte ein Hahn.</p>
+
+    <p>&bdquo;Du hast die silbernen Hufspuren gefunden&ldquo;, sagte Tante Marie schlie&szlig;lich. Es war keine Frage.</p>
+
+    <p>Lena nickte.</p>
+
+    <p>&bdquo;Und den Stein im Wald. Mit dem Ratsel.&ldquo;</p>
+
+    <p>Lenas Augen wurden gro&szlig;. &bdquo;Du <em>wei&szlig;t</em> davon?&ldquo;</p>
+
+    <p>Tante Marie lachelte, aber es war ein trauriges Lacheln. &bdquo;Lena, ich bin auf diesem Hof aufgewachsen. Naturlich kenne ich den Stein. Und ich kenne das Ratsel. Meine Mutter hat es mir gezeigt, als ich so alt war wie du.&ldquo;</p>
+
+    <p>&bdquo;Aber warum hast du nichts gesagt?&ldquo;</p>
+
+    <p>Tante Marie umschloss ihre Tasse mit beiden Handen. &bdquo;Weil ich es nie losen konnte. Ich habe es versucht, jahrelang. Ich habe unter der Eiche gegraben, ich habe den ganzen Wald abgesucht. Aber ich habe nie gefunden, was das Ratsel verspricht.&ldquo;</p>
+
+    <p>&bdquo;Was verspricht es denn?&ldquo;</p>
+
+    <p>&bdquo;Das <em>Herz des Hofs</em>. Meine Mutter sagte, der Grunder von Sonnenweide &ndash; mein Urgro&szlig;vater August &ndash; hatte etwas Wichtiges versteckt. Etwas, das den Hof beschutzt. Aber niemand hat es je gefunden.&ldquo;</p>
+
+    <p>Lena dachte an das Metallische, das sie in der Nacht unter der Eiche ertastet hatte. &bdquo;Ich glaube, ich habe etwas gefunden. Gestern Nacht. Unter der Eiche.&ldquo;</p>
+
+    <div class="scene-separator">
+      <svg width="40" height="30" viewBox="0 0 40 30">
+        <ellipse cx="20" cy="10" rx="8" ry="10" fill="#8D6E63"/>
+        <path d="M16 20 L20 28 L24 20" fill="#8D6E63"/>
+        <circle cx="20" cy="6" r="2" fill="#4E342E"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Eine halbe Stunde spater standen Lena, Tante Marie, Mia und &ndash; zu Lenas Uberraschung &ndash; Finn um die alte Eiche herum. Finn war &bdquo;zufallig&ldquo; vorbeigekommen, was wahrscheinlich bedeutete, dass er sie vom Zaun aus beobachtet hatte.</p>
+
+    <p>Lena kniete sich hin und grub an der Stelle, die sie in der Nacht gefunden hatte. Die Erde war noch feucht. Und nach wenigen Minuten stie&szlig; sie wieder auf das Metallische.</p>
+
+    <p>Es war eine Dose. Eine alte, rostige Blechdose, nicht gro&szlig;er als ein Buch. Lena zog sie vorsichtig aus der Erde.</p>
+
+    <p>&bdquo;Mach auf&ldquo;, flusterte Mia.</p>
+
+    <p>Lena wischte die Erde ab. Der Deckel klemmte. Finn reichte ihr sein Taschenmesser, und nach ein bisschen Hebeln ging er auf.</p>
+
+    <p>In der Dose lag ein Bundel. Altes, vergilbtes Papier, zusammengerollt und mit einem Lederband umwickelt. Und darunter ein Schlussel. Ein schwerer, alter Schlussel aus dunklem Metall, mit einem kunstvoll geschmiedeten Griff in der Form eines &ndash; Hufeisens.</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="100" viewBox="0 0 200 100">
+        <!-- Open tin box -->
+        <rect x="40" y="30" width="120" height="60" fill="#8D6E63" stroke="#6D4C41" stroke-width="2" rx="3"/>
+        <rect x="40" y="20" width="120" height="15" fill="#795548" stroke="#6D4C41" stroke-width="2" rx="3" transform="rotate(-15, 40, 35)"/>
+        <!-- Rolled paper -->
+        <rect x="60" y="45" width="60" height="15" fill="#FFF8E1" rx="5" stroke="#D7CCC8" stroke-width="1"/>
+        <line x1="65" y1="50" x2="80" y2="50" stroke="#BDBDBD" stroke-width="0.5"/>
+        <line x1="65" y1="53" x2="75" y2="53" stroke="#BDBDBD" stroke-width="0.5"/>
+        <!-- Leather band -->
+        <rect x="80" y="42" width="4" height="20" fill="#5D4037" rx="1"/>
+        <!-- Key -->
+        <path d="M100 68 L140 68 L140 65 L145 65 L145 72 L140 72 L140 68" fill="#616161" stroke="#424242" stroke-width="1"/>
+        <circle cx="97" cy="68" r="8" fill="none" stroke="#616161" stroke-width="2.5"/>
+        <!-- Horseshoe shape on key -->
+        <path d="M97 62 C93 62 91 65 91 68 C91 71 93 73 95 74 L95 72 C94 71 93 70 93 68 C93 66 94 64 97 64 C100 64 101 66 101 68 C101 70 100 71 99 72 L99 74 C101 73 103 71 103 68 C103 65 101 62 97 62Z" fill="#616161"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">&bdquo;Oh mein Gott&ldquo;, sagte Tante Marie leise. Sie nahm das Papierbundel mit zitternden Handen und loste das Lederband.</p>
+
+    <p>Es waren Briefe. Alte, handgeschriebene Briefe in verblasster Tinte. Und ganz oben lag ein Blatt, das anders war als die anderen &ndash; steiferes Papier, sorgfaltigere Schrift.</p>
+
+    <p>Tante Marie las vor, langsam und vorsichtig, weil die Tinte an manchen Stellen kaum noch zu erkennen war:</p>
+
+    <div class="verse">
+      <p><em>&bdquo;An den, der die Spur findet &ndash; Ich, August Sonnberg, Grunder des Hofs Sonnenweide, hinterlasse dies als Vermachtnis. Der Hof ist mehr als Land und Stein. Sein Herz liegt dort, wo das Licht den Schatten trifft, in der alten Scheune, hinter der Wand, die nicht ist, was sie scheint. Der Schlussel offnet, was bewahrt werden muss. Bewahre es gut. Denn solange das Herz schlagt, lebt Sonnenweide. August Sonnberg, im Jahre 1921.&ldquo;</em></p>
+    </div>
+
+    <p>Stille. Sogar Finn hatte den Mund offen.</p>
+
+    <p>&bdquo;Die alte Scheune&ldquo;, sagte Lena. &bdquo;Da mussen wir hin.&ldquo;</p>
+
+    <p>Tante Marie faltete den Brief zusammen und sah zu der verfallenen Scheune, die am Rand des Hofgelandes stand, halb verborgen hinter Holunderbuschen. &bdquo;Diese Scheune steht leer, seit ich denken kann. Die Tur ist verriegelt und ich habe nie einen Schlussel dafur gehabt.&ldquo;</p>
+
+    <p>Sie alle sahen auf den Schlussel in Lenas Hand.</p>
+
+    <p>&bdquo;Bis jetzt&ldquo;, sagte Lena.</p>
+
+    <div class="scene-separator">
+      <svg width="100" height="20" viewBox="0 0 100 20">
+        <circle cx="20" cy="10" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="38" cy="14" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="55" cy="12" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="72" cy="15" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="88" cy="11" r="4" fill="#B8860B" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Die alte Scheune sah aus, als hatte die Zeit sie vergessen. Das Dach war teilweise eingesturzt, Efeu bedeckte die Wande, und das Holz der Tur war grau und rissig. Ein rostiges Schloss hing an einer schweren Kette.</p>
+
+    <p>Lena schob den Schlussel hinein. Er passte. Sie drehte ihn &ndash; einmal, zweimal &ndash; und das Schloss sprang auf. Die Kette fiel klirrend zu Boden.</p>
+
+    <p>Die Tur quietschte, als Lena sie aufzog. Drinnen war es dunkel und roch nach altem Holz und trockenem Heu. Staubkorner wirbelten in den Lichtstrahlen, die durch die Ritzen im Dach fielen.</p>
+
+    <p>&bdquo;Da ist nichts drin&ldquo;, sagte Finn. &bdquo;Nur alter Kram.&ldquo;</p>
+
+    <p>&bdquo;August hat geschrieben: <em>hinter der Wand, die nicht ist, was sie scheint</em>&ldquo;, erinnerte Lena. Sie ging langsam durch die Scheune, klopfte gegen die Wande, druckte gegen Bretter.</p>
+
+    <p>Mia half. Finn tat so, als ware er nicht interessiert, und half trotzdem.</p>
+
+    <p>Tante Marie stand in der Tur und sah zu, die Hand auf dem Herzen.</p>
+
+    <p>&bdquo;Hier!&ldquo; Mia druckte gegen ein Brett an der hinteren Wand, und es gab nach. Dahinter war Hohlraum. &bdquo;Da ist was hinter der Wand!&ldquo;</p>
+
+    <p>Lena und Finn zogen die losen Bretter zur Seite. Dahinter lag ein kleiner Raum &ndash; eher eine Nische, kaum gro&szlig;er als eine Abstellkammer. Und in dieser Nische stand eine alte Holztruhe.</p>
+
+    <p>Die Truhe hatte ein Schloss. Und dieses Schloss hatte die Form eines Hufeisens.</p>
+
+    <p>Lenas Hande zitterten, als sie den Schlussel einfuhrte.</p>
+
+    <p><em>Klick.</em></p>
+
+    <p>Der Deckel ging auf.</p>
+
+    <p>Und Lena sah, was August Sonnberg vor uber hundert Jahren versteckt hatte.</p>
+
+    <div class="inline-illustration">
+      <svg width="220" height="100" viewBox="0 0 220 100">
+        <!-- Chest -->
+        <rect x="40" y="30" width="140" height="60" fill="#6D4C41" stroke="#4E342E" stroke-width="2" rx="3"/>
+        <rect x="38" y="25" width="144" height="10" fill="#5D4037" stroke="#4E342E" stroke-width="2" rx="3"/>
+        <!-- Open lid -->
+        <rect x="38" y="5" width="144" height="22" fill="#5D4037" stroke="#4E342E" stroke-width="2" rx="3" transform="rotate(-8, 38, 27)"/>
+        <!-- Documents inside -->
+        <rect x="55" y="40" width="50" height="35" fill="#FFF8E1" stroke="#D7CCC8" stroke-width="1" rx="1"/>
+        <rect x="60" y="45" width="40" height="2" fill="#BDBDBD"/>
+        <rect x="60" y="50" width="35" height="2" fill="#BDBDBD"/>
+        <rect x="60" y="55" width="38" height="2" fill="#BDBDBD"/>
+        <!-- Book/diary -->
+        <rect x="112" y="42" width="30" height="40" fill="#795548" stroke="#5D4037" stroke-width="1" rx="2"/>
+        <line x1="127" y1="42" x2="127" y2="82" stroke="#4E342E" stroke-width="1"/>
+        <!-- Dust particles -->
+        <circle cx="80" cy="20" r="1" fill="#D7CCC8" opacity="0.6"/>
+        <circle cx="150" cy="15" r="1.5" fill="#D7CCC8" opacity="0.4"/>
+        <circle cx="120" cy="10" r="1" fill="#D7CCC8" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">In der Truhe lagen Dokumente. Dicke, schwere Papiere mit Siegeln und Stempeln. Ein altes Buch &ndash; ein Tagebuch, wie sich herausstellte, in August Sonnbergs Handschrift. Und darunter, eingewickelt in Samt, eine Karte. Eine handgemalte Karte des Hofes und des umliegenden Landes, auf der jeder Grenzstein, jeder Weg, jeder Bach eingezeichnet war.</p>
+
+    <p>Und am Rand der Karte, in gro&szlig;en Buchstaben: <em>Grundbesitzurkunde &ndash; Sonnenweide &ndash; eingetragen 1898 &ndash; Besitz der Familie Sonnberg auf ewig und unwiderruflich.</em></p>
+
+    <p>Tante Marie setzte sich auf eine Holzkiste und weinte.</p>
+
+    <p>Nicht vor Trauer. Vor Erleichterung.</p>
+
+    <p>&bdquo;Tante Marie?&ldquo; Lena legte ihr den Arm um die Schulter. &bdquo;Was ist los?&ldquo;</p>
+
+    <p>&bdquo;Lena &hellip; du wei&szlig;t nicht, was du gerade gefunden hast.&ldquo; Tante Marie wischte sich die Augen. &bdquo;Herr Brinkmann &hellip; er behauptet seit Monaten, dass ein Teil unseres Landes eigentlich ihm gehort. Dass die alten Grenzen falsch eingetragen sind. Er will klagen. Und ohne die Originaldokumente konnte ich nicht beweisen, dass der Hof uns gehort.&ldquo; Sie deutete auf die Papiere. &bdquo;Das hier ist der Beweis. Die Originalurkunde. Die alteste Karte. Das Tagebuch des Grunders.&ldquo;</p>
+
+    <p>&bdquo;Also ist der Hof sicher?&ldquo;, fragte Mia.</p>
+
+    <p>Tante Marie lachelte durch ihre Tranen. &bdquo;Der Hof ist sicher.&ldquo;</p>
+
+    <p>Aber Lena spurte, dass die Geschichte hier nicht zu Ende war. In der Truhe lag noch etwas. Unter den Dokumenten, ganz auf dem Boden, lag ein einzelnes Blatt. Darauf stand, in August Sonnbergs verschnorkelter Schrift, ein weiteres Ratsel. Und dieses Ratsel war anders als das erste.</p>
+
+    <p>Lena steckte es in ihre Jackentasche, ohne dass jemand es sah.</p>
+
+    <p><em>Das ist noch nicht alles</em>, dachte sie. <em>Es gibt noch ein Geheimnis.</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 6 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap6">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">6</span>
+    <div class="chapter-title">Der Mann mit dem Hut</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap06_mann_mit_hut.jpg" alt="Der Mann mit dem Hut">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Am nachsten Tag kam Herr Brinkmann.</p>
+
+    <p>Lena sah ihn zuerst. Sie stand auf der Koppel und fuhrte Sternchen im Schritt, als ein dunkler Gelandewagen die Hofeinfahrt heraufkam. Er parkte neben dem Stall, und ein gro&szlig;er Mann stieg aus. Dunkler Mantel, Hut, Gesicht wie aus Stein gemei&szlig;elt.</p>
+
+    <p>Herr Brinkmann ging direkt zum Haus, ohne nach rechts oder links zu sehen. Lena horte, wie er an die Tur klopfte. Laut. Fordernd.</p>
+
+    <p>&bdquo;Tante Marie?&ldquo; Lena band Sternchen am Zaun fest und schlich zum Haus.</p>
+
+    <p>Durch das offene Kuchenfenster konnte sie die Stimmen horen.</p>
+
+    <p>&bdquo;Das Land ostlich des Bachs gehort seit Generationen meiner Familie, Marie. Und das wissen Sie.&ldquo; Herr Brinkmanns Stimme war tief und kalt.</p>
+
+    <p>&bdquo;Da irren Sie sich, Heinrich.&ldquo; Tante Marie klang ruhig, aber fest. &bdquo;Ich habe die Originalurkunde gefunden. Von 1898. Unterschrieben und besiegelt. Das Land gehort zu Sonnenweide.&ldquo;</p>
+
+    <p>Stille. Dann: &bdquo;Originalurkunde? Wo haben Sie die her?&ldquo;</p>
+
+    <p>&bdquo;Das spielt keine Rolle. Sie existiert, und sie ist rechtsgultig. Mein Anwalt pruft sie gerade.&ldquo;</p>
+
+    <p>Wieder Stille. Dann Schritte. Die Tur ging auf, und Herr Brinkmann kam heraus. Er blieb auf der Schwelle stehen und sah direkt zu Lena.</p>
+
+    <p>Lena wich nicht zuruck. Sie sah ihm in die Augen.</p>
+
+    <p>Und das, was sie dort sah, uberraschte sie. Hinter der Kalte, hinter dem steinernen Gesicht, war etwas anderes. Etwas Trauriges. Etwas Verlorenes.</p>
+
+    <p>Herr Brinkmann setzte seinen Hut auf und ging zu seinem Auto. Bevor er einstieg, drehte er sich noch einmal um.</p>
+
+    <p>&bdquo;Passen Sie auf, was Sie finden, Marie&ldquo;, sagte er. &bdquo;Manche Dinge sollten begraben bleiben.&ldquo;</p>
+
+    <p>Er fuhr davon. Der Kies spritzte unter seinen Reifen.</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="60" viewBox="0 0 200 60">
+        <!-- Car driving away -->
+        <rect x="80" y="15" width="60" height="25" fill="#37474F" rx="5"/>
+        <rect x="85" y="5" width="40" height="15" fill="#455A64" rx="3"/>
+        <circle cx="95" cy="42" r="7" fill="#212121"/>
+        <circle cx="95" cy="42" r="3" fill="#616161"/>
+        <circle cx="125" cy="42" r="7" fill="#212121"/>
+        <circle cx="125" cy="42" r="3" fill="#616161"/>
+        <!-- Dust -->
+        <circle cx="50" cy="35" r="8" fill="#D7CCC8" opacity="0.3"/>
+        <circle cx="35" cy="30" r="10" fill="#D7CCC8" opacity="0.2"/>
+        <circle cx="20" cy="38" r="6" fill="#D7CCC8" opacity="0.25"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">&bdquo;Was meint er damit?&ldquo;, fragte Lena, als sie in die Kuche kam.</p>
+
+    <p>Tante Marie sa&szlig; am Tisch, die Hande um eine kalte Tasse Tee. &bdquo;Heinrich Brinkmann ist ein unglucklicher Mann, Lena. Sein Hof war fruher genauso gro&szlig; wie Sonnenweide. Aber sein Vater hat schlecht gewirtschaftet, hat Land verkauft, Schulden gemacht. Heute ist von dem gro&szlig;en Brinkmann-Hof fast nichts mehr ubrig.&ldquo;</p>
+
+    <p>&bdquo;Und deshalb will er unser Land?&ldquo;</p>
+
+    <p>&bdquo;Er will zuruckhaben, was seine Familie verloren hat. Aber es war nie unseres, das er verloren hat. Es war seines.&ldquo; Tante Marie seufzte. &bdquo;Manchmal machen traurige Menschen seltsame Dinge, Lena. Das entschuldigt nichts. Aber es erklart einiges.&ldquo;</p>
+
+    <div class="scene-separator">
+      <svg width="50" height="25" viewBox="0 0 50 25">
+        <path d="M25 2 C15 2 8 8 8 15 C8 20 12 24 16 25 L19 22 C16 20 13 17 13 14 C13 9 18 5 25 5 C32 5 37 9 37 14 C37 17 34 20 31 22 L34 25 C38 24 42 20 42 15 C42 8 35 2 25 2Z" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Am Nachmittag ging Lena zum Stall. Sie musste nachdenken, und das konnte sie am besten bei den Pferden. Sie setzte sich vor Sturmwinds Box, lehnte den Rucken gegen das Holz und zog den Zettel aus ihrer Jackentasche.</p>
+
+    <p>Das zweite Ratsel. Das, von dem niemand wusste.</p>
+
+    <div class="verse">
+      <p><em>Wenn der silberne Huter seine letzte Runde dreht</em></p>
+      <p><em>und der Schatten des Berges die Sonne verdeckt,</em></p>
+      <p><em>dann offnet sich, was lang verborgen steht,</em></p>
+      <p><em>und das wahre Herz wird entdeckt.</em></p>
+      <p>&nbsp;</p>
+      <p><em>Suche dort, wo alles begann,</em></p>
+      <p><em>wo der erste Stein gelegt,</em></p>
+      <p><em>wo der Grunder seinen Traum ersann &ndash;</em></p>
+      <p><em>die Mondkuppe wei&szlig;, was sich dort regt.</em></p>
+    </div>
+
+    <p>Lena las es dreimal. <em>Der silberne Huter</em> &ndash; das musste Mondschimmer sein. <em>Die Mondkuppe</em> &ndash; der Hugel hinter dem Hof, den sie vom Fenster aus sehen konnte. Und <em>das wahre Herz</em> &ndash; August hatte in seinem ersten Brief vom <em>Herz des Hofs</em> geschrieben.</p>
+
+    <p>Aber wenn die Urkunde das Herz des Hofs war &ndash; was war dann das <em>wahre</em> Herz?</p>
+
+    <p>&bdquo;Du grubelst.&ldquo; Finn stand plotzlich neben ihr. Der Junge hatte ein Talent dafur, aus dem Nichts aufzutauchen.</p>
+
+    <p>Lena sah ihn an. Dann, nach einem Moment, zeigte sie ihm den Zettel. &bdquo;Kannst du ein Geheimnis bewahren?&ldquo;</p>
+
+    <p>Finn setzte sich neben sie und las. Sein Gesicht veranderte sich &ndash; von gelangweilt zu neugierig zu aufgeregt.</p>
+
+    <p>&bdquo;Die Mondkuppe&ldquo;, sagte er. &bdquo;Ich kenn die. Da oben war ich schon hundertmal. Da ist nichts Besonderes.&ldquo;</p>
+
+    <p>&bdquo;Vielleicht hast du nicht richtig geguckt.&ldquo;</p>
+
+    <p>Finn sah sie an. Dann grinste er. &bdquo;Wann gehen wir hin?&ldquo;</p>
+
+    <p>&bdquo;Morgen fruh. Bevor es jemand merkt.&ldquo;</p>
+
+    <p>&bdquo;Ich bin dabei.&ldquo;</p>
+
+    <div class="inline-illustration">
+      <svg width="240" height="80" viewBox="0 0 240 80">
+        <!-- Stable wood background -->
+        <rect x="0" y="0" width="240" height="80" fill="#5D4037" rx="3" opacity="0.3"/>
+        <!-- Two kids sitting -->
+        <circle cx="80" cy="30" r="10" fill="#FFCCBC"/>
+        <path d="M73 23 Q80 17 87 23" fill="#6D4C41"/>
+        <rect x="73" y="40" width="14" height="20" fill="#5C6BC0" rx="2"/>
+        <circle cx="120" cy="32" r="10" fill="#FFCCBC"/>
+        <path d="M114 26 Q120 20 126 26" fill="#795548"/>
+        <rect x="114" y="42" width="12" height="20" fill="#388E3C" rx="2"/>
+        <!-- Paper between them -->
+        <rect x="92" y="48" width="20" height="14" fill="#FFF8E1" stroke="#D7CCC8" stroke-width="0.5" rx="1"/>
+        <!-- Sturmwind looking over door -->
+        <rect x="170" y="0" width="70" height="60" fill="#4E342E"/>
+        <rect x="170" y="55" width="70" height="5" fill="#6D4C41"/>
+        <ellipse cx="200" cy="38" rx="12" ry="16" fill="#8B4513"/>
+        <circle cx="196" cy="34" r="2.5" fill="#2C1810"/>
+        <path d="M205 22 Q212 12 206 18" fill="#2C1810"/>
+        <ellipse cx="200" cy="38" rx="8" ry="10" fill="#A0522D" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">An diesem Abend putzte Lena Sturmwind besonders grundlich. Der gro&szlig;e Braune stand ruhig da und lie&szlig; sich bursten, was &ndash; laut Tante Marie &ndash; ein kleines Wunder war.</p>
+
+    <p>&bdquo;Er mag dich&ldquo;, sagte Tante Marie, die im Stallgang lehnte und zusah. &bdquo;Sturmwind mag fast niemanden. Aber dich mag er.&ldquo;</p>
+
+    <p>&bdquo;Darf ich morgen auf ihm reiten?&ldquo;, fragte Lena.</p>
+
+    <p>Tante Marie uberlegte. &bdquo;Er ist kein einfaches Pferd, Lena. Aber du reitest gut, und er vertraut dir. Also ja. Aber nur auf der Koppel oder auf bekannten Wegen. Und immer mit Helm.&ldquo;</p>
+
+    <p>&bdquo;Versprochen.&ldquo;</p>
+
+    <p>Lena druckte ihre Stirn gegen Sturmwinds warmen Hals. &bdquo;Morgen&ldquo;, flusterte sie. &bdquo;Morgen reiten wir zusammen.&ldquo;</p>
+
+    <p>Sturmwind schnaubte leise. Es klang fast wie Zustimmung.</p>
+
+    <p>Und irgendwo im Stall, in der letzten Box, hob Mondschimmer den Kopf und sah in die Ferne. Als wusste er, was kommen wurde.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 7 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap7">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">7</span>
+    <div class="chapter-title">Ausritt zur Mondkuppe</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap07_ausritt.jpg" alt="Ausritt zur Mondkuppe">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Der Morgen kam mit Nebel. Er hing uber den Koppeln wie ein wei&szlig;er Schleier, und die Pferde auf der Weide sahen aus wie Geister, die durch Watte wateten.</p>
+
+    <p>Lena war um sechs Uhr wach. Um halb sieben hatte sie Sturmwind gesattelt. Der Braune war nervos &ndash; er tanzelte auf der Stelle und warf den Kopf. Aber als Lena ihm die Hand auf den Hals legte und leise mit ihm sprach, wurde er ruhiger.</p>
+
+    <p>Finn kam punktlich, auf Kupfer. Der rotbraune Wallach stand gelassen da, wie immer. Finn hatte Proviant mitgebracht: Apfel, Musliriegel und eine Flasche Wasser.</p>
+
+    <p>Und dann kam Mia, auf Butterblume, die gemutlich vor sich hin trottete und aussah, als wurde sie am liebsten wieder in den Stall gehen und schlafen.</p>
+
+    <p>&bdquo;Tante Marie wei&szlig; Bescheid&ldquo;, sagte Mia. &bdquo;Ich hab ihr gesagt, wir reiten zur Mondkuppe. Sie hat gesagt, wir sollen vor Mittag zuruck sein.&ldquo;</p>
+
+    <p>&bdquo;Dann los&ldquo;, sagte Lena.</p>
+
+    <div class="scene-separator">
+      <svg width="120" height="25" viewBox="0 0 120 25">
+        <ellipse cx="20" cy="12" rx="12" ry="8" fill="none" stroke="#B8860B" stroke-width="1" opacity="0.3"/>
+        <ellipse cx="50" cy="12" rx="12" ry="8" fill="none" stroke="#B8860B" stroke-width="1" opacity="0.3"/>
+        <ellipse cx="80" cy="12" rx="12" ry="8" fill="none" stroke="#B8860B" stroke-width="1" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Der Weg zur Mondkuppe fuhrte durch den Wald, vorbei am Murmelbach und dann bergauf uber einen Wiesenpfad. Normalerweise war es ein gemutlicher Ausritt von etwa einer Stunde. Aber heute war nichts normal.</p>
+
+    <p>Sturmwind war angespannt. Seine Ohren spielten hin und her, und sein Schritt war federnd, als konnte er jederzeit losgaloppieren. Lena hielt die Zugel kurz, aber nicht zu fest &ndash; Tante Marie hatte ihr beigebracht, dass ein Pferd, das sich eingeengt fuhlt, erst recht nervos wird.</p>
+
+    <p>Der Wald war still. Zu still, fand Lena. Keine Vogel, kein Rascheln. Nur das Knirschen der Hufe auf dem feuchten Boden und das leise Schnauben der Pferde.</p>
+
+    <p>&bdquo;Ist euch aufgefallen, dass es so leise ist?&ldquo;, flusterte Mia.</p>
+
+    <p>&bdquo;Tiere sind manchmal still, wenn ein Gewitter kommt&ldquo;, sagte Finn.</p>
+
+    <p>Lena sah zum Himmel. Zwischen den Baumkronen konnte sie dunkle Wolken sehen, die sich von Westen her aufturmten. &bdquo;Wir mussen uns beeilen.&ldquo;</p>
+
+    <p>Sie trieben die Pferde an. Butterblume protestierte kurz, aber als Kupfer und Sturmwind in einen zugigen Trab fielen, zog sie mit. Sie uberquerten den Bach &ndash; das Wasser war wieder flacher, aber Lena bemerkte, dass die Steine am Ufer nass waren, als hatte dort vor kurzem jemand gestanden.</p>
+
+    <div class="scene-separator">
+      <svg width="60" height="25" viewBox="0 0 60 25">
+        <path d="M10 20 Q15 5 20 20" fill="none" stroke="#90CAF9" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="30" cy="12" r="6" fill="#B0BEC5" opacity="0.3"/>
+        <path d="M40 20 Q45 5 50 20" fill="none" stroke="#90CAF9" stroke-width="1.5" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Der Anstieg zur Mondkuppe war steiler, als Lena erwartet hatte. Der Wiesenpfad wand sich in Serpentinen den Hugel hinauf, und die Pferde schnauften von der Anstrengung. Sturmwind meisterte den Aufstieg mit kraftvollen Schritten, als ware der Hugel ein Nichts.</p>
+
+    <p>Und dann standen sie oben.</p>
+
+    <p>Die Mondkuppe war ein runder, offener Hugel mit einer flachen Kuppe, von der man in alle Richtungen sehen konnte. Im Norden lag das Dorf, im Suden der Wald, im Westen Hof Sonnenweide &ndash; von hier oben sah er klein aus, wie ein Spielzeughof &ndash; und im Osten erstreckten sich Felder bis zum Horizont.</p>
+
+    <p>&bdquo;Wow&ldquo;, sagte Mia.</p>
+
+    <p>Der Wind pfiff uber die Kuppe. Lenas Haare flatterten, und Sturmwinds dunkle Mahne wehte wie ein Banner.</p>
+
+    <p>&bdquo;Also&ldquo;, sagte Finn und stieg ab. &bdquo;Wo fangen wir an zu suchen?&ldquo;</p>
+
+    <div class="inline-illustration">
+      <svg width="300" height="80" viewBox="0 0 300 80">
+        <!-- Panorama -->
+        <rect width="300" height="80" fill="#90CAF9" rx="5"/>
+        <ellipse cx="150" cy="80" rx="180" ry="30" fill="#66BB6A"/>
+        <!-- Tiny farm -->
+        <rect x="50" y="52" width="12" height="8" fill="#8D6E63"/>
+        <polygon points="50,52 56,46 62,52" fill="#C62828"/>
+        <!-- Dark clouds -->
+        <ellipse cx="240" cy="15" rx="40" ry="12" fill="#616161" opacity="0.5"/>
+        <ellipse cx="260" cy="20" rx="30" ry="10" fill="#757575" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Das Ratsel hatte gesagt: <em>Suche dort, wo alles begann, wo der erste Stein gelegt.</em> Lena sah sich um. Die Kuppe war mit Gras und Wildblumen bewachsen. Hier und da ragten Felsen aus dem Boden.</p>
+
+    <p>&bdquo;August hat den Hof 1898 gegrundet&ldquo;, sagte Lena. &bdquo;Wenn er <em>den ersten Stein</em> gelegt hat, meint er vielleicht einen echten Stein. Einen Grundstein.&ldquo;</p>
+
+    <p>&bdquo;Hier oben?&ldquo;, fragte Finn skeptisch. &bdquo;Der Hof ist da unten.&ldquo;</p>
+
+    <p>&bdquo;Aber vielleicht hat hier oben alles <em>angefangen</em>. Vielleicht hat August von hier oben das Land gesehen und beschlossen, hier seinen Hof zu bauen.&ldquo;</p>
+
+    <p>Sie suchten. Lena kroch uber die Kuppe, tastete Felsen ab, druckte gegen Steine. Finn untersuchte den Rand des Hugels. Mia kummerte sich um die Pferde und hielt Ausschau.</p>
+
+    <p>Und dann fand Lena etwas.</p>
+
+    <p>Am hochsten Punkt der Kuppe, halb verborgen unter einer Grasnarbe, war ein flacher Stein in den Boden eingelassen. Er war anders als die anderen &ndash; glatter, bearbeiteter. Und als Lena das Gras beiseitezog, sah sie eine Gravur.</p>
+
+    <p><em>A.S. &ndash; 1898 &ndash; Hier beginnt mein Traum.</em></p>
+
+    <p>&bdquo;August Sonnberg&ldquo;, flusterte Lena. &bdquo;Das ist es.&ldquo;</p>
+
+    <p>Aber da war mehr. Neben dem Stein, in die Erde eingelassen, war eine kleine Vertiefung. Als Lena hineingriff, spurte sie glattes Metall. Sie zog daran &ndash; und aus dem Boden kam ein kleines, rundes Metallstuck, kaum gro&szlig;er als eine Munze. Auf der einen Seite war ein Hufeisen eingepragt. Auf der anderen ein Pfeil, der nach unten zeigte.</p>
+
+    <p>&bdquo;Ein Medaillon&ldquo;, sagte Finn, der neben sie getreten war. &bdquo;Oder ein Erkennungszeichen.&ldquo;</p>
+
+    <p>Lena drehte es in den Fingern. <em>Der silberne Huter</em>, dachte sie. <em>Mondschimmer.</em> Irgendwie hing alles zusammen &ndash; die Spuren, das Pferd, der Grunder, das Medaillon.</p>
+
+    <p>Ein Donnergrollen rollte uber den Himmel. Der Wind frischte auf.</p>
+
+    <p>&bdquo;Wir mussen runter&ldquo;, sagte Mia mit gro&szlig;en Augen. &bdquo;Sofort.&ldquo;</p>
+
+    <p>Lena steckte das Medaillon in die Tasche. Die ersten Tropfen fielen, schwer und kalt. In Sekunden wurde aus Tropfen ein Guss. Der Regen peitschte uber die ungeschutzte Kuppe.</p>
+
+    <p>Sie sprangen auf die Pferde. Sturmwind tanzelte nervos, aber Lena sprach beruhigend auf ihn ein und lenkte ihn den Pfad hinunter. Kupfer folgte sicher, sein Instinkt leitete ihn auch im Regen. Butterblume machte sich mit Mia im Sattel so schnell vom Hugel, wie ihre kurzen Beine es erlaubten.</p>
+
+    <div class="inline-illustration">
+      <svg width="280" height="90" viewBox="0 0 280 90">
+        <!-- Rain -->
+        <line x1="20" y1="0" x2="15" y2="20" stroke="#90CAF9" stroke-width="1" opacity="0.4"/>
+        <line x1="60" y1="5" x2="55" y2="25" stroke="#90CAF9" stroke-width="1" opacity="0.3"/>
+        <line x1="100" y1="2" x2="95" y2="22" stroke="#90CAF9" stroke-width="1" opacity="0.4"/>
+        <line x1="150" y1="0" x2="145" y2="20" stroke="#90CAF9" stroke-width="1" opacity="0.3"/>
+        <line x1="200" y1="5" x2="195" y2="25" stroke="#90CAF9" stroke-width="1" opacity="0.4"/>
+        <line x1="240" y1="2" x2="235" y2="22" stroke="#90CAF9" stroke-width="1" opacity="0.3"/>
+        <!-- Slope -->
+        <polygon points="0,90 280,90 280,50 0,70" fill="#4CAF50" opacity="0.5"/>
+        <!-- Three galloping riders (simplified) -->
+        <ellipse cx="80" cy="55" rx="20" ry="12" fill="#8B4513"/>
+        <circle cx="78" cy="42" r="6" fill="#FFCCBC"/>
+        <ellipse cx="150" cy="60" rx="17" ry="10" fill="#8D6E63"/>
+        <circle cx="148" cy="48" r="5" fill="#FFCCBC"/>
+        <ellipse cx="220" cy="62" rx="15" ry="9" fill="#DAA520"/>
+        <circle cx="218" cy="52" r="5" fill="#FFCCBC"/>
+        <!-- Flying manes -->
+        <path d="M65 38 Q55 30 60 35" stroke="#2C1810" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Der Abstieg war rutschig. Der Boden hatte sich in Minuten in eine Schlammrutsche verwandelt. Sturmwind glitt einmal aus, fing sich, schnaubte wutend und stapfte weiter. Lenas Herz hammerte.</p>
+
+    <p>&bdquo;Langsam!&ldquo;, rief Finn. &bdquo;Wenn die Pferde zu schnell werden &ndash;&ldquo;</p>
+
+    <p>Ein Blitz zuckte uber den Himmel, gefolgt von einem Donnerschlag, der so laut war, dass Lena zusammenzuckte. Butterblume wieherte panisch.</p>
+
+    <p>&bdquo;Mia! Halt die Zugel fest!&ldquo;</p>
+
+    <p>Mia klammerte sich an den Sattel. Butterblume buckelte einmal, zweimal &ndash; und dann rannte sie. Nicht den Pfad entlang, sondern querfeldein, Richtung Wald.</p>
+
+    <p>&bdquo;MIA!&ldquo;, schrie Lena.</p>
+
+    <p>Ohne nachzudenken druckte Lena Sturmwind die Schenkel in die Seite. Der Braune explodierte formlich nach vorne. Im Galopp jagten sie uber die nasse Wiese, Schlamm spritzte, der Regen peitschte Lena ins Gesicht. Sturmwind war schnell &ndash; schneller als Butterblume, schneller als der Wind. In Sekunden waren sie neben dem panischen Haflinger.</p>
+
+    <p>&bdquo;MIA! ZIEH DIE ZUGEL AN! LANGSAM!&ldquo;</p>
+
+    <p>Mia zog. Butterblume bremste, erst abrupt, dann langsamer. Sturmwind drosselte sein Tempo und stellte sich quer, sodass Butterblume nicht weiterlaufen konnte.</p>
+
+    <p>Die beiden Pferde standen schnaufend im Regen. Mia zitterte am ganzen Korper.</p>
+
+    <p>&bdquo;Alles okay?&ldquo;, keuchte Lena.</p>
+
+    <p>Mia nickte. Tranen mischten sich mit dem Regen auf ihren Wangen. &bdquo;Sie ist einfach losgerannt. Ich konnte nichts machen.&ldquo;</p>
+
+    <p>&bdquo;Du hast super reagiert.&ldquo; Lena griff hinuber und nahm Mias Hand. &bdquo;Du bist draufgeblieben. Das ist das Wichtigste.&ldquo;</p>
+
+    <p>Finn kam angeritten. Kupfer stand ruhig wie immer, als ware ein Gewitter-Galopp das Normalste der Welt.</p>
+
+    <p>&bdquo;Konnen wir jetzt <em>bitte</em> nach Hause?&ldquo;, sagte Mia mit zitternder Stimme.</p>
+
+    <p>Sie ritten im Schritt zuruck zum Hof. Der Regen lie&szlig; langsam nach, und als sie durch das Tor kamen, brach die Sonne durch die Wolken, als ware nichts gewesen.</p>
+
+    <p>Tante Marie stand im Stalleingang, die Arme verschrankt, das Gesicht eine Mischung aus Sorge und Erleichterung.</p>
+
+    <p>&bdquo;Alles gut&ldquo;, sagte Lena, bevor ihre Tante fragen konnte. &bdquo;Alles gut.&ldquo;</p>
+
+    <p>Aber in ihrer Tasche lag das Medaillon, und in ihrem Kopf drehte sich alles um die gleiche Frage: <em>Was ist das wahre Herz von Sonnenweide?</em></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 8 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap8">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">8</span>
+    <div class="chapter-title">Augusts Tagebuch</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap08_tagebuch.jpg" alt="Augusts Tagebuch">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Der Regen hatte aufgehort, aber die Wolken blieben. Lena sa&szlig; auf ihrem Bett und hatte Augusts Tagebuch auf den Knien. Tante Marie hatte es ihr gegeben &ndash; &bdquo;Du hast es gefunden, also hast du auch das Recht, es zu lesen.&ldquo;</p>
+
+    <p>Das Tagebuch war in braunes Leder gebunden, rissig und fleckig von der Zeit. Die Seiten waren gelblich und knisterten, wenn man sie umbla&#x0308;tterte. August Sonnbergs Schrift war verschnorkelt und schwer zu lesen, aber Lena nahm sich Zeit.</p>
+
+    <p>Die ersten Eintrage waren kurz: Notizen uber den Bau des Hofs, uber die Arbeit, uber das Wetter. Aber dann anderte sich der Ton.</p>
+
+    <div class="verse">
+      <p><em>14. Mai 1901 &ndash; Heute ist ein silberwei&szlig;es Fohlen auf der Koppel zur Welt gekommen. Die Stute hat es in der Nacht bekommen, ganz allein. Als ich am Morgen in den Stall kam, stand es schon auf seinen Beinen. Es ist das schonste Fohlen, das ich je gesehen habe. Sein Fell schimmert wie Mondlicht auf Wasser. Ich nenne es Mondschimmer.</em></p>
+    </div>
+
+    <p>Lena stutzte. 1901. Das war vor uber 120 Jahren.</p>
+
+    <p><em>Kein Pferd wird so alt</em>, dachte sie. Aber sie las weiter.</p>
+
+    <div class="verse">
+      <p><em>3. September 1901 &ndash; Mondschimmer wachst schneller als jedes Fohlen, das ich kenne. Er ist klug, ruhig und scheint alles zu verstehen, was ich sage. Manchmal habe ich das Gefuhl, er sieht Dinge, die ich nicht sehen kann.</em></p>
+    </div>
+
+    <div class="verse">
+      <p><em>12. Dezember 1905 &ndash; Heute ist etwas Seltsames geschehen. Mondschimmer stand nachts auf der Koppel, und uberall, wo er ging, hinterlie&szlig;en seine Hufe silberne Spuren. Ich bin kein aberglaubischer Mann, aber ich kann nicht leugnen, was ich gesehen habe. Dieser Hof hat ein Herz, und Mondschimmer ist sein Huter.</em></p>
+    </div>
+
+    <div class="inline-illustration">
+      <svg width="180" height="100" viewBox="0 0 180 100">
+        <!-- Diary page -->
+        <rect x="10" y="5" width="160" height="90" fill="#FFF8E1" rx="3" stroke="#D7CCC8" stroke-width="1"/>
+        <!-- Handwriting lines -->
+        <line x1="25" y1="20" x2="100" y2="20" stroke="#BDBDBD" stroke-width="0.5"/>
+        <line x1="25" y1="28" x2="120" y2="28" stroke="#BDBDBD" stroke-width="0.5"/>
+        <line x1="25" y1="36" x2="90" y2="36" stroke="#BDBDBD" stroke-width="0.5"/>
+        <line x1="25" y1="44" x2="110" y2="44" stroke="#BDBDBD" stroke-width="0.5"/>
+        <line x1="25" y1="52" x2="95" y2="52" stroke="#BDBDBD" stroke-width="0.5"/>
+        <!-- Small horse sketch -->
+        <ellipse cx="140" cy="68" rx="15" ry="9" fill="none" stroke="#8D6E63" stroke-width="1"/>
+        <ellipse cx="130" cy="62" rx="6" ry="8" fill="none" stroke="#8D6E63" stroke-width="1"/>
+        <line x1="133" y1="76" x2="132" y2="85" stroke="#8D6E63" stroke-width="1"/>
+        <line x1="145" y1="76" x2="146" y2="85" stroke="#8D6E63" stroke-width="1"/>
+        <!-- Age stain -->
+        <circle cx="150" cy="25" r="10" fill="#D7CCC8" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Lena blatterte weiter. Die Eintrage wurden personlicher, tiefgrundiger.</p>
+
+    <div class="verse">
+      <p><em>8. April 1910 &ndash; Brinkmann hat wieder nach dem Land am Bach gefragt. Ich habe nein gesagt. Sonnenweide gehort als Ganzes zusammen. Man kann einem Hof nicht das Herz herausschneiden und erwarten, dass er weiterlebt. Brinkmann versteht das nicht. Sein Junge auch nicht. Diese Familie sieht nur Land, wo ich ein Zuhause sehe.</em></p>
+    </div>
+
+    <p>Lena sog scharf die Luft ein. Brinkmann. Die Familie Brinkmann wollte schon vor uber hundert Jahren das Land.</p>
+
+    <div class="verse">
+      <p><em>22. August 1921 &ndash; Ich bin alt geworden. Meine Hande zittern, wenn ich schreibe. Aber Mondschimmer steht noch immer auf der Koppel, silbern und still, als hatte die Zeit ihn vergessen. Ich habe das Wichtigste gut versteckt. Die Urkunden in der Scheune, den Hinweis unter der Eiche, und das wahre Herz &ndash; das bewahrt Mondschimmer. Er wei&szlig;, wann die Zeit gekommen ist. Er wird den Richtigen finden. Das war mein letzter Eintrag.</em></p>
+    </div>
+
+    <p>Das Tagebuch endete hier.</p>
+
+    <p>Lena klappte es langsam zu. Ihr Kopf war voller Gedanken, die sich wie ein Puzzle zusammensetzten.</p>
+
+    <p>Mondschimmer war mehr als ein altes Pferd. Er war ein Huter. Ein Beschutzer. Er hatte die silbernen Spuren gelegt, damit sie &ndash; Lena &ndash; die Truhe fand. Und laut August bewahrte Mondschimmer das <em>wahre Herz</em> des Hofs.</p>
+
+    <p>Aber was war das?</p>
+
+    <div class="scene-separator">
+      <svg width="100" height="20" viewBox="0 0 100 20">
+        <circle cx="20" cy="10" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="38" cy="14" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="55" cy="12" r="4" fill="#B8860B" opacity="0.5"/>
+        <circle cx="72" cy="15" r="3.5" fill="#B8860B" opacity="0.4"/>
+        <circle cx="88" cy="11" r="4" fill="#B8860B" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Am nachsten Morgen rannte Lena zum Stall. Mondschimmer stand in seiner Box und sah sie mit seinen tiefen, dunklen Augen an.</p>
+
+    <p>&bdquo;Du wei&szlig;t es, oder?&ldquo;, flusterte Lena. &bdquo;Du wei&szlig;t, wo das wahre Herz ist.&ldquo;</p>
+
+    <p>Mondschimmer stupste sie sanft mit der Nase. Und Lena hatte das Gefuhl &ndash; vielleicht verruckt, vielleicht nicht &ndash;, dass er lachelte.</p>
+
+    <p>Sie suchte Finn. Er sa&szlig; auf dem Zaun und kaute auf einem Grashalm.</p>
+
+    <p>&bdquo;Ich hab Augusts Tagebuch gelesen&ldquo;, sagte Lena und erzahlte ihm alles. Finn horte zu, ohne sie zu unterbrechen. Als sie fertig war, pfiff er leise.</p>
+
+    <p>&bdquo;Also ist Mondschimmer irgendwie &hellip; magisch?&ldquo;</p>
+
+    <p>&bdquo;Ich wei&szlig; nicht, ob magisch das richtige Wort ist. Aber er ist <em>besonders</em>. August hat geschrieben, Mondschimmer bewahrt das wahre Herz. Und das Ratsel sagt, es zeigt sich, <em>wenn der silberne Huter seine letzte Runde dreht</em>.&ldquo;</p>
+
+    <p>&bdquo;Seine <em>letzte</em> Runde.&ldquo; Finn wurde blass. &bdquo;Das klingt, als ob &hellip;&ldquo;</p>
+
+    <p>&bdquo;Ja.&ldquo; Lena schluckte. &bdquo;Ich glaube, Mondschimmer ist alt. Wirklich alt. Und vielleicht hat er nicht mehr viel Zeit.&ldquo;</p>
+
+    <p>Sie sahen beide zum Stall. Mondschimmer stand in seiner Box, silbern und still, und die Sonne malte Schatten auf sein Fell.</p>
+
+    <p>&bdquo;Was machen wir?&ldquo;, fragte Finn.</p>
+
+    <p>&bdquo;Wir warten. Wir beobachten. Und wenn Mondschimmer uns wieder zeigt, wohin wir gehen sollen &ndash; dann folgen wir ihm.&ldquo;</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 9 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap9">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">9</span>
+    <div class="chapter-title">Nacht auf der Mondkuppe</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap09_mondkuppe.jpg" alt="Nacht auf der Mondkuppe">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Es geschah drei Tage spater.</p>
+
+    <p>Lena hatte die Tage damit verbracht, das Medaillon zu untersuchen, das Tagebuch noch einmal zu lesen und auf Sturmwind zu reiten. Die Sonne war zuruckgekehrt, der Sommer lag warm und golden uber Sonnenweide, und alles wirkte friedlich.</p>
+
+    <p>Aber Lena beobachtete Mondschimmer. Jeden Morgen, jeden Abend. Und sie bemerkte etwas, das ihr einen Stich im Herzen gab: Das silberne Pferd war muder geworden. Es stand langer still, fra&szlig; weniger, und manchmal, wenn Lena ihn ansah, glaubte sie, ein Flackern in seinen Augen zu sehen. Wie eine Kerze, die im Wind tanzt.</p>
+
+    <p>Tante Marie bemerkte es auch. &bdquo;Mondschimmer wird alt&ldquo;, sagte sie leise, als sie abends zusammen den Stall absperrten. &bdquo;Wirklich alt. Ich glaube &hellip; ich glaube, er bereitet sich vor.&ldquo;</p>
+
+    <p>&bdquo;Worauf?&ldquo;</p>
+
+    <p>Tante Marie antwortete nicht. Aber ihre Augen glanzten feucht.</p>
+
+    <div class="scene-separator">
+      <svg width="40" height="30" viewBox="0 0 40 30">
+        <path d="M20 2 Q25 0 28 5 Q30 12 25 15 Q20 18 15 15 Q10 12 12 5 Q15 0 20 2Z" fill="none" stroke="#B8860B" stroke-width="1" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">In der Nacht des dritten Tages wachte Lena auf. Drau&szlig;en war es hell &ndash; der Mond stand voll und rund am Himmel, so gro&szlig; und nah, als konnte man ihn beruhren. Und durch das Dachfenster sah Lena, was sie erwartet hatte.</p>
+
+    <p>Mondschimmer. Er stand auf der Koppel, silbern leuchtend, den Kopf zum Mond erhoben. Und dann begann er zu gehen. Nicht zum Stall. Nicht zum Zaun. Er ging langsam, feierlich, Richtung Mondkuppe.</p>
+
+    <p>Lena zog sich an. Dieses Mal zogerte sie nicht. An der Treppe wartete &ndash; Finn.</p>
+
+    <p>&bdquo;Ich konnte nicht schlafen&ldquo;, flusterte er. &bdquo;Hab ihn durchs Fenster gesehen.&ldquo;</p>
+
+    <p>&bdquo;Du schlafst hier?&ldquo;</p>
+
+    <p>&bdquo;Dachte, so was passiert. Hab mich im Heulager versteckt.&ldquo; Er grinste, aber seine Augen waren ernst.</p>
+
+    <p>Sie gingen hinaus. Die Nacht war warm und still, der Boden trocken unter ihren Fu&szlig;en. Mondschimmers silbrige Gestalt bewegte sich langsam vor ihnen her, am Wald vorbei, den Wiesenpfad hinauf.</p>
+
+    <p>Die Mondkuppe war in silbernes Licht getaucht. Jeder Grashalm, jeder Stein schimmerte. Es sah aus wie eine andere Welt &ndash; nicht unheimlich, sondern feierlich. Wie eine Kirche aus Licht.</p>
+
+    <p>Mondschimmer stand oben auf der Kuppe. Genau auf dem Stein, den Lena gefunden hatte &ndash; dem Grundstein mit Augusts Gravur. Das Pferd stand dort, den Kopf erhoben, und sein Fell leuchtete so hell, dass Lena die Augen zusammenkneifen musste.</p>
+
+    <p>Und dann sah sie die Hufspuren. Silberne Hufspuren, die in einem Kreis um den Grundstein verliefen. Mondschimmer ging im Kreis. Langsam. Schritt fur Schritt. Seine Hufe hinterlie&szlig;en leuchtende Abdrucke auf dem Boden, und mit jeder Runde wurde der Kreis heller.</p>
+
+    <p><em>Seine letzte Runde</em>, dachte Lena. Ihr Herz tat weh.</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="120" viewBox="0 0 200 120">
+        <!-- Dark background -->
+        <rect width="200" height="120" fill="#0D1B3E" rx="5"/>
+        <!-- Glowing circle -->
+        <circle cx="100" cy="60" r="45" fill="none" stroke="#C0C0C0" stroke-width="2" opacity="0.5"/>
+        <circle cx="100" cy="60" r="48" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
+        <!-- Center stone -->
+        <rect x="88" y="52" width="24" height="16" fill="#757575" rx="2"/>
+        <!-- Horse walking the circle -->
+        <ellipse cx="140" cy="48" rx="15" ry="9" fill="#C0C0C0"/>
+        <ellipse cx="130" cy="42" rx="6" ry="8" fill="#C0C0C0"/>
+        <!-- Silver hoofprints in circle -->
+        <circle cx="55" cy="58" r="3" fill="#C0C0C0" opacity="0.4"/>
+        <circle cx="65" cy="35" r="3" fill="#C0C0C0" opacity="0.4"/>
+        <circle cx="90" cy="18" r="3" fill="#C0C0C0" opacity="0.4"/>
+        <circle cx="120" cy="18" r="3" fill="#C0C0C0" opacity="0.4"/>
+        <circle cx="100" cy="103" r="3" fill="#C0C0C0" opacity="0.4"/>
+        <circle cx="70" cy="92" r="3" fill="#C0C0C0" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Mondschimmer blieb stehen. Er sah Lena an. Und dann senkte er den Kopf und stupste mit der Nase gegen den Grundstein. Einmal. Zweimal. Dreimal.</p>
+
+    <p>Lena verstand. Sie kniete sich hin, schob den Grundstein zur Seite &ndash; er war schwer, aber er bewegte sich &ndash; und darunter war ein Hohlraum. Und in diesem Hohlraum, eingebettet in trockene Erde, lag etwas.</p>
+
+    <p>Ein kleiner Lederbeutel. Und darin &ndash; eine Kette. Eine feine Silberkette mit einem Anhanger in Form eines Hufeisens, in dessen Mitte ein kleiner, milchig-wei&szlig;er Stein sa&szlig;, der im Mondlicht schimmerte.</p>
+
+    <p>&bdquo;Das ist es&ldquo;, flusterte Lena. &bdquo;Das wahre Herz von Sonnenweide.&ldquo;</p>
+
+    <p>Sie stand auf und hielt die Kette ins Mondlicht. Der Stein leuchtete &ndash; nicht stark, nicht grell, aber warm und stetig, wie ein kleines Herz, das schlug.</p>
+
+    <p>Mondschimmer trat neben sie. Sein Atem war warm auf ihrer Haut. Und als Lena ihm in die Augen sah, sah sie etwas, das sie nie vergessen wurde: Dankbarkeit. Tiefe, stille Dankbarkeit.</p>
+
+    <p><em>Du hast auf mich gewartet</em>, dachte sie. <em>All die Jahre.</em></p>
+
+    <div class="inline-illustration">
+      <svg width="150" height="80" viewBox="0 0 150 80">
+        <rect width="150" height="80" fill="#0D1B3E" rx="5"/>
+        <!-- Hand holding necklace -->
+        <rect x="50" y="50" width="30" height="10" fill="#FFCCBC" rx="3"/>
+        <!-- Chain -->
+        <path d="M65 30 L65 50" fill="none" stroke="#C0C0C0" stroke-width="1"/>
+        <path d="M55 20 Q65 15 75 20 L75 30 Q65 35 55 30Z" fill="none" stroke="#C0C0C0" stroke-width="1.5"/>
+        <!-- Glowing stone -->
+        <circle cx="65" cy="25" r="5" fill="#FFF9C4" opacity="0.8"/>
+        <circle cx="65" cy="25" r="8" fill="#FFF9C4" opacity="0.2"/>
+        <circle cx="65" cy="25" r="12" fill="#FFF9C4" opacity="0.1"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Sie standen dort, Lena, Finn und Mondschimmer, auf der Mondkuppe im Licht des Vollmonds. Der Wind strich durch das Gras. Irgendwo rief ein Kauzchen. Und fur einen Moment war die Welt vollkommen still und vollkommen schon.</p>
+
+    <p>Dann sagte Finn leise: &bdquo;Lena. Hor mal.&ldquo;</p>
+
+    <p>Von unten, vom Hof, trug der Wind Stimmen herauf. Und das Gerausch eines Motors.</p>
+
+    <p>Lena spahte den Hugel hinunter. Am Rand der Mondkuppe, wo der Wiesenpfad begann, stand ein Gelandewagen. Und daneben, im Mondlicht, die Gestalt eines Mannes.</p>
+
+    <p>Herr Brinkmann.</p>
+
+    <p>Er kam den Hugel herauf.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 10 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap10">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">10</span>
+    <div class="chapter-title">Gegenuber</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap10_gegenueber.jpg" alt="Gegenüber">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Lena stellte sich vor Mondschimmer. Ihr Herz hammerte, aber ihre Stimme war fest.</p>
+
+    <p>&bdquo;Was wollen Sie hier?&ldquo;</p>
+
+    <p>Herr Brinkmann blieb ein paar Schritte entfernt stehen. Im Mondlicht sah sein Gesicht anders aus als am Tag &ndash; weicher, verletzlicher. Der steinerne Ausdruck war weg. Stattdessen sah Lena Mudigkeit. Tiefe, alte Mudigkeit.</p>
+
+    <p>&bdquo;Ich habe euch beobachtet&ldquo;, sagte er. Seine Stimme war rau, aber nicht aggressiv. &bdquo;Seit Tagen. Die Spur, den Stein, die Scheune. Ich wusste, dass es so weit kommen wurde.&ldquo;</p>
+
+    <p>&bdquo;Woher wissen Sie davon?&ldquo;, fragte Finn.</p>
+
+    <p>Herr Brinkmann sah zu Mondschimmer. Etwas Seltsames geschah mit seinem Gesicht. Seine Lippen zitterten.</p>
+
+    <p>&bdquo;Weil mein Gro&szlig;vater mir davon erzahlt hat&ldquo;, sagte er leise. &bdquo;Er und August Sonnberg waren &hellip; Freunde. Bevor alles schiefging. Bevor der Streit um das Land begann.&ldquo;</p>
+
+    <div class="scene-separator">
+      <svg width="50" height="25" viewBox="0 0 50 25">
+        <path d="M25 2 C15 2 8 8 8 15 C8 20 12 23 16 24" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.5"/>
+        <path d="M25 2 C35 2 42 8 42 15 C42 20 38 23 34 24" fill="none" stroke="#B8860B" stroke-width="1.5" opacity="0.5"/>
+        <line x1="22" y1="15" x2="28" y2="15" stroke="#B8860B" stroke-width="1" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <p class="after-separator">Herr Brinkmann setzte sich auf einen Stein. Er nahm seinen Hut ab und drehte ihn in den Handen.</p>
+
+    <p>&bdquo;Mein Gro&szlig;vater hie&szlig; Wilhelm Brinkmann. Er und August haben zusammen dieses Land hier oben entdeckt. Sie standen genau hier, auf dieser Kuppe, und haben uber die Wiesen geschaut und gesagt: Hier bauen wir unsere Hofe. Hier werden wir glucklich.&ldquo;</p>
+
+    <p>Er machte eine Pause. Mondschimmer stand still und sah ihn an.</p>
+
+    <p>&bdquo;August baute Sonnenweide. Mein Gro&szlig;vater baute den Brinkmann-Hof, gleich nebenan. Jahrelang halfen sie einander. Jahrelang waren sie wie Bruder. Aber dann &hellip;&ldquo; Er seufzte. &bdquo;Dann kam der Streit. Mein Gro&szlig;vater brauchte Geld. Er wollte das Bachland kaufen, das zwischen den Hofen lag. August sagte nein. Es gehore zu Sonnenweide. Mein Gro&szlig;vater wurde wutend. Die Freundschaft zerbrach.&ldquo;</p>
+
+    <p>&bdquo;Und seitdem streiten sich die Familien&ldquo;, sagte Lena.</p>
+
+    <p>&bdquo;Seitdem streiten sich die Familien.&ldquo; Herr Brinkmann nickte. &bdquo;Mein Vater hat gestritten. Ich habe gestritten. Immer das gleiche Land, immer der gleiche Arger.&ldquo; Er sah auf seine Hande. &bdquo;Aber wissen Sie, was das Schlimmste ist? Mein Gro&szlig;vater hat auf dem Sterbebett gesagt, er bereut den Streit. Er hat gesagt, er wunschte, er hatte nie danach gefragt. Aber da war es zu spat.&ldquo;</p>
+
+    <p>Stille.</p>
+
+    <p>Lena sah Herrn Brinkmann an. Sie sah keinen Bosewicht. Sie sah einen alten Mann, der etwas weitertrug, das schon vor seiner Zeit angefangen hatte. Einen alten Schmerz, der von Generation zu Generation weitergegeben wurde wie ein Stein, den niemand ablegen wollte.</p>
+
+    <p>&bdquo;Warum sind Sie heute Nacht hier?&ldquo;, fragte sie.</p>
+
+    <p>Herr Brinkmann sah zu Mondschimmer. &bdquo;Weil ich ihn sehen wollte. Dieses Pferd. Mein Gro&szlig;vater hat von ihm erzahlt. Er hat gesagt, auf Sonnenweide gibt es ein silbernes Pferd, das den Hof beschutzt. Als Kind dachte ich, das ware ein Marchen. Aber dann sah ich die Spuren. Und ich wusste, es ist wahr.&ldquo;</p>
+
+    <p>Er stand auf und machte einen Schritt auf Mondschimmer zu. Das Pferd ruhrte sich nicht. Herr Brinkmann streckte langsam die Hand aus &ndash; und Mondschimmer lie&szlig; es zu. Er lie&szlig; den alten Mann seine Nase beruhren.</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="90" viewBox="0 0 200 90">
+        <rect width="200" height="90" fill="#0D1B3E" rx="5"/>
+        <!-- Brinkmann's hand -->
+        <rect x="60" y="40" width="25" height="8" fill="#FFCCBC" rx="3"/>
+        <!-- Mondschimmer nose -->
+        <ellipse cx="110" cy="44" rx="18" ry="12" fill="#C0C0C0"/>
+        <ellipse cx="100" cy="35" rx="10" ry="14" fill="#C0C0C0"/>
+        <circle cx="96" cy="32" r="2" fill="#1A237E"/>
+        <!-- Glow -->
+        <circle cx="100" cy="44" r="25" fill="white" opacity="0.05"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">&bdquo;Ich werde die Klage zuruckziehen&ldquo;, sagte Herr Brinkmann leise. &bdquo;Das Land gehort zu Sonnenweide. Es hat immer zu Sonnenweide gehort. Mein Gro&szlig;vater wusste das. Mein Vater wusste das. Und ich wei&szlig; es auch.&ldquo;</p>
+
+    <p>Lena spurte, wie etwas in ihrer Brust warm wurde. Nicht Triumph. Etwas Besseres. Erleichterung. Und Mitgefuhl.</p>
+
+    <p>&bdquo;Herr Brinkmann?&ldquo; Sie trat neben ihn. &bdquo;August und Ihr Gro&szlig;vater waren Freunde. Vielleicht &hellip; vielleicht kann das wieder so sein. Nicht die beiden, aber &hellip; wir. Unsere Familien.&ldquo;</p>
+
+    <p>Herr Brinkmann sah sie an. Und dann passierte etwas, das Lena nicht fur moglich gehalten hatte: Er lachelte. Es war ein kleines, rostiges Lacheln, als hatte er es lange nicht benutzt. Aber es war echt.</p>
+
+    <p>&bdquo;Du bist ein kluges Madchen, Lena&ldquo;, sagte er. &bdquo;Kluger als wir alle.&ldquo;</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 11 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap11">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">11</span>
+    <div class="chapter-title">Das Herz schlagt weiter</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap11_herz.jpg" alt="Das Herz schlägt weiter">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Am nachsten Morgen erzahlte Lena Tante Marie alles. Von der Nacht auf der Mondkuppe, vom Medaillon, von der Kette, von Herrn Brinkmann.</p>
+
+    <p>Tante Marie horte zu, ohne zu unterbrechen. Als Lena fertig war, nahm ihre Tante sie in den Arm und hielt sie lange fest.</p>
+
+    <p>&bdquo;Mein kluges, mutiges Madchen&ldquo;, flusterte sie. &bdquo;Du hast geschafft, woran wir alle gescheitert sind. Nicht nur das Ratsel. Du hast einen alten Streit beendet.&ldquo;</p>
+
+    <p>Am Vormittag kam Herr Brinkmann zum Hof. Diesmal klopfte er nicht laut an die Tur. Er stand am Tor, den Hut in der Hand, und wartete.</p>
+
+    <p>Tante Marie ging zu ihm. Sie sprachen lange. Leise, ernst, aber ohne Arger. Lena, Mia und Finn sa&szlig;en auf dem Zaun und beobachteten sie.</p>
+
+    <p>&bdquo;Glaubst du, die werden Freunde?&ldquo;, fragte Mia.</p>
+
+    <p>&bdquo;Vielleicht nicht Freunde&ldquo;, sagte Lena. &bdquo;Aber Nachbarn. Echte Nachbarn.&ldquo;</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="60" viewBox="0 0 200 60">
+        <!-- Two figures shaking hands at gate -->
+        <rect x="95" y="5" width="8" height="50" fill="#6D4C41" rx="2"/>
+        <circle cx="70" cy="15" r="10" fill="#FFCCBC"/>
+        <rect x="63" y="25" width="12" height="20" fill="#4CAF50" rx="1"/>
+        <circle cx="130" cy="15" r="10" fill="#FFCCBC"/>
+        <rect x="123" y="25" width="12" height="20" fill="#37474F" rx="1"/>
+        <!-- Hands meeting -->
+        <rect x="85" y="32" width="30" height="5" fill="#FFCCBC" rx="2"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Am Nachmittag machte Tante Marie ein Fest. Kein gro&szlig;es Fest &ndash; aber Kuchen, Limonade, Wurstchen vom Grill, und die Pferde bekamen extra Apfel und Mohren. Mia und Lena flochten Butterblumes Mahne. Finn versuchte, Flecki beizubringen, auf Kommando zu kommen. Flecki fand das mittelinteressant.</p>
+
+    <p>Und Herr Brinkmann &ndash; Heinrich, wie Tante Marie ihn jetzt nannte &ndash; sa&szlig; auf einer Bank und erzahlte Geschichten von seinem Gro&szlig;vater und August. Wie sie zusammen den ersten Zaun gebaut hatten. Wie sie einmal ein Fohlen aus einem zugefrorenen Bach gerettet hatten. Wie sie abends am Feuer gesessen und uber die Zukunft gesprochen hatten.</p>
+
+    <p>&bdquo;Die beiden hatten sich gefreut&ldquo;, sagte er und sah uber den Hof. &bdquo;Uber das hier.&ldquo;</p>
+
+    <p>Lena trug die silberne Kette um den Hals. Der milchig-wei&szlig;e Stein lag warm auf ihrer Brust. Tante Marie hatte gesagt, sie solle sie behalten &ndash; &bdquo;Du bist die Huterin jetzt. Du hast Mondschimmers Vertrauen.&ldquo;</p>
+
+    <p>Am Abend, als die Sonne unterging und der Himmel in Orange und Rosa leuchtete, ging Lena zu Mondschimmers Box.</p>
+
+    <p>Das silberne Pferd stand ruhig da. Aber etwas war anders. Sein Fell leuchtete nicht mehr so stark. Es schimmerte noch, aber sanfter, leiser, wie das letzte Gluhen einer Kerze.</p>
+
+    <p>&bdquo;Danke&ldquo;, flusterte Lena. Sie legte die Stirn gegen seinen Hals und spurte seinen langsamen, ruhigen Herzschlag. &bdquo;Danke, dass du auf mich gewartet hast.&ldquo;</p>
+
+    <p>Mondschimmer schnaubte leise. Er legte seinen Kopf uber Lenas Schulter und hielt sie fest, auf seine eigene, pferdige Art.</p>
+
+    <p>Und Lena weinte. Nicht vor Trauer. Vor so vielen Gefuhlen auf einmal, dass sie keinen Namen dafur hatte. Gluck und Traurigkeit und Dankbarkeit und Stolz und etwas Gro&szlig;es, Warmes, das sich anfuhlte wie nach Hause kommen.</p>
+
+    <div class="inline-illustration">
+      <svg width="200" height="120" viewBox="0 0 200 120">
+        <defs>
+          <linearGradient id="sunset11" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF8A65"/>
+            <stop offset="100%" style="stop-color:#FFE082"/>
+          </linearGradient>
+        </defs>
+        <rect width="200" height="120" fill="url(#sunset11)" rx="5"/>
+        <!-- Mondschimmer -->
+        <ellipse cx="110" cy="65" rx="35" ry="22" fill="#C0C0C0" opacity="0.8"/>
+        <ellipse cx="82" cy="50" rx="12" ry="16" fill="#C0C0C0" opacity="0.8"/>
+        <!-- Lena leaning against his neck -->
+        <circle cx="88" cy="45" r="8" fill="#FFCCBC"/>
+        <path d="M83 40 Q88 36 93 40" fill="#6D4C41"/>
+        <!-- Horse head over shoulder -->
+        <path d="M92 48 Q100 40 95 55" fill="none" stroke="#B0BEC5" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">In dieser Nacht schlief Mondschimmer ein. Friedlich, still, in seiner Box. Tante Marie fand ihn am nachsten Morgen, liegend im Stroh, das Fell immer noch silbrig schimmernd, als ware er nur aus Mondlicht gemacht.</p>
+
+    <p>Die Pferde auf dem Hof wieherten leise. Sturmwind stampfte unruhig. Sternchen druckte sich an die Boxenwand. Butterblume stand still und lie&szlig; den Kopf hangen.</p>
+
+    <p>Lena weinte wieder. Tante Marie hielt sie fest.</p>
+
+    <p>&bdquo;Er hat gewusst, dass es Zeit war&ldquo;, sagte Tante Marie. &bdquo;Er hat gewartet, bis der Hof sicher ist. Bis jemand kommt, der das Herz weitertragt. Das warst du, Lena.&ldquo;</p>
+
+    <p>Sie begruben Mondschimmer unter der alten Eiche. Es war ein warmer Tag, und die Vogel sangen, und Finn sagte nichts, aber seine Augen waren rot, und selbst Herr Brinkmann stand still dabei und nahm seinen Hut ab.</p>
+
+    <p>Lena legte eine Hand auf die frische Erde. &bdquo;Schlaf gut, Mondschimmer&ldquo;, flusterte sie. &bdquo;Ich pass auf den Hof auf. Versprochen.&ldquo;</p>
+
+    <div class="inline-illustration">
+      <svg width="220" height="120" viewBox="0 0 220 120">
+        <defs>
+          <linearGradient id="warm11" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFE082"/>
+            <stop offset="100%" style="stop-color:#A5D6A7"/>
+          </linearGradient>
+        </defs>
+        <rect width="220" height="120" fill="url(#warm11)" rx="5"/>
+        <!-- Oak tree -->
+        <rect x="90" y="10" width="20" height="60" fill="#5D4037"/>
+        <circle cx="100" cy="10" r="35" fill="#2E7D32" opacity="0.7"/>
+        <!-- Grave -->
+        <ellipse cx="100" cy="90" rx="30" ry="8" fill="#795548" opacity="0.4"/>
+        <!-- Flowers -->
+        <circle cx="85" cy="85" r="3" fill="#F44336" opacity="0.6"/>
+        <circle cx="95" cy="82" r="3" fill="#FFEB3B" opacity="0.6"/>
+        <circle cx="105" cy="84" r="3" fill="#E91E63" opacity="0.6"/>
+        <circle cx="115" cy="86" r="3" fill="#FF9800" opacity="0.6"/>
+        <!-- Horseshoe leaning on tree -->
+        <path d="M72 65 C68 65 65 70 65 74 C65 78 67 80 70 81 L71 79 C69 78 67 76 67 74 C67 71 69 68 72 68 C75 68 77 71 77 74 C77 76 75 78 73 79 L74 81 C77 80 79 78 79 74 C79 70 76 65 72 65Z" fill="#8D6E63" stroke="#6D4C41" stroke-width="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KAPITEL 12 -->
+<!-- ============================================================ -->
+<div class="page chapter" id="kap12">
+  <div class="page-header">&#9826; Hof Sonnenweide &#9826;</div>
+  <div class="chapter-header">
+    <span class="chapter-number">12</span>
+    <div class="chapter-title">Ein neuer Anfang</div>
+    <hr class="chapter-rule">
+  </div>
+
+  <div class="chapter-illustration">
+    <img src="bilder/web/kap12_neuer_anfang.jpg" alt="Ein neuer Anfang">
+  </div>
+
+  <div class="chapter-body">
+    <p class="after-illustration">Eine Woche verging. Dann zwei. Lenas Ferien auf Hof Sonnenweide naherten sich dem Ende, und jeder Tag war kostbar.</p>
+
+    <p>Sie ritt jeden Morgen auf Sturmwind aus. Der gro&szlig;e Braune hatte sich verandert &ndash; er war ruhiger, sanfter, als hatte Mondschimmers Abschied etwas in ihm gelost. Er trug Lena sicher uber die Waldpfade, durch den Bach und uber die Wiesen. Wenn Lena die Augen schloss und den Wind auf ihrem Gesicht spurte, fuhlte sie sich frei.</p>
+
+    <p>Finn kam jeden Tag vorbei. Er half im Stall, reparierte Zaune und brachte Flecki bei, auf Zuruf stehen zu bleiben. Flecki machte Fortschritte &ndash; manchmal blieb er sogar stehen, wenn Finn es nicht sagte.</p>
+
+    <p>Mia und Lena verbrachten die Nachmittage auf der Koppel oder am Bach. Sie bauten einen kleinen Staudamm aus Steinen, der naturlich nicht hielt. Sie pfluckten Wildblumen und flochten Kranze fur die Pferde. Sie lagen im Gras und schauten in den Himmel und redeten uber alles und nichts.</p>
+
+    <div class="inline-illustration">
+      <svg width="250" height="80" viewBox="0 0 250 80">
+        <rect width="250" height="80" fill="#A5D6A7" rx="5" opacity="0.4"/>
+        <!-- Two girls lying in grass -->
+        <ellipse cx="80" cy="50" rx="20" ry="8" fill="#5C6BC0" opacity="0.5"/>
+        <circle cx="65" cy="42" r="8" fill="#FFCCBC"/>
+        <path d="M60 37 Q65 33 70 37" fill="#6D4C41"/>
+        <ellipse cx="150" cy="52" rx="18" ry="7" fill="#1565C0" opacity="0.5"/>
+        <circle cx="137" cy="45" r="7" fill="#FFCCBC"/>
+        <path d="M133 41 Q137 38 141 41" fill="#E65100"/>
+        <!-- Flower crowns -->
+        <circle cx="65" cy="36" r="2" fill="#FFEB3B"/>
+        <circle cx="68" cy="34" r="2" fill="#F48FB1"/>
+        <circle cx="137" cy="39" r="2" fill="#FFEB3B"/>
+        <circle cx="140" cy="37" r="2" fill="#F48FB1"/>
+        <!-- Butterblume grazing -->
+        <ellipse cx="210" cy="55" rx="18" ry="10" fill="#DAA520" opacity="0.5"/>
+        <ellipse cx="198" cy="55" rx="7" ry="9" fill="#DAA520" opacity="0.5"/>
+        <!-- Flowers -->
+        <circle cx="30" cy="55" r="3" fill="#FFEB3B" opacity="0.5"/>
+        <circle cx="120" cy="60" r="2" fill="#F48FB1" opacity="0.5"/>
+        <circle cx="190" cy="65" r="2.5" fill="#CE93D8" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Herr Brinkmann &ndash; Heinrich &ndash; kam regelma&szlig;ig vorbei. Er brachte Apfel aus seinem Garten mit und half Tante Marie beim Reparieren des Scheunendachs. Die alte Scheune, Augusts Versteck, wurde langsam wieder hergerichtet. Heinrich kannte sich mit Holz aus, und bald sah die Scheune besser aus als seit Jahrzehnten.</p>
+
+    <p>&bdquo;Mein Gro&szlig;vater hat August beim Bau dieser Scheune geholfen&ldquo;, sagte Heinrich, als er einen Balken festschraubte. &bdquo;Es fuhlt sich richtig an, sie wieder aufzubauen.&ldquo;</p>
+
+    <p>An Lenas letztem Abend gab es ein Abschiedsessen in der gro&szlig;en Kuche. Tante Marie hatte Lenas Lieblingsessen gemacht &ndash; Kartoffelpuffer mit Apfelmus &ndash; und alle waren da: Mia, Finn, Heinrich, und naturlich die Pferde, die drau&szlig;en vor dem Fenster Kopf an Kopf standen, als wollten sie mithoren.</p>
+
+    <p>&bdquo;Ich will nicht fahren&ldquo;, sagte Lena.</p>
+
+    <p>&bdquo;Du kommst wieder&ldquo;, sagte Tante Marie. &bdquo;In den Herbstferien. Und im nachsten Sommer. Sonnenweide ist dein Zuhause, Lena. Das wei&szlig;t du.&ldquo;</p>
+
+    <p>Lena nickte. Sie fasste an die silberne Kette um ihren Hals. Der Stein war warm, immer warm, als hatte er ein eigenes kleines Herz.</p>
+
+    <div class="inline-illustration">
+      <svg width="260" height="80" viewBox="0 0 260 80">
+        <rect width="260" height="80" fill="#FFF8E1" rx="5" opacity="0.5"/>
+        <!-- Table -->
+        <rect x="30" y="35" width="200" height="5" fill="#8D6E63" rx="1"/>
+        <!-- People around table (heads) -->
+        <circle cx="60" cy="22" r="8" fill="#FFCCBC"/>
+        <circle cx="100" cy="20" r="9" fill="#FFCCBC"/>
+        <circle cx="145" cy="22" r="8" fill="#FFCCBC"/>
+        <circle cx="185" cy="20" r="9" fill="#FFCCBC"/>
+        <circle cx="220" cy="22" r="8" fill="#FFCCBC"/>
+        <!-- Window with horse heads -->
+        <rect x="90" y="55" width="60" height="20" fill="#A5D6A7" rx="2"/>
+        <ellipse cx="110" cy="58" rx="6" ry="8" fill="#8B4513" opacity="0.5"/>
+        <ellipse cx="130" cy="58" rx="6" ry="8" fill="#DAA520" opacity="0.5"/>
+        <!-- Warm lamp -->
+        <circle cx="130" cy="8" r="10" fill="#FFE082" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">Nach dem Essen ging Lena noch einmal in den Stall. Sie besuchte jedes Pferd. Butterblume bekam ein Stuck Karotte. Nordlicht lie&szlig; sich gnadigerweise am Hals kraulen. Flecki versuchte, Lenas Schuh zu klauen. Kupfer sah sie mit seinen klugen Augen an und schnaubte leise. Sternchen druckte schuchtern die Nase gegen Lenas Hand.</p>
+
+    <p>Und Sturmwind &ndash; Sturmwind legte seinen gro&szlig;en braunen Kopf auf Lenas Schulter und atmete warm in ihr Haar.</p>
+
+    <p>&bdquo;Ich komm wieder&ldquo;, flusterte Lena. &bdquo;Versprochen.&ldquo;</p>
+
+    <p>Mondschimmers Box war leer. Aber wenn das Licht richtig fiel, glaubte Lena manchmal, einen silbrigen Schimmer an der Wand zu sehen. Als ware er nie ganz gegangen.</p>
+
+    <div class="inline-illustration">
+      <svg width="180" height="100" viewBox="0 0 180 100">
+        <!-- Empty box -->
+        <rect x="10" y="10" width="160" height="80" fill="#3E2723" rx="3"/>
+        <!-- Straw on floor -->
+        <line x1="30" y1="80" x2="50" y2="78" stroke="#FFE082" stroke-width="2" opacity="0.3"/>
+        <line x1="60" y1="82" x2="80" y2="79" stroke="#FFE082" stroke-width="2" opacity="0.25"/>
+        <line x1="100" y1="80" x2="120" y2="82" stroke="#FFE082" stroke-width="2" opacity="0.3"/>
+        <!-- Moon through window -->
+        <rect x="120" y="20" width="30" height="25" fill="#1A237E" rx="2"/>
+        <circle cx="135" cy="30" r="6" fill="#FFF9C4" opacity="0.7"/>
+        <!-- Silver shimmer on wall -->
+        <ellipse cx="70" cy="45" rx="20" ry="15" fill="#C0C0C0" opacity="0.08"/>
+        <ellipse cx="70" cy="45" rx="12" ry="8" fill="#C0C0C0" opacity="0.12"/>
+      </svg>
+    </div>
+
+    <p class="after-illustration">An diesem letzten Abend stand Lena noch lange am Fenster ihres Dachzimmers und sah hinaus. Der Mond war fast voll. Die Koppel lag silbern da. Und ganz am Rand, wo der Hof an den Wald grenzte, sah sie &ndash; nur fur einen Moment, nur aus dem Augenwinkel &ndash; einen silbrigen Schimmer.</p>
+
+    <p>Vielleicht war es Mondlicht auf dem nassen Gras. Vielleicht eine Spiegelung.</p>
+
+    <p>Oder vielleicht war es Mondschimmer, der seine Runden drehte. Der Huter von Sonnenweide, der nie wirklich gegangen war.</p>
+
+    <p>Lena lachelte.</p>
+
+    <p><em>Bis bald</em>, dachte sie.</p>
+
+    <p>Und als sie sich ins Bett legte, die silberne Kette auf ihrer Brust, fiel ihr Blick auf Sturmwinds Koppel. Der gro&szlig;e Braune stand am Zaun und sah zum Wald. Neben ihm &ndash; und da war Lena sich sicher &ndash; neben ihm stand ein kleines Pferd.</p>
+
+    <p>Winzig. Silberwei&szlig;. Mit einem Fell, das im Mondlicht schimmerte.</p>
+
+    <p>Ein Fohlen.</p>
+
+    <p>Lena setzte sich auf. Ihr Herz schlug schnell. Sie druckte das Gesicht an die Scheibe, aber das Fohlen war weg. Sturmwind stand allein am Zaun.</p>
+
+    <p>Hatte sie getraumt?</p>
+
+    <p>Lena fasste an die Kette. Der Stein war warm. Warmer als sonst.</p>
+
+    <p>Nein. Sie hatte nicht getraumt.</p>
+
+    <p>Das Abenteuer war nicht zu Ende. Es hatte gerade erst begonnen.</p>
+
+    <div class="inline-illustration">
+      <svg width="280" height="120" viewBox="0 0 280 120">
+        <rect width="280" height="120" fill="#0D1B3E" rx="5"/>
+        <!-- Window frame -->
+        <rect x="20" y="10" width="240" height="100" fill="#0D47A1" rx="3" stroke="#5D4037" stroke-width="3"/>
+        <line x1="140" y1="10" x2="140" y2="110" stroke="#5D4037" stroke-width="2"/>
+        <line x1="20" y1="60" x2="260" y2="60" stroke="#5D4037" stroke-width="2"/>
+        <!-- Moon -->
+        <circle cx="220" cy="30" r="10" fill="#FFF9C4" opacity="0.8"/>
+        <!-- Koppel -->
+        <rect x="25" y="75" width="230" height="30" fill="#1B5E20" opacity="0.5"/>
+        <!-- Sturmwind silhouette (brown) -->
+        <ellipse cx="150" cy="82" rx="18" ry="10" fill="#5C3310" opacity="0.7"/>
+        <ellipse cx="138" cy="76" rx="7" ry="10" fill="#5C3310" opacity="0.7"/>
+        <!-- Tiny foal silhouette -->
+        <ellipse cx="180" cy="86" rx="8" ry="5" fill="#C0C0C0" opacity="0.4"/>
+        <ellipse cx="175" cy="82" rx="4" ry="5" fill="#C0C0C0" opacity="0.4"/>
+        <!-- Foal glow -->
+        <ellipse cx="180" cy="85" rx="12" ry="8" fill="white" opacity="0.06"/>
+      </svg>
+    </div>
+
+    <p style="text-align: center; margin-top: 30pt; font-style: italic; color: var(--text-light);">Ende von Band 1</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- BAND 2 TEASER -->
+<!-- ============================================================ -->
+<div class="page teaser-page">
+  <svg width="60" height="70" viewBox="0 0 60 70" style="margin-bottom: 20pt;">
+    <path d="M30 5 C15 5 5 18 5 32 C5 44 10 53 16 60 L22 60 L18 50 C13 42 10 36 10 32 C10 20 18 10 30 10 C42 10 50 20 50 32 C50 36 47 42 42 50 L38 60 L44 60 C50 53 55 44 55 32 C55 18 45 5 30 5Z" fill="url(#horseshoe-gold)" stroke="#8B6914" stroke-width="1"/>
+  </svg>
+
+  <p class="teaser-label">Lenas Abenteuer geht weiter in:</p>
+
+  <h2>Lena und das Fohlen aus Mondlicht</h2>
+
+  <p class="teaser-band">Band 2 der Sonnenweide-Abenteuer</p>
+
+  <svg width="200" height="3" viewBox="0 0 200 3" style="margin-bottom: 20pt;">
+    <line x1="0" y1="1.5" x2="200" y2="1.5" stroke="#B8860B" stroke-width="1" stroke-dasharray="1,4"/>
+  </svg>
+
+  <div class="teaser-text">
+    <p>Ein silberwei&szlig;es Fohlen taucht auf der Koppel auf &ndash; aber woher kommt es? Sturmwind verhalt sich seltsam, und im Wald geschehen merkwurdige Dinge. Als ein heftiger Herbststurm uber Sonnenweide fegt, muss Lena eine gefahrliche Entscheidung treffen. Denn das Fohlen birgt ein Geheimnis, das alles verandern konnte &hellip;</p>
+  </div>
+
+  <svg width="80" height="60" viewBox="0 0 80 60" style="margin-bottom: 20pt;">
+    <!-- Tiny foal silhouette -->
+    <ellipse cx="45" cy="32" rx="18" ry="12" fill="#C0C0C0" opacity="0.6"/>
+    <ellipse cx="32" cy="24" rx="8" ry="12" fill="#C0C0C0" opacity="0.6"/>
+    <circle cx="29" cy="21" r="2" fill="#3E2723" opacity="0.5"/>
+    <line x1="38" y1="43" x2="36" y2="55" stroke="#B0BEC5" stroke-width="2.5" opacity="0.5"/>
+    <line x1="45" y1="43" x2="44" y2="55" stroke="#B0BEC5" stroke-width="2.5" opacity="0.5"/>
+    <line x1="50" y1="43" x2="52" y2="55" stroke="#B0BEC5" stroke-width="2.5" opacity="0.5"/>
+    <line x1="55" y1="43" x2="57" y2="55" stroke="#B0BEC5" stroke-width="2.5" opacity="0.5"/>
+    <!-- Glow -->
+    <ellipse cx="45" cy="35" rx="25" ry="18" fill="white" opacity="0.08"/>
+  </svg>
+
+  <p class="teaser-soon">ERSCHEINT BALD!</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- COLOPHON / IMPRESSUM -->
+<!-- ============================================================ -->
+<div class="page colophon-page">
+  <svg width="40" height="48" viewBox="0 0 40 48" style="margin-bottom: 20pt; opacity: 0.3;">
+    <path d="M20 3 C10 3 3 12 3 22 C3 30 7 36 11 40 L15 40 L12 34 C9 29 7 25 7 22 C7 14 12 7 20 7 C28 7 33 14 33 22 C33 25 31 29 28 34 L25 40 L29 40 C33 36 37 30 37 22 C37 12 30 3 20 3Z" fill="#B8860B"/>
+  </svg>
+
+  <div class="colophon-title">Impressum</div>
+
+  <p>
+    <strong>Lena und das Geheimnis der silbernen Hufspur</strong><br>
+    Band 1 der Sonnenweide-Abenteuer<br><br>
+    Eine Geschichte fur junge Pferdefreundinnen<br>
+    und alle, die an Abenteuer glauben.<br><br>
+    Alle Rechte vorbehalten.<br><br>
+    Gestaltung und Illustrationen: Handgefertigt mit Liebe<br>
+    Schrift: Playfair Display &amp; Lora<br>
+    Papier: Naturwei&szlig;, 100g/m&sup2;<br><br>
+    <em>Gedruckt auf nachhaltig produziertem Papier.</em><br><br>
+    &#9826;
+  </p>
+</div>
+
+</body>
+</html>

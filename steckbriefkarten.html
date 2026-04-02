@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pferde-Sammelkarten – Lena und das Geheimnis der silbernen Hufspur</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f5f0e8;
+    font-family: 'Quicksand', sans-serif;
+    color: #3a2e1f;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 10mm 12mm;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 8mm;
+  }
+
+  .card {
+    width: 90mm;
+    height: 130mm;
+    border: 2px dashed #b8a88a;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    background: #fffcf5;
+    page-break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-inner {
+    position: absolute;
+    inset: 3mm;
+    border-radius: 9px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 2.5px solid;
+  }
+
+  /* Header with SVG illustration */
+  .card-header {
+    height: 42mm;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .card-header svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 700;
+    font-size: 15pt;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.3);
+    padding: 2mm 3mm;
+    background: linear-gradient(transparent, rgba(0,0,0,0.45));
+    letter-spacing: 1px;
+  }
+
+  /* Body */
+  .card-body {
+    flex: 1;
+    padding: 2.5mm 3mm 2mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2mm;
+    position: relative;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5mm;
+    font-size: 7pt;
+    line-height: 1.3;
+  }
+
+  .stat-label {
+    font-weight: 700;
+    font-size: 6.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    min-width: 18mm;
+  }
+
+  .stat-value {
+    font-weight: 400;
+    font-family: 'Lora', serif;
+    font-size: 7pt;
+  }
+
+  .card-divider {
+    height: 1px;
+    margin: 1mm 0;
+    opacity: 0.4;
+  }
+
+  .card-description {
+    font-family: 'Lora', serif;
+    font-size: 6.8pt;
+    line-height: 1.45;
+    font-style: italic;
+    color: #5a4a3a;
+    flex: 1;
+  }
+
+  /* Badge */
+  .badge {
+    position: absolute;
+    bottom: 1.5mm;
+    right: 1.5mm;
+    width: 14mm;
+    height: 14mm;
+  }
+
+  /* Corner decorations */
+  .corner-decor {
+    position: absolute;
+    width: 8mm;
+    height: 8mm;
+    opacity: 0.2;
+  }
+  .corner-decor.tl { top: 0; left: 0; }
+  .corner-decor.tr { top: 0; right: 0; transform: scaleX(-1); }
+  .corner-decor.bl { bottom: 0; left: 0; transform: scaleY(-1); }
+  .corner-decor.br { bottom: 0; right: 0; transform: scale(-1,-1); }
+
+  /* Card-specific accent colors */
+  .card-mondschimmer .card-inner { border-color: #8b9dc3; background: linear-gradient(180deg, #fffcf5 60%, #e8edf5); }
+  .card-mondschimmer .stat-label { color: #5b6d8e; }
+  .card-mondschimmer .card-divider { background: #8b9dc3; }
+
+  .card-sturmwind .card-inner { border-color: #6B3410; background: linear-gradient(180deg, #fffcf5 60%, #f0e6da); }
+  .card-sturmwind .stat-label { color: #6B3410; }
+  .card-sturmwind .card-divider { background: #6B3410; }
+
+  .card-butterblume .card-inner { border-color: #c9a84c; background: linear-gradient(180deg, #fffcf5 60%, #f5edda); }
+  .card-butterblume .stat-label { color: #9e7e2a; }
+  .card-butterblume .card-divider { background: #c9a84c; }
+
+  .card-flecki .card-inner { border-color: #8fae5a; background: linear-gradient(180deg, #fffcf5 60%, #eaf2de); }
+  .card-flecki .stat-label { color: #5e7a32; }
+  .card-flecki .card-divider { background: #8fae5a; }
+
+  .card-kupfer .card-inner { border-color: #b5704a; background: linear-gradient(180deg, #fffcf5 60%, #f2e6da); }
+  .card-kupfer .stat-label { color: #8e5533; }
+  .card-kupfer .card-divider { background: #b5704a; }
+
+  .card-sternchen .card-inner { border-color: #9a7ab5; background: linear-gradient(180deg, #fffcf5 60%, #ece4f2); }
+  .card-sternchen .stat-label { color: #7a5a95; }
+  .card-sternchen .card-divider { background: #9a7ab5; }
+
+  .card-nordlicht .card-inner { border-color: #5a8e8e; background: linear-gradient(180deg, #fffcf5 60%, #ddeeed); }
+  .card-nordlicht .stat-label { color: #3d6e6e; }
+  .card-nordlicht .card-divider { background: #5a8e8e; }
+
+  /* Print styles */
+  @media print {
+    body { background: white; }
+    .page {
+      padding: 8mm 10mm;
+      page-break-after: always;
+      min-height: auto;
+    }
+    .page:last-child { page-break-after: avoid; }
+    .card { border: 1.5px dashed #ccc; }
+    @page { size: A4 portrait; margin: 0; }
+  }
+
+  /* Screen title */
+  .title-header {
+    text-align: center;
+    padding: 8mm 5mm 2mm;
+    font-family: 'Cinzel Decorative', serif;
+  }
+  .title-header h1 {
+    font-size: 18pt;
+    color: #5a3e1b;
+    margin-bottom: 2mm;
+  }
+  .title-header p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #8a7a6a;
+    font-size: 10pt;
+  }
+  @media print { .title-header { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="title-header">
+  <h1>Hof Sonnenweide</h1>
+  <p>Pferde-Sammelkarten &middot; Lena und das Geheimnis der silbernen Hufspur</p>
+</div>
+
+<!-- PAGE 1: Cards 1-4 -->
+<div class="page">
+
+<!-- MONDSCHIMMER -->
+<div class="card card-mondschimmer">
+  <div class="card-inner">
+    <div class="card-header">
+      <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0a0a2e"/>
+            <stop offset="40%" stop-color="#1a1a4e"/>
+            <stop offset="70%" stop-color="#2d3a6e"/>
+            <stop offset="100%" stop-color="#3a4a7e"/>
+          </linearGradient>
+          <radialGradient id="moon1" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#fffde8"/>
+            <stop offset="70%" stop-color="#e8e4c8"/>
+            <stop offset="100%" stop-color="#d4cfaa"/>
+          </radialGradient>
+          <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#fffde8" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#fffde8" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="horse1body" x1="0" y1="0" x2="0.3" y2="1">
+            <stop offset="0%" stop-color="#e8ecf4"/>
+            <stop offset="50%" stop-color="#d0d6e4"/>
+            <stop offset="100%" stop-color="#b8c0d0"/>
+          </linearGradient>
+          <linearGradient id="ground1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1a2d1a"/>
+            <stop offset="100%" stop-color="#0e1a0e"/>
+          </linearGradient>
+        </defs>
+        <rect width="340" height="160" fill="url(#sky1)"/>
+        <!-- Milky way suggestion -->
+        <ellipse cx="120" cy="40" rx="150" ry="8" fill="#ffffff" opacity="0.03" transform="rotate(-15,120,40)"/>
+        <!-- Stars with twinkle -->
+        <circle cx="30" cy="20" r="1.5" fill="#fff" opacity="0.9"/>
+        <circle cx="32" cy="20" r="3" fill="#fff" opacity="0.05"/>
+        <circle cx="80" cy="35" r="1" fill="#fff" opacity="0.6"/>
+        <circle cx="140" cy="15" r="2" fill="#fff" opacity="0.9"/>
+        <circle cx="142" cy="15" r="4" fill="#fff" opacity="0.04"/>
+        <circle cx="200" cy="28" r="1.2" fill="#fff" opacity="0.7"/>
+        <circle cx="260" cy="12" r="1.5" fill="#fff" opacity="0.8"/>
+        <circle cx="310" cy="30" r="1" fill="#fff" opacity="0.6"/>
+        <circle cx="50" cy="50" r="1" fill="#fff" opacity="0.5"/>
+        <circle cx="290" cy="55" r="1.3" fill="#fff" opacity="0.7"/>
+        <circle cx="175" cy="42" r="0.8" fill="#fff" opacity="0.5"/>
+        <circle cx="110" cy="55" r="0.7" fill="#fff" opacity="0.4"/>
+        <circle cx="235" cy="38" r="1.1" fill="#fff" opacity="0.6"/>
+        <!-- Moon with glow -->
+        <circle cx="280" cy="38" r="35" fill="url(#moonGlow)"/>
+        <circle cx="280" cy="38" r="22" fill="url(#moon1)" opacity="0.95"/>
+        <circle cx="290" cy="33" r="18" fill="url(#sky1)" opacity="0.65"/>
+        <!-- Moon surface detail -->
+        <circle cx="273" cy="35" r="3" fill="#c8c4a0" opacity="0.2"/>
+        <circle cx="278" cy="44" r="2" fill="#c8c4a0" opacity="0.15"/>
+        <!-- Ground with grass texture -->
+        <ellipse cx="170" cy="165" rx="210" ry="35" fill="url(#ground1)"/>
+        <ellipse cx="170" cy="158" rx="200" ry="8" fill="#1a2d1a" opacity="0.5"/>
+        <!-- Grass tufts -->
+        <path d="M30,138 Q32,130 34,138" fill="none" stroke="#2a4a2a" stroke-width="1" opacity="0.4"/>
+        <path d="M80,140 Q82,132 84,140" fill="none" stroke="#2a4a2a" stroke-width="1" opacity="0.3"/>
+        <path d="M260,136 Q262,128 264,136" fill="none" stroke="#2a4a2a" stroke-width="1" opacity="0.4"/>
+        <path d="M310,140 Q312,133 314,140" fill="none" stroke="#2a4a2a" stroke-width="1" opacity="0.3"/>
+        <!-- Silver-white horse - realistic silhouette -->
+        <g transform="translate(75, 32) scale(0.82)">
+          <!-- Shadow on ground -->
+          <ellipse cx="100" cy="128" rx="50" ry="5" fill="#000" opacity="0.15"/>
+          <!-- Hind legs with joints -->
+          <path d="M62,88 L58,102 L62,112 L58,126" fill="none" stroke="#b0b8c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M78,90 L75,104 L78,114 L75,126" fill="none" stroke="#b8c0d0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Hooves back -->
+          <ellipse cx="58" cy="127" rx="4" ry="2" fill="#8890a0"/>
+          <ellipse cx="75" cy="127" rx="4" ry="2" fill="#8890a0"/>
+          <!-- Body - realistic curved back -->
+          <path d="M48,68 Q50,48 72,42 Q95,38 120,40 Q145,42 155,52 Q160,60 155,78 Q148,92 130,95 Q100,98 75,96 Q55,92 48,80Z" fill="url(#horse1body)"/>
+          <!-- Belly highlight -->
+          <ellipse cx="100" cy="82" rx="30" ry="8" fill="#fff" opacity="0.08"/>
+          <!-- Chest -->
+          <ellipse cx="145" cy="72" rx="12" ry="18" fill="#d8dce8" opacity="0.5"/>
+          <!-- Front legs with joints -->
+          <path d="M130,90 L132,106 L128,116 L132,126" fill="none" stroke="#c0c8d6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M142,86 L145,100 L141,112 L145,124" fill="none" stroke="#c8d0de" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Hooves front -->
+          <ellipse cx="132" cy="127" rx="4" ry="2" fill="#8890a0"/>
+          <ellipse cx="145" cy="125" rx="4" ry="2" fill="#8890a0"/>
+          <!-- Neck - gracefully arched -->
+          <path d="M148,52 Q158,30 155,12 Q153,2 145,0 Q138,-2 135,8 Q130,22 135,48" fill="#dce0ea"/>
+          <!-- Neck muscle line -->
+          <path d="M140,15 Q142,30 138,45" fill="none" stroke="#c0c8d8" stroke-width="1" opacity="0.5"/>
+          <!-- Head - detailed horse shape -->
+          <path d="M155,2 Q165,-6 172,-4 Q178,-2 178,4 Q176,10 170,14 Q162,18 152,14 Q146,10 148,4Z" fill="#e0e4ee"/>
+          <!-- Nostril -->
+          <ellipse cx="175" cy="6" rx="2" ry="1.5" fill="#a0a8b8" opacity="0.6"/>
+          <!-- Jaw line -->
+          <path d="M158,14 Q165,16 170,13" fill="none" stroke="#c0c8d8" stroke-width="0.8" opacity="0.4"/>
+          <!-- Ears - two pointed -->
+          <path d="M156,-4 Q155,-14 158,-16 Q161,-14 160,-4" fill="#d0d4e0"/>
+          <path d="M148,-2 Q146,-12 149,-14 Q152,-12 151,-2" fill="#d8dce6"/>
+          <!-- Ear inner -->
+          <path d="M157,-5 Q156,-12 158,-14 Q160,-12 159,-5" fill="#c0b8c8" opacity="0.4"/>
+          <!-- Eye - large, gentle -->
+          <ellipse cx="162" cy="4" rx="3" ry="2.8" fill="#1a2040"/>
+          <circle cx="163" cy="3.5" r="1" fill="#fff" opacity="0.6"/>
+          <!-- Mane - flowing silver -->
+          <path d="M152,0 Q162,8 160,20 Q158,30 155,42 Q148,38 150,28 Q152,18 148,8Z" fill="#c0c8e0" opacity="0.6"/>
+          <path d="M148,5 Q158,15 155,28 Q152,38 150,48 Q144,42 148,32 Q150,22 145,12Z" fill="#b8c0d8" opacity="0.5"/>
+          <path d="M145,12 Q152,22 150,35 Q148,42 146,50 Q140,46 144,36 Q146,26 142,18Z" fill="#c8d0e8" opacity="0.4"/>
+          <!-- Tail - long flowing -->
+          <path d="M48,62 Q30,52 20,58 Q10,68 8,82 Q6,95 18,100 Q25,92 20,78 Q22,65 35,62" fill="#c0c8e0" opacity="0.7"/>
+          <path d="M48,65 Q35,58 28,65 Q18,78 16,92 Q22,88 24,75 Q28,64 42,62" fill="#d0d8ee" opacity="0.5"/>
+          <!-- Silver shimmer spots -->
+          <ellipse cx="100" cy="55" rx="12" ry="6" fill="#fff" opacity="0.12"/>
+          <ellipse cx="130" cy="48" rx="8" ry="4" fill="#fff" opacity="0.08"/>
+          <ellipse cx="80" cy="60" rx="6" ry="3" fill="#fff" opacity="0.1"/>
+        </g>
+        <!-- Sparkle effects -->
+        <path d="M160,78 L162,72 L164,78 L170,80 L164,82 L162,88 L160,82 L154,80Z" fill="#fff" opacity="0.6"/>
+        <path d="M230,68 L231.5,64 L233,68 L237,69.5 L233,71 L231.5,75 L230,71 L226,69.5Z" fill="#fff" opacity="0.4"/>
+        <path d="M120,95 L121,92 L122,95 L125,96 L122,97 L121,100 L120,97 L117,96Z" fill="#fff" opacity="0.3"/>
+      </svg>
+      <div class="card-name">Mondschimmer</div>
+    </div>
+    <div class="card-body">
+      <div class="stat-row"><span class="stat-label">Fellfarbe</span><span class="stat-value">Silberwei&szlig; (Araber-Mix)</span></div>
+      <div class="stat-row"><span class="stat-label">Charakter</span><span class="stat-value">Geheimnisvoll, ruhig, weise</span></div>
+      <div class="stat-row"><span class="stat-label">St&auml;rke</span><span class="stat-value">Kennt jeden Winkel des Hofs</span></div>
+      <div class="card-divider"></div>
+      <p class="card-description">Mondschimmer ist das &auml;lteste und geheimnisvollste Pferd auf Hof Sonnenweide. Sein silbriges Fell schimmert im Mondlicht, und manche sagen, er sei der H&uuml;ter des Hofs.</p>
+      <svg class="badge" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="#8b9dc3" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="25" cy="25" r="19" fill="#8b9dc3" opacity="0.1"/>
+        <text x="25" y="20" text-anchor="middle" font-size="5" font-family="Cinzel Decorative,serif" fill="#5b6d8e" font-weight="700">HOF</text>
+        <text x="25" y="28" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#5b6d8e">SONNEN</text>
+        <text x="25" y="35" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#5b6d8e">WEIDE</text>
+        <path d="M15,40 Q17,37 19,40 Q21,43 23,40" fill="none" stroke="#5b6d8e" stroke-width="0.8" opacity="0.5"/>
+        <path d="M27,40 Q29,37 31,40 Q33,43 35,40" fill="none" stroke="#5b6d8e" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- STURMWIND (Kastanienbraun / Brauner) -->
+<div class="card card-sturmwind">
+  <div class="card-inner">
+    <div class="card-header">
+      <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="storm-sky" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2a2035"/>
+            <stop offset="30%" stop-color="#3d2845"/>
+            <stop offset="70%" stop-color="#2a1a30"/>
+            <stop offset="100%" stop-color="#1a1525"/>
+          </linearGradient>
+          <linearGradient id="chestnutBody" x1="0.2" y1="0" x2="0.8" y2="1">
+            <stop offset="0%" stop-color="#A0522D"/>
+            <stop offset="40%" stop-color="#8B4513"/>
+            <stop offset="100%" stop-color="#6B3410"/>
+          </linearGradient>
+          <linearGradient id="chestnutNeck" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#A0522D"/>
+            <stop offset="100%" stop-color="#8B4513"/>
+          </linearGradient>
+          <radialGradient id="lightningGlow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#f0e068" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#f0e068" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="stormGround" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a2030"/>
+            <stop offset="100%" stop-color="#1a1020"/>
+          </linearGradient>
+        </defs>
+        <rect width="340" height="160" fill="url(#storm-sky)"/>
+        <!-- Rain streaks -->
+        <line x1="20" y1="0" x2="15" y2="30" stroke="#8888aa" stroke-width="0.5" opacity="0.15"/>
+        <line x1="55" y1="5" x2="50" y2="35" stroke="#8888aa" stroke-width="0.5" opacity="0.12"/>
+        <line x1="100" y1="0" x2="95" y2="28" stroke="#8888aa" stroke-width="0.5" opacity="0.1"/>
+        <line x1="180" y1="3" x2="175" y2="32" stroke="#8888aa" stroke-width="0.5" opacity="0.13"/>
+        <line x1="220" y1="0" x2="215" y2="25" stroke="#8888aa" stroke-width="0.5" opacity="0.1"/>
+        <line x1="305" y1="5" x2="300" y2="30" stroke="#8888aa" stroke-width="0.5" opacity="0.12"/>
+        <!-- Lightning with glow -->
+        <circle cx="55" cy="40" r="30" fill="url(#lightningGlow)"/>
+        <path d="M60,0 L55,35 L65,32 L50,72 L58,68 L42,100" fill="none" stroke="#f0e068" stroke-width="2.5" opacity="0.7"/>
+        <path d="M60,0 L55,35 L65,32 L50,72 L58,68 L42,100" fill="none" stroke="#fff" stroke-width="1" opacity="0.4"/>
+        <circle cx="275" cy="35" r="25" fill="url(#lightningGlow)"/>
+        <path d="M280,10 L275,40 L285,37 L270,70 L278,66 L265,90" fill="none" stroke="#f0e068" stroke-width="1.8" opacity="0.5"/>
+        <!-- Storm clouds - layered -->
+        <ellipse cx="80" cy="22" rx="55" ry="20" fill="#2a2535" opacity="0.8"/>
+        <ellipse cx="60" cy="18" rx="30" ry="14" fill="#322d3a" opacity="0.6"/>
+        <ellipse cx="100" cy="28" rx="35" ry="12" fill="#28233a" opacity="0.5"/>
+        <ellipse cx="180" cy="16" rx="65" ry="18" fill="#252030" opacity="0.7"/>
+        <ellipse cx="200" cy="22" rx="40" ry="12" fill="#2d2840" opacity="0.5"/>
+        <ellipse cx="280" cy="20" rx="50" ry="18" fill="#2a2535" opacity="0.8"/>
+        <ellipse cx="310" cy="26" rx="30" ry="12" fill="#322d3a" opacity="0.5"/>
+        <!-- Ground -->
+        <ellipse cx="170" cy="168" rx="210" ry="38" fill="url(#stormGround)"/>
+        <rect x="0" y="130" width="340" height="30" fill="#1a1520" opacity="0.4"/>
+        <!-- Chestnut brown horse in gallop - realistic -->
+        <g transform="translate(55, 22) scale(0.88)">
+          <!-- Shadow on ground -->
+          <ellipse cx="115" cy="132" rx="55" ry="5" fill="#000" opacity="0.2"/>
+          <!-- Hind legs - push off, with joints -->
+          <path d="M58,86 L48,102 L55,114 L45,130" fill="none" stroke="#6B3410" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M75,88 L68,104 L73,115 L65,130" fill="none" stroke="#7A3D12" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Hooves back -->
+          <ellipse cx="45" cy="131" rx="5" ry="2.5" fill="#1a1008"/>
+          <ellipse cx="65" cy="131" rx="5" ry="2.5" fill="#1a1008"/>
+          <!-- Body - powerful, muscular, curved back -->
+          <path d="M45,62 Q48,42 70,36 Q95,30 125,32 Q155,36 165,48 Q172,60 168,78 Q160,94 140,98 Q110,102 80,100 Q55,96 45,78Z" fill="url(#chestnutBody)"/>
+          <!-- Muscle definition -->
+          <path d="M70,42 Q85,38 100,40" fill="none" stroke="#9A4A1A" stroke-width="1.5" opacity="0.3"/>
+          <ellipse cx="145" cy="60" rx="15" ry="20" fill="#9A4A1A" opacity="0.2"/>
+          <!-- Belly highlight -->
+          <ellipse cx="105" cy="85" rx="25" ry="6" fill="#C06828" opacity="0.2"/>
+          <!-- Shoulder -->
+          <ellipse cx="150" cy="68" rx="14" ry="22" fill="#A0522D" opacity="0.3"/>
+          <!-- Front legs - galloping stretch, with joints -->
+          <path d="M148,88 L158,104 L152,115 L170,125" fill="none" stroke="#8B4513" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M160,82 L172,96 L165,108 L180,115" fill="none" stroke="#9A4E1A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Hooves front -->
+          <ellipse cx="170" cy="126" rx="5" ry="2.5" fill="#1a1008"/>
+          <ellipse cx="180" cy="116" rx="5" ry="2.5" fill="#1a1008"/>
+          <!-- Neck - stretched forward, muscular -->
+          <path d="M160,46 Q178,18 176,2 Q174,-6 166,-2 Q156,8 150,42" fill="url(#chestnutNeck)"/>
+          <!-- Neck muscle lines -->
+          <path d="M162,12 Q165,25 158,40" fill="none" stroke="#7A3D12" stroke-width="1.2" opacity="0.3"/>
+          <!-- Head - detailed, stretched in gallop -->
+          <path d="M176,-2 Q188,-10 196,-6 Q202,-2 200,6 Q196,14 188,16 Q178,18 172,12 Q168,6 172,0Z" fill="#A0522D"/>
+          <!-- Blaze (thin) -->
+          <path d="M186,-2 Q188,-4 188,2 Q187,8 185,10" fill="#f0e8d8" stroke="none" opacity="0.3"/>
+          <!-- Nostril - flared -->
+          <ellipse cx="198" cy="4" rx="2.5" ry="2" fill="#4a1a08" opacity="0.7"/>
+          <!-- Mouth line -->
+          <path d="M196,8 Q198,10 196,12" fill="none" stroke="#5a2a10" stroke-width="0.8" opacity="0.4"/>
+          <!-- Jaw -->
+          <path d="M180,16 Q188,18 194,14" fill="none" stroke="#8B4513" stroke-width="0.8" opacity="0.3"/>
+          <!-- Ears - two, pinned slightly in wind -->
+          <path d="M180,-8 Q178,-20 182,-22 Q186,-20 184,-8" fill="#8B4513"/>
+          <path d="M173,-4 Q170,-16 174,-18 Q178,-16 176,-4" fill="#9A4E1A"/>
+          <!-- Ear inner -->
+          <path d="M181,-9 Q179,-17 182,-19 Q185,-17 183,-9" fill="#6B3410" opacity="0.4"/>
+          <!-- Eye - fiery, determined -->
+          <ellipse cx="185" cy="2" rx="3" ry="2.8" fill="#2a1008"/>
+          <circle cx="186" cy="1.5" r="1" fill="#D4A060" opacity="0.5"/>
+          <circle cx="186.5" cy="1" r="0.5" fill="#fff" opacity="0.6"/>
+          <!-- Dark mane - wild flowing -->
+          <path d="M175,-2 Q188,8 185,22 Q182,32 178,42 Q172,36 176,26 Q178,16 172,6Z" fill="#1a0a04" opacity="0.85"/>
+          <path d="M170,5 Q180,18 176,32 Q172,42 168,52 Q162,46 168,36 Q170,26 165,14Z" fill="#2a1408" opacity="0.7"/>
+          <path d="M165,14 Q174,26 170,40 Q166,50 162,58 Q156,52 162,42 Q164,32 160,22Z" fill="#1a0a04" opacity="0.6"/>
+          <path d="M160,22 Q168,34 164,48 Q160,56 156,62 Q150,56 156,48 Q158,38 154,28Z" fill="#2a1408" opacity="0.5"/>
+          <!-- Dark tail - wild flowing -->
+          <path d="M45,56 Q22,40 10,50 Q-2,64 -5,82 Q-4,100 12,105 Q20,96 14,80 Q12,65 28,56" fill="#1a0a04" opacity="0.85"/>
+          <path d="M45,60 Q28,48 18,58 Q8,72 6,88 Q14,84 16,72 Q20,60 38,56" fill="#2a1408" opacity="0.6"/>
+          <path d="M45,64 Q32,56 25,65 Q18,78 20,90 Q26,86 24,76 Q26,66 40,62" fill="#1a0a04" opacity="0.45"/>
+          <!-- Dust/speed particles -->
+          <circle cx="30" cy="128" r="2" fill="#887868" opacity="0.2"/>
+          <circle cx="15" cy="125" r="1.5" fill="#887868" opacity="0.15"/>
+          <circle cx="40" cy="132" r="1" fill="#887868" opacity="0.1"/>
+        </g>
+        <!-- Wind streaks -->
+        <line x1="5" y1="68" x2="50" y2="65" stroke="#888" stroke-width="1" opacity="0.25"/>
+        <line x1="15" y1="78" x2="55" y2="76" stroke="#888" stroke-width="0.8" opacity="0.15"/>
+        <line x1="280" y1="82" x2="335" y2="80" stroke="#888" stroke-width="0.8" opacity="0.2"/>
+        <line x1="290" y1="92" x2="340" y2="90" stroke="#888" stroke-width="0.6" opacity="0.12"/>
+      </svg>
+      <div class="card-name">Sturmwind</div>
+    </div>
+    <div class="card-body">
+      <div class="stat-row"><span class="stat-label">Fellfarbe</span><span class="stat-value">Kastanienbraun (Brauner)</span></div>
+      <div class="stat-row"><span class="stat-label">Charakter</span><span class="stat-value">Temperamentvoll, mutig, wild-sch&ouml;n</span></div>
+      <div class="stat-row"><span class="stat-label">St&auml;rke</span><span class="stat-value">Der schnellste Galopp weit und breit</span></div>
+      <div class="card-divider"></div>
+      <p class="card-description">Sturmwind ist wie ein Gewitter mit Hufen &ndash; wild, stark und wundersch&ouml;n. Sein kastanienbraunes Fell gl&auml;nzt wie poliertes Holz, wenn er &uuml;ber die Koppel donnert.</p>
+      <svg class="badge" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="#6B3410" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="25" cy="25" r="19" fill="#6B3410" opacity="0.1"/>
+        <text x="25" y="20" text-anchor="middle" font-size="5" font-family="Cinzel Decorative,serif" fill="#6B3410" font-weight="700">HOF</text>
+        <text x="25" y="28" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#6B3410">SONNEN</text>
+        <text x="25" y="35" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#6B3410">WEIDE</text>
+        <path d="M15,40 Q17,37 19,40 Q21,43 23,40" fill="none" stroke="#6B3410" stroke-width="0.8" opacity="0.5"/>
+        <path d="M27,40 Q29,37 31,40 Q33,43 35,40" fill="none" stroke="#6B3410" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- BUTTERBLUME -->
+<div class="card card-butterblume">
+  <div class="card-inner">
+    <div class="card-header">
+      <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sunny" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#68B8E8"/>
+            <stop offset="50%" stop-color="#87CEEB"/>
+            <stop offset="100%" stop-color="#a8d88a"/>
+          </linearGradient>
+          <radialGradient id="sun1" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#ffffa0"/>
+            <stop offset="50%" stop-color="#fff880"/>
+            <stop offset="100%" stop-color="#f0d860"/>
+          </radialGradient>
+          <radialGradient id="sunGlow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="#fff8a0" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#fff8a0" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="goldenBody" x1="0.2" y1="0" x2="0.8" y2="1">
+            <stop offset="0%" stop-color="#e0b838"/>
+            <stop offset="50%" stop-color="#d4a030"/>
+            <stop offset="100%" stop-color="#c09028"/>
+          </linearGradient>
+          <linearGradient id="meadow1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6aaa40"/>
+            <stop offset="100%" stop-color="#4a8a28"/>
+          </linearGradient>
+        </defs>
+        <rect width="340" height="160" fill="url(#sunny)"/>
+        <!-- Fluffy clouds -->
+        <g opacity="0.7">
+          <ellipse cx="70" cy="35" rx="28" ry="10" fill="#fff"/>
+          <ellipse cx="58" cy="32" rx="18" ry="8" fill="#fff"/>
+          <ellipse cx="82" cy="32" rx="16" ry="8" fill="#fff"/>
+          <ellipse cx="70" cy="30" rx="20" ry="8" fill="#fff"/>
+        </g>
+        <g opacity="0.5">
+          <ellipse cx="200" cy="28" rx="22" ry="8" fill="#fff"/>
+          <ellipse cx="190" cy="25" rx="14" ry="6" fill="#fff"/>
+          <ellipse cx="210" cy="25" rx="14" ry="7" fill="#fff"/>
+        </g>
+        <!-- Sun with glow -->
+        <circle cx="300" cy="30" r="35" fill="url(#sunGlow)"/>
+        <circle cx="300" cy="30" r="20" fill="url(#sun1)"/>
+        <g stroke="#f0d860" stroke-width="2" opacity="0.5">
+          <line x1="300" y1="2" x2="300" y2="-5"/>
+          <line x1="320" y1="12" x2="326" y2="6"/>
+          <line x1="328" y1="30" x2="335" y2="30"/>
+          <line x1="320" y1="48" x2="326" y2="54"/>
+          <line x1="300" y1="58" x2="300" y2="64"/>
+          <line x1="280" y1="48" x2="274" y2="54"/>
+          <line x1="272" y1="30" x2="266" y2="30"/>
+          <line x1="280" y1="12" x2="274" y2="6"/>
+        </g>
+        <!-- Meadow -->
+        <ellipse cx="170" cy="168" rx="210" ry="42" fill="url(#meadow1)"/>
+        <!-- Flowers - buttercups and daisies -->
+        <g>
+          <circle cx="35" cy="132" r="3.5" fill="#f0d860"/><circle cx="35" cy="132" r="1.8" fill="#e8a020"/>
+          <line x1="35" y1="135" x2="35" y2="142" stroke="#4a8a28" stroke-width="1"/>
+          <circle cx="95" cy="138" r="3" fill="#f0d860"/><circle cx="95" cy="138" r="1.5" fill="#e8a020"/>
+          <line x1="95" y1="141" x2="95" y2="147" stroke="#4a8a28" stroke-width="1"/>
+          <circle cx="245" cy="134" r="3.5" fill="#fff"/><circle cx="245" cy="134" r="1.5" fill="#f0d860"/>
+          <line x1="245" y1="137" x2="244" y2="144" stroke="#4a8a28" stroke-width="1"/>
+          <circle cx="300" cy="140" r="2.8" fill="#f0d860"/><circle cx="300" cy="140" r="1.3" fill="#e8a020"/>
+          <circle cx="140" cy="142" r="2.5" fill="#fff"/><circle cx="140" cy="142" r="1" fill="#f0d860"/>
+          <circle cx="190" cy="136" r="3" fill="#f0d860"/><circle cx="190" cy="136" r="1.5" fill="#e8a020"/>
+        </g>
+        <!-- Butterfly -->
+        <g transform="translate(260,80) scale(0.6)" opacity="0.5">
+          <path d="M0,0 Q-8,-8 -5,-14 Q-2,-18 2,-12 Q4,-8 0,0" fill="#e88040"/>
+          <path d="M0,0 Q8,-8 5,-14 Q2,-18 -2,-12 Q-4,-8 0,0" fill="#e8a050"/>
+        </g>
+        <!-- Golden Haflinger horse - standing peacefully, realistic -->
+        <g transform="translate(85, 28) scale(0.84)">
+          <!-- Shadow -->
+          <ellipse cx="98" cy="128" rx="48" ry="4" fill="#3a7a1a" opacity="0.2"/>
+          <!-- Hind legs with joints -->
+          <path d="M62,90 L58,104 L62,114 L58,126" fill="none" stroke="#c09028" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M78,92 L75,106 L78,116 L76,126" fill="none" stroke="#c89828" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Hooves back -->
+          <ellipse cx="58" cy="127" rx="4.5" ry="2.5" fill="#8a7020"/>
+          <ellipse cx="76" cy="127" rx="4.5" ry="2.5" fill="#8a7020"/>
+          <!-- Body - stocky Haflinger build -->
+          <path d="M48,66 Q50,46 72,42 Q95,38 118,40 Q140,44 148,56 Q153,68 148,82 Q140,96 122,98 Q95,100 72,98 Q52,94 48,80Z" fill="url(#goldenBody)"/>
+          <!-- Belly shading -->
+          <ellipse cx="98" cy="86" rx="28" ry="7" fill="#b88820" opacity="0.2"/>
+          <!-- Barrel highlight -->
+          <ellipse cx="95" cy="58" rx="18" ry="10" fill="#e8c040" opacity="0.15"/>
+          <!-- Front legs with joints -->
+          <path d="M122,94 L120,108 L124,118 L122,126" fill="none" stroke="#c89828" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M136,90 L135,104 L138,114 L136,126" fill="none" stroke="#d4a030" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Hooves front -->
+          <ellipse cx="122" cy="127" rx="4.5" ry="2.5" fill="#8a7020"/>
+          <ellipse cx="136" cy="127" rx="4.5" ry="2.5" fill="#8a7020"/>
+          <!-- Neck -->
+          <path d="M142,52 Q155,25 150,10 Q148,4 140,8 Q130,18 134,48" fill="#daa835"/>
+          <!-- Neck muscle -->
+          <path d="M142,18 Q144,30 140,44" fill="none" stroke="#c09028" stroke-width="1" opacity="0.3"/>
+          <!-- Head - gentle expression -->
+          <path d="M150,8 Q160,0 166,2 Q172,6 170,14 Q166,20 158,22 Q148,20 146,14 Q144,8 148,4Z" fill="#ddb040"/>
+          <!-- Nostril -->
+          <ellipse cx="168" cy="12" rx="2" ry="1.5" fill="#a08020" opacity="0.5"/>
+          <!-- Mouth -->
+          <path d="M165,16 Q167,18 165,20" fill="none" stroke="#a08020" stroke-width="0.6" opacity="0.3"/>
+          <!-- Ears -->
+          <path d="M155,0 Q153,-10 156,-12 Q159,-10 158,0" fill="#d4a030"/>
+          <path d="M148,2 Q145,-7 148,-10 Q152,-8 150,2" fill="#daa835"/>
+          <!-- Eye - big, gentle -->
+          <ellipse cx="158" cy="8" rx="3" ry="2.8" fill="#3a2a10"/>
+          <circle cx="159" cy="7.5" r="1" fill="#fff" opacity="0.5"/>
+          <circle cx="159.5" cy="7" r="0.5" fill="#fff" opacity="0.8"/>
+          <!-- Light creamy mane - flowing -->
+          <path d="M152,5 Q162,15 158,28 Q155,38 152,48 Q146,42 150,32 Q152,22 148,12Z" fill="#f5ebb0" opacity="0.8"/>
+          <path d="M148,12 Q156,22 153,35 Q150,44 148,52 Q142,46 146,36 Q148,28 144,18Z" fill="#f0e0a0" opacity="0.7"/>
+          <path d="M144,18 Q150,28 148,40 Q146,48 144,54 Q138,48 142,40 Q144,32 140,24Z" fill="#eedda0" opacity="0.55"/>
+          <!-- Light tail - relaxed -->
+          <path d="M48,62 Q32,56 26,66 Q20,80 28,88 Q34,82 30,72 Q32,62 45,60" fill="#f5ebb0" opacity="0.8"/>
+          <path d="M48,65 Q36,60 30,70 Q26,82 32,88 Q36,82 34,74 Q36,66 46,64" fill="#f0e0a0" opacity="0.6"/>
+          <!-- Smile line -->
+          <path d="M164,16 Q166,18 164,20" fill="none" stroke="#9a7020" stroke-width="0.8"/>
+        </g>
+      </svg>
+      <div class="card-name">Butterblume</div>
+    </div>
+    <div class="card-body">
+      <div class="stat-row"><span class="stat-label">Fellfarbe</span><span class="stat-value">Gold mit heller M&auml;hne (Haflinger)</span></div>
+      <div class="stat-row"><span class="stat-label">Charakter</span><span class="stat-value">Gem&uuml;tlich, treu, geduldig</span></div>
+      <div class="stat-row"><span class="stat-label">St&auml;rke</span><span class="stat-value">Die beste Anf&auml;nger-Stute</span></div>
+      <div class="card-divider"></div>
+      <p class="card-description">Butterblume ist die Seele des Stalls. Sie ist so gem&uuml;tlich wie ein Sonntagmorgen und hat die sanftesten Augen der Welt.</p>
+      <svg class="badge" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="25" cy="25" r="19" fill="#c9a84c" opacity="0.1"/>
+        <text x="25" y="20" text-anchor="middle" font-size="5" font-family="Cinzel Decorative,serif" fill="#9e7e2a" font-weight="700">HOF</text>
+        <text x="25" y="28" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#9e7e2a">SONNEN</text>
+        <text x="25" y="35" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#9e7e2a">WEIDE</text>
+        <path d="M15,40 Q17,37 19,40 Q21,43 23,40" fill="none" stroke="#9e7e2a" stroke-width="0.8" opacity="0.5"/>
+        <path d="M27,40 Q29,37 31,40 Q33,43 35,40" fill="none" stroke="#9e7e2a" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- FLECKI -->
+<div class="card card-flecki">
+  <div class="card-inner">
+    <div class="card-header">
+      <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="playful-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#60A8D8"/>
+            <stop offset="60%" stop-color="#78b8e0"/>
+            <stop offset="100%" stop-color="#90c890"/>
+          </linearGradient>
+          <linearGradient id="fleckiMeadow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5a9a35"/>
+            <stop offset="100%" stop-color="#3a7a1a"/>
+          </linearGradient>
+        </defs>
+        <rect width="340" height="160" fill="url(#playful-sky)"/>
+        <!-- Clouds - puffy -->
+        <g opacity="0.75">
+          <ellipse cx="55" cy="28" rx="30" ry="12" fill="#fff"/>
+          <ellipse cx="42" cy="25" rx="20" ry="10" fill="#fff"/>
+          <ellipse cx="68" cy="24" rx="18" ry="9" fill="#fff"/>
+          <ellipse cx="55" cy="22" rx="22" ry="8" fill="#fff"/>
+        </g>
+        <g opacity="0.55">
+          <ellipse cx="248" cy="22" rx="26" ry="10" fill="#fff"/>
+          <ellipse cx="236" cy="20" rx="16" ry="8" fill="#fff"/>
+          <ellipse cx="260" cy="20" rx="14" ry="7" fill="#fff"/>
+        </g>
+        <g opacity="0.4">
+          <ellipse cx="160" cy="18" rx="18" ry="7" fill="#fff"/>
+          <ellipse cx="150" cy="16" rx="12" ry="6" fill="#fff"/>
+        </g>
+        <!-- Green meadow -->
+        <ellipse cx="170" cy="170" rx="210" ry="44" fill="url(#fleckiMeadow)"/>
+        <!-- Fence - detailed -->
+        <line x1="10" y1="118" x2="330" y2="118" stroke="#8B6914" stroke-width="2" opacity="0.45"/>
+        <line x1="10" y1="124" x2="330" y2="124" stroke="#8B6914" stroke-width="1.5" opacity="0.35"/>
+        <line x1="40" y1="108" x2="40" y2="132" stroke="#8B6914" stroke-width="3" opacity="0.45"/>
+        <line x1="100" y1="108" x2="100" y2="132" stroke="#8B6914" stroke-width="3" opacity="0.45"/>
+        <line x1="160" y1="108" x2="160" y2="132" stroke="#8B6914" stroke-width="3" opacity="0.45"/>
+        <line x1="240" y1="108" x2="240" y2="132" stroke="#8B6914" stroke-width="3" opacity="0.45"/>
+        <line x1="300" y1="108" x2="300" y2="132" stroke="#8B6914" stroke-width="3" opacity="0.45"/>
+        <!-- Playful pinto pony - realistic with one leg lifted -->
+        <g transform="translate(80, 22) scale(0.8)">
+          <!-- Shadow -->
+          <ellipse cx="98" cy="128" rx="45" ry="4" fill="#2a6a12" opacity="0.2"/>
+          <!-- Hind legs with joints -->
+          <path d="M60,90 L56,104 L60,114 L56,126" fill="none" stroke="#e8e2d5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M76,92 L73,106 L76,115 L73,126" fill="none" stroke="#7a4a28" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Hooves back -->
+          <ellipse cx="56" cy="127" rx="4" ry="2" fill="#4a3018"/>
+          <ellipse cx="73" cy="127" rx="4" ry="2" fill="#4a3018"/>
+          <!-- Body - compact pony build -->
+          <path d="M45,68 Q48,50 68,44 Q90,40 112,42 Q132,46 138,58 Q142,70 138,82 Q130,96 115,98 Q90,100 68,98 Q50,94 45,80Z" fill="#f5f0e5"/>
+          <!-- Brown patches - irregular shapes -->
+          <path d="M60,52 Q70,44 82,50 Q88,58 80,66 Q68,68 60,60Z" fill="#7a4a28"/>
+          <path d="M105,48 Q118,44 128,54 Q130,66 120,72 Q108,70 105,58Z" fill="#7a4a28"/>
+          <path d="M78,78 Q90,74 98,82 Q96,92 84,94 Q74,90 78,82Z" fill="#8a5a30"/>
+          <ellipse cx="60" cy="82" rx="10" ry="8" fill="#7a4a28" opacity="0.7"/>
+          <!-- Front leg - standing -->
+          <path d="M118,92 L116,106 L120,116 L118,126" fill="none" stroke="#f0ebe0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="118" cy="127" rx="4" ry="2" fill="#4a3018"/>
+          <!-- Front leg - lifted playfully -->
+          <path d="M132,86 Q142,78 146,85 Q148,92 142,96" fill="none" stroke="#7a4a28" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="142" cy="97" rx="3.5" ry="2" fill="#4a3018"/>
+          <!-- Neck -->
+          <path d="M134,54 Q145,30 142,16 Q140,10 132,15 Q124,25 128,50" fill="#f5f0e5"/>
+          <!-- Neck patch -->
+          <ellipse cx="132" cy="32" rx="8" ry="11" fill="#7a4a28" transform="rotate(-15, 132, 32)"/>
+          <!-- Head - curious, slightly tilted -->
+          <path d="M142,14 Q152,6 158,8 Q164,12 162,20 Q158,26 150,28 Q140,26 138,20 Q136,14 140,10Z" fill="#f5f0e5"/>
+          <!-- Face patch -->
+          <ellipse cx="144" cy="16" rx="6" ry="7" fill="#7a4a28"/>
+          <!-- Nostril -->
+          <ellipse cx="160" cy="16" rx="1.8" ry="1.3" fill="#c0a888" opacity="0.5"/>
+          <!-- Ears - perky, alert -->
+          <path d="M148,4 Q146,-8 150,-10 Q154,-8 152,4" fill="#e8e0d5"/>
+          <path d="M140,6 Q137,-5 141,-8 Q145,-6 143,6" fill="#f0ebe0"/>
+          <!-- Ear inner -->
+          <path d="M149,3 Q147,-5 150,-8 Q153,-6 151,3" fill="#d8b8a0" opacity="0.4"/>
+          <!-- Eye - big, mischievous -->
+          <ellipse cx="152" cy="14" rx="3.2" ry="3" fill="#2a1a08"/>
+          <circle cx="153" cy="13.5" r="1.2" fill="#fff" opacity="0.6"/>
+          <circle cx="153.5" cy="13" r="0.5" fill="#fff" opacity="0.8"/>
+          <!-- Mane - messy, two-toned -->
+          <path d="M146,10 Q155,20 152,32 Q148,28 146,22 Q150,16 146,10" fill="#7a4a28" opacity="0.8"/>
+          <path d="M142,16 Q150,26 148,38 Q144,34 142,28 Q146,22 142,16" fill="#f0e0c8" opacity="0.6"/>
+          <!-- Tail - swishing -->
+          <path d="M45,64 Q28,52 22,62 Q16,76 24,84 Q30,78 26,68 Q28,58 42,60" fill="#7a4a28" opacity="0.7"/>
+          <path d="M45,67 Q32,58 28,66 Q24,78 30,84 Q34,78 32,72 Q34,64 44,64" fill="#f0e8d8" opacity="0.5"/>
+        </g>
+        <!-- Stolen hat flying -->
+        <g transform="translate(252, 55) rotate(-25)">
+          <ellipse cx="0" cy="0" rx="14" ry="5" fill="#e05050"/>
+          <path d="M-8,-2 Q-8,-14 0,-14 Q8,-14 8,-2" fill="#d04040"/>
+          <circle cx="0" cy="-14" r="2" fill="#f06060"/>
+        </g>
+      </svg>
+      <div class="card-name">Flecki</div>
+    </div>
+    <div class="card-body">
+      <div class="stat-row"><span class="stat-label">Fellfarbe</span><span class="stat-value">Braun-wei&szlig; gescheckt</span></div>
+      <div class="stat-row"><span class="stat-label">Charakter</span><span class="stat-value">Frech, verspielt, neugierig</span></div>
+      <div class="stat-row"><span class="stat-label">St&auml;rke</span><span class="stat-value">Bringt jeden zum Lachen</span></div>
+      <div class="card-divider"></div>
+      <p class="card-description">Flecki ist das j&uuml;ngste Pony und der gr&ouml;&szlig;te Quatschkopf. Er klaut M&uuml;tzen, kaut an Jacken und sorgt daf&uuml;r, dass es nie langweilig wird.</p>
+      <svg class="badge" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="#8fae5a" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="25" cy="25" r="19" fill="#8fae5a" opacity="0.1"/>
+        <text x="25" y="20" text-anchor="middle" font-size="5" font-family="Cinzel Decorative,serif" fill="#5e7a32" font-weight="700">HOF</text>
+        <text x="25" y="28" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#5e7a32">SONNEN</text>
+        <text x="25" y="35" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#5e7a32">WEIDE</text>
+        <path d="M15,40 Q17,37 19,40 Q21,43 23,40" fill="none" stroke="#5e7a32" stroke-width="0.8" opacity="0.5"/>
+        <path d="M27,40 Q29,37 31,40 Q33,43 35,40" fill="none" stroke="#5e7a32" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+</div><!-- end page 1 -->
+
+<!-- PAGE 2: Cards 5-7 -->
+<div class="page">
+
+<!-- KUPFER -->
+<div class="card card-kupfer">
+  <div class="card-inner">
+    <div class="card-header">
+      <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="forest-bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4a7a3a"/>
+            <stop offset="50%" stop-color="#5a8a50"/>
+            <stop offset="100%" stop-color="#3a5a28"/>
+          </linearGradient>
+          <linearGradient id="kupferBody" x1="0.2" y1="0" x2="0.8" y2="1">
+            <stop offset="0%" stop-color="#b86028"/>
+            <stop offset="50%" stop-color="#a05020"/>
+            <stop offset="100%" stop-color="#8a4018"/>
+          </linearGradient>
+        </defs>
+        <rect width="340" height="160" fill="url(#forest-bg)"/>
+        <!-- Forest trees - detailed -->
+        <!-- Tree 1 -->
+        <rect x="22" y="80" width="6" height="55" fill="#3a2a15" opacity="0.6"/>
+        <polygon points="10,90 25,30 40,90" fill="#2d4a20" opacity="0.7"/>
+        <polygon points="14,75 25,40 36,75" fill="#3a5a28" opacity="0.6"/>
+        <polygon points="18,60 25,50 32,60" fill="#2d4a20" opacity="0.5"/>
+        <!-- Tree 2 -->
+        <rect x="292" y="75" width="6" height="60" fill="#3a2a15" opacity="0.6"/>
+        <polygon points="278,85 295,25 312,85" fill="#2d4a20" opacity="0.7"/>
+        <polygon points="282,68 295,35 308,68" fill="#3a5a28" opacity="0.6"/>
+        <polygon points="286,54 295,42 304,54" fill="#2d4a20" opacity="0.5"/>
+        <!-- Tree 3 - background -->
+        <polygon points="318,100 325,55 332,100" fill="#2d4a20" opacity="0.4"/>
+        <polygon points="320,80 325,60 330,80" fill="#3a5a28" opacity="0.3"/>
+        <!-- Bushes -->
+        <ellipse cx="55" cy="128" rx="20" ry="10" fill="#2d4a20" opacity="0.5"/>
+        <ellipse cx="310" cy="130" rx="18" ry="8" fill="#2d4a20" opacity="0.4"/>
+        <!-- Forest path/trail -->
+        <path d="M0,142 Q50,135 100,138 Q170,145 230,138 Q290,132 340,136" fill="#8a7a50" opacity="0.35"/>
+        <path d="M0,148 Q60,142 120,145 Q180,150 240,144 Q300,140 340,143" fill="#7a6a40" opacity="0.2"/>
+        <!-- Dappled light -->
+        <circle cx="120" cy="60" r="8" fill="#fff" opacity="0.04"/>
+        <circle cx="200" cy="50" r="6" fill="#fff" opacity="0.03"/>
+        <circle cx="160" cy="90" r="10" fill="#fff" opacity="0.03"/>
+        <!-- Chestnut/Fuchs horse walking confidently - realistic -->
+        <g transform="translate(72, 22) scale(0.84)">
+          <!-- Shadow -->
+          <ellipse cx="105" cy="130" rx="50" ry="5" fill="#1a3a10" opacity="0.2"/>
+          <!-- Hind legs - walking -->
+          <path d="M65,90 L60,104 L64,114 L58,128" fill="none" stroke="#8a4018" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M82,92 L80,106 L84,116 L82,128" fill="none" stroke="#904820" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="58" cy="129" rx="4.5" ry="2.5" fill="#4a2a10"/>
+          <ellipse cx="82" cy="129" rx="4.5" ry="2.5" fill="#4a2a10"/>
+          <!-- Body - solid, confident build -->
+          <path d="M50,66 Q52,46 74,42 Q98,38 122,40 Q144,44 152,56 Q157,68 152,82 Q144,96 126,98 Q100,100 74,98 Q54,94 50,80Z" fill="url(#kupferBody)"/>
+          <!-- Darker belly shadow -->
+          <ellipse cx="100" cy="86" rx="28" ry="7" fill="#7a3818" opacity="0.25"/>
+          <!-- Body highlights -->
+          <ellipse cx="110" cy="56" rx="16" ry="8" fill="#c06828" opacity="0.15"/>
+          <!-- Shoulder definition -->
+          <path d="M130,48 Q142,56 148,70" fill="none" stroke="#904820" stroke-width="1.5" opacity="0.2"/>
+          <!-- Front legs - one forward -->
+          <path d="M120,92 L118,106 L122,116 L120,128" fill="none" stroke="#904820" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M138,88 L142,102 L138,112 L142,126" fill="none" stroke="#a05020" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="120" cy="129" rx="4.5" ry="2.5" fill="#4a2a10"/>
+          <ellipse cx="142" cy="127" rx="4.5" ry="2.5" fill="#4a2a10"/>
+          <!-- Neck -->
+          <path d="M146,50 Q158,22 154,8 Q152,2 144,6 Q134,18 138,46" fill="#a85828"/>
+          <!-- Neck line -->
+          <path d="M148,15 Q150,28 146,42" fill="none" stroke="#8a4818" stroke-width="1" opacity="0.3"/>
+          <!-- Head - alert, intelligent -->
+          <path d="M154,6 Q164,-2 170,0 Q176,4 174,12 Q170,18 162,20 Q152,18 150,12 Q148,6 152,2Z" fill="#aa5a2a"/>
+          <!-- White blaze -->
+          <path d="M160,0 Q162,-2 162,4 Q161,10 159,14" fill="#f0e8d8" stroke="none" opacity="0.5"/>
+          <!-- Nostril -->
+          <ellipse cx="172" cy="8" rx="2" ry="1.5" fill="#5a2a10" opacity="0.6"/>
+          <!-- Ears - pricked forward -->
+          <path d="M159,-2 Q157,-13 160,-15 Q163,-13 162,-2" fill="#904820"/>
+          <path d="M152,0 Q149,-10 152,-13 Q156,-11 154,0" fill="#a05020"/>
+          <!-- Ear inner -->
+          <path d="M160,-3 Q158,-10 160,-13 Q162,-11 161,-3" fill="#7a3818" opacity="0.4"/>
+          <!-- Eye - intelligent, warm -->
+          <ellipse cx="164" cy="6" rx="3" ry="2.8" fill="#1a0a04"/>
+          <circle cx="165" cy="5.5" r="1" fill="#fff" opacity="0.5"/>
+          <circle cx="165.5" cy="5" r="0.5" fill="#fff" opacity="0.7"/>
+          <!-- Dark mane -->
+          <path d="M156,4 Q164,14 160,28 Q156,22 154,16 Q160,10 156,4" fill="#3a1a08" opacity="0.8"/>
+          <path d="M152,12 Q158,22 155,35 Q150,30 149,24 Q154,18 152,12" fill="#2a1208" opacity="0.65"/>
+          <path d="M148,20 Q154,28 152,40 Q148,36 146,30 Q150,24 148,20" fill="#3a1a08" opacity="0.5"/>
+          <!-- Dark tail - flowing -->
+          <path d="M50,60 Q34,52 28,62 Q22,76 30,84 Q36,78 32,68 Q34,58 48,58" fill="#3a1a08" opacity="0.8"/>
+          <path d="M50,64 Q38,58 34,66 Q30,78 36,84 Q40,78 38,72 Q40,64 50,62" fill="#2a1208" opacity="0.55"/>
+        </g>
+        <!-- Compass rose -->
+        <g transform="translate(20, 15) scale(0.5)" opacity="0.4">
+          <circle cx="20" cy="20" r="15" fill="none" stroke="#f0e8c0" stroke-width="1"/>
+          <circle cx="20" cy="20" r="12" fill="none" stroke="#f0e8c0" stroke-width="0.5"/>
+          <line x1="20" y1="5" x2="20" y2="35" stroke="#f0e8c0" stroke-width="0.8"/>
+          <line x1="5" y1="20" x2="35" y2="20" stroke="#f0e8c0" stroke-width="0.8"/>
+          <line x1="9" y1="9" x2="31" y2="31" stroke="#f0e8c0" stroke-width="0.4"/>
+          <line x1="31" y1="9" x2="9" y2="31" stroke="#f0e8c0" stroke-width="0.4"/>
+          <text x="20" y="3" text-anchor="middle" font-size="5" fill="#f0e8c0">N</text>
+          <text x="37" y="22" text-anchor="middle" font-size="4" fill="#f0e8c0">O</text>
+          <text x="20" y="42" text-anchor="middle" font-size="4" fill="#f0e8c0">S</text>
+          <text x="3" y="22" text-anchor="middle" font-size="4" fill="#f0e8c0">W</text>
+        </g>
+        <!-- Bird silhouette -->
+        <path d="M240,30 Q245,25 250,28 Q255,25 260,30" fill="none" stroke="#2a4a1a" stroke-width="1" opacity="0.3"/>
+      </svg>
+      <div class="card-name">Kupfer</div>
+    </div>
+    <div class="card-body">
+      <div class="stat-row"><span class="stat-label">Fellfarbe</span><span class="stat-value">Rotbraun (Fuchs)</span></div>
+      <div class="stat-row"><span class="stat-label">Charakter</span><span class="stat-value">Klug, zuverl&auml;ssig, ruhig</span></div>
+      <div class="stat-row"><span class="stat-label">St&auml;rke</span><span class="stat-value">Findet immer den Weg nach Hause</span></div>
+      <div class="card-divider"></div>
+      <p class="card-description">Kupfer ist das kl&uuml;gste Pferd im Stall. Egal wie weit der Ausritt geht &ndash; Kupfer bringt dich sicher zur&uuml;ck.</p>
+      <svg class="badge" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="#b5704a" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="25" cy="25" r="19" fill="#b5704a" opacity="0.1"/>
+        <text x="25" y="20" text-anchor="middle" font-size="5" font-family="Cinzel Decorative,serif" fill="#8e5533" font-weight="700">HOF</text>
+        <text x="25" y="28" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#8e5533">SONNEN</text>
+        <text x="25" y="35" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#8e5533">WEIDE</text>
+        <path d="M15,40 Q17,37 19,40 Q21,43 23,40" fill="none" stroke="#8e5533" stroke-width="0.8" opacity="0.5"/>
+        <path d="M27,40 Q29,37 31,40 Q33,43 35,40" fill="none" stroke="#8e5533" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- STERNCHEN -->
+<div class="card card-sternchen">
+  <div class="card-inner">
+    <div class="card-header">
+      <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4a3a6a"/>
+            <stop offset="30%" stop-color="#6a5a8a"/>
+            <stop offset="60%" stop-color="#c08a90"/>
+            <stop offset="100%" stop-color="#e0b878"/>
+          </linearGradient>
+          <linearGradient id="sternBody" x1="0.2" y1="0" x2="0.8" y2="1">
+            <stop offset="0%" stop-color="#5a3220"/>
+            <stop offset="50%" stop-color="#4a2a15"/>
+            <stop offset="100%" stop-color="#3a2010"/>
+          </linearGradient>
+        </defs>
+        <rect width="340" height="160" fill="url(#dawn)"/>
+        <!-- Morning stars fading -->
+        <circle cx="40" cy="18" r="2.2" fill="#fff" opacity="0.7"/>
+        <circle cx="40" cy="18" r="4" fill="#fff" opacity="0.06"/>
+        <circle cx="100" cy="12" r="1.5" fill="#fff" opacity="0.45"/>
+        <circle cx="300" cy="22" r="2" fill="#fff" opacity="0.55"/>
+        <circle cx="300" cy="22" r="4" fill="#fff" opacity="0.04"/>
+        <circle cx="160" cy="8" r="1.2" fill="#fff" opacity="0.35"/>
+        <circle cx="240" cy="15" r="1" fill="#fff" opacity="0.3"/>
+        <circle cx="70" cy="30" r="0.8" fill="#fff" opacity="0.25"/>
+        <!-- Horizon glow -->
+        <ellipse cx="170" cy="130" rx="180" ry="20" fill="#e0b878" opacity="0.15"/>
+        <!-- Rolling hills - layered -->
+        <ellipse cx="80" cy="158" rx="130" ry="38" fill="#5a7a3a" opacity="0.55"/>
+        <ellipse cx="280" cy="162" rx="110" ry="35" fill="#4a6a2a" opacity="0.5"/>
+        <ellipse cx="170" cy="165" rx="200" ry="35" fill="#3a5a1a" opacity="0.45"/>
+        <!-- Mist effect -->
+        <ellipse cx="100" cy="130" rx="60" ry="8" fill="#e0b878" opacity="0.08"/>
+        <ellipse cx="260" cy="125" rx="50" ry="6" fill="#c08a90" opacity="0.06"/>
+        <!-- Small dark brown horse - slightly timid, realistic -->
+        <g transform="translate(88, 28) scale(0.82)">
+          <!-- Shadow -->
+          <ellipse cx="92" cy="128" rx="42" ry="4" fill="#2a4a1a" opacity="0.2"/>
+          <!-- Hind legs with joints -->
+          <path d="M58,88 L54,102 L58,112 L54,124" fill="none" stroke="#3a2010" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M72,90 L69,104 L73,113 L70,124" fill="none" stroke="#3a2010" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="54" cy="125" rx="3.5" ry="2" fill="#1a0a04"/>
+          <ellipse cx="70" cy="125" rx="3.5" ry="2" fill="#1a0a04"/>
+          <!-- Body - smaller, compact -->
+          <path d="M42,66 Q44,48 64,44 Q85,40 106,42 Q124,46 130,56 Q134,66 130,78 Q124,90 108,94 Q86,96 64,94 Q46,90 42,78Z" fill="url(#sternBody)"/>
+          <!-- Belly shade -->
+          <ellipse cx="88" cy="82" rx="24" ry="6" fill="#2a1808" opacity="0.2"/>
+          <!-- Body highlight -->
+          <ellipse cx="90" cy="55" rx="14" ry="7" fill="#6a3a22" opacity="0.15"/>
+          <!-- Front legs with joints -->
+          <path d="M108,90 L106,104 L110,113 L108,124" fill="none" stroke="#4a2a15" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M120,88 L118,102 L122,112 L120,124" fill="none" stroke="#4a2a15" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="108" cy="125" rx="3.5" ry="2" fill="#1a0a04"/>
+          <ellipse cx="120" cy="125" rx="3.5" ry="2" fill="#1a0a04"/>
+          <!-- Neck - slightly tucked (shy) -->
+          <path d="M126,50 Q136,26 132,12 Q130,6 124,10 Q116,20 120,46" fill="#4e2e18"/>
+          <!-- Head - lowered slightly, gentle -->
+          <path d="M132,10 Q142,2 148,4 Q154,8 152,16 Q148,22 140,24 Q130,22 128,16 Q126,10 130,6Z" fill="#502f18"/>
+          <!-- White star on forehead -->
+          <path d="M138,6 L139.5,2 L141,6 L145,7.5 L141,9 L139.5,13 L138,9 L134,7.5Z" fill="#fff" opacity="0.9"/>
+          <!-- Subtle glow around star -->
+          <circle cx="139.5" cy="7.5" r="6" fill="#fff" opacity="0.06"/>
+          <!-- Nostril -->
+          <ellipse cx="150" cy="12" rx="1.8" ry="1.3" fill="#2a1208" opacity="0.5"/>
+          <!-- Ears - one slightly back (shy) -->
+          <path d="M143,0 Q142,-11 145,-13 Q148,-11 147,0" fill="#3a2010"/>
+          <path d="M134,2 Q132,-8 135,-11 Q139,-9 137,2" fill="#3a2010"/>
+          <!-- Ear inner -->
+          <path d="M144,-1 Q143,-8 145,-11 Q147,-9 146,-1" fill="#2a1808" opacity="0.4"/>
+          <!-- Eye - big, gentle, expressive -->
+          <ellipse cx="144" cy="10" rx="3.5" ry="3.2" fill="#1a0a05"/>
+          <circle cx="145" cy="9.5" r="1.2" fill="#fff" opacity="0.6"/>
+          <circle cx="145.5" cy="9" r="0.5" fill="#fff" opacity="0.9"/>
+          <!-- Dark mane -->
+          <path d="M136,8 Q144,18 140,30 Q136,24 134,18 Q140,14 136,8" fill="#2a1208" opacity="0.8"/>
+          <path d="M132,16 Q138,24 136,36 Q132,30 130,24 Q134,20 132,16" fill="#1a0a04" opacity="0.6"/>
+          <!-- Tail -->
+          <path d="M42,60 Q28,52 24,62 Q18,76 26,82 Q32,76 28,68 Q30,58 40,58" fill="#2a1208" opacity="0.7"/>
+          <path d="M42,64 Q32,58 28,66 Q24,76 30,80 Q34,76 32,70 Q34,62 42,62" fill="#1a0a04" opacity="0.5"/>
+        </g>
+        <!-- Subtle dawn glow around horse area -->
+        <circle cx="185" cy="75" r="35" fill="#e0b878" opacity="0.04"/>
+      </svg>
+      <div class="card-name">Sternchen</div>
+    </div>
+    <div class="card-body">
+      <div class="stat-row"><span class="stat-label">Fellfarbe</span><span class="stat-value">Dunkelbraun mit wei&szlig;em Stern</span></div>
+      <div class="stat-row"><span class="stat-label">Charakter</span><span class="stat-value">Sch&uuml;chtern, sensibel, tapfer</span></div>
+      <div class="stat-row"><span class="stat-label">St&auml;rke</span><span class="stat-value">Sp&uuml;rt Gefahren im Voraus</span></div>
+      <div class="card-divider"></div>
+      <p class="card-description">Sternchen ist klein und sch&uuml;chtern, aber wenn es darauf ankommt, ist sie mutiger als alle anderen zusammen.</p>
+      <svg class="badge" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="#9a7ab5" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="25" cy="25" r="19" fill="#9a7ab5" opacity="0.1"/>
+        <text x="25" y="20" text-anchor="middle" font-size="5" font-family="Cinzel Decorative,serif" fill="#7a5a95" font-weight="700">HOF</text>
+        <text x="25" y="28" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#7a5a95">SONNEN</text>
+        <text x="25" y="35" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#7a5a95">WEIDE</text>
+        <path d="M15,40 Q17,37 19,40 Q21,43 23,40" fill="none" stroke="#7a5a95" stroke-width="0.8" opacity="0.5"/>
+        <path d="M27,40 Q29,37 31,40 Q33,43 35,40" fill="none" stroke="#7a5a95" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- NORDLICHT -->
+<div class="card card-nordlicht">
+  <div class="card-inner">
+    <div class="card-header">
+      <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="elegant-bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0e2a2a"/>
+            <stop offset="40%" stop-color="#1a3a3a"/>
+            <stop offset="70%" stop-color="#2a5a5a"/>
+            <stop offset="100%" stop-color="#3a7a6a"/>
+          </linearGradient>
+          <linearGradient id="greyBody" x1="0.2" y1="0" x2="0.8" y2="1">
+            <stop offset="0%" stop-color="#b8c0c8"/>
+            <stop offset="50%" stop-color="#a0a8b0"/>
+            <stop offset="100%" stop-color="#8890a0"/>
+          </linearGradient>
+        </defs>
+        <rect width="340" height="160" fill="url(#elegant-bg)"/>
+        <!-- Aurora effect - layered -->
+        <path d="M0,15 Q60,5 120,20 Q180,35 240,18 Q300,5 340,12" fill="none" stroke="#60e0a0" stroke-width="12" opacity="0.1"/>
+        <path d="M0,25 Q70,8 140,28 Q210,48 280,22 Q320,10 340,18" fill="none" stroke="#40d0a0" stroke-width="8" opacity="0.08"/>
+        <path d="M0,38 Q80,18 160,42 Q240,62 320,32" fill="none" stroke="#80e8c0" stroke-width="5" opacity="0.06"/>
+        <path d="M0,48 Q90,28 180,52 Q270,72 340,42" fill="none" stroke="#60d8b0" stroke-width="3" opacity="0.05"/>
+        <!-- Aurora vertical streaks -->
+        <rect x="80" y="0" width="3" height="60" fill="#60e0a0" opacity="0.04"/>
+        <rect x="150" y="0" width="4" height="55" fill="#40d0a0" opacity="0.03"/>
+        <rect x="220" y="0" width="3" height="50" fill="#80e8c0" opacity="0.035"/>
+        <!-- Dressage arena -->
+        <rect x="50" y="118" width="240" height="38" rx="3" fill="#2a4a3a" opacity="0.4" stroke="#5a9a8a" stroke-width="0.8" stroke-opacity="0.3"/>
+        <!-- Arena surface texture -->
+        <line x1="55" y1="130" x2="285" y2="130" stroke="#3a5a4a" stroke-width="0.5" opacity="0.2"/>
+        <line x1="55" y1="140" x2="285" y2="140" stroke="#3a5a4a" stroke-width="0.5" opacity="0.15"/>
+        <!-- Letters -->
+        <text x="58" y="138" font-size="8" fill="#5a9a8a" opacity="0.5" font-family="serif" font-style="italic">A</text>
+        <text x="110" y="138" font-size="7" fill="#5a9a8a" opacity="0.35" font-family="serif" font-style="italic">E</text>
+        <text x="165" y="138" font-size="8" fill="#5a9a8a" opacity="0.5" font-family="serif" font-style="italic">X</text>
+        <text x="220" y="138" font-size="7" fill="#5a9a8a" opacity="0.35" font-family="serif" font-style="italic">B</text>
+        <text x="275" y="138" font-size="8" fill="#5a9a8a" opacity="0.5" font-family="serif" font-style="italic">C</text>
+        <!-- Elegant grey horse in dressage piaffe - realistic -->
+        <g transform="translate(82, 18) scale(0.84)">
+          <!-- Shadow -->
+          <ellipse cx="100" cy="130" rx="45" ry="4" fill="#1a3a2a" opacity="0.2"/>
+          <!-- Hind legs - engaged, under body -->
+          <path d="M62,88 L56,104 L62,114 L56,126" fill="none" stroke="#889098" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M78,90 L74,106 L78,115 L74,126" fill="none" stroke="#909aa5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="56" cy="127" rx="4" ry="2" fill="#606870"/>
+          <ellipse cx="74" cy="127" rx="4" ry="2" fill="#606870"/>
+          <!-- Body - elegant, well-proportioned -->
+          <path d="M46,62 Q48,44 68,38 Q92,34 116,36 Q140,40 148,52 Q152,64 148,78 Q140,92 122,96 Q96,98 70,96 Q50,92 46,78Z" fill="url(#greyBody)"/>
+          <!-- Dapples - lighter spots -->
+          <circle cx="76" cy="54" r="5" fill="#bcc4cc" opacity="0.3"/>
+          <circle cx="90" cy="60" r="4" fill="#bcc4cc" opacity="0.25"/>
+          <circle cx="105" cy="52" r="4.5" fill="#bcc4cc" opacity="0.28"/>
+          <circle cx="118" cy="58" r="3.5" fill="#bcc4cc" opacity="0.22"/>
+          <circle cx="82" cy="70" r="4" fill="#bcc4cc" opacity="0.2"/>
+          <circle cx="96" cy="48" r="3" fill="#bcc4cc" opacity="0.2"/>
+          <circle cx="110" cy="68" r="3.5" fill="#bcc4cc" opacity="0.18"/>
+          <!-- Belly highlight -->
+          <ellipse cx="95" cy="82" rx="22" ry="5" fill="#c0c8d0" opacity="0.12"/>
+          <!-- Front leg - standing -->
+          <path d="M120,90 L118,106 L122,116 L120,126" fill="none" stroke="#98a0a8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="120" cy="127" rx="4" ry="2" fill="#606870"/>
+          <!-- Front leg - lifted high (piaffe) -->
+          <path d="M136,84 Q144,70 142,58 Q140,52 138,56" fill="none" stroke="#a0a8b0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="138" cy="56" rx="3.5" ry="2" fill="#606870"/>
+          <!-- Neck - beautifully arched -->
+          <path d="M142,46 Q158,12 150,-2 Q148,-8 140,-4 Q130,8 134,42" fill="#a8b0b8"/>
+          <!-- Neck muscle definition -->
+          <path d="M144,8 Q148,20 142,38" fill="none" stroke="#949ca5" stroke-width="1.2" opacity="0.25"/>
+          <!-- Throatlatch -->
+          <path d="M138,8 Q142,12 140,18" fill="none" stroke="#98a0a8" stroke-width="0.8" opacity="0.2"/>
+          <!-- Head - collected, tucked, refined -->
+          <path d="M150,-2 Q160,-10 166,-8 Q172,-4 170,4 Q166,12 158,14 Q148,12 146,6 Q144,-2 148,-6Z" fill="#aab2ba"/>
+          <!-- Nostril - delicate -->
+          <ellipse cx="168" cy="2" rx="2" ry="1.5" fill="#808890" opacity="0.5"/>
+          <!-- Jaw line -->
+          <path d="M152,14 Q160,16 166,12" fill="none" stroke="#949ca5" stroke-width="0.6" opacity="0.3"/>
+          <!-- Ears - pricked forward elegantly -->
+          <path d="M155,-8 Q153,-20 157,-22 Q161,-20 159,-8" fill="#909aa5"/>
+          <path d="M148,-6 Q145,-16 149,-19 Q153,-17 151,-6" fill="#98a2ad"/>
+          <!-- Ear inner -->
+          <path d="M156,-9 Q154,-17 157,-20 Q160,-18 158,-9" fill="#808890" opacity="0.4"/>
+          <!-- Eye - proud, bright -->
+          <ellipse cx="158" cy="2" rx="3" ry="2.8" fill="#1a2a3a"/>
+          <circle cx="159" cy="1.5" r="1" fill="#fff" opacity="0.5"/>
+          <circle cx="159.5" cy="1" r="0.5" fill="#fff" opacity="0.8"/>
+          <!-- Braided mane - neat plaits -->
+          <path d="M150,-2 Q155,6 153,14" fill="none" stroke="#788088" stroke-width="3.5"/>
+          <circle cx="153" cy="14" r="3" fill="#788088"/>
+          <circle cx="153" cy="14" r="1.5" fill="#8890a0" opacity="0.4"/>
+          <path d="M152,14 Q155,22 153,30" fill="none" stroke="#788088" stroke-width="3"/>
+          <circle cx="153" cy="30" r="2.5" fill="#788088"/>
+          <circle cx="153" cy="30" r="1.2" fill="#8890a0" opacity="0.4"/>
+          <path d="M152,30 Q155,36 153,42" fill="none" stroke="#788088" stroke-width="2.5"/>
+          <circle cx="153" cy="42" r="2" fill="#788088"/>
+          <!-- Braided tail -->
+          <path d="M46,58 Q32,50 26,60 Q22,72 28,80" fill="#788088"/>
+          <path d="M28,80 Q30,86 28,92" fill="none" stroke="#788088" stroke-width="4"/>
+          <circle cx="28" cy="92" r="3.5" fill="#788088"/>
+          <circle cx="28" cy="92" r="1.8" fill="#8890a0" opacity="0.3"/>
+          <!-- Ribbon in tail -->
+          <path d="M24,92 Q22,96 20,94" fill="none" stroke="#5a9a8a" stroke-width="1" opacity="0.5"/>
+          <path d="M32,92 Q34,96 36,94" fill="none" stroke="#5a9a8a" stroke-width="1" opacity="0.5"/>
+        </g>
+        <!-- Sparkles for elegance -->
+        <path d="M250,42 L252,36 L254,42 L260,44 L254,46 L252,52 L250,46 L244,44Z" fill="#a0e8d0" opacity="0.4"/>
+        <path d="M60,55 L61.5,51 L63,55 L67,56.5 L63,58 L61.5,62 L60,58 L56,56.5Z" fill="#a0e8d0" opacity="0.25"/>
+      </svg>
+      <div class="card-name">Nordlicht</div>
+    </div>
+    <div class="card-body">
+      <div class="stat-row"><span class="stat-label">Fellfarbe</span><span class="stat-value">Grauschimmel, elegant</span></div>
+      <div class="stat-row"><span class="stat-label">Charakter</span><span class="stat-value">Stolz, elegant, eitel, herzlich</span></div>
+      <div class="stat-row"><span class="stat-label">St&auml;rke</span><span class="stat-value">Perfekte Dressur</span></div>
+      <div class="card-divider"></div>
+      <p class="card-description">Nordlicht war ein Turnierpferd und benimmt sich auch so. Sie schreitet durch den Stall wie eine Prinzessin &ndash; aber unter dem Stolz steckt ein Herz aus Gold.</p>
+      <svg class="badge" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="#5a8e8e" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="25" cy="25" r="19" fill="#5a8e8e" opacity="0.1"/>
+        <text x="25" y="20" text-anchor="middle" font-size="5" font-family="Cinzel Decorative,serif" fill="#3d6e6e" font-weight="700">HOF</text>
+        <text x="25" y="28" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#3d6e6e">SONNEN</text>
+        <text x="25" y="35" text-anchor="middle" font-size="4.2" font-family="Cinzel Decorative,serif" fill="#3d6e6e">WEIDE</text>
+        <path d="M15,40 Q17,37 19,40 Q21,43 23,40" fill="none" stroke="#3d6e6e" stroke-width="0.8" opacity="0.5"/>
+        <path d="M27,40 Q29,37 31,40 Q33,43 35,40" fill="none" stroke="#3d6e6e" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- Empty placeholder for layout balance (invisible) -->
+<div style="width:90mm; height:130mm;"></div>
+
+</div><!-- end page 2 -->
+
+</body>
+</html>
