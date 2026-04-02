@@ -2,10 +2,8 @@
 bilder/*.png
 
 # Build-Artefakte
-epub/
 pdf/
 einzelseiten/
-*.epub
 
 # System
 Thumbs.db

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="BookId" xml:lang="de">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="BookId">urn:uuid:a1b2c3d4-e5f6-7890-abcd-ef1234567890</dc:identifier>
+    <dc:title>Lena und das Geheimnis der silbernen Hufspur</dc:title>
+    <dc:language>de</dc:language>
+    <dc:creator>M. Heinl</dc:creator>
+    <dc:description>Band 1 der Sonnenweide-Abenteuer. Ein Kinderbuch über Lena, die auf Hof Sonnenweide das Geheimnis silberner Hufspuren und eines magischen Pferdes entdeckt.</dc:description>
+    <dc:subject>Kinderbuch</dc:subject>
+    <dc:subject>Pferde</dc:subject>
+    <dc:subject>Abenteuer</dc:subject>
+    <meta property="dcterms:modified">2026-03-29T00:00:00Z</meta>
+  </metadata>
+  <manifest>
+    <item id="nav" href="toc.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="css" href="styles.css" media-type="text/css"/>
+    <item id="title" href="title.xhtml" media-type="application/xhtml+xml"/>
+    <item id="dedication" href="dedication.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch01" href="chapter01.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch02" href="chapter02.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch03" href="chapter03.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch04" href="chapter04.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch05" href="chapter05.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch06" href="chapter06.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch07" href="chapter07.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch08" href="chapter08.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch09" href="chapter09.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch10" href="chapter10.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch11" href="chapter11.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch12" href="chapter12.xhtml" media-type="application/xhtml+xml"/>
+    <item id="teaser" href="teaser.xhtml" media-type="application/xhtml+xml"/>
+    <item id="img_kap01" href="images/kap01_ankunft.jpg" media-type="image/jpeg"/>
+    <item id="img_kap02" href="images/kap02_nach_dem_regen.jpg" media-type="image/jpeg"/>
+    <item id="img_kap03" href="images/kap03_spur_im_wald.jpg" media-type="image/jpeg"/>
+    <item id="img_kap04" href="images/kap04_mondschimmer.jpg" media-type="image/jpeg"/>
+    <item id="img_kap05" href="images/kap05_fund_eiche.jpg" media-type="image/jpeg"/>
+    <item id="img_kap06" href="images/kap06_mann_mit_hut.jpg" media-type="image/jpeg"/>
+    <item id="img_kap07" href="images/kap07_ausritt.jpg" media-type="image/jpeg"/>
+    <item id="img_kap08" href="images/kap08_tagebuch.jpg" media-type="image/jpeg"/>
+    <item id="img_kap09" href="images/kap09_mondkuppe.jpg" media-type="image/jpeg"/>
+    <item id="img_kap10" href="images/kap10_gegenueber.jpg" media-type="image/jpeg"/>
+    <item id="img_kap11" href="images/kap11_herz.jpg" media-type="image/jpeg"/>
+    <item id="img_kap12" href="images/kap12_neuer_anfang.jpg" media-type="image/jpeg"/>
+    <item id="img_cover1" href="images/cover1_nacht.jpg" media-type="image/jpeg"/>
+    <item id="img_cover2" href="images/cover2_abenteuer.jpg" media-type="image/jpeg"/>
+  </manifest>
+  <spine>
+    <itemref idref="title"/>
+    <itemref idref="dedication"/>
+    <itemref idref="nav"/>
+    <itemref idref="ch01"/>
+    <itemref idref="ch02"/>
+    <itemref idref="ch03"/>
+    <itemref idref="ch04"/>
+    <itemref idref="ch05"/>
+    <itemref idref="ch06"/>
+    <itemref idref="ch07"/>
+    <itemref idref="ch08"/>
+    <itemref idref="ch09"/>
+    <itemref idref="ch10"/>
+    <itemref idref="ch11"/>
+    <itemref idref="ch12"/>
+    <itemref idref="teaser"/>
+  </spine>
+</package>

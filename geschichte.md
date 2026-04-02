@@ -10,11 +10,11 @@
 
 Der Geruch traf Lena, noch bevor sie das Tor erreichte. Heu, warmes Holz, und darunter etwas Erdiges, Lebendiges – der Duft von Pferden. Sie schloss die Augen und atmete tief ein.
 
-„Na, kommst du noch oder willst du hier Wurzeln schlagen?" Tante Marie stand am offenen Tor und lachte. Sie trug Gummistiefel, eine abgewetzte Wachsjacke und hatte einen Strohhalm im Haar. Sie sah genau so aus, wie Lena sie in Erinnerung hatte – nur die Lachfalten um ihre Augen waren tiefer geworden.
+„Na, kommst du noch oder willst du hier Wurzeln schlagen?" Tante Sarah stand am offenen Tor und lachte. Sie trug Gummistiefel, eine abgewetzte Wachsjacke und hatte einen Strohhalm im Haar. Sie sah genau so aus, wie Lena sie in Erinnerung hatte – nur die Lachfalten um ihre Augen waren tiefer geworden.
 
-„Tante Marie!" Lena rannte los und warf sich in die Arme ihrer Tante.
+„Tante Sarah!" Lena rannte los und warf sich in die Arme ihrer Tante.
 
-„Zwei Wochen, Lena-Maus. Zwei ganze Wochen nur du, ich und die Pferde." Tante Marie zwinkerte. „Und ein bisschen Arbeit. Auf einem Ponyhof gibt es immer was zu tun."
+„Zwei Wochen, Lena-Maus. Zwei ganze Wochen nur du, ich und die Pferde." Tante Sarah zwinkerte. „Und ein bisschen Arbeit. Auf einem Ponyhof gibt es immer was zu tun."
 
 Lena nickte eifrig. Arbeit auf dem Hof – das war kein bisschen wie Arbeit. Das war das Beste, was es gab.
 
@@ -22,25 +22,25 @@ Lena nickte eifrig. Arbeit auf dem Hof – das war kein bisschen wie Arbeit. Das
 
 Hof Sonnenweide lag am Rand eines kleinen Dorfes, eingebettet zwischen Wiesen und einem alten Mischwald. Der Hof war nicht groß, aber er war *besonders*. Das wusste jeder, der ihn einmal besucht hatte. Die Gebäude waren alt, manche über hundert Jahre, mit dicken Steinmauern und Holzbalken, in die jemand vor langer Zeit Blumen und Ranken geschnitzt hatte. Im Frühling wuchsen echte Kletterrosen an den Stallwänden hoch, und im Sommer summten die Bienen so laut, dass man sie noch auf der Koppel hören konnte.
 
-Tante Marie führte Lena über den Hof. „Ich zeig dir erst mal, wer alles hier wohnt. Es hat sich einiges verändert seit letztem Jahr."
+Tante Sarah führte Lena über den Hof. „Ich zeig dir erst mal, wer alles hier wohnt. Es hat sich einiges verändert seit letztem Jahr."
 
 Der Stall war lang und niedrig, mit sieben Boxen auf jeder Seite. Warmes Licht fiel durch die kleinen Fenster, und Staubkörner tanzten in den Sonnenstrahlen.
 
-„Das hier", sagte Tante Marie und blieb vor der ersten Box stehen, „ist Butterblume. Die kennst du ja."
+„Das hier", sagte Tante Sarah und blieb vor der ersten Box stehen, „ist Butterblume. Die kennst du ja."
 
 Ein goldener Haflinger mit einer hellen, fast weißen Mähne hob den Kopf und schnaubte leise. Butterblume war rund und gemütlich und hatte die sanftesten Augen, die Lena je bei einem Pferd gesehen hatte.
 
 „Hey, Butterblume", flüsterte Lena und streckte die Hand aus. Das Pferd stupste seine weiche Nase gegen Lenas Handfläche. „Du bist ja immer noch die Schönste."
 
-„Übertreib es nicht, sonst wird Nordlicht eifersüchtig." Tante Marie deutete auf die Box gegenüber. Dort stand eine elegante graue Stute, die Lena mit hocherhobenem Kopf musterte, als würde sie über einen unsichtbaren Laufsteg schreiten. Ihr Fell schimmerte wie Silber.
+„Übertreib es nicht, sonst wird Nordlicht eifersüchtig." Tante Sarah deutete auf die Box gegenüber. Dort stand eine elegante graue Stute, die Lena mit hocherhobenem Kopf musterte, als würde sie über einen unsichtbaren Laufsteg schreiten. Ihr Fell schimmerte wie Silber.
 
-„Das ist Nordlicht. Neu seit Oktober. Sie war mal ein Turnierpferd und benimmt sich auch so." Tante Marie senkte die Stimme. „Sehr von sich überzeugt, aber ein Herz aus Gold, wenn man es erst mal gefunden hat."
+„Das ist Nordlicht. Neu seit Oktober. Sie war mal ein Turnierpferd und benimmt sich auch so." Tante Sarah senkte die Stimme. „Sehr von sich überzeugt, aber ein Herz aus Gold, wenn man es erst mal gefunden hat."
 
 [BILD: Nordlicht steht elegant in ihrer Box und schaut erhaben zur Seite]
 
 Sie gingen weiter. In der nächsten Box tobte ein braun-weiß geschecktes Pony herum und zerrte an einem Heunetz.
 
-„Flecki! Lass das!" Tante Marie schüttelte den Kopf. „Das ist unser Jüngster. Zwei Jahre alt und benimmt sich wie ein Wirbelwind mit Hufen."
+„Flecki! Lass das!" Tante Sarah schüttelte den Kopf. „Das ist unser Jüngster. Zwei Jahre alt und benimmt sich wie ein Wirbelwind mit Hufen."
 
 Flecki spitzte die Ohren, galoppierte zur Boxentür und versuchte, an Lenas Jacke zu knabbern. Lena lachte.
 
@@ -50,23 +50,23 @@ Flecki spitzte die Ohren, galoppierte zur Boxentür und versuchte, an Lenas Jack
 
 Lena blieb stehen. „Du hast noch zwei vergessen."
 
-Tante Marie lächelte. „Stimmt. Sturmwind steht draußen auf der Koppel. Den musst du dir selbst ansehen."
+Tante Sarah lächelte. „Stimmt. Sturmwind steht draußen auf der Koppel. Den musst du dir selbst ansehen."
 
 „Und der siebte?"
 
-Tante Maries Lächeln wurde nachdenklich. „Mondschimmer. Der steht ganz hinten, in der letzten Box. Mondschimmer ist … besonders."
+Tante Sarahs Lächeln wurde nachdenklich. „Mondschimmer. Der steht ganz hinten, in der letzten Box. Mondschimmer ist … besonders."
 
-Etwas in Tante Maries Stimme ließ Lena aufhorchen. Aber bevor sie fragen konnte, zog ihre Tante sie schon weiter.
+Etwas in Tante Sarahs Stimme ließ Lena aufhorchen. Aber bevor sie fragen konnte, zog ihre Tante sie schon weiter.
 
 [BILD: Kleine Hufspuren als Trenner]
 
 Draußen auf der Koppel stand ein Pferd, das so kastanienbraun war, dass sein Fell im Sonnenlicht kupfern schimmerte. Es galoppierte über die Wiese, die dunkle Mähne wehte wie eine Fahne im Wind, und seine Hufe donnerten über den Boden.
 
-„Das ist Sturmwind", sagte Tante Marie.
+„Das ist Sturmwind", sagte Tante Sarah.
 
 Lena vergaß zu atmen. Sturmwind war das schönste Pferd, das sie je gesehen hatte. Nicht hübsch wie Nordlicht oder gemütlich-schön wie Butterblume. Sturmwind war *wild*-schön. Groß, kraftvoll, mit einem Fell wie poliertes Mahagoni. Wie ein Gewitter am Horizont. Wie eine Welle, kurz bevor sie bricht.
 
-„Er ist ein Brauner. Acht Jahre alt. Temperamentvoll, manchmal stur, aber wenn er dir vertraut, geht er mit dir durch Feuer." Tante Marie lehnte sich an den Zaun. „Allerdings vertraut er nicht jedem."
+„Er ist ein Brauner. Acht Jahre alt. Temperamentvoll, manchmal stur, aber wenn er dir vertraut, geht er mit dir durch Feuer." Tante Sarah lehnte sich an den Zaun. „Allerdings vertraut er nicht jedem."
 
 Sturmwind hatte sie bemerkt. Er verlangsamte seinen Galopp, trabte ein paar Schritte und blieb dann stehen. Seine dunklen Augen richteten sich auf Lena.
 
@@ -74,7 +74,7 @@ Lena hob langsam die Hand. „Hey", sagte sie leise.
 
 Sturmwind schnaubte. Einmal, zweimal. Dann, ganz langsam, kam er näher. Schritt für Schritt. Bis seine Nase Lenas ausgestreckte Finger berührte.
 
-„Na sowas", murmelte Tante Marie. „Das hat er bei niemandem gemacht, seit er hier ist."
+„Na sowas", murmelte Tante Sarah. „Das hat er bei niemandem gemacht, seit er hier ist."
 
 Lenas Herz klopfte so laut, dass sie sicher war, die Pferde auf der Nachbarkoppel konnten es hören.
 
@@ -112,15 +112,15 @@ Aber ihr Herz klopfte trotzdem ein bisschen schneller, als sie die Augen schloss
 
 Am nächsten Morgen war die Welt verwandelt. Lena öffnete das Fenster und kalte, frische Luft strömte herein. Alles glänzte. Die Koppelzäune, die Dächer, die Blätter an den Bäumen – alles war nass und funkelte in der Morgensonne, als hätte jemand den ganzen Hof mit Diamanten bestreut.
 
-Lena zog sich an und rannte nach unten. Tante Marie stand schon in der Küche und machte Kakao.
+Lena zog sich an und rannte nach unten. Tante Sarah stand schon in der Küche und machte Kakao.
 
 „Gut geschlafen?"
 
 „Es hat so laut geregnet!" Lena setzte sich an den alten Holztisch. „Und ich hab ein komisches Geräusch gehört. So ein Klingen."
 
-Tante Marie hielt kurz inne. Nur einen Moment, kaum merklich. Dann lächelte sie. „Wahrscheinlich die alte Wetterfahne auf dem Stall. Die klappert bei Wind."
+Tante Sarah hielt kurz inne. Nur einen Moment, kaum merklich. Dann lächelte sie. „Wahrscheinlich die alte Wetterfahne auf dem Stall. Die klappert bei Wind."
 
-Lena nickte. Aber sie hatte gesehen, wie Tante Marie kurz gezögert hatte. Das war merkwürdig.
+Lena nickte. Aber sie hatte gesehen, wie Tante Sarah kurz gezögert hatte. Das war merkwürdig.
 
 Nach dem Frühstück lief Lena zum Stall. Die Pferde waren schon wach. Butterblume mampfte Heu, Flecki hing mit dem Kopf über der Boxentür und schnappte nach vorbeifliegenden Fliegen, und Kupfer stand wie immer ruhig da und beobachtete alles.
 
@@ -128,7 +128,7 @@ Lena ging durch den Gang, verteilte Streicheleinheiten und blieb dann vor der le
 
 Mondschimmer.
 
-Das Pferd war silberweiß. Nicht grau wie Nordlicht, sondern wirklich *silbern*. Sein Fell hatte einen seltsamen Schimmer, als würde Licht unter der Oberfläche leuchten. Mondschimmer war alt – wie alt, hatte Tante Marie nicht genau gesagt. Seine Augen waren dunkel und tief und unglaublich ruhig.
+Das Pferd war silberweiß. Nicht grau wie Nordlicht, sondern wirklich *silbern*. Sein Fell hatte einen seltsamen Schimmer, als würde Licht unter der Oberfläche leuchten. Mondschimmer war alt – wie alt, hatte Tante Sarah nicht genau gesagt. Seine Augen waren dunkel und tief und unglaublich ruhig.
 
 „Hallo, Mondschimmer", flüsterte Lena.
 
@@ -152,7 +152,7 @@ Finn musterte sie, als würde er abschätzen, ob sie der Mühe wert war. „Mond
 
 Finn zuckte die Schultern. „Sag das Mondschimmer."
 
-Bevor Lena antworten konnte, knallte draußen eine Tür. Tante Marie rief etwas, und Finn verschwand so schnell, wie er aufgetaucht war.
+Bevor Lena antworten konnte, knallte draußen eine Tür. Tante Sarah rief etwas, und Finn verschwand so schnell, wie er aufgetaucht war.
 
 [BILD: Kleine Hufspuren als Trenner]
 
@@ -162,7 +162,7 @@ Lena half am Vormittag beim Ausmisten und Füttern. Mia, ihre Freundin vom letzt
 
 „Mia!" Sie umarmten sich.
 
-„Komm, wir reiten nachher aus! Tante Marie hat gesagt, wir dürfen auf die Waldkoppel, wenn wir vorher die Boxen fertig machen."
+„Komm, wir reiten nachher aus! Tante Sarah hat gesagt, wir dürfen auf die Waldkoppel, wenn wir vorher die Boxen fertig machen."
 
 Lena grinste. Das klang nach dem perfekten Tag.
 
@@ -186,7 +186,7 @@ Es waren viele. Eine ganze Linie von silbrig schimmernden Hufspuren, die vom Sta
 
 [BILD: Nahaufnahme der silbrigen Hufspur im nassen Boden, Lenas Hand daneben]
 
-„LENA! Essen!" Tante Maries Stimme riss sie aus ihren Gedanken.
+„LENA! Essen!" Tante Sarahs Stimme riss sie aus ihren Gedanken.
 
 Lena stand auf. Sie wollte schon losrennen, aber dann drehte sie sich noch einmal um und prägte sich die Richtung ein, in die die Spuren führten.
 
@@ -194,7 +194,7 @@ Zum Wald. Die silbernen Hufspuren führten zum Wald.
 
 Und plötzlich wusste Lena: Das war der Anfang von etwas. Sie wusste nicht, von was. Aber das Kribbeln in ihrem Bauch sagte ihr, dass dieses Abenteuer größer war als alles, was sie sich hätte ausdenken können.
 
-Beim Mittagessen versuchte sie, ruhig zu bleiben. Aber als Tante Marie kurz aus der Küche ging, beugte sich Lena zu Mia.
+Beim Mittagessen versuchte sie, ruhig zu bleiben. Aber als Tante Sarah kurz aus der Küche ging, beugte sich Lena zu Mia.
 
 „Ich hab was gefunden. Draußen beim Stall. Silberne Hufspuren."
 
@@ -222,7 +222,7 @@ Aber es war kein Witz. Und als die beiden Mädchen nach dem Essen zu der Stelle 
 
 „Jetzt."
 
-Mia sah zum Waldrand. Die Bäume standen dicht, und im Schatten zwischen den Stämmen lag noch der Dunst vom Morgenregen. „Tante Marie hat gesagt, wir sollen auf der Waldkoppel bleiben. Der tiefe Wald ist was anderes."
+Mia sah zum Waldrand. Die Bäume standen dicht, und im Schatten zwischen den Stämmen lag noch der Dunst vom Morgenregen. „Tante Sarah hat gesagt, wir sollen auf der Waldkoppel bleiben. Der tiefe Wald ist was anderes."
 
 „Wir gehen nur ein Stück rein. Nur bis wir sehen, wo die Spuren hinführen."
 
@@ -246,7 +246,7 @@ Lena dachte an Mondschimmer. An sein seltsames, silbriges Fell. An die Art, wie 
 
 Trotzdem.
 
-Der Pfad führte abwärts, und bald hörten sie das Wasser. Der Bach – Tante Marie nannte ihn den „Murmelbach" – schlängelte sich zwischen moosbedeckten Steinen hindurch. Normalerweise war er flach genug, um durchzuwaten. Aber nach dem Regen war er angeschwollen, und das Wasser schoss schneller über die Steine als sonst.
+Der Pfad führte abwärts, und bald hörten sie das Wasser. Der Bach – Tante Sarah nannte ihn den „Murmelbach" – schlängelte sich zwischen moosbedeckten Steinen hindurch. Normalerweise war er flach genug, um durchzuwaten. Aber nach dem Regen war er angeschwollen, und das Wasser schoss schneller über die Steine als sonst.
 
 Die Hufspuren führten genau zum Bach. Und auf der anderen Seite – Lena reckte den Hals – konnte sie sehen, dass sie dort weitergingen.
 
@@ -301,7 +301,7 @@ Lena zog ihr Handy aus der Tasche und fotografierte die Inschrift. Dann sah sie 
 
 Oder als wollte jemand, dass sie diesen Stein fand.
 
-„Wir müssen zurück", sagte Mia und sah auf ihre Uhr. „Tante Marie macht sich Sorgen."
+„Wir müssen zurück", sagte Mia und sah auf ihre Uhr. „Tante Sarah macht sich Sorgen."
 
 Lena nickte. Aber bevor sie ging, legte sie die Hand auf den warmen Stein. *Wo der Mond auf Silber trifft*, dachte sie. *Was bedeutet das?*
 
@@ -339,27 +339,27 @@ Den Rest des Nachmittags verbrachte Lena auf der Koppel. Sie striegelte Butterbl
 
 Es gelang ihr nicht besonders gut.
 
-Beim Abendessen saß sie mit Tante Marie in der gemütlichen Küche. Draußen wurde es langsam dunkel, und die Grillen begannen zu zirpen.
+Beim Abendessen saß sie mit Tante Sarah in der gemütlichen Küche. Draußen wurde es langsam dunkel, und die Grillen begannen zu zirpen.
 
-„Tante Marie?"
+„Tante Sarah?"
 
 „Hmm?" Ihre Tante strich Butter auf ein Stück Brot.
 
 „Wie lange gibt es Hof Sonnenweide schon?"
 
-Tante Marie sah auf. „Lange. Mein Urgroßvater hat ihn gegründet. August Sonnberg hieß er. Das war … oh, vor über hundert Jahren. Warum fragst du?"
+Tante Sarah sah auf. „Lange. Mein Urgroßvater hat ihn gegründet. August Sonnberg hieß er. Das war … oh, vor über hundert Jahren. Warum fragst du?"
 
 „Nur so. Und Mondschimmer? Wie alt ist der wirklich?"
 
-Tante Marie legte das Messer hin. Sie sah Lena an, und in ihren Augen lag etwas, das Lena nicht einordnen konnte. Wärme, aber auch etwas Vorsichtiges. Als überlegte sie, wie viel sie sagen sollte.
+Tante Sarah legte das Messer hin. Sie sah Lena an, und in ihren Augen lag etwas, das Lena nicht einordnen konnte. Wärme, aber auch etwas Vorsichtiges. Als überlegte sie, wie viel sie sagen sollte.
 
 „Mondschimmer ist … ein besonderes Pferd, Lena. Er war schon hier, als ich den Hof übernommen habe. Und er war schon alt, als ich ein Kind war. Meine Mutter sagte immer, Mondschimmer gehöre zum Hof wie die Mauern und die Steine. Er sei ein Teil von Sonnenweide selbst."
 
 „Aber wie *alt* ist er?"
 
-Tante Marie lächelte. Es war ein geheimnisvolles Lächeln. „Älter, als er sein dürfte. Das ist alles, was ich dir sagen kann. Manche Dinge auf diesem Hof sind nicht so einfach zu erklären, Lena. Manche Dinge muss man selbst herausfinden."
+Tante Sarah lächelte. Es war ein geheimnisvolles Lächeln. „Älter, als er sein dürfte. Das ist alles, was ich dir sagen kann. Manche Dinge auf diesem Hof sind nicht so einfach zu erklären, Lena. Manche Dinge muss man selbst herausfinden."
 
-[BILD: Tante Marie am Küchentisch, geheimnisvolles Lächeln, warmes Lampenlicht]
+[BILD: Tante Sarah am Küchentisch, geheimnisvolles Lächeln, warmes Lampenlicht]
 
 Lena lag in ihrem Bett und konnte nicht schlafen. Die Worte des Rätsels drehten sich in ihrem Kopf.
 
@@ -387,7 +387,7 @@ Lena griff nach ihrer Jacke.
 
 [BILD: Blick aus dem Dachfenster: Mondschimmer steht im Mondlicht auf der Koppel, silbrig leuchtend]
 
-Sie schlich die Treppe hinunter, vorbei an Tante Maries Schlafzimmer, durch die Hintertür in die kühle Nachtluft. Das Gras war nass unter ihren Füßen. Irgendwo rief ein Käuzchen.
+Sie schlich die Treppe hinunter, vorbei an Tante Sarahs Schlafzimmer, durch die Hintertür in die kühle Nachtluft. Das Gras war nass unter ihren Füßen. Irgendwo rief ein Käuzchen.
 
 Mondschimmer stand immer noch da. Er hatte sich nicht bewegt. Aber als Lena näher kam, drehte er den Kopf und sah sie an.
 
@@ -419,21 +419,21 @@ Etwas Metallisches.
 
 „Lena!"
 
-Die Stimme schnitt durch die Stille. Lena fuhr zusammen. Tante Marie stand hinter ihr, eine Taschenlampe in der Hand, den Bademantel über dem Schlafanzug.
+Die Stimme schnitt durch die Stille. Lena fuhr zusammen. Tante Sarah stand hinter ihr, eine Taschenlampe in der Hand, den Bademantel über dem Schlafanzug.
 
 „Was machst du hier draußen? Es ist mitten in der Nacht!"
 
-„Tante Marie, ich – Mondschimmer hat mich hergeführt. Und guck mal, hier unter der Eiche ist etwas –"
+„Tante Sarah, ich – Mondschimmer hat mich hergeführt. Und guck mal, hier unter der Eiche ist etwas –"
 
-„Lena." Tante Maries Stimme war jetzt anders. Nicht böse, aber ernst. „Es ist fast Mitternacht. Du kannst nicht alleine im Dunkeln auf dem Hof herumstreifen."
+„Lena." Tante Sarahs Stimme war jetzt anders. Nicht böse, aber ernst. „Es ist fast Mitternacht. Du kannst nicht alleine im Dunkeln auf dem Hof herumstreifen."
 
 „Aber die Eiche – das Rätsel –"
 
-Tante Marie sah sie lange an. Dann sah sie zu Mondschimmer, der ruhig neben der Eiche stand und so unschuldig aussah, wie ein silberweißes Geisterpferd mitten in der Nacht nur aussehen konnte.
+Tante Sarah sah sie lange an. Dann sah sie zu Mondschimmer, der ruhig neben der Eiche stand und so unschuldig aussah, wie ein silberweißes Geisterpferd mitten in der Nacht nur aussehen konnte.
 
-„Morgen", sagte Tante Marie leise. „Wir reden morgen darüber. Und jetzt gehst du ins Bett."
+„Morgen", sagte Tante Sarah leise. „Wir reden morgen darüber. Und jetzt gehst du ins Bett."
 
-Lena wollte protestieren. Aber etwas in Tante Maries Gesicht sagte ihr, dass das keine gute Idee war. Also nickte sie.
+Lena wollte protestieren. Aber etwas in Tante Sarahs Gesicht sagte ihr, dass das keine gute Idee war. Also nickte sie.
 
 Aber als sie zum Haus zurückging und sich ein letztes Mal umdrehte, sah sie, dass Mondschimmer immer noch bei der Eiche stand. Und im Mondlicht glaubte sie zu sehen, dass seine Hufe auf dem nassen Boden silbrige Abdrücke hinterließen.
 
@@ -445,13 +445,13 @@ Aber als sie zum Haus zurückging und sich ein letztes Mal umdrehte, sah sie, da
 
 [ILLUSTRATION: Heller Morgen. Lena, Mia und Finn stehen um die alte Eiche herum. Lena hält eine rostige Metalldose in den Händen. Im Hintergrund grast Mondschimmer friedlich auf der Koppel.]
 
-Am nächsten Morgen war Lena schon wach, als die ersten Vögel anfingen zu singen. Sie zog sich an, rannte in die Küche – und fand Tante Marie schon am Tisch sitzen. Mit zwei Tassen Kakao.
+Am nächsten Morgen war Lena schon wach, als die ersten Vögel anfingen zu singen. Sie zog sich an, rannte in die Küche – und fand Tante Sarah schon am Tisch sitzen. Mit zwei Tassen Kakao.
 
 „Setz dich", sagte ihre Tante.
 
-Lena setzte sich. Tante Marie schob ihr eine Tasse hin und sagte lange nichts. Draußen krähte ein Hahn.
+Lena setzte sich. Tante Sarah schob ihr eine Tasse hin und sagte lange nichts. Draußen krähte ein Hahn.
 
-„Du hast die silbernen Hufspuren gefunden", sagte Tante Marie schließlich. Es war keine Frage.
+„Du hast die silbernen Hufspuren gefunden", sagte Tante Sarah schließlich. Es war keine Frage.
 
 Lena nickte.
 
@@ -459,11 +459,11 @@ Lena nickte.
 
 Lenas Augen wurden groß. „Du *weißt* davon?"
 
-Tante Marie lächelte, aber es war ein trauriges Lächeln. „Lena, ich bin auf diesem Hof aufgewachsen. Natürlich kenne ich den Stein. Und ich kenne das Rätsel. Meine Mutter hat es mir gezeigt, als ich so alt war wie du."
+Tante Sarah lächelte, aber es war ein trauriges Lächeln. „Lena, ich bin auf diesem Hof aufgewachsen. Natürlich kenne ich den Stein. Und ich kenne das Rätsel. Meine Mutter hat es mir gezeigt, als ich so alt war wie du."
 
 „Aber warum hast du nichts gesagt?"
 
-Tante Marie umschloss ihre Tasse mit beiden Händen. „Weil ich es nie lösen konnte. Ich habe es versucht, jahrelang. Ich habe unter der Eiche gegraben, ich habe den ganzen Wald abgesucht. Aber ich habe nie gefunden, was das Rätsel verspricht."
+Tante Sarah umschloss ihre Tasse mit beiden Händen. „Weil ich es nie lösen konnte. Ich habe es versucht, jahrelang. Ich habe unter der Eiche gegraben, ich habe den ganzen Wald abgesucht. Aber ich habe nie gefunden, was das Rätsel verspricht."
 
 „Was verspricht es denn?"
 
@@ -473,7 +473,7 @@ Lena dachte an das Metallische, das sie in der Nacht unter der Eiche ertastet ha
 
 [BILD: Kleine Eichel als Trenner]
 
-Eine halbe Stunde später standen Lena, Tante Marie, Mia und – zu Lenas Überraschung – Finn um die alte Eiche herum. Finn war „zufällig" vorbeigekommen, was wahrscheinlich bedeutete, dass er sie vom Zaun aus beobachtet hatte.
+Eine halbe Stunde später standen Lena, Tante Sarah, Mia und – zu Lenas Überraschung – Finn um die alte Eiche herum. Finn war „zufällig" vorbeigekommen, was wahrscheinlich bedeutete, dass er sie vom Zaun aus beobachtet hatte.
 
 Lena kniete sich hin und grub an der Stelle, die sie in der Nacht gefunden hatte. Die Erde war noch feucht. Und nach wenigen Minuten stieß sie wieder auf das Metallische.
 
@@ -487,11 +487,11 @@ In der Dose lag ein Bündel. Altes, vergilbtes Papier, zusammengerollt und mit e
 
 [BILD: Die geöffnete Blechdose mit dem vergilbten Papier und dem alten Schlüssel]
 
-„Oh mein Gott", sagte Tante Marie leise. Sie nahm das Papierbündel mit zitternden Händen und löste das Lederband.
+„Oh mein Gott", sagte Tante Sarah leise. Sie nahm das Papierbündel mit zitternden Händen und löste das Lederband.
 
 Es waren Briefe. Alte, handgeschriebene Briefe in verblasster Tinte. Und ganz oben lag ein Blatt, das anders war als die anderen – steiferes Papier, sorgfältigere Schrift.
 
-Tante Marie las vor, langsam und vorsichtig, weil die Tinte an manchen Stellen kaum noch zu erkennen war:
+Tante Sarah las vor, langsam und vorsichtig, weil die Tinte an manchen Stellen kaum noch zu erkennen war:
 
 *„An den, der die Spur findet – Ich, August Sonnberg, Gründer des Hofs Sonnenweide, hinterlasse dies als Vermächtnis. Der Hof ist mehr als Land und Stein. Sein Herz liegt dort, wo das Licht den Schatten trifft, in der alten Scheune, hinter der Wand, die nicht ist, was sie scheint. Der Schlüssel öffnet, was bewahrt werden muss. Bewahre es gut. Denn solange das Herz schlägt, lebt Sonnenweide. August Sonnberg, im Jahre 1921."*
 
@@ -499,7 +499,7 @@ Stille. Sogar Finn hatte den Mund offen.
 
 „Die alte Scheune", sagte Lena. „Da müssen wir hin."
 
-Tante Marie faltete den Brief zusammen und sah zu der verfallenen Scheune, die am Rand des Hofgeländes stand, halb verborgen hinter Holunderbüschen. „Diese Scheune steht leer, seit ich denken kann. Die Tür ist verriegelt und ich habe nie einen Schlüssel dafür gehabt."
+Tante Sarah faltete den Brief zusammen und sah zu der verfallenen Scheune, die am Rand des Hofgeländes stand, halb verborgen hinter Holunderbüschen. „Diese Scheune steht leer, seit ich denken kann. Die Tür ist verriegelt und ich habe nie einen Schlüssel dafür gehabt."
 
 Sie alle sahen auf den Schlüssel in Lenas Hand.
 
@@ -519,7 +519,7 @@ Die Tür quietschte, als Lena sie aufzog. Drinnen war es dunkel und roch nach al
 
 Mia half. Finn tat so, als wäre er nicht interessiert, und half trotzdem.
 
-Tante Marie stand in der Tür und sah zu, die Hand auf dem Herzen.
+Tante Sarah stand in der Tür und sah zu, die Hand auf dem Herzen.
 
 „Hier!" Mia drückte gegen ein Brett an der hinteren Wand, und es gab nach. Dahinter war Hohlraum. „Da ist was hinter der Wand!"
 
@@ -541,17 +541,17 @@ In der Truhe lagen Dokumente. Dicke, schwere Papiere mit Siegeln und Stempeln. E
 
 Und am Rand der Karte, in großen Buchstaben: *Grundbesitzurkunde – Sonnenweide – eingetragen 1898 – Besitz der Familie Sonnberg auf ewig und unwiderruflich.*
 
-Tante Marie setzte sich auf eine Holzkiste und weinte.
+Tante Sarah setzte sich auf eine Holzkiste und weinte.
 
 Nicht vor Trauer. Vor Erleichterung.
 
-„Tante Marie?" Lena legte ihr den Arm um die Schulter. „Was ist los?"
+„Tante Sarah?" Lena legte ihr den Arm um die Schulter. „Was ist los?"
 
-„Lena … du weißt nicht, was du gerade gefunden hast." Tante Marie wischte sich die Augen. „Herr Brinkmann … er behauptet seit Monaten, dass ein Teil unseres Landes eigentlich ihm gehört. Dass die alten Grenzen falsch eingetragen sind. Er will klagen. Und ohne die Originaldokumente konnte ich nicht beweisen, dass der Hof uns gehört." Sie deutete auf die Papiere. „Das hier ist der Beweis. Die Originalurkunde. Die älteste Karte. Das Tagebuch des Gründers."
+„Lena … du weißt nicht, was du gerade gefunden hast." Tante Sarah wischte sich die Augen. „Herr Brinkmann … er behauptet seit Monaten, dass ein Teil unseres Landes eigentlich ihm gehört. Dass die alten Grenzen falsch eingetragen sind. Er will klagen. Und ohne die Originaldokumente konnte ich nicht beweisen, dass der Hof uns gehört." Sie deutete auf die Papiere. „Das hier ist der Beweis. Die Originalurkunde. Die älteste Karte. Das Tagebuch des Gründers."
 
 „Also ist der Hof sicher?", fragte Mia.
 
-Tante Marie lächelte durch ihre Tränen. „Der Hof ist sicher."
+Tante Sarah lächelte durch ihre Tränen. „Der Hof ist sicher."
 
 Aber Lena spürte, dass die Geschichte hier nicht zu Ende war. In der Truhe lag noch etwas. Unter den Dokumenten, ganz auf dem Boden, lag ein einzelnes Blatt. Darauf stand, in August Sonnbergs verschnörkelter Schrift, ein weiteres Rätsel. Und dieses Rätsel war anders als das erste.
 
@@ -571,13 +571,13 @@ Lena sah ihn zuerst. Sie stand auf der Koppel und führte Sternchen im Schritt, 
 
 Herr Brinkmann ging direkt zum Haus, ohne nach rechts oder links zu sehen. Lena hörte, wie er an die Tür klopfte. Laut. Fordernd.
 
-„Tante Marie?" Lena band Sternchen am Zaun fest und schlich zum Haus.
+„Tante Sarah?" Lena band Sternchen am Zaun fest und schlich zum Haus.
 
 Durch das offene Küchenfenster konnte sie die Stimmen hören.
 
 „Das Land östlich des Bachs gehört seit Generationen meiner Familie, Marie. Und das wissen Sie." Herr Brinkmanns Stimme war tief und kalt.
 
-„Da irren Sie sich, Heinrich." Tante Marie klang ruhig, aber fest. „Ich habe die Originalurkunde gefunden. Von 1898. Unterschrieben und besiegelt. Das Land gehört zu Sonnenweide."
+„Da irren Sie sich, Heinrich." Tante Sarah klang ruhig, aber fest. „Ich habe die Originalurkunde gefunden. Von 1898. Unterschrieben und besiegelt. Das Land gehört zu Sonnenweide."
 
 Stille. Dann: „Originalurkunde? Wo haben Sie die her?"
 
@@ -599,11 +599,11 @@ Er fuhr davon. Der Kies spritzte unter seinen Reifen.
 
 „Was meint er damit?", fragte Lena, als sie in die Küche kam.
 
-Tante Marie saß am Tisch, die Hände um eine kalte Tasse Tee. „Heinrich Brinkmann ist ein unglücklicher Mann, Lena. Sein Hof war früher genauso groß wie Sonnenweide. Aber sein Vater hat schlecht gewirtschaftet, hat Land verkauft, Schulden gemacht. Heute ist von dem großen Brinkmann-Hof fast nichts mehr übrig."
+Tante Sarah saß am Tisch, die Hände um eine kalte Tasse Tee. „Heinrich Brinkmann ist ein unglücklicher Mann, Lena. Sein Hof war früher genauso groß wie Sonnenweide. Aber sein Vater hat schlecht gewirtschaftet, hat Land verkauft, Schulden gemacht. Heute ist von dem großen Brinkmann-Hof fast nichts mehr übrig."
 
 „Und deshalb will er unser Land?"
 
-„Er will zurückhaben, was seine Familie verloren hat. Aber es war nie unseres, das er verloren hat. Es war seines." Tante Marie seufzte. „Manchmal machen traurige Menschen seltsame Dinge, Lena. Das entschuldigt nichts. Aber es erklärt einiges."
+„Er will zurückhaben, was seine Familie verloren hat. Aber es war nie unseres, das er verloren hat. Es war seines." Tante Sarah seufzte. „Manchmal machen traurige Menschen seltsame Dinge, Lena. Das entschuldigt nichts. Aber es erklärt einiges."
 
 [BILD: Kleines Hufeisen als Trenner]
 
@@ -643,13 +643,13 @@ Finn sah sie an. Dann grinste er. „Wann gehen wir hin?"
 
 [BILD: Lena und Finn sitzen vor dem Stall, der Zettel zwischen ihnen, Sturmwind schaut neugierig über die Boxentür]
 
-An diesem Abend putzte Lena Sturmwind besonders gründlich. Der große Braune stand ruhig da und ließ sich bürsten, was – laut Tante Marie – ein kleines Wunder war.
+An diesem Abend putzte Lena Sturmwind besonders gründlich. Der große Braune stand ruhig da und ließ sich bürsten, was – laut Tante Sarah – ein kleines Wunder war.
 
-„Er mag dich", sagte Tante Marie, die im Stallgang lehnte und zusah. „Sturmwind mag fast niemanden. Aber dich mag er."
+„Er mag dich", sagte Tante Sarah, die im Stallgang lehnte und zusah. „Sturmwind mag fast niemanden. Aber dich mag er."
 
 „Darf ich morgen auf ihm reiten?", fragte Lena.
 
-Tante Marie überlegte. „Er ist kein einfaches Pferd, Lena. Aber du reitest gut, und er vertraut dir. Also ja. Aber nur auf der Koppel oder auf bekannten Wegen. Und immer mit Helm."
+Tante Sarah überlegte. „Er ist kein einfaches Pferd, Lena. Aber du reitest gut, und er vertraut dir. Also ja. Aber nur auf der Koppel oder auf bekannten Wegen. Und immer mit Helm."
 
 „Versprochen."
 
@@ -673,7 +673,7 @@ Finn kam pünktlich, auf Kupfer. Der rotbraune Wallach stand gelassen da, wie im
 
 Und dann kam Mia, auf Butterblume, die gemütlich vor sich hin trottete und aussah, als würde sie am liebsten wieder in den Stall gehen und schlafen.
 
-„Tante Marie weiß Bescheid", sagte Mia. „Ich hab ihr gesagt, wir reiten zur Mondkuppe. Sie hat gesagt, wir sollen vor Mittag zurück sein."
+„Tante Sarah weiß Bescheid", sagte Mia. „Ich hab ihr gesagt, wir reiten zur Mondkuppe. Sie hat gesagt, wir sollen vor Mittag zurück sein."
 
 „Dann los", sagte Lena.
 
@@ -681,7 +681,7 @@ Und dann kam Mia, auf Butterblume, die gemütlich vor sich hin trottete und auss
 
 Der Weg zur Mondkuppe führte durch den Wald, vorbei am Murmelbach und dann bergauf über einen Wiesenpfad. Normalerweise war es ein gemütlicher Ausritt von etwa einer Stunde. Aber heute war nichts normal.
 
-Sturmwind war angespannt. Seine Ohren spielten hin und her, und sein Schritt war federnd, als könnte er jederzeit losgaloppieren. Lena hielt die Zügel kurz, aber nicht zu fest – Tante Marie hatte ihr beigebracht, dass ein Pferd, das sich eingeengt fühlt, erst recht nervös wird.
+Sturmwind war angespannt. Seine Ohren spielten hin und her, und sein Schritt war federnd, als könnte er jederzeit losgaloppieren. Lena hielt die Zügel kurz, aber nicht zu fest – Tante Sarah hatte ihr beigebracht, dass ein Pferd, das sich eingeengt fühlt, erst recht nervös wird.
 
 Der Wald war still. Zu still, fand Lena. Keine Vögel, kein Rascheln. Nur das Knirschen der Hufe auf dem feuchten Boden und das leise Schnauben der Pferde.
 
@@ -775,7 +775,7 @@ Finn kam angeritten. Kupfer stand ruhig wie immer, als wäre ein Gewitter-Galopp
 
 Sie ritten im Schritt zurück zum Hof. Der Regen ließ langsam nach, und als sie durch das Tor kamen, brach die Sonne durch die Wolken, als wäre nichts gewesen.
 
-Tante Marie stand im Stalleingang, die Arme verschränkt, das Gesicht eine Mischung aus Sorge und Erleichterung.
+Tante Sarah stand im Stalleingang, die Arme verschränkt, das Gesicht eine Mischung aus Sorge und Erleichterung.
 
 „Alles gut", sagte Lena, bevor ihre Tante fragen konnte. „Alles gut."
 
@@ -787,7 +787,7 @@ Aber in ihrer Tasche lag das Medaillon, und in ihrem Kopf drehte sich alles um d
 
 [ILLUSTRATION: Lena sitzt abends auf ihrem Bett unter dem Dach, eine Leselampe leuchtet warm. Auf ihrem Schoß liegt das alte, aufgeschlagene Tagebuch. Durch das Dachfenster sieht man den Sternenhimmel.]
 
-Der Regen hatte aufgehört, aber die Wolken blieben. Lena saß auf ihrem Bett und hatte Augusts Tagebuch auf den Knien. Tante Marie hatte es ihr gegeben – „Du hast es gefunden, also hast du auch das Recht, es zu lesen."
+Der Regen hatte aufgehört, aber die Wolken blieben. Lena saß auf ihrem Bett und hatte Augusts Tagebuch auf den Knien. Tante Sarah hatte es ihr gegeben – „Du hast es gefunden, also hast du auch das Recht, es zu lesen."
 
 Das Tagebuch war in braunes Leder gebunden, rissig und fleckig von der Zeit. Die Seiten waren gelblich und knisterten, wenn man sie umblätterte. August Sonnbergs Schrift war verschnörkelt und schwer zu lesen, aber Lena nahm sich Zeit.
 
@@ -859,11 +859,11 @@ Lena hatte die Tage damit verbracht, das Medaillon zu untersuchen, das Tagebuch 
 
 Aber Lena beobachtete Mondschimmer. Jeden Morgen, jeden Abend. Und sie bemerkte etwas, das ihr einen Stich im Herzen gab: Das silberne Pferd war müder geworden. Es stand länger still, fraß weniger, und manchmal, wenn Lena ihn ansah, glaubte sie, ein Flackern in seinen Augen zu sehen. Wie eine Kerze, die im Wind tanzt.
 
-Tante Marie bemerkte es auch. „Mondschimmer wird alt", sagte sie leise, als sie abends zusammen den Stall absperrten. „Wirklich alt. Ich glaube … ich glaube, er bereitet sich vor."
+Tante Sarah bemerkte es auch. „Mondschimmer wird alt", sagte sie leise, als sie abends zusammen den Stall absperrten. „Wirklich alt. Ich glaube … ich glaube, er bereitet sich vor."
 
 „Worauf?"
 
-Tante Marie antwortete nicht. Aber ihre Augen glänzten feucht.
+Tante Sarah antwortete nicht. Aber ihre Augen glänzten feucht.
 
 [BILD: Kleine Mondsichel als Trenner]
 
@@ -979,31 +979,31 @@ Herr Brinkmann sah sie an. Und dann passierte etwas, das Lena nicht für möglic
 
 ## Kapitel 11 – Das Herz schlägt weiter
 
-[ILLUSTRATION: Morgenszene auf dem Hof. Alle sind versammelt – Lena, Tante Marie, Finn, Mia, Herr Brinkmann. Die Pferde stehen auf der Koppel im goldenen Morgenlicht. Lena trägt die silberne Kette. Mondschimmer steht etwas abseits, friedlich.]
+[ILLUSTRATION: Morgenszene auf dem Hof. Alle sind versammelt – Lena, Tante Sarah, Finn, Mia, Herr Brinkmann. Die Pferde stehen auf der Koppel im goldenen Morgenlicht. Lena trägt die silberne Kette. Mondschimmer steht etwas abseits, friedlich.]
 
-Am nächsten Morgen erzählte Lena Tante Marie alles. Von der Nacht auf der Mondkuppe, vom Medaillon, von der Kette, von Herrn Brinkmann.
+Am nächsten Morgen erzählte Lena Tante Sarah alles. Von der Nacht auf der Mondkuppe, vom Medaillon, von der Kette, von Herrn Brinkmann.
 
-Tante Marie hörte zu, ohne zu unterbrechen. Als Lena fertig war, nahm ihre Tante sie in den Arm und hielt sie lange fest.
+Tante Sarah hörte zu, ohne zu unterbrechen. Als Lena fertig war, nahm ihre Tante sie in den Arm und hielt sie lange fest.
 
 „Mein kluges, mutiges Mädchen", flüsterte sie. „Du hast geschafft, woran wir alle gescheitert sind. Nicht nur das Rätsel. Du hast einen alten Streit beendet."
 
 Am Vormittag kam Herr Brinkmann zum Hof. Diesmal klopfte er nicht laut an die Tür. Er stand am Tor, den Hut in der Hand, und wartete.
 
-Tante Marie ging zu ihm. Sie sprachen lange. Leise, ernst, aber ohne Ärger. Lena, Mia und Finn saßen auf dem Zaun und beobachteten sie.
+Tante Sarah ging zu ihm. Sie sprachen lange. Leise, ernst, aber ohne Ärger. Lena, Mia und Finn saßen auf dem Zaun und beobachteten sie.
 
 „Glaubst du, die werden Freunde?", fragte Mia.
 
 „Vielleicht nicht Freunde", sagte Lena. „Aber Nachbarn. Echte Nachbarn."
 
-[BILD: Tante Marie und Herr Brinkmann schütteln sich die Hand am Hoftor]
+[BILD: Tante Sarah und Herr Brinkmann schütteln sich die Hand am Hoftor]
 
-Am Nachmittag machte Tante Marie ein Fest. Kein großes Fest – aber Kuchen, Limonade, Würstchen vom Grill, und die Pferde bekamen extra Äpfel und Möhren. Mia und Lena flochten Butterblumes Mähne. Finn versuchte, Flecki beizubringen, auf Kommando zu kommen. Flecki fand das mittelinteressant.
+Am Nachmittag machte Tante Sarah ein Fest. Kein großes Fest – aber Kuchen, Limonade, Würstchen vom Grill, und die Pferde bekamen extra Äpfel und Möhren. Mia und Lena flochten Butterblumes Mähne. Finn versuchte, Flecki beizubringen, auf Kommando zu kommen. Flecki fand das mittelinteressant.
 
-Und Herr Brinkmann – Heinrich, wie Tante Marie ihn jetzt nannte – saß auf einer Bank und erzählte Geschichten von seinem Großvater und August. Wie sie zusammen den ersten Zaun gebaut hatten. Wie sie einmal ein Fohlen aus einem zugefrorenen Bach gerettet hatten. Wie sie abends am Feuer gesessen und über die Zukunft gesprochen hatten.
+Und Herr Brinkmann – Heinrich, wie Tante Sarah ihn jetzt nannte – saß auf einer Bank und erzählte Geschichten von seinem Großvater und August. Wie sie zusammen den ersten Zaun gebaut hatten. Wie sie einmal ein Fohlen aus einem zugefrorenen Bach gerettet hatten. Wie sie abends am Feuer gesessen und über die Zukunft gesprochen hatten.
 
 „Die beiden hätten sich gefreut", sagte er und sah über den Hof. „Über das hier."
 
-Lena trug die silberne Kette um den Hals. Der milchig-weiße Stein lag warm auf ihrer Brust. Tante Marie hatte gesagt, sie solle sie behalten – „Du bist die Hüterin jetzt. Du hast Mondschimmers Vertrauen."
+Lena trug die silberne Kette um den Hals. Der milchig-weiße Stein lag warm auf ihrer Brust. Tante Sarah hatte gesagt, sie solle sie behalten – „Du bist die Hüterin jetzt. Du hast Mondschimmers Vertrauen."
 
 Am Abend, als die Sonne unterging und der Himmel in Orange und Rosa leuchtete, ging Lena zu Mondschimmers Box.
 
@@ -1017,13 +1017,13 @@ Und Lena weinte. Nicht vor Trauer. Vor so vielen Gefühlen auf einmal, dass sie 
 
 [BILD: Lena und Mondschimmer im Abendlicht, sie lehnt ihre Stirn an seinen Hals]
 
-In dieser Nacht schlief Mondschimmer ein. Friedlich, still, in seiner Box. Tante Marie fand ihn am nächsten Morgen, liegend im Stroh, das Fell immer noch silbrig schimmernd, als wäre er nur aus Mondlicht gemacht.
+In dieser Nacht schlief Mondschimmer ein. Friedlich, still, in seiner Box. Tante Sarah fand ihn am nächsten Morgen, liegend im Stroh, das Fell immer noch silbrig schimmernd, als wäre er nur aus Mondlicht gemacht.
 
 Die Pferde auf dem Hof wieherten leise. Sturmwind stampfte unruhig. Sternchen drückte sich an die Boxenwand. Butterblume stand still und ließ den Kopf hängen.
 
-Lena weinte wieder. Tante Marie hielt sie fest.
+Lena weinte wieder. Tante Sarah hielt sie fest.
 
-„Er hat gewusst, dass es Zeit war", sagte Tante Marie. „Er hat gewartet, bis der Hof sicher ist. Bis jemand kommt, der das Herz weiterträgt. Das warst du, Lena."
+„Er hat gewusst, dass es Zeit war", sagte Tante Sarah. „Er hat gewartet, bis der Hof sicher ist. Bis jemand kommt, der das Herz weiterträgt. Das warst du, Lena."
 
 Sie begruben Mondschimmer unter der alten Eiche. Es war ein warmer Tag, und die Vögel sangen, und Finn sagte nichts, aber seine Augen waren rot, und selbst Herr Brinkmann stand still dabei und nahm seinen Hut ab.
 
@@ -1047,15 +1047,15 @@ Mia und Lena verbrachten die Nachmittage auf der Koppel oder am Bach. Sie bauten
 
 [BILD: Mia und Lena liegen im Gras, Blumenkränze im Haar, Butterblume grast neben ihnen]
 
-Herr Brinkmann – Heinrich – kam regelmäßig vorbei. Er brachte Äpfel aus seinem Garten mit und half Tante Marie beim Reparieren des Scheunendachs. Die alte Scheune, Augusts Versteck, wurde langsam wieder hergerichtet. Heinrich kannte sich mit Holz aus, und bald sah die Scheune besser aus als seit Jahrzehnten.
+Herr Brinkmann – Heinrich – kam regelmäßig vorbei. Er brachte Äpfel aus seinem Garten mit und half Tante Sarah beim Reparieren des Scheunendachs. Die alte Scheune, Augusts Versteck, wurde langsam wieder hergerichtet. Heinrich kannte sich mit Holz aus, und bald sah die Scheune besser aus als seit Jahrzehnten.
 
 „Mein Großvater hat August beim Bau dieser Scheune geholfen", sagte Heinrich, als er einen Balken festschraubte. „Es fühlt sich richtig an, sie wieder aufzubauen."
 
-An Lenas letztem Abend gab es ein Abschiedsessen in der großen Küche. Tante Marie hatte Lenas Lieblingsessen gemacht – Kartoffelpuffer mit Apfelmus – und alle waren da: Mia, Finn, Heinrich, und natürlich die Pferde, die draußen vor dem Fenster Kopf an Kopf standen, als wollten sie mithören.
+An Lenas letztem Abend gab es ein Abschiedsessen in der großen Küche. Tante Sarah hatte Lenas Lieblingsessen gemacht – Kartoffelpuffer mit Apfelmus – und alle waren da: Mia, Finn, Heinrich, und natürlich die Pferde, die draußen vor dem Fenster Kopf an Kopf standen, als wollten sie mithören.
 
 „Ich will nicht fahren", sagte Lena.
 
-„Du kommst wieder", sagte Tante Marie. „In den Herbstferien. Und im nächsten Sommer. Sonnenweide ist dein Zuhause, Lena. Das weißt du."
+„Du kommst wieder", sagte Tante Sarah. „In den Herbstferien. Und im nächsten Sommer. Sonnenweide ist dein Zuhause, Lena. Das weißt du."
 
 Lena nickte. Sie fasste an die silberne Kette um ihren Hals. Der Stein war warm, immer warm, als hätte er ein eigenes kleines Herz.
 
