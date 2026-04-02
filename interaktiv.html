@@ -11,51 +11,26 @@
 html, body {
   width: 100%; height: 100%; overflow: hidden;
   font-family: 'Quicksand', sans-serif;
-  background: #1a1a2e;
-  color: #3d2b1f;
+  background: #1a1a2e; color: #3d2b1f;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
-
-/* ===== CSS VARIABLES ===== */
 :root {
-  --gold: #c9a84c;
-  --gold-light: #f0d78c;
-  --cream: #fdf6e3;
-  --brown: #5c3d2e;
-  --brown-light: #8b6d5c;
-  --green: #4a7c59;
-  --green-light: #7fb069;
-  --silver: #c0c0c0;
-  --silver-glow: #e8e8ff;
-  --sky: #87ceeb;
-  --night: #1a1a3e;
-  --moon: #f5f0cd;
-  --radius: 16px;
-  --shadow: 0 4px 20px rgba(0,0,0,0.15);
+  --gold: #c9a84c; --gold-light: #f0d78c; --cream: #fdf6e3;
+  --brown: #5c3d2e; --brown-light: #8b6d5c;
+  --green: #4a7c59; --green-light: #7fb069;
+  --silver: #c0c0c0; --silver-glow: #e8e8ff;
+  --sky: #87ceeb; --night: #1a1a3e; --moon: #f5f0cd;
+  --radius: 16px; --shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 /* ===== SCREENS ===== */
 .screen {
   position: absolute; inset: 0;
   display: none; flex-direction: column;
-  transition: opacity 0.5s ease;
-  opacity: 0;
+  transition: opacity 0.5s ease; opacity: 0;
 }
 .screen.active { display: flex; opacity: 1; }
-.screen.fade-out { opacity: 0; }
-
-/* ===== PARTICLES (sparkles) ===== */
-.sparkle {
-  position: absolute; width: 4px; height: 4px;
-  background: var(--gold-light); border-radius: 50%;
-  pointer-events: none;
-  animation: sparkleFloat 3s ease-in-out infinite;
-}
-@keyframes sparkleFloat {
-  0%, 100% { opacity: 0; transform: translateY(0) scale(0); }
-  50% { opacity: 1; transform: translateY(-40px) scale(1); }
-}
 
 /* ===== START SCREEN ===== */
 #startScreen {
@@ -71,13 +46,13 @@ html, body {
   animation: moonPulse 4s ease-in-out infinite;
 }
 @keyframes moonPulse {
-  0%, 100% { box-shadow: 0 0 80px 40px #f5f0cd44; }
+  0%,100% { box-shadow: 0 0 80px 40px #f5f0cd44; }
   50% { box-shadow: 0 0 120px 60px #f5f0cd66; }
 }
 .start-title {
   font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 5vw, 2.8rem);
   color: var(--gold-light); text-align: center;
-  text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 0 30px rgba(201,168,76,0.4);
   z-index: 2; margin-top: 200px; line-height: 1.3;
 }
 .start-subtitle {
@@ -85,345 +60,348 @@ html, body {
   color: var(--silver); margin-top: 8px; z-index: 2;
 }
 .start-btn {
-  margin-top: 40px; z-index: 2;
-  padding: 18px 48px; border: none; border-radius: 50px;
+  margin-top: 40px; z-index: 2; padding: 18px 48px; border: none; border-radius: 50px;
   background: linear-gradient(135deg, var(--gold), #d4a843);
   color: #fff; font-family: 'Quicksand', sans-serif;
-  font-size: 1.3rem; font-weight: 700;
-  cursor: pointer; letter-spacing: 1px;
-  box-shadow: 0 4px 30px rgba(201, 168, 76, 0.5);
+  font-size: 1.3rem; font-weight: 700; cursor: pointer;
+  box-shadow: 0 4px 30px rgba(201,168,76,0.5);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.start-btn:hover, .start-btn:active {
-  transform: scale(1.05);
-  box-shadow: 0 6px 40px rgba(201, 168, 76, 0.7);
+.start-btn:hover,.start-btn:active {
+  transform: scale(1.05); box-shadow: 0 6px 40px rgba(201,168,76,0.7);
 }
-.hoofprints-start {
-  position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
-  z-index: 2; display: flex; gap: 20px; opacity: 0.5;
-}
-.hoofprint {
-  width: 20px; height: 24px; position: relative;
-}
-.hoofprint::before {
-  content: '🐴'; font-size: 16px; filter: grayscale(1) brightness(2);
-}
-.stars {
-  position: absolute; inset: 0; z-index: 1;
-}
+.stars { position: absolute; inset: 0; z-index: 1; }
 .star {
   position: absolute; width: 2px; height: 2px;
   background: #fff; border-radius: 50%;
   animation: twinkle 2s ease-in-out infinite;
 }
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; } 50% { opacity: 1; }
+@keyframes twinkle { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* ===== GLOBAL CONTROLS ===== */
+.global-controls {
+  position: fixed; top: 8px; right: 8px; z-index: 1100;
+  display: flex; gap: 4px;
 }
+.ctrl-btn {
+  width: 36px; height: 36px; border: none; border-radius: 50%;
+  background: rgba(255,255,255,0.85); color: var(--brown);
+  font-size: 1rem; cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+  transition: transform 0.15s;
+}
+.ctrl-btn:active { transform: scale(0.9); }
+.ctrl-btn.muted { opacity: 0.4; }
 
 /* ===== BOTTOM NAVIGATION ===== */
 .bottom-nav {
-  position: fixed; bottom: 0; left: 0; right: 0;
-  height: 70px; background: var(--cream);
-  display: flex; justify-content: space-around; align-items: center;
-  box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+  position: fixed; bottom: 0; left: 0; right: 0; height: 64px;
+  background: var(--cream); display: flex; justify-content: space-around;
+  align-items: center; box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
   z-index: 1000; border-top: 2px solid var(--gold-light);
 }
 .nav-btn {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 2px; background: none; border: none;
-  cursor: pointer; padding: 8px 16px; border-radius: 12px;
-  transition: background 0.2s, transform 0.15s;
-  color: var(--brown-light); font-size: 0.65rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+  background: none; border: none; cursor: pointer; padding: 6px 10px;
+  border-radius: 12px; transition: background 0.2s, transform 0.15s;
+  color: var(--brown-light); font-size: 0.55rem;
   font-family: 'Quicksand', sans-serif; font-weight: 600;
 }
 .nav-btn.active { color: var(--gold); }
 .nav-btn:active { transform: scale(0.92); }
-.nav-btn svg { width: 28px; height: 28px; }
+.nav-btn svg { width: 24px; height: 24px; }
 .nav-btn.active svg { filter: drop-shadow(0 0 4px var(--gold)); }
 
 /* ===== STORY SCREEN ===== */
-#storyScreen {
-  background: var(--cream);
-  padding-bottom: 70px;
-}
+#storyScreen { background: var(--cream); padding-bottom: 64px; }
 .story-header {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 16px; background: linear-gradient(135deg, var(--brown) 0%, #7a5a48 100%);
-  color: var(--cream); min-height: 56px;
+  padding: 10px 12px; background: linear-gradient(135deg, var(--brown) 0%, #7a5a48 100%);
+  color: var(--cream); min-height: 48px;
 }
 .story-header h2 {
-  font-family: 'Playfair Display', serif; font-size: 1rem;
+  font-family: 'Playfair Display', serif; font-size: 0.9rem;
   flex: 1; text-align: center; line-height: 1.2;
 }
-.chapter-nav-btn {
-  width: 44px; height: 44px; border: none; border-radius: 50%;
+.ch-btn {
+  width: 40px; height: 40px; border: none; border-radius: 50%;
   background: rgba(255,255,255,0.15); color: #fff;
-  font-size: 1.4rem; cursor: pointer; display: flex;
+  font-size: 1.2rem; cursor: pointer; display: flex;
   align-items: center; justify-content: center;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.2s, transform 0.15s; flex-shrink: 0;
 }
-.chapter-nav-btn:active { transform: scale(0.9); background: rgba(255,255,255,0.3); }
-.chapter-nav-btn:disabled { opacity: 0.3; cursor: default; }
+.ch-btn:active { transform: scale(0.9); background: rgba(255,255,255,0.3); }
+.ch-btn:disabled { opacity: 0.3; cursor: default; }
+/* TTS button in story header */
+.tts-btn { background: rgba(255,255,255,0.2); margin-left: 4px; }
+.tts-btn.speaking { background: rgba(76,175,80,0.5); }
 
 .story-content {
   flex: 1; overflow-y: auto; scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-.chapter-illustration {
+
+/* Chapter illustration with animated overlays */
+.ch-illust {
   width: 100%; aspect-ratio: 4/3; overflow: hidden;
   position: relative;
 }
-.chapter-illustration img {
+.ch-illust img {
   width: 100%; height: 100%; object-fit: cover;
-  animation: kenBurns 20s ease-in-out infinite alternate;
+  animation: kenBurns 25s ease-in-out infinite alternate;
   filter: saturate(1.15) contrast(1.05);
 }
 @keyframes kenBurns {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.08) translate(-1%, -1%); }
+  0% { transform: scale(1) translate(0,0); }
+  100% { transform: scale(1.08) translate(-1%,-1%); }
 }
-.chapter-illustration::after {
+.ch-illust::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 60%, var(--cream) 100%);
+  background: linear-gradient(180deg, transparent 55%, var(--cream) 100%);
   pointer-events: none;
 }
-/* Magical glow overlay for special chapters */
-.chapter-illustration.magical::before {
+/* Animated particles on illustrations */
+.illust-particles {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2; overflow: hidden;
+}
+.particle {
+  position: absolute; border-radius: 50%; pointer-events: none;
+}
+/* Magical glow for special chapters */
+.ch-illust.magical::before {
   content: ''; position: absolute; inset: 0; z-index: 1;
-  background: radial-gradient(ellipse at center, rgba(192,192,255,0.15) 0%, transparent 70%);
-  animation: magicGlow 3s ease-in-out infinite;
-  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(192,192,255,0.2) 0%, transparent 70%);
+  animation: magicPulse 3s ease-in-out infinite; pointer-events: none;
 }
-@keyframes magicGlow {
-  0%, 100% { opacity: 0.4; } 50% { opacity: 1; }
+@keyframes magicPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+/* Rain overlay */
+.rain-overlay {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
+}
+.raindrop {
+  position: absolute; width: 1px; background: linear-gradient(180deg, transparent, rgba(174,194,224,0.6));
+  animation: rainFall linear infinite;
+}
+@keyframes rainFall {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(calc(100% + 100vh)); }
+}
+/* Floating hoofprints */
+.hoof-particle {
+  position: absolute; font-size: 12px; opacity: 0;
+  animation: hoofFloat 4s ease-in-out infinite; pointer-events: none;
+}
+@keyframes hoofFloat {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  20% { opacity: 0.7; transform: translateY(-10px) scale(1); }
+  80% { opacity: 0.5; transform: translateY(-50px) scale(0.8); }
+  100% { opacity: 0; transform: translateY(-70px) scale(0.3); }
+}
+/* Firefly effect */
+.firefly {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: #ffe082; box-shadow: 0 0 6px 2px #ffe08288;
+  animation: fireflyDrift 6s ease-in-out infinite; pointer-events: none;
+}
+@keyframes fireflyDrift {
+  0%,100% { opacity: 0; transform: translate(0,0); }
+  25% { opacity: 1; transform: translate(15px,-20px); }
+  50% { opacity: 0.6; transform: translate(-10px,-35px); }
+  75% { opacity: 0.8; transform: translate(20px,-15px); }
+}
+/* Moon glow */
+.moon-glow {
+  position: absolute; top: 5%; right: 10%; width: 60px; height: 60px;
+  border-radius: 50%; background: radial-gradient(circle, #f5f0cd 0%, #f5f0cd66 40%, transparent 70%);
+  box-shadow: 0 0 40px 20px #f5f0cd33; pointer-events: none; z-index: 2;
+  animation: moonPulse 4s ease-in-out infinite;
 }
 
-.chapter-text {
-  padding: 20px 20px 30px; font-size: 1.05rem; line-height: 1.75;
+.ch-text {
+  padding: 16px 16px 24px; font-size: 1rem; line-height: 1.75;
   color: var(--brown); max-width: 680px; margin: 0 auto;
 }
-.chapter-text p { margin-bottom: 16px; }
-.chapter-text .speech { color: #6b4226; font-style: italic; }
-.chapter-text .emphasis { font-style: italic; color: var(--brown-light); }
-.chapter-text .riddle {
-  display: block; margin: 16px 0; padding: 16px 20px;
+.ch-text p { margin-bottom: 14px; }
+.ch-text .riddle {
+  display: block; margin: 14px 0; padding: 14px 16px;
   background: linear-gradient(135deg, #f5f0e0, #ede4cc);
   border-left: 4px solid var(--gold);
   border-radius: 0 var(--radius) var(--radius) 0;
-  font-family: 'Patrick Hand', cursive; font-size: 1.15rem;
+  font-family: 'Patrick Hand', cursive; font-size: 1.1rem;
   line-height: 1.8; color: var(--brown);
 }
-.chapter-text .separator {
-  text-align: center; margin: 24px 0; font-size: 1.2rem;
+.ch-text .separator {
+  text-align: center; margin: 20px 0; font-size: 1.1rem;
   color: var(--gold); letter-spacing: 8px;
 }
 
-/* Progress dots */
-.chapter-dots {
-  display: flex; justify-content: center; gap: 6px;
-  padding: 10px 0 6px; background: var(--cream);
+/* Chapter dots */
+.ch-dots {
+  display: flex; justify-content: center; gap: 5px; padding: 8px 0 4px;
+  background: var(--cream); flex-wrap: wrap;
 }
-.chapter-dot {
-  width: 10px; height: 10px; border-radius: 50%;
+.ch-dot {
+  width: 9px; height: 9px; border-radius: 50%;
   background: #ddd; border: none; cursor: pointer;
   transition: background 0.3s, transform 0.2s;
 }
-.chapter-dot.read { background: var(--green-light); }
-.chapter-dot.current { background: var(--gold); transform: scale(1.3); }
+.ch-dot.read { background: var(--green-light); }
+.ch-dot.current { background: var(--gold); transform: scale(1.4); }
 
-/* ===== CHAPTER SELECT OVERLAY ===== */
-.chapter-select-overlay {
+/* Chapter select overlay */
+.overlay {
   position: fixed; inset: 0; z-index: 2000;
-  background: rgba(0,0,0,0.6);
-  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.6); display: none;
+  align-items: center; justify-content: center;
   backdrop-filter: blur(4px);
 }
-.chapter-select-overlay.active { display: flex; }
-.chapter-select-panel {
+.overlay.active { display: flex; }
+.overlay-panel {
   background: var(--cream); border-radius: 20px;
-  padding: 24px; width: 90%; max-width: 400px; max-height: 80vh;
+  padding: 20px; width: 90%; max-width: 400px; max-height: 80vh;
   overflow-y: auto; box-shadow: var(--shadow);
 }
-.chapter-select-panel h3 {
+.overlay-panel h3 {
   font-family: 'Playfair Display', serif; text-align: center;
-  margin-bottom: 16px; color: var(--brown); font-size: 1.3rem;
+  margin-bottom: 14px; color: var(--brown); font-size: 1.2rem;
 }
-.chapter-select-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 12px; border: none; width: 100%;
-  background: #fff; border-radius: 12px; margin-bottom: 8px;
-  cursor: pointer; transition: background 0.2s, transform 0.1s;
-  font-family: 'Quicksand', sans-serif; font-size: 0.95rem;
+.ch-sel-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px; border: none; width: 100%;
+  background: #fff; border-radius: 12px; margin-bottom: 6px;
+  cursor: pointer; font-family: 'Quicksand', sans-serif; font-size: 0.9rem;
   color: var(--brown); text-align: left;
+  transition: background 0.2s, transform 0.1s;
 }
-.chapter-select-item:active { transform: scale(0.97); background: var(--gold-light); }
-.chapter-select-item .ch-num {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--gold); color: #fff; display: flex;
-  align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+.ch-sel-item:active { transform: scale(0.97); background: var(--gold-light); }
+.ch-sel-item .cnum {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--gold);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.8rem; flex-shrink: 0;
 }
-.chapter-select-close {
-  display: block; margin: 16px auto 0; padding: 10px 32px;
+.close-btn {
+  display: block; margin: 14px auto 0; padding: 10px 28px;
   border: none; border-radius: 50px; background: var(--brown);
-  color: #fff; font-size: 1rem; cursor: pointer;
+  color: #fff; font-size: 0.95rem; cursor: pointer;
   font-family: 'Quicksand', sans-serif;
 }
 
 /* ===== MAP SCREEN ===== */
-#mapScreen {
-  background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 100%);
-  padding-bottom: 70px;
-}
+#mapScreen { background: linear-gradient(180deg, #e8f5e9, #c8e6c9); padding-bottom: 64px; }
 .map-header {
-  padding: 14px 16px; text-align: center;
-  background: linear-gradient(135deg, var(--green), #5d8a6b);
-  color: #fff;
+  padding: 10px 14px; text-align: center;
+  background: linear-gradient(135deg, var(--green), #5d8a6b); color: #fff;
 }
-.map-header h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
-.map-header p { font-size: 0.8rem; opacity: 0.8; margin-top: 2px; }
-
-.map-container {
-  flex: 1; overflow: auto; position: relative;
-  -webkit-overflow-scrolling: touch;
+.map-header h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+.map-header p { font-size: 0.75rem; opacity: 0.8; margin-top: 2px; }
+.map-wrap {
+  flex: 1; overflow: hidden; position: relative;
+  touch-action: none; /* we handle touch manually */
 }
-.farm-map {
-  width: 100%; min-width: 700px; min-height: 500px;
-  position: relative; padding: 20px;
+.map-inner {
+  width: 100%; height: 100%; position: relative;
+  transform-origin: 0 0; transition: transform 0.1s ease-out;
 }
+.farm-map { width: 100%; min-width: 700px; min-height: 500px; position: relative; padding: 20px; }
 .farm-map svg { width: 100%; height: auto; }
-
-/* Map location pins */
 .map-pin {
-  position: absolute; cursor: pointer;
-  transition: transform 0.2s;
-  z-index: 10;
+  position: absolute; cursor: pointer; transition: transform 0.2s; z-index: 10;
 }
-.map-pin:hover, .map-pin:active { transform: scale(1.15); }
+.map-pin:active { transform: scale(1.2); }
 .map-pin-icon {
-  width: 48px; height: 48px; border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  border: 3px solid #fff;
-  animation: pinBounce 2s ease-in-out infinite;
+  font-size: 1.4rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border: 3px solid #fff; animation: pinBob 2s ease-in-out infinite;
 }
-@keyframes pinBounce {
-  0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); }
-}
+@keyframes pinBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 .map-pin-label {
-  position: absolute; top: 52px; left: 50%; transform: translateX(-50%);
-  white-space: nowrap; font-size: 0.7rem; font-weight: 700;
-  background: rgba(255,255,255,0.9); padding: 2px 8px;
+  position: absolute; top: 48px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap; font-size: 0.65rem; font-weight: 700;
+  background: rgba(255,255,255,0.9); padding: 2px 6px;
   border-radius: 8px; color: var(--brown);
+}
+/* Map zoom controls */
+.map-zoom {
+  position: absolute; bottom: 16px; right: 16px; z-index: 20;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.map-zoom button {
+  width: 40px; height: 40px; border: none; border-radius: 50%;
+  background: rgba(255,255,255,0.9); font-size: 1.3rem; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); color: var(--brown);
 }
 
 /* Map popup */
 .map-popup {
-  position: fixed; inset: 0; z-index: 2000;
-  background: rgba(0,0,0,0.5); display: none;
-  align-items: center; justify-content: center;
+  position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.5);
+  display: none; align-items: center; justify-content: center;
   backdrop-filter: blur(4px);
 }
 .map-popup.active { display: flex; }
-.map-popup-content {
-  background: var(--cream); border-radius: 20px;
-  padding: 0; width: 90%; max-width: 380px;
+.popup-card {
+  background: var(--cream); border-radius: 20px; width: 90%; max-width: 380px;
   overflow: hidden; box-shadow: var(--shadow);
-  animation: popupIn 0.3s ease;
+  animation: popIn 0.3s ease;
 }
-@keyframes popupIn {
-  from { transform: scale(0.8) translateY(20px); opacity: 0; }
-  to { transform: scale(1) translateY(0); opacity: 1; }
+@keyframes popIn { from { transform: scale(0.8) translateY(20px); opacity:0; } to { transform: scale(1); opacity:1; } }
+.popup-card img { width: 100%; height: 150px; object-fit: cover; }
+.popup-card .popup-body { padding: 14px 18px 18px; }
+.popup-body h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--brown); margin-bottom: 6px; }
+.popup-body p { font-size: 0.85rem; line-height: 1.5; color: var(--brown-light); }
+.popup-close {
+  display: block; margin: 10px auto 0; padding: 8px 24px;
+  border: none; border-radius: 50px; background: var(--green);
+  color: #fff; font-size: 0.9rem; cursor: pointer; font-family: 'Quicksand',sans-serif;
 }
-.map-popup-img {
-  width: 100%; height: 160px; object-fit: cover;
-}
-.map-popup-body { padding: 16px 20px 20px; }
-.map-popup-body h3 {
-  font-family: 'Playfair Display', serif; font-size: 1.2rem;
-  color: var(--brown); margin-bottom: 8px;
-}
-.map-popup-body p { font-size: 0.9rem; line-height: 1.6; color: var(--brown-light); }
-.map-popup-close {
-  display: block; margin: 12px auto 0; padding: 10px 28px;
-  border: none; border-radius: 50px;
-  background: var(--green); color: #fff;
-  font-size: 0.95rem; cursor: pointer;
-  font-family: 'Quicksand', sans-serif; font-weight: 600;
-}
-.map-popup-action {
-  display: block; margin: 8px auto 0; padding: 8px 24px;
-  border: 2px solid var(--gold); border-radius: 50px;
-  background: transparent; color: var(--gold);
-  font-size: 0.85rem; cursor: pointer;
+.popup-action {
+  display: block; margin: 6px auto 0; padding: 7px 20px;
+  border: 2px solid var(--gold); border-radius: 50px; background: transparent;
+  color: var(--gold); font-size: 0.8rem; cursor: pointer;
   font-family: 'Quicksand', sans-serif; font-weight: 600;
 }
 
 /* ===== HORSES SCREEN ===== */
-#horsesScreen {
-  background: linear-gradient(180deg, #fdf6e3 0%, #f5edd6 100%);
-  padding-bottom: 70px;
-}
+#horsesScreen { background: linear-gradient(180deg, #fdf6e3, #f5edd6); padding-bottom: 64px; }
 .horses-header {
-  padding: 14px 16px; text-align: center;
-  background: linear-gradient(135deg, #8b6d5c, #a0826e);
-  color: #fff;
+  padding: 10px 14px; text-align: center;
+  background: linear-gradient(135deg, #8b6d5c, #a0826e); color: #fff;
 }
-.horses-header h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
-
+.horses-header h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
 .horses-grid {
-  flex: 1; overflow-y: auto; padding: 16px;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 14px; align-content: start;
-  -webkit-overflow-scrolling: touch;
+  flex: 1; overflow-y: auto; padding: 14px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px; align-content: start; -webkit-overflow-scrolling: touch;
 }
-
-.horse-card {
-  perspective: 800px; cursor: pointer;
-  height: 220px;
-}
+.horse-card { perspective: 800px; cursor: pointer; height: 210px; }
 .horse-card-inner {
   width: 100%; height: 100%; position: relative;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
   transform-style: preserve-3d;
 }
 .horse-card.flipped .horse-card-inner { transform: rotateY(180deg); }
-
 .horse-card-front, .horse-card-back {
   position: absolute; inset: 0; border-radius: var(--radius);
   backface-visibility: hidden; overflow: hidden;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
 }
 .horse-card-front {
   display: flex; flex-direction: column; align-items: center;
-  justify-content: center; text-align: center; padding: 12px;
+  justify-content: center; text-align: center; padding: 10px;
 }
-.horse-card-front .horse-emoji { font-size: 3rem; margin-bottom: 8px; }
-.horse-card-front h4 {
-  font-family: 'Playfair Display', serif; font-size: 1rem;
-  margin-bottom: 4px;
-}
-.horse-card-front .horse-trait {
-  font-size: 0.75rem; opacity: 0.7; font-style: italic;
-}
-
+.horse-card-front .hemoji { font-size: 2.8rem; margin-bottom: 6px; }
+.horse-card-front h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 3px; }
+.horse-card-front .htrait { font-size: 0.7rem; opacity: 0.7; font-style: italic; }
 .horse-card-back {
-  transform: rotateY(180deg); padding: 14px;
-  display: flex; flex-direction: column;
-  font-size: 0.75rem; line-height: 1.5;
+  transform: rotateY(180deg); padding: 12px; display: flex;
+  flex-direction: column; font-size: 0.7rem; line-height: 1.4;
 }
-.horse-card-back h4 {
-  font-family: 'Playfair Display', serif; font-size: 0.95rem;
-  margin-bottom: 6px; text-align: center;
-}
-.horse-card-back .stat { margin-bottom: 3px; }
-.horse-card-back .stat-label { font-weight: 700; }
-.horse-card-back .horse-desc {
-  flex: 1; font-style: italic; margin-top: 6px;
-  font-size: 0.7rem; line-height: 1.4;
-}
+.horse-card-back h4 { font-family: 'Playfair Display', serif; font-size: 0.9rem; margin-bottom: 4px; text-align: center; }
+.horse-card-back .stat { margin-bottom: 2px; }
+.horse-card-back .stat b { font-weight: 700; }
+.horse-card-back .hdesc { flex: 1; font-style: italic; margin-top: 4px; font-size: 0.65rem; line-height: 1.3; }
 
-/* Individual horse colors */
 .horse-mondschimmer .horse-card-front { background: linear-gradient(135deg, #e8e8ff, #c8c8e8); }
 .horse-mondschimmer .horse-card-back { background: linear-gradient(135deg, #d8d8f0, #b8b8d8); color: #2a2a4a; }
 .horse-sturmwind .horse-card-front { background: linear-gradient(135deg, #e8d4c0, #d4b896); }
@@ -440,109 +418,193 @@ html, body {
 .horse-nordlicht .horse-card-back { background: linear-gradient(135deg, #d0d0d0, #a0a0a0); color: #212121; }
 
 /* ===== QUIZ SCREEN ===== */
-#quizScreen {
-  background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
-  padding-bottom: 70px;
-}
+#quizScreen { background: linear-gradient(180deg, #e3f2fd, #bbdefb); padding-bottom: 64px; }
 .quiz-header {
-  padding: 14px 16px; text-align: center;
-  background: linear-gradient(135deg, #1565c0, #42a5f5);
-  color: #fff;
+  padding: 10px 14px; text-align: center;
+  background: linear-gradient(135deg, #1565c0, #42a5f5); color: #fff;
 }
-.quiz-header h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
-.quiz-header .quiz-score {
-  font-size: 0.8rem; opacity: 0.9; margin-top: 2px;
+.quiz-header h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+.quiz-header .qscore { font-size: 0.75rem; opacity: 0.9; margin-top: 2px; }
+/* Quiz mode tabs */
+.quiz-tabs {
+  display: flex; gap: 6px; padding: 10px 14px 4px; justify-content: center;
+  background: #e3f2fd;
 }
-
+.quiz-tab {
+  padding: 8px 16px; border: 2px solid #90caf9; border-radius: 50px;
+  background: #fff; cursor: pointer; font-size: 0.8rem;
+  font-family: 'Quicksand', sans-serif; font-weight: 600; color: #1565c0;
+  transition: background 0.2s, color 0.2s;
+}
+.quiz-tab.active { background: #1565c0; color: #fff; border-color: #1565c0; }
 .quiz-content {
-  flex: 1; overflow-y: auto; padding: 20px;
+  flex: 1; overflow-y: auto; padding: 14px;
   display: flex; flex-direction: column; align-items: center;
   -webkit-overflow-scrolling: touch;
 }
 .quiz-card {
-  background: #fff; border-radius: 20px; padding: 24px;
+  background: #fff; border-radius: 20px; padding: 20px;
   width: 100%; max-width: 500px; box-shadow: var(--shadow);
-  animation: quizCardIn 0.4s ease;
+  animation: cardIn 0.4s ease;
 }
-@keyframes quizCardIn {
-  from { transform: translateX(40px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+@keyframes cardIn { from { transform: translateX(30px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+.qprogress { font-size: 0.75rem; color: #999; text-align: center; margin-bottom: 10px; }
+.qquestion {
+  font-size: 1.05rem; font-weight: 700; color: var(--brown);
+  text-align: center; margin-bottom: 16px; line-height: 1.4;
 }
-.quiz-progress {
-  font-size: 0.8rem; color: #999; text-align: center; margin-bottom: 12px;
-}
-.quiz-question {
-  font-size: 1.1rem; font-weight: 700; color: var(--brown);
-  text-align: center; margin-bottom: 20px; line-height: 1.4;
-}
-.quiz-answers { display: flex; flex-direction: column; gap: 10px; }
-.quiz-answer {
-  padding: 14px 18px; border: 2px solid #e0e0e0; border-radius: 14px;
-  background: #fafafa; cursor: pointer; font-size: 1rem;
+.qanswers { display: flex; flex-direction: column; gap: 8px; }
+.qanswer {
+  padding: 12px 14px; border: 2px solid #e0e0e0; border-radius: 14px;
+  background: #fafafa; cursor: pointer; font-size: 0.95rem;
   font-family: 'Quicksand', sans-serif; color: var(--brown);
-  transition: border-color 0.2s, background 0.2s, transform 0.1s;
-  text-align: left;
+  transition: all 0.2s; text-align: left;
 }
-.quiz-answer:active { transform: scale(0.97); }
-.quiz-answer.correct {
-  border-color: #4caf50; background: #e8f5e9; color: #2e7d32;
-  animation: correctPulse 0.5s ease;
-}
-@keyframes correctPulse {
-  0% { transform: scale(1); } 30% { transform: scale(1.03); } 100% { transform: scale(1); }
-}
-.quiz-answer.wrong {
-  border-color: #ef5350; background: #ffebee; color: #c62828;
-  animation: wrongShake 0.4s ease;
-}
-@keyframes wrongShake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-6px); }
-  75% { transform: translateX(6px); }
-}
-.quiz-answer:disabled { cursor: default; }
-.quiz-feedback {
-  text-align: center; margin-top: 16px; font-size: 0.95rem;
-  font-weight: 600; min-height: 24px;
-}
-.quiz-next-btn {
-  display: none; margin: 16px auto 0; padding: 12px 32px;
+.qanswer:active { transform: scale(0.97); }
+.qanswer.correct { border-color: #4caf50; background: #e8f5e9; color: #2e7d32; animation: cpulse 0.5s ease; }
+@keyframes cpulse { 0% { transform: scale(1); } 30% { transform: scale(1.03); } 100% { transform: scale(1); } }
+.qanswer.wrong { border-color: #ef5350; background: #ffebee; color: #c62828; animation: wshake 0.4s ease; }
+@keyframes wshake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.qfeedback { text-align: center; margin-top: 12px; font-size: 0.9rem; font-weight: 600; min-height: 20px; }
+.qnext {
+  display: none; margin: 12px auto 0; padding: 10px 28px;
   border: none; border-radius: 50px;
   background: linear-gradient(135deg, #42a5f5, #1565c0);
-  color: #fff; font-size: 1rem; cursor: pointer;
+  color: #fff; font-size: 0.95rem; cursor: pointer;
   font-family: 'Quicksand', sans-serif; font-weight: 700;
 }
-.quiz-next-btn.visible { display: block; }
+.qnext.visible { display: block; }
+.qresult { text-align: center; padding: 24px; }
+.qresult .remoji { font-size: 3.5rem; margin-bottom: 12px; }
+.qresult h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--brown); margin-bottom: 8px; }
+.qresult p { font-size: 0.95rem; color: var(--brown-light); }
+.qrestart {
+  margin-top: 16px; padding: 12px 32px; border: none; border-radius: 50px;
+  background: var(--gold); color: #fff; font-size: 1rem; cursor: pointer;
+  font-family: 'Quicksand', sans-serif; font-weight: 700;
+}
 
-/* Quiz result */
-.quiz-result {
-  text-align: center; padding: 30px;
+/* ===== MEMORY GAME ===== */
+.memory-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; width: 100%; max-width: 400px; margin: 0 auto;
 }
-.quiz-result .result-emoji { font-size: 4rem; margin-bottom: 16px; }
-.quiz-result h3 {
-  font-family: 'Playfair Display', serif; font-size: 1.5rem;
-  color: var(--brown); margin-bottom: 12px;
+.mem-card {
+  aspect-ratio: 3/4; border-radius: 12px; cursor: pointer;
+  perspective: 600px; position: relative;
 }
-.quiz-result p { font-size: 1rem; color: var(--brown-light); margin-bottom: 8px; }
-.quiz-restart-btn {
-  margin-top: 20px; padding: 14px 36px; border: none; border-radius: 50px;
-  background: var(--gold); color: #fff; font-size: 1.1rem;
-  cursor: pointer; font-family: 'Quicksand', sans-serif; font-weight: 700;
+.mem-card-inner {
+  width: 100%; height: 100%; position: relative;
+  transition: transform 0.4s; transform-style: preserve-3d;
 }
+.mem-card.flipped .mem-card-inner, .mem-card.matched .mem-card-inner { transform: rotateY(180deg); }
+.mem-card.matched { pointer-events: none; }
+.mem-face {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  border-radius: 12px; display: flex; align-items: center;
+  justify-content: center; font-size: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.mem-front { background: linear-gradient(135deg, var(--gold-light), var(--gold)); }
+.mem-front::after { content: '?'; font-size: 1.6rem; color: #fff; font-weight: 700; }
+.mem-back { transform: rotateY(180deg); }
+.mem-card.matched .mem-back { box-shadow: 0 0 12px rgba(76,175,80,0.5); }
+.memory-status {
+  text-align: center; margin-bottom: 12px; font-size: 0.9rem;
+  color: var(--brown-light); font-weight: 600;
+}
+
+/* ===== WER BIN ICH? ===== */
+.wbi-card {
+  background: #fff; border-radius: 20px; padding: 20px;
+  width: 100%; max-width: 500px; box-shadow: var(--shadow);
+  text-align: center;
+}
+.wbi-clues { margin: 16px 0; text-align: left; }
+.wbi-clue {
+  padding: 8px 14px; margin-bottom: 6px; border-radius: 10px;
+  background: #f5f5f5; font-size: 0.9rem; color: var(--brown);
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.wbi-clue.visible { opacity: 1; transform: translateX(0); }
+.wbi-choices {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 14px;
+}
+.wbi-choice {
+  padding: 12px; border: 2px solid #e0e0e0; border-radius: 14px;
+  background: #fafafa; cursor: pointer; font-size: 0.95rem;
+  font-family: 'Quicksand', sans-serif; transition: all 0.2s;
+  text-align: center;
+}
+.wbi-choice.correct { border-color: #4caf50; background: #e8f5e9; }
+.wbi-choice.wrong { border-color: #ef5350; background: #ffebee; }
+
+/* ===== ADVENTURE SCREEN ===== */
+#adventureScreen { background: var(--cream); padding-bottom: 64px; }
+.adv-header {
+  padding: 10px 14px; text-align: center;
+  background: linear-gradient(135deg, #4a148c, #7b1fa2); color: #fff;
+}
+.adv-header h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+.adv-content {
+  flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+.adv-scene {
+  position: relative; width: 100%;
+}
+.adv-scene img {
+  width: 100%; aspect-ratio: 16/10; object-fit: cover;
+  filter: saturate(1.1) contrast(1.05);
+}
+.adv-scene::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+}
+.adv-text {
+  padding: 16px; font-size: 0.95rem; line-height: 1.6;
+  color: var(--brown); max-width: 600px; margin: 0 auto;
+}
+.adv-text p { margin-bottom: 10px; }
+/* Inventory */
+.adv-inventory {
+  display: flex; gap: 8px; padding: 8px 16px;
+  background: rgba(74,28,140,0.08); border-radius: 12px;
+  margin: 0 16px 10px; flex-wrap: wrap; min-height: 44px;
+  align-items: center;
+}
+.adv-inventory-title {
+  font-size: 0.7rem; font-weight: 700; color: var(--brown-light);
+  margin-right: 4px;
+}
+.inv-item {
+  display: flex; align-items: center; gap: 3px;
+  padding: 4px 10px; border-radius: 20px;
+  background: var(--gold-light); font-size: 0.75rem;
+  animation: itemPop 0.4s ease;
+}
+@keyframes itemPop { from { transform: scale(0); } to { transform: scale(1); } }
+/* Choices */
+.adv-choices {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 0 16px 20px; max-width: 600px; margin: 0 auto;
+}
+.adv-choice {
+  padding: 14px 18px; border: 2px solid var(--gold);
+  border-radius: 14px; background: #fff; cursor: pointer;
+  font-size: 0.95rem; font-family: 'Quicksand', sans-serif;
+  color: var(--brown); transition: all 0.2s; text-align: left;
+}
+.adv-choice:active { transform: scale(0.97); background: var(--gold-light); }
+.adv-choice:hover { background: #fff8e1; }
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--gold-light); border-radius: 4px; }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-in { animation: fadeInUp 0.5s ease forwards; }
-
-/* ===== SILVER HOOFPRINT TRAIL ===== */
+/* Silver hoofprint on tap */
 .hoof-trail {
   position: fixed; pointer-events: none; z-index: 9999;
   width: 16px; height: 18px; opacity: 0;
@@ -553,91 +615,117 @@ html, body {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   animation: hoofFade 1.5s ease forwards;
 }
-@keyframes hoofFade {
-  0% { opacity: 0.8; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.5); }
-}
+@keyframes hoofFade { 0% { opacity: 0.8; } 100% { opacity: 0; transform: scale(0.5); } }
 
 /* ===== RESPONSIVE ===== */
 @media (min-width: 768px) {
   .horses-grid { grid-template-columns: repeat(4, 1fr); }
-  .horse-card { height: 260px; }
-  .chapter-text { font-size: 1.1rem; padding: 28px 40px 40px; }
+  .horse-card { height: 250px; }
+  .ch-text { font-size: 1.05rem; padding: 24px 36px 36px; }
+  .memory-grid { grid-template-columns: repeat(4, 1fr); max-width: 500px; }
+}
+@media (max-width: 380px) {
+  .nav-btn { padding: 5px 6px; font-size: 0.5rem; }
+  .nav-btn svg { width: 20px; height: 20px; }
+  .bottom-nav { height: 56px; }
+  #storyScreen, #mapScreen, #horsesScreen, #quizScreen, #adventureScreen { padding-bottom: 56px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===== START SCREEN ===== -->
+<!-- START SCREEN -->
 <div id="startScreen" class="screen active">
   <div class="stars" id="stars"></div>
-  <div class="start-title">
-    Lena und das Geheimnis<br>der silbernen Hufspur
-  </div>
+  <div class="start-title">Lena und das Geheimnis<br>der silbernen Hufspur</div>
   <div class="start-subtitle">Band 1 der Sonnenweide-Abenteuer</div>
   <button class="start-btn" onclick="startApp()">Abenteuer starten</button>
 </div>
 
-<!-- ===== STORY SCREEN ===== -->
+<!-- STORY SCREEN -->
 <div id="storyScreen" class="screen">
   <div class="story-header">
-    <button class="chapter-nav-btn" id="prevChapterBtn" onclick="changeChapter(-1)">&#9664;</button>
-    <h2 id="chapterTitle"></h2>
-    <button class="chapter-nav-btn" id="nextChapterBtn" onclick="changeChapter(1)">&#9654;</button>
+    <button class="ch-btn" id="prevBtn" onclick="chgCh(-1)">&#9664;</button>
+    <h2 id="chTitle"></h2>
+    <button class="ch-btn tts-btn" id="ttsBtn" onclick="toggleTTS()">&#128266;</button>
+    <button class="ch-btn" id="nextBtn" onclick="chgCh(1)">&#9654;</button>
   </div>
-  <div class="chapter-dots" id="chapterDots" onclick="openChapterSelect()"></div>
-  <div class="story-content" id="storyContent"></div>
+  <div class="ch-dots" id="chDots" onclick="openChSel()"></div>
+  <div class="story-content" id="storyCont"></div>
 </div>
 
-<!-- ===== CHAPTER SELECT ===== -->
-<div class="chapter-select-overlay" id="chapterSelectOverlay">
-  <div class="chapter-select-panel">
-    <h3>Kapitel ausw&auml;hlen</h3>
-    <div id="chapterSelectList"></div>
-    <button class="chapter-select-close" onclick="closeChapterSelect()">Schlie&szlig;en</button>
+<!-- CHAPTER SELECT -->
+<div class="overlay" id="chSelOverlay">
+  <div class="overlay-panel">
+    <h3>Kapitel</h3>
+    <div id="chSelList"></div>
+    <button class="close-btn" onclick="closeChSel()">Schlie&szlig;en</button>
   </div>
 </div>
 
-<!-- ===== MAP SCREEN ===== -->
+<!-- MAP SCREEN -->
 <div id="mapScreen" class="screen">
   <div class="map-header">
     <h2>Hof Sonnenweide</h2>
-    <p>Tippe auf einen Ort, um mehr zu erfahren!</p>
+    <p>Tippe auf einen Ort!</p>
   </div>
-  <div class="map-container" id="mapContainer"></div>
+  <div class="map-wrap" id="mapWrap">
+    <div class="map-inner" id="mapInner"></div>
+    <div class="map-zoom">
+      <button onclick="mapZoom(1)">+</button>
+      <button onclick="mapZoom(-1)">&minus;</button>
+      <button onclick="mapReset()">&#8634;</button>
+    </div>
+  </div>
 </div>
-
-<!-- ===== MAP POPUP ===== -->
 <div class="map-popup" id="mapPopup">
-  <div class="map-popup-content" id="mapPopupContent"></div>
+  <div class="popup-card" id="popupCard"></div>
 </div>
 
-<!-- ===== HORSES SCREEN ===== -->
+<!-- HORSES SCREEN -->
 <div id="horsesScreen" class="screen">
-  <div class="horses-header">
-    <h2>Die Pferde von Sonnenweide</h2>
-  </div>
+  <div class="horses-header"><h2>Die Pferde von Sonnenweide</h2></div>
   <div class="horses-grid" id="horsesGrid"></div>
 </div>
 
-<!-- ===== QUIZ SCREEN ===== -->
+<!-- QUIZ SCREEN -->
 <div id="quizScreen" class="screen">
   <div class="quiz-header">
-    <h2>Das grosse Pferde-Quiz</h2>
-    <div class="quiz-score" id="quizScoreDisplay"></div>
+    <h2>Spiele &amp; R&auml;tsel</h2>
+    <div class="qscore" id="qScoreDisp"></div>
   </div>
-  <div class="quiz-content" id="quizContent"></div>
+  <div class="quiz-tabs" id="quizTabs">
+    <button class="quiz-tab active" onclick="setQuizMode('quiz')">Quiz</button>
+    <button class="quiz-tab" onclick="setQuizMode('memory')">Memory</button>
+    <button class="quiz-tab" onclick="setQuizMode('wbi')">Wer bin ich?</button>
+  </div>
+  <div class="quiz-content" id="quizCont"></div>
 </div>
 
-<!-- ===== BOTTOM NAV ===== -->
-<div class="bottom-nav" id="bottomNav" style="display:none;">
+<!-- ADVENTURE SCREEN -->
+<div id="adventureScreen" class="screen">
+  <div class="adv-header"><h2>Das Abenteuer</h2></div>
+  <div class="adv-content" id="advContent"></div>
+</div>
+
+<!-- GLOBAL CONTROLS -->
+<div class="global-controls" id="globalCtrl" style="display:none">
+  <button class="ctrl-btn" id="soundBtn" onclick="toggleSound()" title="Ton">&#128264;</button>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav" id="bottomNav" style="display:none">
   <button class="nav-btn" data-screen="storyScreen" onclick="showScreen('storyScreen')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
     Geschichte
   </button>
   <button class="nav-btn" data-screen="mapScreen" onclick="showScreen('mapScreen')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-    Hofkarte
+    Karte
+  </button>
+  <button class="nav-btn" data-screen="adventureScreen" onclick="showScreen('adventureScreen')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+    Abenteuer
   </button>
   <button class="nav-btn" data-screen="horsesScreen" onclick="showScreen('horsesScreen')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -645,809 +733,753 @@ html, body {
   </button>
   <button class="nav-btn" data-screen="quizScreen" onclick="showScreen('quizScreen')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-    Quiz
+    Spiele
   </button>
 </div>
 
 <script>
-// ===== DATA =====
-const chapters = [
-  {
-    id: 1, title: "Ankunft auf Hof Sonnenweide",
-    image: "bilder/web/kap01_ankunft.jpg", magical: false,
-    paragraphs: [
-      'Der Geruch traf Lena, noch bevor sie das Tor erreichte. Heu, warmes Holz, und darunter etwas Erdiges, Lebendiges \u2013 der Duft von Pferden. Sie schloss die Augen und atmete tief ein.',
-      '\u201eNa, kommst du noch oder willst du hier Wurzeln schlagen?\u201c Tante Sarah stand am offenen Tor und lachte. Sie trug Gummistiefel, eine abgewetzte Wachsjacke und hatte einen Strohhalm im Haar.',
-      '\u201eTante Sarah!\u201c Lena rannte los und warf sich in die Arme ihrer Tante.',
-      '\u201eZwei Wochen, Lena-Maus. Zwei ganze Wochen nur du, ich und die Pferde.\u201c Tante Sarah zwinkerte. \u201eUnd ein bisschen Arbeit. Auf einem Ponyhof gibt es immer was zu tun.\u201c',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Hof Sonnenweide lag am Rand eines kleinen Dorfes, eingebettet zwischen Wiesen und einem alten Mischwald. Der Hof war nicht gro\u00df, aber er war <em>besonders</em>. Die Geb\u00e4ude waren alt, manche \u00fcber hundert Jahre, mit dicken Steinmauern und Holzbalken, in die jemand vor langer Zeit Blumen und Ranken geschnitzt hatte.',
-      'Tante Sarah f\u00fchrte Lena durch den Stall. \u201eDas hier ist Butterblume. Die kennst du ja.\u201c Ein goldener Haflinger mit einer hellen, fast wei\u00dfen M\u00e4hne hob den Kopf und schnaubte leise.',
-      '\u201eDas ist Nordlicht. Neu seit Oktober. Sie war mal ein Turnierpferd.\u201c Eine elegante graue Stute musterte Lena mit hocherhobenem Kopf.',
-      'Dann Flecki \u2013 das braun-wei\u00df gescheckte Pony, zwei Jahre alt und ein Wirbelwind mit Hufen. Kupfer \u2013 der rotbraune Wallach mit den klugen Augen. Und Sternchen \u2013 sch\u00fcchtern, aber tapferer als alle anderen zusammen.',
-      '\u201eDu hast noch zwei vergessen\u201c, sagte Lena.',
-      '\u201eSturmwind steht drau\u00dfen auf der Koppel. Und Mondschimmer \u2026 der ist besonders.\u201c',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Drau\u00dfen auf der Koppel stand Sturmwind. So kastanienbraun, dass sein Fell im Sonnenlicht kupfern schimmerte. Er galoppierte \u00fcber die Wiese, die dunkle M\u00e4hne wehte wie eine Fahne im Wind.',
-      'Sturmwind war <em>wild</em>-sch\u00f6n. Gro\u00df, kraftvoll, mit einem Fell wie poliertes Mahagoni. Wie ein Gewitter am Horizont.',
-      'Lena hob langsam die Hand. \u201eHey\u201c, sagte sie leise. Sturmwind kam n\u00e4her. Schritt f\u00fcr Schritt. Bis seine Nase Lenas ausgestreckte Finger ber\u00fchrte.',
-      '\u201eNa sowas\u201c, murmelte Tante Sarah. \u201eDas hat er bei niemandem gemacht, seit er hier ist.\u201c',
-      'Sp\u00e4ter, aus dem Dachfenster, sah Lena etwas Seltsames. Ein schwaches, silbriges Leuchten am Ende des Stalls. Es flackerte kurz auf \u2013 und erlosch. Das Kribbeln in ihrem Bauch sagte ihr, dass ein Abenteuer begann.'
-    ]
+// ========== AUDIO SYSTEM ==========
+const AudioMgr = {
+  ctx: null, muted: false, nodes: [], currentAmb: null,
+  init() {
+    if (this.ctx) return;
+    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
   },
-  {
-    id: 2, title: "Nach dem Regen",
-    image: "bilder/web/kap02_nach_dem_regen.jpg", magical: false,
-    paragraphs: [
-      'In der Nacht kam der Regen. Lena lag unter dem Dach und h\u00f6rte, wie die Tropfen auf die Ziegel prasselten. Zwischen den Regenst\u00f6\u00dfen h\u00f6rte sie ein metallisches Klingen, wie ein Gl\u00f6ckchen.',
-      'Am n\u00e4chsten Morgen war die Welt verwandelt. Alles gl\u00e4nzte und funkelte in der Morgensonne, als h\u00e4tte jemand den ganzen Hof mit Diamanten bestreut.',
-      'Dann lernte sie Finn kennen \u2013 den strubbeligen Jungen vom Nachbarhof. \u201eMondschimmer ist uralt\u201c, sagte er. \u201eDer war schon hier, als meine Oma noch ein Kind war.\u201c',
-      'Und Mia kam auf dem Fahrrad angeschossen, ihre Freundin vom letzten Sommer. Lockige rote Haare und ein Lachen, das man drei Koppeln weit h\u00f6ren konnte.',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Kurz vor Mittag, beim Kompost hinter dem Stall, sah Lena die Spur. Eine einzelne Hufspur \u2013 aber sie war <em>anders</em>. Sie schimmerte. Silbrig. Als w\u00e4re das Eisen nicht aus normalem Metall.',
-      'Es waren viele. Eine ganze Linie von silbrig schimmernden Hufspuren, die vom Stall wegf\u00fchrten, am Zaun entlang und dann \u2013 hinunter zum Waldpfad.',
-      '\u201eIch hab was gefunden\u201c, fl\u00fcsterte Lena zu Mia. \u201eSilberne Hufspuren.\u201c',
-      '\u201eSilberne <em>was</em>?\u201c',
-      'Aber es war kein Witz. Die Spuren waren da. Silbrig schimmernd. Geheimnisvoll. Und sie f\u00fchrten zum Wald.'
-    ]
+  stopAll() {
+    this.nodes.forEach(n => { try { n.stop(); } catch(e) {} });
+    this.nodes = [];
+    this.currentAmb = null;
   },
-  {
-    id: 3, title: "Die Spur im Wald",
-    image: "bilder/web/kap03_spur_im_wald.jpg", magical: false,
-    paragraphs: [
-      'Lena und Mia folgten den Spuren in den Wald. Der silbrige Schimmer leuchtete zwischen dem Laub wie kleine Wegweiser.',
-      '\u201eWer auch immer das war, der ist hier mitten in der Nacht langgeritten. Im Regen.\u201c',
-      'Sie \u00fcberquerten den Murmelbach auf rutschigen Trittsteinen, Lena voran, Mia hinterher \u2013 leise Worte murmelnd, die nicht f\u00fcr Erwachsenenohren bestimmt waren.',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Dann: eine Lichtung. Ein Kreis aus Licht zwischen den B\u00e4umen, Wildblumen in Gelb, Wei\u00df und Lila. In der Mitte ein gro\u00dfer, flacher Stein mit einer Gravur \u2013 ein Hufeisen und eine Sonne \u00fcber einer Weide.',
-      '\u201eSonnenweide! Das ist das Zeichen vom Hof!\u201c',
-      '<span class="riddle"><em>Wo der Mond auf Silber trifft,<br>wo die alte Eiche steht,<br>dort bewahrt das Herz des Hofs<br>was kein Sturm verweht.</em></span>',
-      '\u201eDas ist ein R\u00e4tsel\u201c, fl\u00fcsterte Lena. \u201eEin echtes R\u00e4tsel.\u201c',
-      'Auf dem R\u00fcckweg entdeckten sie Herrn Brinkmann am Waldrand. Er untersuchte die Hufspuren. Sein Gesicht war verschlossen \u2013 aber Lena sah etwas darin. Nicht \u00c4rger. Etwas anderes.',
-      '<em>Er wei\u00df etwas</em>, dachte sie. Und sie beschloss, das Geheimnis zu l\u00f6sen. Koste es, was es wolle.'
-    ]
+  createNoise(duration) {
+    const buf = this.ctx.createBuffer(1, this.ctx.sampleRate * duration, this.ctx.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    return buf;
   },
-  {
-    id: 4, title: "Mondschimmers Geheimnis",
-    image: "bilder/web/kap04_mondschimmer.jpg", magical: true,
-    paragraphs: [
-      'Tante Sarah sagte, Mondschimmer sei \u00e4lter, als er sein d\u00fcrfte. \u201eManche Dinge auf diesem Hof sind nicht so einfach zu erkl\u00e4ren, Lena. Manche Dinge muss man selbst herausfinden.\u201c',
-      'In der Nacht konnte Lena nicht schlafen. <em>Wo der Mond auf Silber trifft</em> \u2013 Mondschimmer! Mond und Silber.',
-      'Durchs Fenster sah sie ihn: silberwei\u00df im Mondlicht, reglos auf der Koppel. Aber er war in seiner Box gewesen. Die T\u00fcr war zu.',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Lena schlich hinaus. Mondschimmer ging los \u2013 langsam, Schritt f\u00fcr Schritt. Und blieb stehen. Als wollte er sagen: <em>Kommst du mit?</em>',
-      'Er f\u00fchrte sie zu einem verwilderten Teil des Hofs. Dort stand eine uralte, riesige Eiche. Mondschimmer stupste mit der Nase gegen eine Markierung am Stamm \u2013 ein Hufeisen mit einem Pfeil nach unten.',
-      'Lena grub an den Wurzeln. Nach ein paar Zentimetern stie\u00df sie auf etwas Metallisches.',
-      '\u201eLena!\u201c Tante Sarah stand hinter ihr, Taschenlampe in der Hand. \u201eEs ist fast Mitternacht!\u201c',
-      '\u201eMorgen\u201c, sagte Tante Sarah leise. Und als Lena zur\u00fcckging, sah sie Mondschimmers Hufe silbrige Abdr\u00fccke auf dem Boden hinterlassen.'
-    ]
+  playAmbient(type) {
+    if (this.muted || this.currentAmb === type) return;
+    this.init(); this.stopAll(); this.currentAmb = type;
+    const ctx = this.ctx;
+    if (type === 'farm') {
+      // Gentle wind + birds
+      const noise = ctx.createBufferSource();
+      noise.buffer = this.createNoise(4); noise.loop = true;
+      const f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 400;
+      const g = ctx.createGain(); g.gain.value = 0.03;
+      noise.connect(f); f.connect(g); g.connect(ctx.destination); noise.start();
+      this.nodes.push(noise);
+      // Bird chirps
+      const birdLoop = () => {
+        if (this.muted || this.currentAmb !== 'farm') return;
+        const o = ctx.createOscillator(); o.type = 'sine';
+        o.frequency.value = 2000 + Math.random() * 2000;
+        const g2 = ctx.createGain(); g2.gain.value = 0;
+        g2.gain.setValueAtTime(0, ctx.currentTime);
+        g2.gain.linearRampToValueAtTime(0.02, ctx.currentTime + 0.05);
+        g2.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.15);
+        o.connect(g2); g2.connect(ctx.destination);
+        o.start(); o.stop(ctx.currentTime + 0.2);
+        setTimeout(birdLoop, 2000 + Math.random() * 5000);
+      };
+      setTimeout(birdLoop, 1000);
+    } else if (type === 'rain') {
+      const noise = ctx.createBufferSource();
+      noise.buffer = this.createNoise(4); noise.loop = true;
+      const f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 1000; f.Q.value = 0.5;
+      const g = ctx.createGain(); g.gain.value = 0.08;
+      noise.connect(f); f.connect(g); g.connect(ctx.destination); noise.start();
+      this.nodes.push(noise);
+    } else if (type === 'night') {
+      // Crickets
+      const cricketLoop = () => {
+        if (this.muted || this.currentAmb !== 'night') return;
+        const o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = 4500;
+        const g2 = ctx.createGain();
+        const t = ctx.currentTime;
+        g2.gain.setValueAtTime(0, t);
+        for (let i = 0; i < 8; i++) {
+          g2.gain.setValueAtTime(0.015, t + i * 0.06);
+          g2.gain.setValueAtTime(0, t + i * 0.06 + 0.03);
+        }
+        o.connect(g2); g2.connect(ctx.destination);
+        o.start(); o.stop(t + 0.5);
+        setTimeout(cricketLoop, 1500 + Math.random() * 3000);
+      };
+      cricketLoop();
+      // Wind
+      const noise = ctx.createBufferSource();
+      noise.buffer = this.createNoise(4); noise.loop = true;
+      const f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 300;
+      const g = ctx.createGain(); g.gain.value = 0.025;
+      noise.connect(f); f.connect(g); g.connect(ctx.destination); noise.start();
+      this.nodes.push(noise);
+    } else if (type === 'forest') {
+      // Stream + wind
+      const noise = ctx.createBufferSource();
+      noise.buffer = this.createNoise(4); noise.loop = true;
+      const f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 800; f.Q.value = 2;
+      const g = ctx.createGain(); g.gain.value = 0.04;
+      noise.connect(f); f.connect(g); g.connect(ctx.destination); noise.start();
+      this.nodes.push(noise);
+    } else if (type === 'storm') {
+      const noise = ctx.createBufferSource();
+      noise.buffer = this.createNoise(4); noise.loop = true;
+      const f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 600;
+      const g = ctx.createGain(); g.gain.value = 0.12;
+      noise.connect(f); f.connect(g); g.connect(ctx.destination); noise.start();
+      this.nodes.push(noise);
+      // Thunder
+      const thunderLoop = () => {
+        if (this.muted || this.currentAmb !== 'storm') return;
+        const o = ctx.createOscillator(); o.type = 'sawtooth'; o.frequency.value = 40;
+        const g2 = ctx.createGain();
+        g2.gain.setValueAtTime(0.15, ctx.currentTime);
+        g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
+        o.connect(g2); g2.connect(ctx.destination);
+        o.start(); o.stop(ctx.currentTime + 1.5);
+        setTimeout(thunderLoop, 6000 + Math.random() * 8000);
+      };
+      setTimeout(thunderLoop, 2000);
+    } else if (type === 'magic') {
+      // Ethereal shimmer
+      const o1 = ctx.createOscillator(); o1.type = 'sine'; o1.frequency.value = 528;
+      const o2 = ctx.createOscillator(); o2.type = 'sine'; o2.frequency.value = 396;
+      const g1 = ctx.createGain(); g1.gain.value = 0.02;
+      const g2 = ctx.createGain(); g2.gain.value = 0.015;
+      o1.connect(g1); g1.connect(ctx.destination);
+      o2.connect(g2); g2.connect(ctx.destination);
+      o1.start(); o2.start();
+      this.nodes.push(o1, o2);
+      // Gentle noise
+      const noise = ctx.createBufferSource();
+      noise.buffer = this.createNoise(4); noise.loop = true;
+      const f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 200;
+      const gn = ctx.createGain(); gn.gain.value = 0.02;
+      noise.connect(f); f.connect(gn); gn.connect(ctx.destination); noise.start();
+      this.nodes.push(noise);
+    }
   },
-  {
-    id: 5, title: "Der Fund unter der Eiche",
-    image: "bilder/web/kap05_fund_eiche.jpg", magical: false,
-    paragraphs: [
-      '\u201eDu hast die silbernen Hufspuren gefunden\u201c, sagte Tante Sarah am n\u00e4chsten Morgen. Keine Frage. \u201eIch kenne das R\u00e4tsel. Aber ich konnte es nie l\u00f6sen.\u201c',
-      'Unter der Eiche gruben sie eine alte, rostige Blechdose aus. Darin: vergilbte Briefe und ein schwerer Schl\u00fcssel mit einem Griff in Form eines Hufeisens.',
-      '<span class="riddle"><em>\u201eIch, August Sonnberg, Gr\u00fcnder des Hofs Sonnenweide, hinterlasse dies als Verm\u00e4chtnis. Das Herz liegt in der alten Scheune, hinter der Wand, die nicht ist, was sie scheint.\u201c</em></span>',
-      'Der Schl\u00fcssel passte ins Schloss der alten Scheune. Hinter einer falschen Wand fanden sie eine Holztruhe.',
-      'Darin: die Original-Grundbesitzurkunde von 1898, Augusts Tagebuch, eine handgemalte Karte. Tante Sarah weinte \u2013 vor Erleichterung. Der Hof war sicher.',
-      'Aber ganz auf dem Boden lag noch ein Blatt. Ein zweites R\u00e4tsel. Lena steckte es in die Tasche, ohne dass jemand es sah.'
-    ]
-  },
-  {
-    id: 6, title: "Der Mann mit dem Hut",
-    image: "bilder/web/kap06_mann_mit_hut.jpg", magical: false,
-    paragraphs: [
-      'Herr Brinkmann kam und forderte das Land \u00f6stlich des Bachs. Tante Sarah konterte mit der Originalurkunde. \u201eDas Land geh\u00f6rt zu Sonnenweide.\u201c',
-      'Als er ging, sah Lena ihm in die Augen. Hinter der K\u00e4lte war etwas Trauriges, Verlorenes.',
-      'Tante Sarah erkl\u00e4rte: \u201eSein Hof war fr\u00fcher genauso gro\u00df. Aber sein Vater hat schlecht gewirtschaftet. Manchmal machen traurige Menschen seltsame Dinge.\u201c',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Lena las das zweite R\u00e4tsel:',
-      '<span class="riddle"><em>Wenn der silberne H\u00fcter seine letzte Runde dreht<br>und der Schatten des Berges die Sonne verdeckt,<br>dann \u00f6ffnet sich, was lang verborgen steht,<br>und das wahre Herz wird entdeckt.<br><br>Suche dort, wo alles begann,<br>wo der erste Stein gelegt,<br>wo der Gr\u00fcnder seinen Traum ersann \u2013<br>die Mondkuppe wei\u00df, was sich dort regt.</em></span>',
-      'Sie zeigte es Finn. \u201eDie Mondkuppe \u2013 da oben war ich schon hundertmal.\u201c',
-      '\u201eVielleicht hast du nicht richtig geguckt.\u201c',
-      '\u201eWann gehen wir hin?\u201c \u2013 \u201eMorgen fr\u00fch.\u201c'
-    ]
-  },
-  {
-    id: 7, title: "Ausritt zur Mondkuppe",
-    image: "bilder/web/kap07_ausritt.jpg", magical: false,
-    paragraphs: [
-      'Der Morgen kam mit Nebel. Lena auf Sturmwind, Finn auf Kupfer, Mia auf Butterblume \u2013 drei Reiter im Morgennebel.',
-      'Sturmwind war angespannt, federnder Schritt, Ohren spielend. Der Wald war still. Zu still.',
-      'Die Mondkuppe: ein runder, offener H\u00fcgel mit Panoramablick. Im Norden das Dorf, im S\u00fcden der Wald, im Westen Hof Sonnenweide wie ein Spielzeughof.',
-      'Am h\u00f6chsten Punkt fand Lena einen bearbeiteten Stein: <em>A.S. \u2013 1898 \u2013 Hier beginnt mein Traum.</em>',
-      'Daneben ein kleines Metallst\u00fcck \u2013 ein Medaillon mit Hufeisen auf der einen, einem Pfeil auf der anderen Seite.',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Dann brach das Gewitter los. Blitz, Donner, peitschender Regen. Butterblume ging durch \u2013 rannte querfeldein!',
-      'Lena dr\u00fcckte Sturmwind die Schenkel in die Seite. Der gro\u00dfe Hengst explodierte nach vorne. Im Galopp jagten sie \u00fcber die nasse Wiese. Sturmwind war schneller als der Wind.',
-      'Sie retteten Mia. \u201eDu bist draufgeblieben. Das ist das Wichtigste.\u201c',
-      'Zur\u00fcck auf dem Hof, in ihrer Tasche das Medaillon und die Frage: <em>Was ist das wahre Herz von Sonnenweide?</em>'
-    ]
-  },
-  {
-    id: 8, title: "Augusts Tagebuch",
-    image: "bilder/web/kap08_tagebuch.jpg", magical: true,
-    paragraphs: [
-      'Abends auf dem Bett, das alte Tagebuch auf den Knien. August Sonnbergs verschn\u00f6rkelte Schrift erz\u00e4hlte von einem silberwei\u00dfen Fohlen, geboren in einer Mainacht 1901.',
-      '<span class="riddle"><em>\u201e14. Mai 1901 \u2013 Sein Fell schimmert wie Mondlicht auf Wasser. Ich nenne es Mondschimmer.\u201c</em></span>',
-      '1901 \u2013 das war vor \u00fcber 120 Jahren. Kein Pferd wird so alt.',
-      '<span class="riddle"><em>\u201e12. Dezember 1905 \u2013 \u00dcberall, wo er ging, hinterlie\u00dfen seine Hufe silberne Spuren. Dieser Hof hat ein Herz, und Mondschimmer ist sein H\u00fcter.\u201c</em></span>',
-      'Schon 1910 wollte ein Brinkmann das Land am Bach kaufen. August schrieb: \u201eMan kann einem Hof nicht das Herz herausschneiden.\u201c',
-      '<span class="riddle"><em>\u201e22. August 1921 \u2013 Das wahre Herz bewahrt Mondschimmer. Er wird den Richtigen finden. Das war mein letzter Eintrag.\u201c</em></span>',
-      'Mondschimmer war ein H\u00fcter. Er hatte die silbernen Spuren gelegt, damit Lena die Truhe fand. Und er bewahrte das <em>wahre</em> Herz des Hofs.'
-    ]
-  },
-  {
-    id: 9, title: "Nacht auf der Mondkuppe",
-    image: "bilder/web/kap09_mondkuppe.jpg", magical: true,
-    paragraphs: [
-      'Drei Tage sp\u00e4ter. Mondschimmer war m\u00fcder geworden. Fra\u00df weniger. Ein Flackern in seinen Augen wie eine Kerze im Wind.',
-      'In der Nacht: Vollmond. Mondschimmer stand auf der Koppel, den Kopf zum Mond erhoben, und ging langsam Richtung Mondkuppe.',
-      'Lena und Finn folgten ihm. Die Mondkuppe war in silbernes Licht getaucht. Wie eine Kirche aus Licht.',
-      'Mondschimmer stand auf dem Grundstein. Sein Fell leuchtete so hell, dass Lena die Augen zusammenkneifen musste. Er ging im Kreis. Seine Hufe hinterlie\u00dfen leuchtende Abdr\u00fccke.',
-      '<em>Seine letzte Runde.</em>',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Er blieb stehen und stupste gegen den Grundstein. Lena schob ihn zur Seite. Darunter: ein Lederbeutel. Eine Silberkette mit einem Anh\u00e4nger \u2013 ein Hufeisen mit einem milchig-wei\u00dfen Stein, der im Mondlicht schimmerte.',
-      '\u201eDas ist es. Das wahre Herz von Sonnenweide.\u201c',
-      'Mondschimmer legte seinen Kopf \u00fcber Lenas Schulter. In seinen Augen: tiefe, stille Dankbarkeit. <em>Du hast auf mich gewartet. All die Jahre.</em>',
-      'Dann: Motorenger\u00e4usch von unten. Herr Brinkmann kam den H\u00fcgel herauf.'
-    ]
-  },
-  {
-    id: 10, title: "Gegen\u00fcber",
-    image: "bilder/web/kap10_gegenueber.jpg", magical: true,
-    paragraphs: [
-      'Lena stellte sich vor Mondschimmer. Im Mondlicht sah Brinkmanns Gesicht anders aus \u2013 weicher, verletzlicher.',
-      '\u201eMein Gro\u00dfvater und August Sonnberg waren Freunde\u201c, erz\u00e4hlte er. \u201eSie standen genau hier und sagten: Hier bauen wir unsere H\u00f6fe.\u201c',
-      '\u201eDann kam der Streit. Mein Gro\u00dfvater wollte das Bachland kaufen. August sagte nein. Die Freundschaft zerbrach.\u201c',
-      'Brinkmann streckte die Hand aus \u2013 und Mondschimmer lie\u00df es zu.',
-      '\u201eIch werde die Klage zur\u00fcckziehen. Das Land geh\u00f6rt zu Sonnenweide. Es hat immer zu Sonnenweide geh\u00f6rt.\u201c',
-      'Lena sp\u00fcrte keine Triumph. Etwas Besseres \u2013 Erleichterung und Mitgef\u00fchl.',
-      '\u201eVielleicht kann das wieder so sein. Nicht August und Ihr Gro\u00dfvater \u2013 aber wir. Unsere Familien.\u201c',
-      'Brinkmann l\u00e4chelte. Ein kleines, rostiges L\u00e4cheln. Aber echt. \u201eDu bist ein kluges M\u00e4dchen, Lena.\u201c'
-    ]
-  },
-  {
-    id: 11, title: "Das Herz schl\u00e4gt weiter",
-    image: "bilder/web/kap11_herz.jpg", magical: false,
-    paragraphs: [
-      'Tante Sarah nahm Lena in den Arm. \u201eDu hast geschafft, woran wir alle gescheitert sind. Nicht nur das R\u00e4tsel. Du hast einen alten Streit beendet.\u201c',
-      'Brinkmann \u2013 Heinrich \u2013 kam zum Hof. Diesmal wartete er still am Tor, den Hut in der Hand. Er und Tante Sarah sprachen lange, leise, ohne \u00c4rger.',
-      'Am Abend ging Lena zu Mondschimmer. Sein Fell leuchtete sanfter, leiser, wie das letzte Gl\u00fchen einer Kerze.',
-      '\u201eDanke, dass du auf mich gewartet hast.\u201c Mondschimmer legte seinen Kopf \u00fcber ihre Schulter.',
-      'Lena weinte. Nicht vor Trauer. Vor so vielen Gef\u00fchlen auf einmal \u2013 Gl\u00fcck, Traurigkeit, Dankbarkeit, Stolz.',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'In dieser Nacht schlief Mondschimmer ein. Friedlich, still, in seiner Box.',
-      'Sie begruben ihn unter der alten Eiche. Finn sagte nichts, aber seine Augen waren rot. Selbst Heinrich nahm seinen Hut ab.',
-      '\u201eSchlaf gut, Mondschimmer. Ich pass auf den Hof auf. Versprochen.\u201c'
-    ]
-  },
-  {
-    id: 12, title: "Ein neuer Anfang",
-    image: "bilder/web/kap12_neuer_anfang.jpg", magical: true,
-    paragraphs: [
-      'Lena ritt jeden Morgen auf Sturmwind aus. Der gro\u00dfe Braune war ruhiger geworden, sanfter, als h\u00e4tte Mondschimmers Abschied etwas in ihm gel\u00f6st.',
-      'Heinrich kam regelm\u00e4\u00dfig vorbei. Er reparierte die alte Scheune \u2013 \u201eMein Gro\u00dfvater hat August beim Bau geholfen. Es f\u00fchlt sich richtig an, sie wieder aufzubauen.\u201c',
-      'Lena trug die silberne Kette. Der Stein war warm, immer warm, als h\u00e4tte er ein eigenes kleines Herz.',
-      '\u201eIch will nicht fahren\u201c, sagte Lena am letzten Abend.',
-      '\u201eSonnenweide ist dein Zuhause, Lena. Das wei\u00dft du.\u201c',
-      'Sturmwind legte seinen warmen Kopf auf Lenas Schulter. \u201eIch komm wieder. Versprochen.\u201c',
-      '<span class="separator">\u2604 \u2604 \u2604</span>',
-      'Am Fenster ihres Dachzimmers sah Lena auf die mondsilberne Koppel. Sturmwind stand am Zaun \u2013 und neben ihm ein winziges, silberwei\u00dfes Fohlen.',
-      'Sie dr\u00fcckte das Gesicht an die Scheibe. Das Fohlen war weg. Hatte sie getr\u00e4umt?',
-      'Der Stein an ihrer Kette war warm. W\u00e4rmer als sonst.',
-      'Nein. Sie hatte nicht getr\u00e4umt. Das Abenteuer war nicht zu Ende. Es hatte gerade erst begonnen.',
-      '<span class="riddle" style="text-align:center;border-left:none;background:linear-gradient(135deg,#e8e8ff,#d0d0f0)"><em>Lenas Abenteuer geht weiter in:<br><strong>\u201eLena und das Fohlen aus Mondlicht\u201c</strong><br>Band 2 der Sonnenweide-Abenteuer</em></span>'
-    ]
+  toggle() {
+    this.muted = !this.muted;
+    if (this.muted) this.stopAll();
+    document.getElementById('soundBtn').textContent = this.muted ? '\u{1F507}' : '\u{1F509}';
+    document.getElementById('soundBtn').classList.toggle('muted', this.muted);
   }
+};
+
+const chapterAmbient = ['farm','rain','forest','night','farm','farm','storm','night','magic','magic','farm','magic'];
+
+function toggleSound() { AudioMgr.toggle(); }
+
+// ========== TTS ==========
+let ttsActive = false;
+let ttsUtterance = null;
+
+function toggleTTS() {
+  if (ttsActive) { stopTTS(); return; }
+  const text = document.getElementById('storyCont')?.innerText;
+  if (!text || !window.speechSynthesis) return;
+  ttsActive = true;
+  document.getElementById('ttsBtn').classList.add('speaking');
+  ttsUtterance = new SpeechSynthesisUtterance(text);
+  ttsUtterance.lang = 'de-DE'; ttsUtterance.rate = 0.9;
+  // Try to find a German voice
+  const voices = speechSynthesis.getVoices();
+  const deVoice = voices.find(v => v.lang.startsWith('de'));
+  if (deVoice) ttsUtterance.voice = deVoice;
+  ttsUtterance.onend = () => stopTTS();
+  speechSynthesis.speak(ttsUtterance);
+}
+
+function stopTTS() {
+  speechSynthesis.cancel();
+  ttsActive = false;
+  document.getElementById('ttsBtn').classList.remove('speaking');
+}
+
+// ========== DATA ==========
+const chapters = [
+  { id:1, title:"Ankunft auf Hof Sonnenweide", image:"bilder/web/kap01_ankunft.jpg", magical:false, effects:['fireflies'],
+    paragraphs: [
+      'Der Geruch traf Lena, noch bevor sie das Tor erreichte. Heu, warmes Holz, und darunter etwas Erdiges, Lebendiges \u2013 der Duft von Pferden.',
+      '\u201eTante Sarah!\u201c Lena rannte los und warf sich in die Arme ihrer Tante.',
+      '\u201eZwei Wochen, Lena-Maus. Zwei ganze Wochen nur du, ich und die Pferde.\u201c Tante Sarah zwinkerte.',
+      '<span class="separator">\u2604 \u2604 \u2604</span>',
+      'Hof Sonnenweide lag am Rand eines kleinen Dorfes, eingebettet zwischen Wiesen und einem alten Mischwald. Der Hof war nicht gro\u00df, aber er war <em>besonders</em>.',
+      'Im Stall lernte Lena sie alle kennen: Butterblume, die sanfte Haflingerin. Nordlicht, die stolze Ex-Turnierstute. Flecki, der zweij\u00e4hrige Wirbelwind. Kupfer, der Kluge. Und Sternchen, sch\u00fcchtern aber tapfer.',
+      '\u201eDu hast noch zwei vergessen.\u201c \u2013 \u201eSturmwind steht drau\u00dfen. Und Mondschimmer \u2026 der ist besonders.\u201c',
+      '<span class="separator">\u2604 \u2604 \u2604</span>',
+      'Sturmwind auf der Koppel war <em>wild</em>-sch\u00f6n. Gro\u00df, kraftvoll, mit Fell wie poliertes Mahagoni. Er kam n\u00e4her, Schritt f\u00fcr Schritt, bis seine Nase Lenas Finger ber\u00fchrte.',
+      '\u201eNa sowas\u201c, murmelte Tante Sarah. \u201eDas hat er bei niemandem gemacht.\u201c',
+      'Sp\u00e4ter, aus dem Dachfenster, sah Lena ein schwaches silbriges Leuchten am Ende des Stalls. Das Kribbeln in ihrem Bauch sagte ihr: ein Abenteuer begann.'
+    ]},
+  { id:2, title:"Nach dem Regen", image:"bilder/web/kap02_nach_dem_regen.jpg", magical:false, effects:['rain'],
+    paragraphs: [
+      'In der Nacht kam der Regen. Zwischen den Regenst\u00f6\u00dfen h\u00f6rte Lena ein metallisches Klingen, wie ein Gl\u00f6ckchen.',
+      'Am n\u00e4chsten Morgen: alles gl\u00e4nzte und funkelte, als h\u00e4tte jemand den Hof mit Diamanten bestreut.',
+      'Finn, der strubbelige Junge vom Nachbarhof: \u201eMondschimmer ist uralt. Der war schon hier, als meine Oma noch ein Kind war.\u201c',
+      'Und Mia kam angeschossen \u2013 lockige rote Haare und ein Lachen, das man drei Koppeln weit h\u00f6ren konnte.',
+      '<span class="separator">\u2604 \u2604 \u2604</span>',
+      'Kurz vor Mittag: eine Hufspur im nassen Boden. Aber sie <em>schimmerte</em>. Silbrig. Eine ganze Linie f\u00fchrte vom Stall zum Waldpfad.',
+      '\u201eSilberne Hufspuren.\u201c \u2013 \u201eSilberne <em>was</em>?\u201c',
+      'Aber es war kein Witz. Die Spuren f\u00fchrten zum Wald.'
+    ]},
+  { id:3, title:"Die Spur im Wald", image:"bilder/web/kap03_spur_im_wald.jpg", magical:false, effects:['fireflies'],
+    paragraphs: [
+      'Lena und Mia folgten den Spuren in den Wald. Der silbrige Schimmer leuchtete wie kleine Wegweiser.',
+      'Sie \u00fcberquerten den Murmelbach auf rutschigen Trittsteinen.',
+      '<span class="separator">\u2604 \u2604 \u2604</span>',
+      'Eine Lichtung. In der Mitte ein flacher Stein mit Gravur \u2013 ein Hufeisen und eine Sonne \u00fcber einer Weide.',
+      '<span class="riddle"><em>Wo der Mond auf Silber trifft,<br>wo die alte Eiche steht,<br>dort bewahrt das Herz des Hofs<br>was kein Sturm verweht.</em></span>',
+      '\u201eDas ist ein R\u00e4tsel. Ein echtes R\u00e4tsel.\u201c',
+      'Auf dem R\u00fcckweg: Herr Brinkmann am Waldrand, die Hufspuren untersuchend. <em>Er wei\u00df etwas</em>, dachte Lena.'
+    ]},
+  { id:4, title:"Mondschimmers Geheimnis", image:"bilder/web/kap04_mondschimmer.jpg", magical:true, effects:['hoofs','moon'],
+    paragraphs: [
+      '\u201eMondschimmer ist \u00e4lter, als er sein d\u00fcrfte. Manche Dinge muss man selbst herausfinden.\u201c',
+      'In der Nacht: Mondschimmer auf der Koppel, silberwei\u00df im Mondlicht. Aber er war in seiner Box gewesen!',
+      'Er f\u00fchrte Lena zu einer uralten Eiche. Stupste gegen eine Markierung \u2013 ein Hufeisen mit Pfeil nach unten.',
+      'Lena grub. Sto\u00df auf Metall. Dann Tante Sarahs Stimme: \u201eEs ist fast Mitternacht!\u201c',
+      'Beim R\u00fcckgehen: Mondschimmers Hufe hinterlie\u00dfen silbrige Abdr\u00fccke.'
+    ]},
+  { id:5, title:"Der Fund unter der Eiche", image:"bilder/web/kap05_fund_eiche.jpg", magical:false, effects:[],
+    paragraphs: [
+      'Unter der Eiche: eine rostige Blechdose mit vergilbten Briefen und einem Schl\u00fcssel in Form eines Hufeisens.',
+      '<span class="riddle"><em>\u201eIch, August Sonnberg, Gr\u00fcnder des Hofs Sonnenweide \u2013 das Herz liegt in der alten Scheune, hinter der Wand, die nicht ist, was sie scheint.\u201c</em></span>',
+      'Der Schl\u00fcssel passte. Hinter einer falschen Wand: eine Holztruhe mit der Original-Grundbesitzurkunde von 1898.',
+      'Tante Sarah weinte \u2013 vor Erleichterung. Der Hof war sicher.',
+      'Aber ganz auf dem Boden lag ein zweites R\u00e4tsel. Lena steckte es in die Tasche.'
+    ]},
+  { id:6, title:"Der Mann mit dem Hut", image:"bilder/web/kap06_mann_mit_hut.jpg", magical:false, effects:[],
+    paragraphs: [
+      'Herr Brinkmann forderte das Land. Tante Sarah konterte mit der Urkunde.',
+      'In seinen Augen: etwas Trauriges. \u201eManchmal machen traurige Menschen seltsame Dinge.\u201c',
+      '<span class="riddle"><em>Wenn der silberne H\u00fcter seine letzte Runde dreht \u2026<br>Suche dort, wo alles begann \u2013<br>die Mondkuppe wei\u00df, was sich dort regt.</em></span>',
+      'Finn: \u201eDie Mondkuppe \u2013 da war ich schon hundertmal.\u201c \u2013 \u201eVielleicht hast du nicht richtig geguckt.\u201c'
+    ]},
+  { id:7, title:"Ausritt zur Mondkuppe", image:"bilder/web/kap07_ausritt.jpg", magical:false, effects:['rain'],
+    paragraphs: [
+      'Drei Reiter im Morgennebel. Lena auf Sturmwind, Finn auf Kupfer, Mia auf Butterblume.',
+      'Auf der Mondkuppe: <em>A.S. \u2013 1898 \u2013 Hier beginnt mein Traum.</em> Und ein Medaillon mit Hufeisen.',
+      '<span class="separator">\u2604 \u2604 \u2604</span>',
+      'Dann das Gewitter. Butterblume ging durch! Sturmwind explodierte nach vorne \u2013 schneller als der Wind.',
+      'Mia gerettet. Zur\u00fcck auf dem Hof, die Frage: <em>Was ist das wahre Herz?</em>'
+    ]},
+  { id:8, title:"Augusts Tagebuch", image:"bilder/web/kap08_tagebuch.jpg", magical:true, effects:['fireflies'],
+    paragraphs: [
+      'Abends, das alte Tagebuch auf den Knien. August schrieb 1901 \u00fcber ein silberwei\u00dfes Fohlen: Mondschimmer.',
+      '<span class="riddle"><em>\u201e12. Dezember 1905 \u2013 \u00dcberall silberne Spuren. Dieser Hof hat ein Herz, und Mondschimmer ist sein H\u00fcter.\u201c</em></span>',
+      '<span class="riddle"><em>\u201e22. August 1921 \u2013 Das wahre Herz bewahrt Mondschimmer. Er wird den Richtigen finden.\u201c</em></span>',
+      'Mondschimmer war ein H\u00fcter. Er hatte auf Lena gewartet.'
+    ]},
+  { id:9, title:"Nacht auf der Mondkuppe", image:"bilder/web/kap09_mondkuppe.jpg", magical:true, effects:['hoofs','moon'],
+    paragraphs: [
+      'Mondschimmer war m\u00fcder geworden. Ein Flackern wie eine Kerze im Wind.',
+      'Vollmondnacht. Mondschimmer ging zur Mondkuppe. Lena und Finn folgten.',
+      'Sein Fell leuchtete. Er ging im Kreis. Silberne Abdr\u00fccke. <em>Seine letzte Runde.</em>',
+      'Unter dem Grundstein: eine Silberkette mit leuchtendem Stein. \u201eDas wahre Herz von Sonnenweide.\u201c',
+      'Mondschimmer legte seinen Kopf \u00fcber Lenas Schulter. Tiefe, stille Dankbarkeit.',
+      'Dann: Motorenger\u00e4usch. Herr Brinkmann kam den H\u00fcgel herauf.'
+    ]},
+  { id:10, title:"Gegen\u00fcber", image:"bilder/web/kap10_gegenueber.jpg", magical:true, effects:['moon'],
+    paragraphs: [
+      'Brinkmann erz\u00e4hlte: Sein Gro\u00dfvater und August waren Freunde gewesen.',
+      '\u201eSie standen genau hier und sagten: Hier bauen wir unsere H\u00f6fe.\u201c',
+      'Er streckte die Hand aus \u2013 Mondschimmer lie\u00df es zu.',
+      '\u201eIch ziehe die Klage zur\u00fcck. Das Land geh\u00f6rt zu Sonnenweide.\u201c',
+      'Lena: \u201eVielleicht k\u00f6nnen unsere Familien wieder Freunde sein.\u201c',
+      'Ein kleines, rostiges L\u00e4cheln. Aber echt.'
+    ]},
+  { id:11, title:"Das Herz schl\u00e4gt weiter", image:"bilder/web/kap11_herz.jpg", magical:false, effects:[],
+    paragraphs: [
+      '\u201eDu hast einen alten Streit beendet.\u201c Tante Sarah nahm Lena in den Arm.',
+      'Am Abend: Mondschimmers Fell leuchtete sanfter, wie das letzte Gl\u00fchen einer Kerze.',
+      '\u201eDanke, dass du auf mich gewartet hast.\u201c',
+      '<span class="separator">\u2604 \u2604 \u2604</span>',
+      'In dieser Nacht schlief Mondschimmer ein. Friedlich, still.',
+      'Sie begruben ihn unter der alten Eiche. \u201eSchlaf gut, Mondschimmer. Ich pass auf den Hof auf.\u201c'
+    ]},
+  { id:12, title:"Ein neuer Anfang", image:"bilder/web/kap12_neuer_anfang.jpg", magical:true, effects:['hoofs','fireflies'],
+    paragraphs: [
+      'Sturmwind war sanfter geworden. Heinrich reparierte die Scheune. Lena trug die silberne Kette.',
+      '\u201eIch will nicht fahren.\u201c \u2013 \u201eSonnenweide ist dein Zuhause, Lena.\u201c',
+      '<span class="separator">\u2604 \u2604 \u2604</span>',
+      'Am Fenster: Sturmwind am Zaun. Und neben ihm \u2013 ein winziges, silberwei\u00dfes Fohlen.',
+      'Der Stein an ihrer Kette war warm. W\u00e4rmer als sonst.',
+      'Das Abenteuer war nicht zu Ende. Es hatte gerade erst begonnen.',
+      '<span class="riddle" style="text-align:center;border-left:none;background:linear-gradient(135deg,#e8e8ff,#d0d0f0)"><em>Weiter in: <strong>\u201eLena und das Fohlen aus Mondlicht\u201c</strong><br>Band 2</em></span>'
+    ]}
 ];
 
 const horses = [
-  {
-    name: "Mondschimmer", key: "mondschimmer", emoji: "\ud83e\udd0d",
-    color: "Silberwei\u00df", age: "Uralt", breed: "Araber-Mix",
-    character: "Weise, geheimnisvoll, ruhig",
-    strength: "Der H\u00fcter von Sonnenweide",
-    desc: "Mondschimmers Fell schimmert wie Mondlicht auf Wasser. Er ist \u00e4lter, als er sein d\u00fcrfte, und seine tiefen, dunklen Augen scheinen alles zu verstehen. Er hat auf Lena gewartet \u2013 all die Jahre."
-  },
-  {
-    name: "Sturmwind", key: "sturmwind", emoji: "\ud83d\udc0e",
-    color: "Kastanienbraun", age: "8 Jahre", breed: "Warmblut",
-    character: "Wild, temperamentvoll, treu",
-    strength: "Schnell wie der Wind",
-    desc: "Sturmwind ist wild-sch\u00f6n. Gro\u00df, kraftvoll, mit Fell wie poliertes Mahagoni. Wie ein Gewitter am Horizont. Er vertraut nicht jedem \u2013 aber Lena hat er sofort gemocht."
-  },
-  {
-    name: "Butterblume", key: "butterblume", emoji: "\ud83c\udf3b",
-    color: "Golden", age: "12 Jahre", breed: "Haflinger",
-    character: "Sanft, geduldig, liebevoll",
-    strength: "Die Seele des Stalls",
-    desc: "Rund und gem\u00fctlich, mit den sanftesten Augen der Welt. Butterblume ist das Pferd, das jeder liebt \u2013 und das jeden liebt."
-  },
-  {
-    name: "Flecki", key: "flecki", emoji: "\ud83e\udd2a",
-    color: "Braun-wei\u00df gescheckt", age: "2 Jahre", breed: "Pony",
-    character: "Frech, verspielt, lustig",
-    strength: "Bringt alle zum Lachen",
-    desc: "Ein Wirbelwind mit Hufen! Flecki ist der J\u00fcngste und der Frechdachs. Er zerrt an Heunetzen, klaut Jacken und macht, was er will. Meistens."
-  },
-  {
-    name: "Kupfer", key: "kupfer", emoji: "\ud83e\udde0",
-    color: "Rotbraun", age: "10 Jahre", breed: "Wallach",
-    character: "Ruhig, klug, verl\u00e4sslich",
-    strength: "Findet jeden Weg nach Hause",
-    desc: "Kupfer beobachtet alles mit seinen klugen Augen. Wenn du dich im Wald verirrst, lass die Z\u00fcgel locker \u2013 er bringt dich sicher heim."
-  },
-  {
-    name: "Sternchen", key: "sternchen", emoji: "\u2b50",
-    color: "Dunkelbraun", age: "6 Jahre", breed: "Pony",
-    character: "Sch\u00fcchtern, aber tapfer",
-    strength: "Mut, wenn es darauf ankommt",
-    desc: "Der wei\u00dfe Stern auf ihrer Stirn leuchtet wie ein kleines Licht. Sternchen ist sch\u00fcchtern \u2013 aber wenn es z\u00e4hlt, ist sie tapferer als alle anderen zusammen."
-  },
-  {
-    name: "Nordlicht", key: "nordlicht", emoji: "\ud83d\udc51",
-    color: "Grau-Silber", age: "14 Jahre", breed: "Stute",
-    character: "Elegant, stolz, herzlich",
-    strength: "Ex-Turnierpferd mit Goldherz",
-    desc: "Nordlicht mustert die Welt von oben herab, als w\u00e4re alles ein Laufsteg. Sehr von sich \u00fcberzeugt \u2013 aber unter der k\u00fchlen Fassade steckt ein Herz aus Gold."
-  }
+  { name:"Mondschimmer", key:"mondschimmer", emoji:"\u{1F90D}", color:"Silberwei\u00df", age:"Uralt", breed:"Araber-Mix", character:"Weise, geheimnisvoll", strength:"H\u00fcter von Sonnenweide", desc:"Sein Fell schimmert wie Mondlicht. Er hat auf Lena gewartet \u2013 all die Jahre." },
+  { name:"Sturmwind", key:"sturmwind", emoji:"\u{1F40E}", color:"Kastanienbraun", age:"8 Jahre", breed:"Warmblut", character:"Wild, treu", strength:"Schnell wie der Wind", desc:"Wild-sch\u00f6n. Fell wie Mahagoni. Vertraut nicht jedem \u2013 aber Lena sofort." },
+  { name:"Butterblume", key:"butterblume", emoji:"\u{1F33B}", color:"Golden", age:"12 Jahre", breed:"Haflinger", character:"Sanft, geduldig", strength:"Seele des Stalls", desc:"Rund, gem\u00fctlich, die sanftesten Augen der Welt." },
+  { name:"Flecki", key:"flecki", emoji:"\u{1F92A}", color:"Gescheckt", age:"2 Jahre", breed:"Pony", character:"Frech, verspielt", strength:"Bringt alle zum Lachen", desc:"Wirbelwind mit Hufen. Zerrt an Heunetzen, klaut Jacken." },
+  { name:"Kupfer", key:"kupfer", emoji:"\u{1F9E0}", color:"Rotbraun", age:"10 Jahre", breed:"Wallach", character:"Ruhig, klug", strength:"Findet jeden Weg", desc:"Lass die Z\u00fcgel locker \u2013 er bringt dich sicher heim." },
+  { name:"Sternchen", key:"sternchen", emoji:"\u2B50", color:"Dunkelbraun", age:"6 Jahre", breed:"Pony", character:"Sch\u00fcchtern, tapfer", strength:"Mut wenn\u2019s z\u00e4hlt", desc:"Der wei\u00dfe Stern leuchtet. Sch\u00fcchtern, aber tapferer als alle." },
+  { name:"Nordlicht", key:"nordlicht", emoji:"\u{1F451}", color:"Grau-Silber", age:"14 Jahre", breed:"Stute", character:"Elegant, stolz", strength:"Ex-Turnierpferd", desc:"Sehr von sich \u00fcberzeugt \u2013 aber Herz aus Gold." }
 ];
 
 const quizQuestions = [
-  {
-    q: "Wie hei\u00dft Lenas Tante?",
-    answers: ["Tante Lisa", "Tante Sarah", "Tante Anna", "Tante Petra"],
-    correct: 1
-  },
-  {
-    q: "Welche Farbe hat Sturmwinds Fell?",
-    answers: ["Silberwei\u00df", "Schwarz", "Kastanienbraun", "Goldgelb"],
-    correct: 2
-  },
-  {
-    q: "Was findet Lena auf dem Boden nach dem Regen?",
-    answers: ["Goldm\u00fcnzen", "Silberne Hufspuren", "Einen alten Schl\u00fcssel", "Einen Brief"],
-    correct: 1
-  },
-  {
-    q: "Wer hat Hof Sonnenweide gegr\u00fcndet?",
-    answers: ["Wilhelm Brinkmann", "August Sonnberg", "Friedrich Sonnberg", "Heinrich Brinkmann"],
-    correct: 1
-  },
-  {
-    q: "Welches Pferd ist der H\u00fcter von Sonnenweide?",
-    answers: ["Sturmwind", "Butterblume", "Nordlicht", "Mondschimmer"],
-    correct: 3
-  },
-  {
-    q: "In welchem Jahr wurde der Hof gegr\u00fcndet?",
-    answers: ["1850", "1898", "1921", "1901"],
-    correct: 1
-  },
-  {
-    q: "Wie hei\u00dft der Bach auf dem Hof?",
-    answers: ["Pl\u00e4tscherbach", "Silberbach", "Murmelbach", "Goldbach"],
-    correct: 2
-  },
-  {
-    q: "Welches Pferd ist das j\u00fcngste auf dem Hof?",
-    answers: ["Sternchen", "Flecki", "Butterblume", "Kupfer"],
-    correct: 1
-  },
-  {
-    q: "Was findet Lena unter dem Grundstein auf der Mondkuppe?",
-    answers: ["Eine Schatzkarte", "Ein altes Schwert", "Eine Silberkette mit Anh\u00e4nger", "Goldm\u00fcnzen"],
-    correct: 2
-  },
-  {
-    q: "Wie hei\u00dft Lenas Freundin mit den roten Locken?",
-    answers: ["Anna", "Sophie", "Mia", "Emma"],
-    correct: 2
-  },
-  {
-    q: "Welches Pferd tr\u00e4gt einen wei\u00dfen Stern auf der Stirn?",
-    answers: ["Mondschimmer", "Sternchen", "Nordlicht", "Flecki"],
-    correct: 1
-  },
-  {
-    q: "Was will Herr Brinkmann vom Hof?",
-    answers: ["Die Pferde kaufen", "Das Land \u00f6stlich des Bachs", "Den Stall mieten", "Tante Sarah heiraten"],
-    correct: 1
-  },
-  {
-    q: "Wo wird Mondschimmer begraben?",
-    answers: ["Auf der Mondkuppe", "Am Murmelbach", "Unter der alten Eiche", "Auf der Koppel"],
-    correct: 2
-  },
-  {
-    q: "Was sieht Lena am Ende aus dem Fenster?",
-    answers: ["Einen Regenbogen", "Ein silberwei\u00dfes Fohlen", "Herrn Brinkmann", "Einen Fuchs"],
-    correct: 1
-  }
+  { q:"Wie hei\u00dft Lenas Tante?", answers:["Tante Lisa","Tante Sarah","Tante Anna","Tante Petra"], correct:1 },
+  { q:"Welche Farbe hat Sturmwinds Fell?", answers:["Silberwei\u00df","Schwarz","Kastanienbraun","Goldgelb"], correct:2 },
+  { q:"Was findet Lena nach dem Regen?", answers:["Goldm\u00fcnzen","Silberne Hufspuren","Einen Schl\u00fcssel","Einen Brief"], correct:1 },
+  { q:"Wer hat Hof Sonnenweide gegr\u00fcndet?", answers:["Wilhelm Brinkmann","August Sonnberg","Friedrich Sonnberg","Heinrich Brinkmann"], correct:1 },
+  { q:"Welches Pferd ist der H\u00fcter?", answers:["Sturmwind","Butterblume","Nordlicht","Mondschimmer"], correct:3 },
+  { q:"In welchem Jahr wurde der Hof gegr\u00fcndet?", answers:["1850","1898","1921","1901"], correct:1 },
+  { q:"Wie hei\u00dft der Bach?", answers:["Pl\u00e4tscherbach","Silberbach","Murmelbach","Goldbach"], correct:2 },
+  { q:"Welches Pferd ist das j\u00fcngste?", answers:["Sternchen","Flecki","Butterblume","Kupfer"], correct:1 },
+  { q:"Was findet Lena unter dem Grundstein?", answers:["Eine Schatzkarte","Ein Schwert","Eine Silberkette","Goldm\u00fcnzen"], correct:2 },
+  { q:"Wer hat rote Locken?", answers:["Anna","Sophie","Mia","Emma"], correct:2 },
+  { q:"Wer tr\u00e4gt einen wei\u00dfen Stern?", answers:["Mondschimmer","Sternchen","Nordlicht","Flecki"], correct:1 },
+  { q:"Was will Herr Brinkmann?", answers:["Die Pferde","Das Bachland","Den Stall","Den Wald"], correct:1 },
+  { q:"Wo ruht Mondschimmer?", answers:["Mondkuppe","Am Bach","Unter der Eiche","Auf der Koppel"], correct:2 },
+  { q:"Was sieht Lena am Ende?", answers:["Regenbogen","Ein silbernes Fohlen","Brinkmann","Einen Fuchs"], correct:1 }
+];
+
+const wbiRiddles = [
+  { clues:["Mein Fell schimmert wie Mondlicht.","Ich bin \u00e4lter als alle anderen.","Ich habe auf Lena gewartet.","Meine Hufe hinterlassen silberne Spuren."], answer:"Mondschimmer", options:["Sturmwind","Mondschimmer","Butterblume","Nordlicht"] },
+  { clues:["Ich bin wild und schnell.","Mein Fell ist wie poliertes Mahagoni.","Ich vertraue nicht jedem.","Aber Lena mochte ich sofort."], answer:"Sturmwind", options:["Kupfer","Flecki","Sturmwind","Sternchen"] },
+  { clues:["Ich bin rund und gem\u00fctlich.","Ich habe eine helle, fast wei\u00dfe M\u00e4hne.","Ich bin die Seele des Stalls.","Jeder liebt mich."], answer:"Butterblume", options:["Butterblume","Nordlicht","Sternchen","Flecki"] },
+  { clues:["Ich bin erst zwei Jahre alt.","Ich zerr an Heunetzen.","Ich klaue gerne Jacken.","Ich bin ein Wirbelwind mit Hufen!"], answer:"Flecki", options:["Sternchen","Kupfer","Mondschimmer","Flecki"] },
+  { clues:["Ich finde immer den Weg nach Hause.","Meine Augen sind besonders klug.","Ich bin ruhig und verl\u00e4sslich.","Lass die Z\u00fcgel locker bei mir."], answer:"Kupfer", options:["Sturmwind","Kupfer","Butterblume","Nordlicht"] },
+  { clues:["Ich bin sch\u00fcchtern.","Ich habe einen wei\u00dfen Stern auf der Stirn.","Aber wenn es darauf ankommt\u2026","bin ich tapferer als alle anderen!"], answer:"Sternchen", options:["Flecki","Mondschimmer","Sternchen","Kupfer"] },
+  { clues:["Ich war mal ein Turnierpferd.","Ich bin sehr von mir \u00fcberzeugt.","Mein Fell schimmert silbergrau.","Aber unter der Fassade: Herz aus Gold."], answer:"Nordlicht", options:["Nordlicht","Mondschimmer","Sturmwind","Butterblume"] }
 ];
 
 const mapLocations = [
-  {
-    id: "stall", x: "42%", y: "35%", icon: "\ud83d\udeb2", bg: "#8d6e63",
-    label: "Stall", title: "Der Stall",
-    img: "bilder/web/kap01_ankunft.jpg",
-    desc: "Hier wohnen die sieben Pferde von Sonnenweide. Sieben Boxen auf jeder Seite, warmes Licht durch kleine Fenster, und der Duft von Heu und warmem Holz. Mondschimmers Box war ganz hinten, die letzte im Gang.",
-    chapter: 0
-  },
-  {
-    id: "koppel", x: "62%", y: "28%", icon: "\ud83d\udc0e", bg: "#66bb6a",
-    label: "Koppel", title: "Die gro\u00dfe Koppel",
-    img: "bilder/web/kap02_nach_dem_regen.jpg",
-    desc: "Auf der Koppel galoppiert Sturmwind \u00fcber die Wiese, seine dunkle M\u00e4hne weht wie eine Fahne. Hier hat Lena die ersten silbernen Hufspuren entdeckt!",
-    chapter: 1
-  },
-  {
-    id: "wald", x: "22%", y: "55%", icon: "\ud83c\udf33", bg: "#2e7d32",
-    label: "Wald", title: "Der alte Mischwald",
-    img: "bilder/web/kap03_spur_im_wald.jpg",
-    desc: "Der geheimnisvolle Wald, durch den die silbernen Hufspuren f\u00fchren. Hier liegt die verborgene Lichtung mit dem Rätselstein, und der Murmelbach schl\u00e4ngelt sich zwischen moosbedeckten Steinen.",
-    chapter: 2
-  },
-  {
-    id: "eiche", x: "30%", y: "40%", icon: "\ud83c\udf33", bg: "#795548",
-    label: "Alte Eiche", title: "Die alte Eiche",
-    img: "bilder/web/kap05_fund_eiche.jpg",
-    desc: "Die riesige, knorrige Eiche \u2013 so breit, dass drei Kinder sie nicht umfassen k\u00f6nnten. Unter ihren Wurzeln lag die Blechdose mit Augusts Verm\u00e4chtnis. Hier ruht jetzt auch Mondschimmer.",
-    chapter: 4
-  },
-  {
-    id: "scheune", x: "50%", y: "52%", icon: "\ud83c\udfe0", bg: "#a1887f",
-    label: "Alte Scheune", title: "Augusts Scheune",
-    img: "bilder/web/kap05_fund_eiche.jpg",
-    desc: "Die verfallene Scheune mit dem Geheimnis hinter der Wand. Hier fand Lena die Holztruhe mit den Originalurkunden und dem Tagebuch des Gr\u00fcnders.",
-    chapter: 4
-  },
-  {
-    id: "bauernhaus", x: "55%", y: "42%", icon: "\ud83c\udfe1", bg: "#d84315",
-    label: "Bauernhaus", title: "Das Bauernhaus",
-    img: "bilder/web/kap08_tagebuch.jpg",
-    desc: "Tante Sarahs gem\u00fctliches Bauernhaus mit der warmen K\u00fcche und Lenas Dachzimmer. Von dort oben kann man den ganzen Hof \u00fcberblicken \u2013 und nachts Mondschimmer auf der Koppel beobachten.",
-    chapter: 7
-  },
-  {
-    id: "mondkuppe", x: "78%", y: "65%", icon: "\ud83c\udf19", bg: "#5c6bc0",
-    label: "Mondkuppe", title: "Die Mondkuppe",
-    img: "bilder/web/kap09_mondkuppe.jpg",
-    desc: "Der runde H\u00fcgel, wo August 1898 seinen Traum ers\u00e4hnte. Hier liegt der Grundstein mit der Gravur, und hier hat Mondschimmer seine letzte Runde gedreht \u2013 leuchtend im Vollmond.",
-    chapter: 8
-  },
-  {
-    id: "bach", x: "35%", y: "68%", icon: "\ud83d\udca7", bg: "#29b6f6",
-    label: "Murmelbach", title: "Der Murmelbach",
-    img: "bilder/web/kap03_spur_im_wald.jpg",
-    desc: "Der kleine Bach mit den rutschigen Trittsteinen. Nach dem Regen schwillt er an, und das Wasser schie\u00dft schneller \u00fcber die Steine. Lena und Mia haben ihn mutig \u00fcberquert.",
-    chapter: 2
-  }
+  { id:"stall",x:"42%",y:"35%",icon:"\u{1F3DA}",bg:"#8d6e63",label:"Stall",title:"Der Stall",img:"bilder/web/kap01_ankunft.jpg",desc:"Hier wohnen die sieben Pferde. Mondschimmers Box war ganz hinten.",chapter:0 },
+  { id:"koppel",x:"62%",y:"28%",icon:"\u{1F40E}",bg:"#66bb6a",label:"Koppel",title:"Die Koppel",img:"bilder/web/kap02_nach_dem_regen.jpg",desc:"Hier galoppiert Sturmwind. Hier entdeckte Lena die silbernen Hufspuren!",chapter:1 },
+  { id:"wald",x:"22%",y:"55%",icon:"\u{1F333}",bg:"#2e7d32",label:"Wald",title:"Der Wald",img:"bilder/web/kap03_spur_im_wald.jpg",desc:"Geheimnisvoller Wald mit der Lichtung und dem R\u00e4tselstein.",chapter:2 },
+  { id:"eiche",x:"30%",y:"40%",icon:"\u{1F333}",bg:"#795548",label:"Alte Eiche",title:"Die alte Eiche",img:"bilder/web/kap05_fund_eiche.jpg",desc:"Hier lag Augusts Verm\u00e4chtnis. Hier ruht Mondschimmer.",chapter:4 },
+  { id:"scheune",x:"50%",y:"52%",icon:"\u{1F3E0}",bg:"#a1887f",label:"Scheune",title:"Augusts Scheune",img:"bilder/web/kap05_fund_eiche.jpg",desc:"Die Scheune mit dem Geheimnis hinter der Wand.",chapter:4 },
+  { id:"haus",x:"55%",y:"42%",icon:"\u{1F3E1}",bg:"#d84315",label:"Bauernhaus",title:"Das Bauernhaus",img:"bilder/web/kap08_tagebuch.jpg",desc:"Tante Sarahs Haus mit Lenas Dachzimmer.",chapter:7 },
+  { id:"mondkuppe",x:"78%",y:"65%",icon:"\u{1F319}",bg:"#5c6bc0",label:"Mondkuppe",title:"Die Mondkuppe",img:"bilder/web/kap09_mondkuppe.jpg",desc:"Hier drehte Mondschimmer seine letzte Runde im Vollmond.",chapter:8 },
+  { id:"bach",x:"35%",y:"68%",icon:"\u{1F4A7}",bg:"#29b6f6",label:"Murmelbach",title:"Der Murmelbach",img:"bilder/web/kap03_spur_im_wald.jpg",desc:"Der Bach mit den rutschigen Trittsteinen.",chapter:2 }
 ];
 
-// ===== STATE =====
-let currentChapter = 0;
-let readChapters = new Set();
-let quizState = { current: 0, score: 0, answered: false, shuffled: [] };
-let currentScreen = 'startScreen';
+// ========== ADVENTURE DATA ==========
+const advScenes = [
+  { id:'start', img:'bilder/web/kap01_ankunft.jpg',
+    text:'<p>Du stehst vor dem Tor von Hof Sonnenweide. Der Geruch von Heu und Pferden liegt in der Luft. Tante Sarah winkt dir zu.</p><p>Wohin gehst du zuerst?</p>',
+    choices:[{text:'\u{1F3DA} Zum Stall \u2013 die Pferde besuchen', next:'stall'},{text:'\u{1F33F} Zum Waldrand \u2013 etwas glitzert dort', next:'waldrand'}], items:[] },
+  { id:'stall', img:'bilder/web/kap01_ankunft.jpg',
+    text:'<p>Im Stall ist es warm und gem\u00fctlich. Du gehst den Gang entlang. Butterblume schnaubt dir zur Begr\u00fc\u00dfung entgegen. Flecki versucht, an deiner Jacke zu knabbern.</p><p>Ganz hinten, in der letzten Box, steht ein silberwei\u00dfes Pferd. Es sieht dich an, als w\u00fcrde es dich kennen.</p>',
+    choices:[{text:'\u{1F90D} N\u00e4her zu Mondschimmer gehen', next:'mondschimmer'},{text:'\u{1F40E} Sturmwind auf der Koppel besuchen', next:'koppel'}], items:[] },
+  { id:'waldrand', img:'bilder/web/kap02_nach_dem_regen.jpg',
+    text:'<p>Am Waldrand kniест du dich hin. Im nassen Boden schimmert etwas Seltsames \u2013 eine Hufspur, die silbrig gl\u00e4nzt!</p><p>Die Spur f\u00fchrt zum Wald. Weitere Spuren reihen sich aneinander wie Wegweiser.</p>',
+    choices:[{text:'\u2728 Die silbernen Spuren untersuchen', next:'spuren', gives:'silberne_spur'},{text:'\u{1F3DA} Erst zum Stall gehen', next:'stall'}], items:[] },
+  { id:'mondschimmer', img:'bilder/web/kap04_mondschimmer.jpg',
+    text:'<p>Mondschimmer stupst sanft seine Nase gegen deine Hand. Seine Augen sind tief und weise. Du sp\u00fcrst: dieses Pferd ist besonders.</p><p>An der Stallwand h\u00e4ngt ein altes Foto. Darauf steht: <em>Mondschimmer, 1905</em>. Das kann nicht stimmen \u2013 das w\u00e4re \u00fcber 120 Jahre alt!</p>',
+    choices:[{text:'\u{1F4F7} Das alte Foto mitnehmen', next:'koppel', gives:'altes_foto'},{text:'\u{1F40E} Zur Koppel gehen', next:'koppel'}], items:[] },
+  { id:'koppel', img:'bilder/web/kap02_nach_dem_regen.jpg',
+    text:'<p>Sturmwind galoppiert \u00fcber die Koppel \u2013 kraftvoll, m\u00e4hnenwehend, wundersch\u00f6n. Er bleibt stehen und sieht dich an.</p><p>Am Zaun entdeckst du weitere silbrige Spuren, die zum Wald f\u00fchren.</p>',
+    choices:[{text:'\u{1F333} Den Spuren zum Wald folgen', next:'wald'},{text:'\u{1F50D} Am Zaun nach Hinweisen suchen', next:'zaun_hinweis'}], items:[] },
+  { id:'zaun_hinweis', img:'bilder/web/kap02_nach_dem_regen.jpg',
+    text:'<p>Am Zaunpfosten ist etwas eingeritzt! Ein Symbol \u2013 eine Sonne \u00fcber einer Weide mit einem Hufeisen. Das Zeichen von Hof Sonnenweide.</p><p>Daneben ein Pfeil, der zum Wald zeigt.</p>',
+    choices:[{text:'\u{1F333} Dem Pfeil folgen', next:'wald', gives:'hofzeichen'}], items:[] },
+  { id:'spuren', img:'bilder/web/kap03_spur_im_wald.jpg',
+    text:'<p>Die Spuren schimmern st\u00e4rker, je n\u00e4her du dem Wald kommst. Es ist, als wollte jemand, dass du ihnen folgst.</p>',
+    choices:[{text:'\u{1F333} In den Wald gehen', next:'wald'}], items:[] },
+  { id:'wald', img:'bilder/web/kap03_spur_im_wald.jpg',
+    text:'<p>Der Waldpfad ist schmal und holprig. Die silbernen Spuren leuchten zwischen dem Laub. Du h\u00f6rst den Murmelbach rauschen.</p><p>Die Spuren f\u00fchren \u00fcber den Bach zu einer Lichtung.</p>',
+    choices:[{text:'\u{1F4A7} \u00dcber den Bach zur Lichtung', next:'lichtung'},{text:'\u{1F333} Den Wald weiter erkunden', next:'wald_tief'}], items:[] },
+  { id:'wald_tief', img:'bilder/web/kap03_spur_im_wald.jpg',
+    text:'<p>Tiefer im Wald wird es dunkler. Moos bedeckt die Steine. Du h\u00f6rst ein Rascheln \u2013 nur ein Eichh\u00f6rnchen!</p><p>Zwischen den B\u00e4umen erkennst du einen flachen Stein auf einer Lichtung.</p>',
+    choices:[{text:'\u2728 Zur Lichtung gehen', next:'lichtung'}], items:[] },
+  { id:'lichtung', img:'bilder/web/kap03_spur_im_wald.jpg',
+    text:'<p>Auf der Lichtung steht ein gro\u00dfer, flacher Stein. In seine Oberfl\u00e4che ist etwas eingraviert: ein Hufeisen, eine Sonne \u2013 und ein R\u00e4tsel!</p><p class="riddle"><em>Wo der Mond auf Silber trifft,<br>wo die alte Eiche steht,<br>dort bewahrt das Herz des Hofs<br>was kein Sturm verweht.</em></p>',
+    choices:[{text:'\u{1F4DC} R\u00e4tsel merken und zur Eiche suchen', next:'eiche_suche', gives:'raetsel_1'}], items:[] },
+  { id:'eiche_suche', img:'bilder/web/kap04_mondschimmer.jpg',
+    text:'<p>Zur\u00fcck auf dem Hof suchst du die alte Eiche. Mondschimmer steht am Zaun und sieht dich an. Dann dreht er sich um und geht langsam \u2013 als wollte er dir den Weg zeigen!</p><p>Du folgst ihm zu einem verwilderten Teil des Hofs. Dort steht sie: eine riesige, knorrige Eiche.</p>',
+    choices:[{text:'\u{1F333} An den Wurzeln graben', next:'fund'}], items:[] },
+  { id:'fund', img:'bilder/web/kap05_fund_eiche.jpg',
+    text:'<p>Unter den Wurzeln st\u00f6\u00dft du auf eine rostige Blechdose! Darin: vergilbte Briefe und ein schwerer Schl\u00fcssel mit einem Hufeisen-Griff.</p><p>Augusts Brief verr\u00e4t: <em>\u201eDas Herz liegt in der alten Scheune.\u201c</em></p>',
+    choices:[{text:'\u{1F5DD} Mit dem Schl\u00fcssel zur Scheune', next:'scheune', gives:'schluessel'}], items:[] },
+  { id:'scheune', img:'bilder/web/kap05_fund_eiche.jpg',
+    text:'<p>Der Schl\u00fcssel passt! Hinter einer falschen Wand findest du eine Holztruhe. Darin: die Original-Besitzurkunde von 1898!</p><p>Tante Sarah weint vor Erleichterung. Der Hof ist sicher!</p><p>Aber in der Truhe liegt noch ein zweites R\u00e4tsel \u2013 \u00fcber die Mondkuppe und das <em>wahre Herz</em>.</p>',
+    choices:[{text:'\u{1F319} Zur Mondkuppe reiten', next:'mondkuppe', gives:'raetsel_2'}], items:[] },
+  { id:'mondkuppe', img:'bilder/web/kap09_mondkuppe.jpg',
+    text:'<p>Auf dem h\u00f6chsten Punkt findest du Augusts Grundstein: <em>A.S. \u2013 1898 \u2013 Hier beginnt mein Traum.</em></p><p>In einer Vollmondnacht kommt Mondschimmer herauf. Sein Fell leuchtet. Er geht im Kreis und stupst gegen den Stein.</p><p>Darunter: eine Silberkette mit einem leuchtenden Anh\u00e4nger \u2013 das wahre Herz von Sonnenweide!</p>',
+    choices:[{text:'\u2728 Die Kette anlegen', next:'finale', gives:'silberkette'}], items:[] },
+  { id:'finale', img:'bilder/web/kap12_neuer_anfang.jpg',
+    text:'<p>Du tr\u00e4gst die silberne Kette. Der Stein ist warm auf deiner Brust.</p><p>Herr Brinkmann zieht seine Klage zur\u00fcck. Die Familien vers\u00f6hnen sich. Mondschimmer legt seinen Kopf auf deine Schulter.</p><p>Am letzten Abend siehst du aus dem Dachfenster: neben Sturmwind steht ein winziges, silberwei\u00dfes Fohlen.</p><p><strong>Du hast das Geheimnis der silbernen Hufspur gel\u00f6st!</strong></p>',
+    choices:[{text:'\u{1F3C6} Nochmal spielen', next:'start'}], items:[] }
+];
 
-// Load progress
+// ========== STATE ==========
+let curCh = 0, readChs = new Set(), curScreen = 'startScreen';
+let quizMode = 'quiz';
+let qState = { cur:0, score:0, answered:false, shuffled:[] };
+let memState = { cards:[], flipped:[], matched:0, moves:0, locked:false };
+let wbiState = { cur:0, clueIdx:0, answered:false };
+let advState = { scene:'start', inventory:[] };
+let mapScale = 1, mapX = 0, mapY = 0;
+
+// Load
 try {
-  const saved = JSON.parse(localStorage.getItem('lena-progress') || '{}');
-  if (saved.readChapters) readChapters = new Set(saved.readChapters);
-  if (saved.currentChapter !== undefined) currentChapter = saved.currentChapter;
+  const s = JSON.parse(localStorage.getItem('lena-v2') || '{}');
+  if (s.readChs) readChs = new Set(s.readChs);
+  if (s.curCh !== undefined) curCh = s.curCh;
 } catch(e) {}
 
-function saveProgress() {
-  try {
-    localStorage.setItem('lena-progress', JSON.stringify({
-      readChapters: [...readChapters],
-      currentChapter
-    }));
-  } catch(e) {}
+function save() {
+  try { localStorage.setItem('lena-v2', JSON.stringify({ readChs:[...readChs], curCh })); } catch(e) {}
 }
 
-// ===== INIT =====
+// ========== INIT ==========
 function initStars() {
-  const container = document.getElementById('stars');
+  const c = document.getElementById('stars');
   for (let i = 0; i < 80; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 60 + '%';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    star.style.width = star.style.height = (Math.random() * 2 + 1) + 'px';
-    container.appendChild(star);
+    const s = document.createElement('div'); s.className = 'star';
+    s.style.left = Math.random()*100+'%'; s.style.top = Math.random()*60+'%';
+    s.style.animationDelay = Math.random()*3+'s';
+    s.style.width = s.style.height = (Math.random()*2+1)+'px';
+    c.appendChild(s);
   }
 }
 
 function startApp() {
+  AudioMgr.init();
   document.getElementById('startScreen').classList.remove('active');
   document.getElementById('bottomNav').style.display = 'flex';
+  document.getElementById('globalCtrl').style.display = 'flex';
   showScreen('storyScreen');
 }
 
 function showScreen(id) {
-  currentScreen = id;
+  curScreen = id; stopTTS();
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.screen === id);
-  });
-
-  if (id === 'storyScreen') renderChapter();
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.screen === id));
+  if (id === 'storyScreen') renderCh();
   if (id === 'mapScreen') renderMap();
   if (id === 'horsesScreen') renderHorses();
-  if (id === 'quizScreen') renderQuiz();
+  if (id === 'quizScreen') renderQuizMode();
+  if (id === 'adventureScreen') renderAdv();
 }
 
-// ===== STORY =====
-function renderChapter() {
-  const ch = chapters[currentChapter];
-  readChapters.add(currentChapter);
-  saveProgress();
+// ========== STORY ==========
+function renderCh() {
+  const ch = chapters[curCh]; readChs.add(curCh); save();
+  document.getElementById('chTitle').textContent = `Kapitel ${ch.id} \u2013 ${ch.title}`;
+  document.getElementById('prevBtn').disabled = curCh === 0;
+  document.getElementById('nextBtn').disabled = curCh === chapters.length - 1;
 
-  document.getElementById('chapterTitle').textContent =
-    `Kapitel ${ch.id} \u2013 ${ch.title}`;
-
-  document.getElementById('prevChapterBtn').disabled = currentChapter === 0;
-  document.getElementById('nextChapterBtn').disabled = currentChapter === chapters.length - 1;
+  // Ambient sound
+  AudioMgr.playAmbient(chapterAmbient[curCh]);
 
   // Dots
-  const dotsEl = document.getElementById('chapterDots');
-  dotsEl.innerHTML = chapters.map((_, i) => {
-    let cls = 'chapter-dot';
-    if (i === currentChapter) cls += ' current';
-    else if (readChapters.has(i)) cls += ' read';
-    return `<button class="${cls}" onclick="event.stopPropagation();goToChapter(${i})"></button>`;
+  document.getElementById('chDots').innerHTML = chapters.map((_,i) => {
+    let c = 'ch-dot'; if (i===curCh) c+=' current'; else if (readChs.has(i)) c+=' read';
+    return `<button class="${c}" onclick="event.stopPropagation();gotoCh(${i})"></button>`;
   }).join('');
 
-  // Content
-  const content = document.getElementById('storyContent');
-  const magicalClass = ch.magical ? ' magical' : '';
-  content.innerHTML = `
-    <div class="chapter-illustration${magicalClass}">
-      <img src="${ch.image}" alt="${ch.title}" loading="lazy">
-    </div>
-    <div class="chapter-text">
-      ${ch.paragraphs.map(p => `<p>${p}</p>`).join('')}
-    </div>
-  `;
-  content.scrollTop = 0;
-}
-
-function changeChapter(dir) {
-  const next = currentChapter + dir;
-  if (next >= 0 && next < chapters.length) {
-    currentChapter = next;
-    saveProgress();
-    renderChapter();
+  // Build effects
+  let effects = '';
+  if (ch.effects.includes('rain')) {
+    let drops = '';
+    for (let i = 0; i < 40; i++) {
+      const left = Math.random()*100, dur = 0.4+Math.random()*0.4, delay = Math.random()*2, h = 15+Math.random()*25;
+      drops += `<div class="raindrop" style="left:${left}%;height:${h}px;animation-duration:${dur}s;animation-delay:${delay}s"></div>`;
+    }
+    effects += `<div class="rain-overlay">${drops}</div>`;
   }
+  if (ch.effects.includes('hoofs')) {
+    for (let i = 0; i < 6; i++) {
+      const x = 10+Math.random()*80, y = 20+Math.random()*60, d = Math.random()*4;
+      effects += `<div class="hoof-particle" style="left:${x}%;top:${y}%;animation-delay:${d}s;color:var(--silver-glow)">\u2727</div>`;
+    }
+  }
+  if (ch.effects.includes('fireflies')) {
+    for (let i = 0; i < 8; i++) {
+      const x = 5+Math.random()*90, y = 10+Math.random()*70, d = Math.random()*6;
+      effects += `<div class="firefly" style="left:${x}%;top:${y}%;animation-delay:${d}s"></div>`;
+    }
+  }
+  if (ch.effects.includes('moon')) {
+    effects += '<div class="moon-glow"></div>';
+  }
+
+  const mag = ch.magical ? ' magical' : '';
+  document.getElementById('storyCont').innerHTML = `
+    <div class="ch-illust${mag}">
+      <img src="${ch.image}" alt="${ch.title}" loading="lazy">
+      <div class="illust-particles">${effects}</div>
+    </div>
+    <div class="ch-text">${ch.paragraphs.map(p => `<p>${p}</p>`).join('')}</div>
+  `;
+  document.getElementById('storyCont').scrollTop = 0;
 }
 
-function goToChapter(i) {
-  currentChapter = i;
-  saveProgress();
-  renderChapter();
-  closeChapterSelect();
+function chgCh(d) { const n=curCh+d; if(n>=0&&n<chapters.length){curCh=n;save();stopTTS();renderCh();} }
+function gotoCh(i) { curCh=i; save(); stopTTS(); renderCh(); closeChSel(); }
+function openChSel() {
+  document.getElementById('chSelList').innerHTML = chapters.map((c,i) =>
+    `<button class="ch-sel-item" onclick="gotoCh(${i})"><span class="cnum">${c.id}</span><span>${c.title}</span></button>`
+  ).join('');
+  document.getElementById('chSelOverlay').classList.add('active');
 }
+function closeChSel() { document.getElementById('chSelOverlay').classList.remove('active'); }
 
-function openChapterSelect() {
-  const list = document.getElementById('chapterSelectList');
-  list.innerHTML = chapters.map((ch, i) => `
-    <button class="chapter-select-item" onclick="goToChapter(${i})">
-      <span class="ch-num">${ch.id}</span>
-      <span>${ch.title}</span>
-    </button>
-  `).join('');
-  document.getElementById('chapterSelectOverlay').classList.add('active');
-}
-
-function closeChapterSelect() {
-  document.getElementById('chapterSelectOverlay').classList.remove('active');
-}
-
-// ===== MAP =====
+// ========== MAP ==========
 function renderMap() {
-  const container = document.getElementById('mapContainer');
-  container.innerHTML = `
-    <div class="farm-map">
-      <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-        <!-- Sky gradient -->
-        <defs>
-          <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#87ceeb"/>
-            <stop offset="100%" stop-color="#c8e6c9"/>
-          </linearGradient>
-          <linearGradient id="grassGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#7cb342"/>
-            <stop offset="100%" stop-color="#558b2f"/>
-          </linearGradient>
-          <filter id="shadow">
-            <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.2"/>
-          </filter>
-          <pattern id="grass" width="20" height="20" patternUnits="userSpaceOnUse">
-            <rect width="20" height="20" fill="#7cb342"/>
-            <path d="M5 20 Q5 15 3 12 M10 20 Q10 14 8 10 M15 20 Q15 16 13 13 M18 20 Q19 15 17 11"
-                  stroke="#689f38" stroke-width="0.8" fill="none" opacity="0.5"/>
-          </pattern>
-        </defs>
-
-        <!-- Background -->
-        <rect width="800" height="200" fill="url(#skyGrad)"/>
-        <rect y="160" width="800" height="340" fill="url(#grass)"/>
-
-        <!-- Distant hills -->
-        <path d="M0 200 Q100 140 200 180 Q300 130 420 170 Q500 120 600 160 Q700 130 800 170 L800 200 Z" fill="#81c784" opacity="0.6"/>
-        <path d="M0 210 Q150 170 300 200 Q450 160 600 190 Q700 170 800 195 L800 220 Z" fill="#66bb6a" opacity="0.5"/>
-
-        <!-- Mondkuppe hill -->
-        <ellipse cx="640" cy="230" rx="100" ry="50" fill="#6abf69" opacity="0.7"/>
-        <text x="640" y="215" text-anchor="middle" font-size="10" fill="#33691e" font-family="Patrick Hand" opacity="0.8">Mondkuppe</text>
-
-        <!-- Forest -->
-        <g opacity="0.9">
-          ${Array.from({length: 25}, (_, i) => {
-            const x = 40 + Math.random() * 200;
-            const y = 240 + Math.random() * 80;
-            const h = 30 + Math.random() * 20;
-            return `<polygon points="${x},${y} ${x-8},${y} ${x-4},${y-h}" fill="#2e7d32" opacity="${0.6+Math.random()*0.4}"/>
-                    <polygon points="${x},${y} ${x-10},${y} ${x-5},${y-h*0.7}" fill="#388e3c" opacity="${0.5+Math.random()*0.3}"/>`;
-          }).join('')}
-        </g>
-
-        <!-- Murmelbach (stream) -->
-        <path d="M180 340 Q220 330 250 350 Q290 370 330 355 Q370 340 400 360 Q440 380 480 365"
-              stroke="#29b6f6" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M180 342 Q220 332 250 352 Q290 372 330 357 Q370 342 400 362 Q440 382 480 367"
-              stroke="#4fc3f7" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
-
-        <!-- Paths -->
-        <path d="M350 290 Q400 280 420 260" stroke="#a1887f" stroke-width="5" fill="none" stroke-dasharray="8 4" opacity="0.6"/>
-        <path d="M420 260 Q480 240 520 260" stroke="#a1887f" stroke-width="4" fill="none" stroke-dasharray="8 4" opacity="0.5"/>
-        <path d="M520 260 Q580 280 640 300" stroke="#a1887f" stroke-width="3" fill="none" stroke-dasharray="6 4" opacity="0.4"/>
-
-        <!-- Fences -->
-        <g stroke="#8d6e63" stroke-width="1.5" fill="none" opacity="0.6">
-          <path d="M370 240 L520 220 L530 280 L380 300 Z"/>
-          ${Array.from({length: 8}, (_, i) => {
-            const x = 375 + i * 20;
-            return `<line x1="${x}" y1="${240 + (x-370)*(-20/150)}" x2="${x}" y2="${240 + (x-370)*(-20/150) - 8}"/>`;
-          }).join('')}
-        </g>
-
-        <!-- Barn (Stall) -->
-        <g filter="url(#shadow)" transform="translate(300,230)">
-          <rect x="0" y="15" width="60" height="35" fill="#8d6e63" rx="2"/>
-          <polygon points="-5,15 30,0 65,15" fill="#d84315"/>
-          <rect x="22" y="28" width="16" height="22" fill="#5d4037" rx="1"/>
-          <rect x="5" y="25" width="10" height="8" fill="#ffecb3" rx="1" opacity="0.7"/>
-          <rect x="45" y="25" width="10" height="8" fill="#ffecb3" rx="1" opacity="0.7"/>
-        </g>
-
-        <!-- Farmhouse -->
-        <g filter="url(#shadow)" transform="translate(410,235)">
-          <rect x="0" y="15" width="50" height="40" fill="#efebe9" rx="2"/>
-          <polygon points="-3,15 25,-2 53,15" fill="#c62828"/>
-          <rect x="18" y="32" width="14" height="23" fill="#5d4037" rx="1"/>
-          <rect x="5" y="25" width="10" height="10" fill="#bbdefb" rx="1"/>
-          <rect x="35" y="25" width="10" height="10" fill="#bbdefb" rx="1"/>
-          <!-- Attic window -->
-          <circle cx="25" cy="10" r="5" fill="#bbdefb" opacity="0.8"/>
-        </g>
-
-        <!-- Old Scheune -->
-        <g filter="url(#shadow)" transform="translate(360,295)">
-          <rect x="0" y="10" width="40" height="25" fill="#a1887f" rx="1"/>
-          <polygon points="-2,10 20,0 42,10" fill="#795548"/>
-          <rect x="14" y="18" width="12" height="17" fill="#4e342e" rx="1"/>
-        </g>
-
-        <!-- Old Oak -->
-        <g transform="translate(210,260)">
-          <rect x="-3" y="0" width="6" height="20" fill="#5d4037"/>
-          <circle cx="0" cy="-5" r="18" fill="#33691e" opacity="0.8"/>
-          <circle cx="-8" cy="0" r="12" fill="#2e7d32" opacity="0.7"/>
-          <circle cx="10" cy="-2" r="14" fill="#388e3c" opacity="0.7"/>
-        </g>
-
-        <!-- Compass rose -->
-        <g transform="translate(740,50)">
-          <circle cx="0" cy="0" r="22" fill="rgba(255,255,255,0.3)" stroke="#795548" stroke-width="1"/>
-          <text x="0" y="-10" text-anchor="middle" font-size="10" fill="#795548" font-weight="bold">N</text>
-          <text x="0" y="18" text-anchor="middle" font-size="8" fill="#795548">S</text>
-          <text x="12" y="4" text-anchor="middle" font-size="8" fill="#795548">O</text>
-          <text x="-12" y="4" text-anchor="middle" font-size="8" fill="#795548">W</text>
-        </g>
-
-        <!-- Title banner -->
-        <g transform="translate(400,30)">
-          <rect x="-120" y="-15" width="240" height="30" rx="15" fill="rgba(255,255,255,0.4)"/>
-          <text x="0" y="5" text-anchor="middle" font-family="Playfair Display, serif" font-size="16" fill="#3e2723" font-weight="bold">Hof Sonnenweide</text>
-        </g>
-
-        <!-- Small horse silhouettes on koppel -->
-        <g opacity="0.6">
-          <text x="420" y="255" font-size="16">&#x1f40e;</text>
-          <text x="460" y="248" font-size="12">&#x1f40e;</text>
-          <text x="490" y="258" font-size="14">&#x1f40e;</text>
-        </g>
-      </svg>
-
-      ${mapLocations.map(loc => `
-        <div class="map-pin" style="left:${loc.x};top:${loc.y}" onclick="showMapPopup('${loc.id}')">
-          <div class="map-pin-icon" style="background:${loc.bg}">${loc.icon}</div>
-          <div class="map-pin-label">${loc.label}</div>
-        </div>
-      `).join('')}
-    </div>
-  `;
+  const inner = document.getElementById('mapInner');
+  inner.innerHTML = `<div class="farm-map">
+    <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87ceeb"/><stop offset="100%" stop-color="#c8e6c9"/></linearGradient>
+        <pattern id="gr" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#7cb342"/><path d="M5 20Q5 15 3 12M10 20Q10 14 8 10M15 20Q15 16 13 13" stroke="#689f38" stroke-width=".8" fill="none" opacity=".5"/></pattern>
+        <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity=".2"/></filter>
+      </defs>
+      <rect width="800" height="200" fill="url(#sg)"/>
+      <rect y="160" width="800" height="340" fill="url(#gr)"/>
+      <path d="M0 200Q100 140 200 180Q300 130 420 170Q500 120 600 160Q700 130 800 170L800 200Z" fill="#81c784" opacity=".6"/>
+      <path d="M0 210Q150 170 300 200Q450 160 600 190Q700 170 800 195L800 220Z" fill="#66bb6a" opacity=".5"/>
+      <ellipse cx="640" cy="230" rx="100" ry="50" fill="#6abf69" opacity=".7"/>
+      <text x="640" y="215" text-anchor="middle" font-size="10" fill="#33691e" font-family="Patrick Hand" opacity=".8">Mondkuppe</text>
+      <g opacity=".9">${Array.from({length:25},()=>{const x=40+Math.random()*200,y=240+Math.random()*80,h=30+Math.random()*20;return`<polygon points="${x},${y} ${x-8},${y} ${x-4},${y-h}" fill="#2e7d32" opacity="${(.6+Math.random()*.4).toFixed(2)}"/>`}).join('')}</g>
+      <path d="M180 340Q220 330 250 350Q290 370 330 355Q370 340 400 360Q440 380 480 365" stroke="#29b6f6" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/>
+      <path d="M350 290Q400 280 420 260" stroke="#a1887f" stroke-width="5" fill="none" stroke-dasharray="8 4" opacity=".6"/>
+      <path d="M420 260Q480 240 520 260" stroke="#a1887f" stroke-width="4" fill="none" stroke-dasharray="8 4" opacity=".5"/>
+      <path d="M520 260Q580 280 640 300" stroke="#a1887f" stroke-width="3" fill="none" stroke-dasharray="6 4" opacity=".4"/>
+      <g stroke="#8d6e63" stroke-width="1.5" fill="none" opacity=".6"><path d="M370 240L520 220L530 280L380 300Z"/></g>
+      <g filter="url(#sh)" transform="translate(300,230)"><rect x="0" y="15" width="60" height="35" fill="#8d6e63" rx="2"/><polygon points="-5,15 30,0 65,15" fill="#d84315"/><rect x="22" y="28" width="16" height="22" fill="#5d4037" rx="1"/><rect x="5" y="25" width="10" height="8" fill="#ffecb3" rx="1" opacity=".7"/><rect x="45" y="25" width="10" height="8" fill="#ffecb3" rx="1" opacity=".7"/></g>
+      <g filter="url(#sh)" transform="translate(410,235)"><rect x="0" y="15" width="50" height="40" fill="#efebe9" rx="2"/><polygon points="-3,15 25,-2 53,15" fill="#c62828"/><rect x="18" y="32" width="14" height="23" fill="#5d4037" rx="1"/><rect x="5" y="25" width="10" height="10" fill="#bbdefb" rx="1"/><rect x="35" y="25" width="10" height="10" fill="#bbdefb" rx="1"/><circle cx="25" cy="10" r="5" fill="#bbdefb" opacity=".8"/></g>
+      <g filter="url(#sh)" transform="translate(360,295)"><rect x="0" y="10" width="40" height="25" fill="#a1887f" rx="1"/><polygon points="-2,10 20,0 42,10" fill="#795548"/><rect x="14" y="18" width="12" height="17" fill="#4e342e" rx="1"/></g>
+      <g transform="translate(210,260)"><rect x="-3" y="0" width="6" height="20" fill="#5d4037"/><circle cx="0" cy="-5" r="18" fill="#33691e" opacity=".8"/><circle cx="-8" cy="0" r="12" fill="#2e7d32" opacity=".7"/><circle cx="10" cy="-2" r="14" fill="#388e3c" opacity=".7"/></g>
+      <g transform="translate(740,50)"><circle r="22" fill="rgba(255,255,255,.3)" stroke="#795548" stroke-width="1"/><text y="-10" text-anchor="middle" font-size="10" fill="#795548" font-weight="bold">N</text><text y="18" text-anchor="middle" font-size="8" fill="#795548">S</text></g>
+      <g transform="translate(400,30)"><rect x="-120" y="-15" width="240" height="30" rx="15" fill="rgba(255,255,255,.4)"/><text text-anchor="middle" y="5" font-family="Playfair Display,serif" font-size="16" fill="#3e2723" font-weight="bold">Hof Sonnenweide</text></g>
+    </svg>
+    ${mapLocations.map(l=>`<div class="map-pin" style="left:${l.x};top:${l.y}" onclick="showMapPop('${l.id}')"><div class="map-pin-icon" style="background:${l.bg}">${l.icon}</div><div class="map-pin-label">${l.label}</div></div>`).join('')}
+  </div>`;
+  mapScale = 1; mapX = 0; mapY = 0; applyMapTransform();
+  initMapTouch();
 }
 
-function showMapPopup(id) {
-  const loc = mapLocations.find(l => l.id === id);
-  if (!loc) return;
+function applyMapTransform() {
+  document.getElementById('mapInner').style.transform = `translate(${mapX}px,${mapY}px) scale(${mapScale})`;
+}
+function mapZoom(d) { mapScale = Math.max(0.5, Math.min(3, mapScale + d * 0.3)); applyMapTransform(); }
+function mapReset() { mapScale = 1; mapX = 0; mapY = 0; applyMapTransform(); }
 
-  const popup = document.getElementById('mapPopup');
-  document.getElementById('mapPopupContent').innerHTML = `
-    <img class="map-popup-img" src="${loc.img}" alt="${loc.title}">
-    <div class="map-popup-body">
-      <h3>${loc.title}</h3>
-      <p>${loc.desc}</p>
-      <button class="map-popup-close" onclick="closeMapPopup()">Schlie\u00dfen</button>
-      <button class="map-popup-action" onclick="closeMapPopup();goToChapter(${loc.chapter});showScreen('storyScreen')">Kapitel lesen</button>
-    </div>
-  `;
-  popup.classList.add('active');
+function initMapTouch() {
+  const el = document.getElementById('mapWrap');
+  let startDist = 0, startScale = 1, startX = 0, startY = 0, lastX = 0, lastY = 0, dragging = false;
+
+  el.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) {
+      startDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      startScale = mapScale;
+    } else if (e.touches.length === 1) {
+      dragging = true; startX = e.touches[0].clientX - mapX; startY = e.touches[0].clientY - mapY;
+    }
+  }, { passive: true });
+
+  el.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      mapScale = Math.max(0.5, Math.min(3, startScale * (dist / startDist)));
+      applyMapTransform();
+    } else if (e.touches.length === 1 && dragging) {
+      mapX = e.touches[0].clientX - startX; mapY = e.touches[0].clientY - startY;
+      applyMapTransform();
+    }
+  }, { passive: true });
+
+  el.addEventListener('touchend', () => { dragging = false; }, { passive: true });
 }
 
-function closeMapPopup() {
-  document.getElementById('mapPopup').classList.remove('active');
+function showMapPop(id) {
+  const l = mapLocations.find(x => x.id === id); if (!l) return;
+  document.getElementById('popupCard').innerHTML = `
+    <img src="${l.img}" alt="${l.title}">
+    <div class="popup-body"><h3>${l.title}</h3><p>${l.desc}</p>
+    <button class="popup-close" onclick="closeMapPop()">Schlie\u00dfen</button>
+    <button class="popup-action" onclick="closeMapPop();gotoCh(${l.chapter});showScreen('storyScreen')">Kapitel lesen</button></div>`;
+  document.getElementById('mapPopup').classList.add('active');
 }
+function closeMapPop() { document.getElementById('mapPopup').classList.remove('active'); }
 
-// ===== HORSES =====
+// ========== HORSES ==========
 function renderHorses() {
-  const grid = document.getElementById('horsesGrid');
-  grid.innerHTML = horses.map(h => `
+  document.getElementById('horsesGrid').innerHTML = horses.map(h => `
     <div class="horse-card horse-${h.key}" onclick="this.classList.toggle('flipped')">
       <div class="horse-card-inner">
-        <div class="horse-card-front">
-          <div class="horse-emoji">${h.emoji}</div>
-          <h4>${h.name}</h4>
-          <div class="horse-trait">${h.character.split(',')[0]}</div>
-        </div>
-        <div class="horse-card-back">
-          <h4>${h.name}</h4>
-          <div class="stat"><span class="stat-label">Farbe:</span> ${h.color}</div>
-          <div class="stat"><span class="stat-label">Alter:</span> ${h.age}</div>
-          <div class="stat"><span class="stat-label">Rasse:</span> ${h.breed}</div>
-          <div class="stat"><span class="stat-label">St\u00e4rke:</span> ${h.strength}</div>
-          <div class="horse-desc">${h.desc}</div>
-        </div>
-      </div>
-    </div>
-  `).join('');
+        <div class="horse-card-front"><div class="hemoji">${h.emoji}</div><h4>${h.name}</h4><div class="htrait">${h.character}</div></div>
+        <div class="horse-card-back"><h4>${h.name}</h4>
+          <div class="stat"><b>Farbe:</b> ${h.color}</div><div class="stat"><b>Alter:</b> ${h.age}</div>
+          <div class="stat"><b>Rasse:</b> ${h.breed}</div><div class="stat"><b>St\u00e4rke:</b> ${h.strength}</div>
+          <div class="hdesc">${h.desc}</div></div>
+      </div></div>`).join('');
 }
 
-// ===== QUIZ =====
-function shuffleQuiz() {
-  quizState.shuffled = [...quizQuestions].sort(() => Math.random() - 0.5).slice(0, 10);
-  quizState.current = 0;
-  quizState.score = 0;
-  quizState.answered = false;
+// ========== QUIZ ==========
+function setQuizMode(mode) {
+  quizMode = mode;
+  document.querySelectorAll('.quiz-tab').forEach(t => t.classList.toggle('active', t.textContent.toLowerCase().includes(
+    mode === 'quiz' ? 'quiz' : mode === 'memory' ? 'memory' : 'wer'
+  )));
+  renderQuizMode();
 }
 
+function renderQuizMode() {
+  document.getElementById('qScoreDisp').textContent = '';
+  if (quizMode === 'quiz') renderQuiz();
+  else if (quizMode === 'memory') renderMemory();
+  else renderWBI();
+}
+
+// --- Classic Quiz ---
+function shuffleQ() { qState.shuffled=[...quizQuestions].sort(()=>Math.random()-.5).slice(0,10); qState.cur=0; qState.score=0; qState.answered=false; }
 function renderQuiz() {
-  if (quizState.shuffled.length === 0) shuffleQuiz();
-
-  const qs = quizState.shuffled;
-  const idx = quizState.current;
-
-  document.getElementById('quizScoreDisplay').textContent =
-    `Punkte: ${quizState.score} / ${qs.length}`;
-
-  if (idx >= qs.length) {
-    renderQuizResult();
-    return;
-  }
-
+  if (!qState.shuffled.length) shuffleQ();
+  const qs=qState.shuffled, idx=qState.cur;
+  document.getElementById('qScoreDisp').textContent = `Punkte: ${qState.score}/${qs.length}`;
+  if (idx >= qs.length) { renderQResult(); return; }
   const q = qs[idx];
-  document.getElementById('quizContent').innerHTML = `
-    <div class="quiz-card">
-      <div class="quiz-progress">Frage ${idx + 1} von ${qs.length}</div>
-      <div class="quiz-question">${q.q}</div>
-      <div class="quiz-answers">
-        ${q.answers.map((a, i) => `
-          <button class="quiz-answer" onclick="answerQuiz(${i})" ${quizState.answered ? 'disabled' : ''}>
-            ${a}
-          </button>
-        `).join('')}
-      </div>
-      <div class="quiz-feedback" id="quizFeedback"></div>
-      <button class="quiz-next-btn" id="quizNextBtn" onclick="nextQuizQuestion()">
-        ${idx < qs.length - 1 ? 'N\u00e4chste Frage' : 'Ergebnis ansehen'}
-      </button>
-    </div>
-  `;
+  document.getElementById('quizCont').innerHTML = `<div class="quiz-card">
+    <div class="qprogress">Frage ${idx+1} von ${qs.length}</div>
+    <div class="qquestion">${q.q}</div>
+    <div class="qanswers">${q.answers.map((a,i) => `<button class="qanswer" onclick="ansQ(${i})" ${qState.answered?'disabled':''}>${a}</button>`).join('')}</div>
+    <div class="qfeedback" id="qFeed"></div>
+    <button class="qnext" id="qNext" onclick="nextQ()">${idx<qs.length-1?'N\u00e4chste Frage':'Ergebnis'}</button>
+  </div>`;
+}
+function ansQ(i) {
+  if (qState.answered) return; qState.answered = true;
+  const q = qState.shuffled[qState.cur];
+  document.querySelectorAll('.qanswer').forEach((b,j) => { b.disabled=true; if(j===q.correct) b.classList.add('correct'); if(j===i&&j!==q.correct) b.classList.add('wrong'); });
+  if (i===q.correct) { qState.score++; document.getElementById('qFeed').textContent='Richtig!'; document.getElementById('qFeed').style.color='#4caf50'; }
+  else { document.getElementById('qFeed').textContent='Die Antwort war: '+q.answers[q.correct]; document.getElementById('qFeed').style.color='#ef5350'; }
+  document.getElementById('qNext').classList.add('visible');
+  document.getElementById('qScoreDisp').textContent = `Punkte: ${qState.score}/${qState.shuffled.length}`;
+}
+function nextQ() { qState.cur++; qState.answered=false; renderQuiz(); }
+function renderQResult() {
+  const t=qState.shuffled.length, s=qState.score, p=s/t;
+  let e,m; if(p===1){e='\u{1F3C6}';m='Perfekt!';}else if(p>=.7){e='\u2B50';m='Super!';}else if(p>=.4){e='\u{1F44D}';m='Gut gemacht!';}else{e='\u{1F4DA}';m='Lies nochmal und versuch es wieder!';}
+  document.getElementById('quizCont').innerHTML = `<div class="quiz-card"><div class="qresult">
+    <div class="remoji">${e}</div><h3>${s} von ${t} richtig!</h3><p>${m}</p>
+    <button class="qrestart" onclick="shuffleQ();renderQuiz()">Nochmal</button></div></div>`;
 }
 
-function answerQuiz(idx) {
-  if (quizState.answered) return;
-  quizState.answered = true;
+// --- Memory ---
+function renderMemory() {
+  const pairs = horses.slice(0,6).flatMap(h => [{name:h.name,emoji:h.emoji,bg:h.key},{name:h.name,emoji:h.emoji,bg:h.key}]);
+  for (let i=pairs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pairs[i],pairs[j]]=[pairs[j],pairs[i]];}
+  memState = { cards:pairs, flipped:[], matched:0, moves:0, locked:false };
+  const colors = { mondschimmer:'#d8d8f0', sturmwind:'#dcc8b0', butterblume:'#ffe8a0', flecki:'#b0d8b2', kupfer:'#d4b890', sternchen:'#d5a8e0', nordlicht:'#d0d0d0' };
 
-  const q = quizState.shuffled[quizState.current];
-  const buttons = document.querySelectorAll('.quiz-answer');
-  const feedback = document.getElementById('quizFeedback');
-
-  buttons.forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === q.correct) btn.classList.add('correct');
-    if (i === idx && i !== q.correct) btn.classList.add('wrong');
-  });
-
-  if (idx === q.correct) {
-    quizState.score++;
-    feedback.textContent = 'Richtig! Super gemacht!';
-    feedback.style.color = '#4caf50';
-  } else {
-    feedback.textContent = `Nicht ganz \u2013 die richtige Antwort ist: ${q.answers[q.correct]}`;
-    feedback.style.color = '#ef5350';
+  document.getElementById('qScoreDisp').textContent = `Z\u00fcge: 0`;
+  document.getElementById('quizCont').innerHTML = `
+    <div class="memory-status" id="memStatus">Finde die Paare!</div>
+    <div class="memory-grid">${pairs.map((p,i) => `
+      <div class="mem-card" onclick="flipMem(${i})"><div class="mem-card-inner">
+        <div class="mem-face mem-front"></div>
+        <div class="mem-face mem-back" style="background:${colors[p.bg]||'#eee'};font-size:2rem">${p.emoji}<br><span style="font-size:0.5rem">${p.name}</span></div>
+      </div></div>`).join('')}</div>`;
+}
+function flipMem(i) {
+  if (memState.locked) return;
+  const cards = document.querySelectorAll('.mem-card');
+  if (cards[i].classList.contains('flipped') || cards[i].classList.contains('matched')) return;
+  cards[i].classList.add('flipped'); memState.flipped.push(i);
+  if (memState.flipped.length === 2) {
+    memState.moves++; memState.locked = true;
+    document.getElementById('qScoreDisp').textContent = `Z\u00fcge: ${memState.moves}`;
+    const [a,b] = memState.flipped;
+    if (memState.cards[a].name === memState.cards[b].name) {
+      cards[a].classList.add('matched'); cards[b].classList.add('matched');
+      memState.matched += 2; memState.flipped = []; memState.locked = false;
+      if (memState.matched >= memState.cards.length) {
+        document.getElementById('memStatus').innerHTML = `\u{1F3C6} Geschafft in ${memState.moves} Z\u00fcgen!`;
+      }
+    } else {
+      setTimeout(() => { cards[a].classList.remove('flipped'); cards[b].classList.remove('flipped'); memState.flipped=[]; memState.locked=false; }, 800);
+    }
   }
-
-  document.getElementById('quizNextBtn').classList.add('visible');
-  document.getElementById('quizScoreDisplay').textContent =
-    `Punkte: ${quizState.score} / ${quizState.shuffled.length}`;
 }
 
-function nextQuizQuestion() {
-  quizState.current++;
-  quizState.answered = false;
-  renderQuiz();
+// --- Wer bin ich? ---
+function renderWBI() {
+  if (wbiState.cur >= wbiRiddles.length) wbiState.cur = 0;
+  wbiState.clueIdx = 0; wbiState.answered = false;
+  const r = wbiRiddles[wbiState.cur];
+  document.getElementById('qScoreDisp').textContent = `Pferd ${wbiState.cur+1}/${wbiRiddles.length}`;
+  document.getElementById('quizCont').innerHTML = `<div class="wbi-card">
+    <div class="qquestion">Welches Pferd bin ich?</div>
+    <div class="wbi-clues" id="wbiClues">${r.clues.map((c,i) => `<div class="wbi-clue" id="clue${i}">${i+1}. ${c}</div>`).join('')}</div>
+    <button class="qnext visible" id="wbiHintBtn" onclick="showWBIClue()" style="display:block;background:var(--gold)">N\u00e4chster Hinweis</button>
+    <div class="wbi-choices" id="wbiChoices" style="display:none">${r.options.map(o => `<button class="wbi-choice" onclick="ansWBI('${o}')">${o}</button>`).join('')}</div>
+    <div class="qfeedback" id="wbiFeed"></div>
+  </div>`;
+  showWBIClue();
+}
+function showWBIClue() {
+  const r = wbiRiddles[wbiState.cur];
+  if (wbiState.clueIdx < r.clues.length) {
+    document.getElementById('clue'+wbiState.clueIdx).classList.add('visible');
+    wbiState.clueIdx++;
+  }
+  if (wbiState.clueIdx >= r.clues.length) {
+    document.getElementById('wbiHintBtn').style.display = 'none';
+    document.getElementById('wbiChoices').style.display = 'grid';
+  }
+}
+function ansWBI(name) {
+  if (wbiState.answered) return; wbiState.answered = true;
+  const r = wbiRiddles[wbiState.cur];
+  document.querySelectorAll('.wbi-choice').forEach(b => {
+    if (b.textContent === r.answer) b.classList.add('correct');
+    else if (b.textContent === name && name !== r.answer) b.classList.add('wrong');
+    b.style.pointerEvents = 'none';
+  });
+  const feed = document.getElementById('wbiFeed');
+  if (name === r.answer) { feed.textContent = 'Richtig!'; feed.style.color = '#4caf50'; }
+  else { feed.textContent = 'Es war ' + r.answer + '!'; feed.style.color = '#ef5350'; }
+  setTimeout(() => { wbiState.cur++; renderWBI(); }, 1800);
 }
 
-function renderQuizResult() {
-  const total = quizState.shuffled.length;
-  const score = quizState.score;
-  const pct = score / total;
+// ========== ADVENTURE ==========
+function renderAdv() {
+  const scene = advScenes.find(s => s.id === advState.scene) || advScenes[0];
+  if (scene.id === 'start') advState.inventory = [];
 
-  let emoji, message;
-  if (pct === 1) { emoji = '\ud83c\udfc6'; message = 'Perfekt! Du kennst Sonnenweide wie deine Westentasche!'; }
-  else if (pct >= 0.8) { emoji = '\u2b50'; message = 'Fantastisch! Du bist ein echtes Sonnenweide-Ass!'; }
-  else if (pct >= 0.6) { emoji = '\ud83d\udc4d'; message = 'Gut gemacht! Du kennst dich schon gut aus!'; }
-  else if (pct >= 0.4) { emoji = '\ud83d\ude0a'; message = 'Nicht schlecht! Lies die Geschichte nochmal und versuch es wieder!'; }
-  else { emoji = '\ud83d\udcda'; message = 'Lies die Geschichte nochmal \u2013 dann schaffst du es bestimmt!'; }
+  const invHTML = advState.inventory.length ? advState.inventory.map(it => {
+    const icons = { silberne_spur:'\u2728 Silberne Spur', altes_foto:'\u{1F4F7} Altes Foto', hofzeichen:'\u{1F31E} Hofzeichen', raetsel_1:'\u{1F4DC} R\u00e4tsel 1', schluessel:'\u{1F5DD} Schl\u00fcssel', raetsel_2:'\u{1F4DC} R\u00e4tsel 2', silberkette:'\u2728 Silberkette' };
+    return `<span class="inv-item">${icons[it]||it}</span>`;
+  }).join('') : '<span style="font-size:0.7rem;color:#999">Noch keine Gegenst\u00e4nde</span>';
 
-  document.getElementById('quizContent').innerHTML = `
-    <div class="quiz-card">
-      <div class="quiz-result">
-        <div class="result-emoji">${emoji}</div>
-        <h3>${score} von ${total} richtig!</h3>
-        <p>${message}</p>
-        <button class="quiz-restart-btn" onclick="shuffleQuiz();renderQuiz()">Nochmal spielen</button>
-      </div>
-    </div>
-  `;
+  document.getElementById('advContent').innerHTML = `
+    <div class="adv-scene"><img src="${scene.img}" alt="Szene" loading="lazy"></div>
+    <div class="adv-inventory"><span class="adv-inventory-title">Inventar:</span>${invHTML}</div>
+    <div class="adv-text">${scene.text}</div>
+    <div class="adv-choices">${scene.choices.map(c =>
+      `<button class="adv-choice" onclick="advChoice('${c.next}','${c.gives||''}')">${c.text}</button>`
+    ).join('')}</div>`;
+  document.getElementById('advContent').scrollTop = 0;
+}
+function advChoice(next, gives) {
+  if (gives && !advState.inventory.includes(gives)) advState.inventory.push(gives);
+  advState.scene = next; renderAdv();
 }
 
-// ===== SILVER HOOFPRINT TRAIL (fun cursor effect) =====
+// ========== HOOFPRINT TRAIL ==========
 let lastTrail = 0;
-document.addEventListener('pointerdown', (e) => {
-  if (currentScreen === 'startScreen') return;
-  const now = Date.now();
-  if (now - lastTrail < 200) return;
-  lastTrail = now;
-
-  const trail = document.createElement('div');
-  trail.className = 'hoof-trail';
-  trail.style.left = (e.clientX - 8) + 'px';
-  trail.style.top = (e.clientY - 9) + 'px';
-  document.body.appendChild(trail);
-  setTimeout(() => trail.remove(), 1500);
+document.addEventListener('pointerdown', e => {
+  if (curScreen === 'startScreen') return;
+  const now = Date.now(); if (now - lastTrail < 200) return; lastTrail = now;
+  const t = document.createElement('div'); t.className = 'hoof-trail';
+  t.style.left = (e.clientX-8)+'px'; t.style.top = (e.clientY-9)+'px';
+  document.body.appendChild(t); setTimeout(() => t.remove(), 1500);
 });
 
-// ===== INIT =====
+// ========== VOICES INIT ==========
+if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
+
+// ========== INIT ==========
 initStars();
 </script>
 </body>
