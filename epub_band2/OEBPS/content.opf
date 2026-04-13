@@ -14,6 +14,7 @@
   <manifest>
     <item id="nav" href="toc.xhtml" media-type="application/xhtml+xml" properties="nav"/>
     <item id="css" href="styles.css" media-type="text/css"/>
+    <item id="cover_page" href="cover.xhtml" media-type="application/xhtml+xml"/>
     <item id="title" href="title.xhtml" media-type="application/xhtml+xml"/>
     <item id="dedication" href="dedication.xhtml" media-type="application/xhtml+xml"/>
     <item id="ch01" href="chapter01.xhtml" media-type="application/xhtml+xml"/>
@@ -29,8 +30,23 @@
     <item id="ch11" href="chapter11.xhtml" media-type="application/xhtml+xml"/>
     <item id="ch12" href="chapter12.xhtml" media-type="application/xhtml+xml"/>
     <item id="teaser" href="teaser.xhtml" media-type="application/xhtml+xml"/>
+    <item id="img_cover" href="images/cover1_band2_tag.jpg" media-type="image/jpeg" properties="cover-image"/>
+    <item id="img_cover_nacht" href="images/cover2_band2_nacht.jpg" media-type="image/jpeg"/>
+    <item id="img_kap01" href="images/kap01_band2_herbst.jpg" media-type="image/jpeg"/>
+    <item id="img_kap02" href="images/kap02_band2_anja.jpg" media-type="image/jpeg"/>
+    <item id="img_kap03" href="images/kap03_band2_butterblume.jpg" media-type="image/jpeg"/>
+    <item id="img_kap04" href="images/kap04_band2_schatten.jpg" media-type="image/jpeg"/>
+    <item id="img_kap05" href="images/kap05_band2_eiche.jpg" media-type="image/jpeg"/>
+    <item id="img_kap06" href="images/kap06_band2_wendler.jpg" media-type="image/jpeg"/>
+    <item id="img_kap07" href="images/kap07_band2_tagebuch.jpg" media-type="image/jpeg"/>
+    <item id="img_kap08" href="images/kap08_band2_erntefest.jpg" media-type="image/jpeg"/>
+    <item id="img_kap09" href="images/kap09_band2_moor.jpg" media-type="image/jpeg"/>
+    <item id="img_kap10" href="images/kap10_band2_konfrontation.jpg" media-type="image/jpeg"/>
+    <item id="img_kap11" href="images/kap11_band2_wahl.jpg" media-type="image/jpeg"/>
+    <item id="img_kap12" href="images/kap12_band2_abschied.jpg" media-type="image/jpeg"/>
   </manifest>
   <spine>
+    <itemref idref="cover_page"/>
     <itemref idref="title"/>
     <itemref idref="dedication"/>
     <itemref idref="nav"/>
