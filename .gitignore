@@ -3,7 +3,6 @@ bilder/*.png
 
 # Build-Artefakte
 pdf/
-einzelseiten/
 
 # System
 Thumbs.db

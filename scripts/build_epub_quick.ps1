@@ -1,8 +1,9 @@
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 Add-Type -AssemblyName System.IO.Compression
 
-$epubDir = Join-Path $PSScriptRoot "epub"
-$epubPath = Join-Path $PSScriptRoot "Lena_und_das_Geheimnis_der_silbernen_Hufspur.epub"
+$projectRoot = Split-Path -Parent $PSScriptRoot
+$epubDir = Join-Path $projectRoot "epub"
+$epubPath = Join-Path $projectRoot "ebooks/Lena_und_das_Geheimnis_der_silbernen_Hufspur.epub"
 
 if (Test-Path $epubPath) { Remove-Item $epubPath }
 
