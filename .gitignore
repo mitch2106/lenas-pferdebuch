@@ -1,5 +1,5 @@
 # Große Original-Bilder (PNGs ~8MB pro Stück)
-bilder/*.png
+bilder/**/*.png
 
 # Build-Artefakte
 pdf/
