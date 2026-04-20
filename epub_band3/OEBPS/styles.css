@@ -1,0 +1,155 @@
+/* E-Reader optimized CSS */
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 1em;
+  padding: 0;
+  color: #222;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.8em;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #333;
+}
+
+h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.4em;
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  line-height: 1.3;
+  font-weight: bold;
+  color: #444;
+}
+
+h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: normal;
+  font-style: italic;
+  color: #666;
+}
+
+p {
+  margin: 0.5em 0;
+  text-indent: 1.5em;
+}
+
+p.first, p.no-indent {
+  text-indent: 0;
+}
+
+p.centered {
+  text-align: center;
+  text-indent: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+.separator {
+  text-align: center;
+  margin: 1.5em 0;
+  font-size: 1.2em;
+  letter-spacing: 0.3em;
+  color: #888;
+}
+
+.chapter-image {
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.chapter-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Title page */
+.title-page {
+  text-align: center;
+  margin-top: 30%;
+}
+
+.title-page h1 {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+
+.title-page h2 {
+  font-size: 1.2em;
+  font-weight: normal;
+  font-style: italic;
+  color: #666;
+}
+
+/* Dedication */
+.dedication {
+  text-align: center;
+  margin-top: 30%;
+  font-style: italic;
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Teaser */
+.teaser {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.teaser h2 {
+  font-size: 1.3em;
+}
+
+.teaser p {
+  text-indent: 0;
+  font-style: italic;
+}
+
+/* Band 3 refinements */
+.front-matter-image,
+.scene-image {
+  text-align: center;
+  margin: 1.4em 0 1.1em;
+}
+
+.front-matter-image img,
+.scene-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.scene-image.compact {
+  margin-top: 1.1em;
+  margin-bottom: 0.8em;
+}
+
+.scene-image + p {
+  text-indent: 0;
+}
+
+.ending-note {
+  text-align: center;
+  margin-top: 2.2em;
+}
+
+.ending-note p {
+  text-indent: 0;
+  font-style: italic;
+}
