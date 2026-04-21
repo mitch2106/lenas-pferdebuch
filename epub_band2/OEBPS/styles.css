@@ -1,4 +1,4 @@
-/* E-Reader optimized CSS */
+﻿/* E-Reader optimized CSS */
 body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1em;
@@ -120,4 +120,12 @@ em {
 .teaser p {
   text-indent: 0;
   font-style: italic;
+}
+.scene-image {
+  text-align: center;
+  margin: 1.4em 0 1.1em;
+}
+.scene-image img {
+  max-width: 100%;
+  height: auto;
 }

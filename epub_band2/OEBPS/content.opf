@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="BookId" xml:lang="de">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
     <dc:identifier id="BookId">urn:uuid:b2c3d4e5-f6a7-8901-bcde-f23456789012</dc:identifier>
@@ -44,6 +44,30 @@
     <item id="img_kap10" href="images/kap10_band2_konfrontation.jpg" media-type="image/jpeg"/>
     <item id="img_kap11" href="images/kap11_band2_wahl.jpg" media-type="image/jpeg"/>
     <item id="img_kap12" href="images/kap12_band2_abschied.jpg" media-type="image/jpeg"/>
+    <item id="img_kap01_z01" href="images/kap01_zusatz01_sturmwind_am_zaun.jpg" media-type="image/jpeg"/>
+    <item id="img_kap01_z02" href="images/kap01_zusatz02_fenster_mondfohlen.jpg" media-type="image/jpeg"/>
+    <item id="img_kap02_z01" href="images/kap02_zusatz01_backhaus.jpg" media-type="image/jpeg"/>
+    <item id="img_kap02_z02" href="images/kap02_zusatz02_anja_am_laternenpfahl.jpg" media-type="image/jpeg"/>
+    <item id="img_kap03_z01" href="images/kap03_zusatz01_butterblume_erste_beruehrung.jpg" media-type="image/jpeg"/>
+    <item id="img_kap03_z02" href="images/kap03_zusatz02_sturmwind_anjas_wange.jpg" media-type="image/jpeg"/>
+    <item id="img_kap04_z01" href="images/kap04_zusatz01_pferde_im_mondlicht.jpg" media-type="image/jpeg"/>
+    <item id="img_kap04_z02" href="images/kap04_zusatz02_strohballen_notizbuch.jpg" media-type="image/jpeg"/>
+    <item id="img_kap05_z01" href="images/kap05_zusatz01_pyjamaparty_geheimnis.jpg" media-type="image/jpeg"/>
+    <item id="img_kap05_z02" href="images/kap05_zusatz02_eiche_zweites_hufeisen.jpg" media-type="image/jpeg"/>
+    <item id="img_kap06_z01" href="images/kap06_zusatz01_sturmwind_warnung.jpg" media-type="image/jpeg"/>
+    <item id="img_kap06_z02" href="images/kap06_zusatz02_kueche_schutzplan.jpg" media-type="image/jpeg"/>
+    <item id="img_kap07_z01" href="images/kap07_zusatz01_truhe_auf_dachboden.jpg" media-type="image/jpeg"/>
+    <item id="img_kap07_z02" href="images/kap07_zusatz02_buechlein_lesen.jpg" media-type="image/jpeg"/>
+    <item id="img_kap08_z01" href="images/kap08_zusatz01_fest_vorbereitung.jpg" media-type="image/jpeg"/>
+    <item id="img_kap08_z02" href="images/kap08_zusatz02_flucht_am_stallfenster.jpg" media-type="image/jpeg"/>
+    <item id="img_kap09_z01" href="images/kap09_zusatz01_anja_im_moor.jpg" media-type="image/jpeg"/>
+    <item id="img_kap09_z02" href="images/kap09_zusatz02_anja_waehlt_pfad.jpg" media-type="image/jpeg"/>
+    <item id="img_kap10_z01" href="images/kap10_zusatz01_heinrich_blockiert_transporter.jpg" media-type="image/jpeg"/>
+    <item id="img_kap10_z02" href="images/kap10_zusatz02_anja_befreit_mondfohlen.jpg" media-type="image/jpeg"/>
+    <item id="img_kap11_z01" href="images/kap11_zusatz01_sturmwind_beschuetzt_mondschein.jpg" media-type="image/jpeg"/>
+    <item id="img_kap11_z02" href="images/kap11_zusatz02_lena_und_tante_sarah_am_rand.jpg" media-type="image/jpeg"/>
+    <item id="img_kap12_z01" href="images/kap12_zusatz01_abschiedsessen.jpg" media-type="image/jpeg"/>
+    <item id="img_kap12_z02" href="images/kap12_zusatz02_waldgestalt.jpg" media-type="image/jpeg"/>
   </manifest>
   <spine>
     <itemref idref="cover_page"/>
@@ -65,3 +89,5 @@
     <itemref idref="teaser"/>
   </spine>
 </package>
+
+
